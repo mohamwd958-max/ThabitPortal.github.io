@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="htmlRoot" class="h-full notranslate" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Thabit</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA2NCA2NCc+PHJlY3Qgd2lkdGg9JzY0JyBoZWlnaHQ9JzY0JyByeD0nMTQnIGZpbGw9JyMwMDAnLz48ZyB0cmFuc2Zvcm09J3RyYW5zbGF0ZSgtMi42MCA2LjMxKSBzY2FsZSgwLjE1MzYpJz48cGF0aCBkPSdNMzIyLjggMjQuMkwzMTcuMiAyMS4wTDMxMi4zIDE5LjhMMzA3LjUgMTkuOEwzMDEuNSAyMS4wTDI5Mi44IDI0LjVMMjgxLjggMzEuOEwyNzMuMyAzOS43TDI1OC4wIDU1LjNMMjQzLjUgNjguMkwyMzUuOCA3Mi44TDIzMS4zIDc0LjVMMjIzLjAgNzYuMkwyMTYuMyA3Ni4wTDIwOS44IDc0LjJMMjA0LjcgNzEuM0wyMDAuMiA2Ny4wTDE5Ny41IDYyLjdMMTk1LjggNTguN0wxOTQuNyA1Mi4zTDE5NC43IDQ3LjBMMTk1LjggNDAuOEwxOTcuMCAzOS4wTDE5OS4wIDMzLjBMMjAzLjMgMjcuMEwyMTEuMiAxOS44TDIxOS43IDE1LjJMMjIzLjMgMTQuMkwyMjQuNyAxMi41TDIxNi44IDEzLjBMMjA4LjMgMTUuMEwyMDcuMiAxNi4wTDE5OS4wIDE5LjdMMTkzLjAgMjQuMkwxODguMCAyOS4wTDE4My43IDM0LjdMMTc4LjcgNDQuMEwxNzUuNyA1NS4zTDE3Ni4wIDY1LjhMMTc4LjggNzUuNUwxODAuNSA3OC44TDE4My44IDgzLjJMMTg4LjggODcuOEwxOTQuNSA5MS4zTDE5OC4wIDkzLjBMMjA0LjUgOTQuNUwyMTEuNyA5NS4yTDIyMS43IDk0LjVMMjI4LjcgOTIuOEwyMzkuMiA4Ny44TDI1Mi4wIDc5LjBMMjYyLjggNjguMkwyNzQuMCA1NS4zTDI4Mi4zIDQ3LjJMMjg4LjAgNDIuN0wyOTYuNSAzOC4wTDMwMi44IDM3LjNMMzA1LjMgMzguN0wzMDcuMyA0Mi43TDMwNy4zIDQ5LjdMMzAyLjcgNjQuMkwyOTMuNSA4Mi41TDI5MS4yIDg1LjdMMjkwLjMgODguMEwyODYuNyA5My4zTDI4NC4yIDk4LjNMMjgxLjggMTAxLjNMMjc5LjggMTA1LjVMMjc3LjIgMTA4LjhMMjc1LjIgMTEzLjBMMjcyLjUgMTE2LjNMMjYyLjcgMTMyLjdMMjU5LjggMTM1LjhMMjIwLjIgMTM5LjBMMjEwLjggMTM5LjJMMjAzLjcgMTQwLjNMMTk0LjMgMTQwLjdMMTg2LjggMTQxLjhMMTUyLjAgMTQzLjdMMTQ0LjAgMTQ1LjBMMTAyLjMgMTQ4LjBMMTAwLjIgMTQ4LjhMOTYuMyAxNTMuMkw5NS41IDE1NS4yTDkzLjIgMTU3LjdMOTEuMCAxNjEuM0w4Mi41IDE3MS41TDgxLjggMTczLjJMNjguNSAxOTAuMkw2Ni41IDE5My41TDY0LjAgMTk2LjBMNjMuMyAxOTcuN0w1OS4zIDIwMi4zTDU5LjUgMjAzLjhMNzQuOCAyMDMuM0w4MS4wIDIwMi4yTDg5LjIgMjAxLjhMOTcuOCAyMDAuN0wxMzQuNSAxOTguN0wxNDEuMiAxOTcuNUwxNTAuMCAxOTcuM0wxNTUuNyAxOTYuNUwxNTYuOCAxOTYuOEwxNTYuOCAxOTguMkwxNDQuOCAyMTQuOEwxNDIuMyAyMTcuNUwxMzcuMiAyMjUuM0wxMjguNyAyMzYuMEwxMjguMCAyMzcuN0wxMjUuMyAyNDAuN0wxMTQuMCAyNTYuOEw4Mi4wIDI5OS4zTDcyLjIgMzA4LjhMNjcuMiAzMTIuM0w1Ny4zIDMxNi43TDUwLjUgMzE4LjVMNDkuNSAzMTkuN0w0OS43IDMyMS4yTDUxLjggMzIxLjVMNTkuNSAzMjAuNUwxMDEuMCAzMTguNUwxMTQuMiAzMTcuMEwxMjcuNSAzMTMuOEwxMzIuMiAzMTAuN0wxMzYuNyAzMDYuMEwxNzUuOCAyNDMuMkwxNzguMyAyNDAuMkwxODAuNyAyMzUuN0wyMDguMCAxOTMuM0wyMTAuMyAxOTIuM0wyMjAuMiAxOTEuM0wyMjMuMyAxOTEuNUwyMjQuMyAxOTMuMEwyMjIuMCAxOTYuMEwyMTkuMyAyMDEuMkwyMTEuNSAyMTMuMEwyMDEuNSAyMzAuMkwxODguMiAyNTEuMkwxODcuNSAyNTMuMkwxODAuNSAyNjMuOEwxNzMuOCAyNzYuMkwxNjkuOCAyODIuMEwxNjAuNSAyOTguNUwxNTguNyAzMDQuMEwxNTguNyAzMTAuMkwxNjAuNyAzMTUuNUwxNjUuMiAzMTkuN0wxNzAuMiAzMjEuNUwxNzUuNSAzMjEuM0wxNzkuMiAzMjAuMEwxODIuNSAzMTguMEwxODcuOCAzMTMuNUwyMTUuOCAyODMuOEwyMzQuNyAyNjUuM0wyNTEuOCAyNTEuNUwyNTkuMCAyNDguMEwyNjEuMCAyNDguMEwyNjIuOCAyNDkuMkwyNjMuOCAyNTQuMEwyNjMuMCAyNTkuN0wyNTguNyAyNzIuNUwyNTUuNyAyODUuMkwyNTQuOCAyOTkuMEwyNTUuNyAzMDUuM0wyNTguNyAzMTIuN0wyNjMuMyAzMTguMkwyNjkuOCAzMjEuM0wyNzUuMyAzMjIuNUwyNzkuMyAzMjIuN0wyODYuMCAzMjEuNUwyOTQuNSAzMTguMkwzMDEuNSAzMTMuNUwzMDguOCAzMDcuMEwzMTcuOCAyOTYuM0wzMjcuMiAyODEuNUwzMzAuNyAyNzMuMEwzMzIuMCAyNzEuMEwzMzQuMCAyNjQuM0wzMzUuMCAyNjMuMEwzMzUuMyAyNjAuN0wzMzYuNSAyNTguNUwzMzcuMCAyNTMuM0wzMzUuNyAyNTIuN0wzMzMuOCAyNTQuMkwzMzAuMCAyNjIuNUwzMjUuNyAyNzAuMkwzMjMuMiAyNzMuM0wzMjEuMyAyNzcuMkwzMTUuMCAyODUuOEwzMDYuNyAyOTQuOEwzMDAuMCAzMDAuMEwyOTMuOCAzMDMuMEwyODYuNSAzMDMuMEwyODMuNSAzMDAuNUwyODIuMCAyOTcuMkwyODIuMCAyODYuNUwyODQuNyAyNzQuN0wyODYuMCAyNzIuMkwyODcuOCAyNjMuOEwyOTAuNSAyNTcuMEwyOTMuNyAyNDIuMEwyOTQuMCAyMzQuM0wyOTMuNyAyMjkuOEwyOTAuMyAyMjMuM0wyODcuMiAyMjAuOEwyODIuNyAyMTguOEwyNzUuOCAyMTguOEwyNzAuMCAyMjAuNUwyNjUuNSAyMjIuM0wyNTQuMyAyMjkuNUwyMzUuOCAyNDUuMkwyMjYuNSAyNTQuNUwyMjQuNyAyNTcuMkwyMDUuOCAyNzcuM0wyMDQuOCAyNzcuN0wyMDQuNSAyNzYuNUwyMTguNyAyNTIuM0wyMjEuMiAyNDkuMEwyMjguMCAyMzYuN0wyMzUuMiAyMjUuN0wyMzUuNyAyMjQuMEwyNDkuMCAyMDMuMkwyNDkuNSAyMDEuNUwyNTUuNSAxOTEuN0wyNTcuNyAxODkuMEwyNTkuOCAxODguMkwyNjYuOCAxODguMkwyNzQuNSAxODYuOEwyOTUuNyAxODUuM0wzMDguOCAxODUuMEwzMTYuNSAxODMuN0wzMjQuMCAxODMuNUwzMzIuMCAxODIuM0wzNDEuNSAxODIuMEwzNDcuNyAxODEuMkwzNjguMiAxODAuM0wzNzMuMiAxNzkuM0wzNzQuOCAxNzguMkwzNzYuOCAxNzMuN0wzNzcuOCAxNzIuN0wzNzkuOCAxNjcuN0wzODEuMiAxNjYuMkwzOTYuMyAxMzUuN0wzOTguMyAxMzAuN0w0MDEuMCAxMjYuNUw0MDEuMCAxMjQuOEwzODUuMyAxMjUuNUwzNzkuOCAxMjYuNUwzNzAuNyAxMjYuOEwzNjIuNyAxMjguMEwzMjguOCAxMzAuMEwzMjIuMiAxMzEuMkwzMTQuNSAxMzEuM0wzMDQuMiAxMzIuN0wyOTMuNSAxMzMuMkwyOTIuMiAxMzIuM0wyOTIuNSAxMzAuOEwyOTUuMiAxMjcuOEwyOTcuMiAxMjMuN0wyOTkuNSAxMjAuN0wzMTMuNSA5Ny4zTDMyMi43IDc5LjJMMzI2LjIgNjkuNUwzMjcuMyA2Ny44TDMzMC41IDU1LjJMMzMxLjMgNDcuMkwzMzAuNyAzOS4wTDMyNy4yIDI4LjhaJyBmaWxsPScjZmZmJy8+PC9nPjwvc3ZnPg==">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={plugins:[function(p){p.addVariant("light-theme",".light-theme &")}]}</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Montserrat:wght@900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Inter', 'Cairo', sans-serif; 
+            position: relative; 
+            overflow-x: hidden; 
+            transition: background-color 0.3s ease, color 0.3s ease; 
+            background-color: var(--bg);
+        }
+
+        .light-theme {
+            background-color: #f8fafc !important;
+            color: #000000 !important;
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .mirror-glow-card {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .light-theme .mirror-glow-card {
+            background: #ffffff !important;
+            border: 1px solid #000000 !important;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .static-title-dark { color: #ffffff !important; }
+        .light-theme .static-title-dark { color: #000000 !important; }
+
+        .repeat-btn-small {
+            width: 28px; height: 28px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 11px; font-weight: 700; background: #059669; color: #ffffff !important; border: none !important; cursor: pointer; transition: transform 0.2s;
+        }
+        .repeat-btn-small:hover { transform: scale(1.1); }
+        .repeat-btn-small.playing-active { background: #f59e0b !important; transform: scale(1.15); }
+
+        .telegram-btn-green { background: #059669; color: #ffffff !important; }
+        .telegram-btn-red { background: #e11d48; color: #ffffff !important; }
+
+        .running-glow-border {
+            border: 3px solid #10b981 !important;
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+            border-radius: 1rem;
+        }
+
+        .custom-slider-track {
+            position: relative; display: flex; align-items: center; gap: 2px; padding: 4px;
+            background: rgba(2, 6, 23, 0.9); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 9999px; cursor: pointer; user-select: none; width: 100%; max-width: 260px; height: 24px;
+        }
+        .light-theme .custom-slider-track { background: #f1f5f9; border: 1px solid #000000; }
+        .custom-slider-segment { flex: 1; height: 10px; border-radius: 2px; background: #475569; }
+        .light-theme .custom-slider-segment { background: #cbd5e1; }
+        .custom-slider-thumb {
+            position: absolute; top: 50%; transform: translate(-50%, -50%); width: 10px; height: 20px; background: #ffffff; border: 1.5px solid #000000; border-radius: 4px; cursor: grab; z-index: 10;
+        }
+
+        .sliders-drawer-wrapper, .admin-collapsible-section {
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease; max-height: 500px; opacity: 1; overflow: hidden;
+        }
+        .sliders-drawer-wrapper.collapsed, .admin-collapsible-section.collapsed { max-height: 0px !important; opacity: 0; pointer-events: none; }
+
+        .mobile-floating-bar {
+            position: fixed; left: 10px; top: 50%; transform: translateY(-50%); max-height: calc(100vh - 24px); overflow-y: auto; scrollbar-width: none; z-index: 50; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.2); padding: 6px; border-radius: 9999px; display: flex; flex-direction: column; gap: 6px; align-items: center; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+        .light-theme .mobile-floating-bar { background: rgba(255, 255, 255, 0.9); border: 1px solid #000000; }
+
+        .circle-badge-btn {
+            width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; background: #1e293b; color: #ffffff; border: none; border-radius: 50%; cursor: pointer; transition: transform 0.2s;
+        }
+        .light-theme .circle-badge-btn { background: #e2e8f0; color: #000000; }
+        .circle-badge-btn:hover { transform: scale(1.12); }
+        .circle-badge-btn.active { background: #2563eb !important; color: #ffffff !important; }
+
+        :root {
+            --bg: #030712; --text: #f1f5f9; --text-strong: #ffffff; --muted: #94a3b8; --soft: #cbd5e1;
+            --card: rgba(18, 27, 48, 0.78); --card-border: rgba(255, 255, 255, 0.10);
+            --icon-color: rgba(255, 255, 255, 0.17);
+        }
+        body.light-theme {
+            --bg: #f8fafc; --text: #1e293b; --text-strong: #0f172a; --muted: #475569; --soft: #334155;
+            --card: rgba(255, 255, 255, 0.92); --card-border: rgba(15, 23, 42, 0.14);
+            --icon-color: rgba(15, 23, 42, 0.15);
+        }
+
+        #thabitBg {
+            position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; color: var(--icon-color);
+            -webkit-mask-image: radial-gradient(ellipse 65% 55% at 50% 50%, rgba(0,0,0,0.4) 0%, #000 100%);
+            mask-image: radial-gradient(ellipse 65% 55% at 50% 50%, rgba(0,0,0,0.4) 0%, #000 100%);
+        }
+
+        #wordInput.word-found { border: 3px solid #10b981 !important; box-shadow: 0 0 15px rgba(16,185,129,0.45); }
+        #wordInput.word-missing { border: 3px solid #e11d48 !important; box-shadow: 0 0 15px rgba(225,29,72,0.4); }
+        @keyframes reportPop {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(225,29,72,0.45); }
+            50% { transform: scale(1.03); box-shadow: 0 0 0 4px rgba(225,29,72,0); }
+        }
+        #reportMissingBtn.pop-pulse { animation: reportPop 2.4s ease-in-out infinite; }
+
+        .brand-logo { display: block; width: 46px; height: 46px; border-radius: 22%; box-shadow: 0 0 0 1px rgba(148,163,184,0.35); }
+        .mean-btn { width: 100%; padding: 6px 4px; border-radius: 10px; font: 700 11px 'Cairo','Inter',sans-serif; line-height: 1.2; border: 1px solid rgba(148,163,184,0.4); background: rgba(2,6,23,0.6); color: #cbd5e1; cursor: pointer; transition: all .15s; }
+        .mean-btn:hover { color: #ffffff; border-color: #60a5fa; }
+        .mean-btn.on { background: #2563eb; border-color: #2563eb; color: #ffffff; }
+        body.light-theme .mean-btn { background: #ffffff; color: #334155; border-color: #0f172a; }
+        body.light-theme .mean-btn:hover { color: #1d4ed8; }
+        body.light-theme .mean-btn.on { background: #2563eb; border-color: #2563eb; color: #ffffff; }
+        #barTip { position: fixed; z-index: 200001; pointer-events: none; opacity: 0; transform: translateY(-50%) translateX(-4px); transition: opacity .18s ease, transform .18s ease; padding: 6px 12px; border-radius: 10px; background: #0f172a; color: #f1f5f9; border: 1px solid rgba(255,255,255,0.18); font: 700 .75rem 'Cairo','Inter',sans-serif; white-space: nowrap; box-shadow: 0 8px 24px rgba(0,0,0,0.45); }
+        #barTip.show { opacity: 1; transform: translateY(-50%) translateX(0); }
+        body.light-theme #barTip { background: #ffffff; color: #0f172a; border-color: #0f172a; }
+        @media (max-width: 640px) {
+            body#bodyRoot > main, body#bodyRoot > footer { padding-left: 64px !important; }
+        }
+    </style>
+</head>
+<body class="text-white min-h-full flex flex-col justify-between selection:bg-indigo-500 selection:text-white" id="bodyRoot">
+    <script>try{if(localStorage.getItem('thabit_theme')==='light')document.body.classList.add('light-theme');}catch(e){}</script>
+
+<script>
+    (function () {
+
+        var LOGO = '<g transform="translate(2.00 4.12) scale(0.10237) translate(-49.5 -12.5)"><path d="M322.8 24.2L317.2 21.0L312.3 19.8L307.5 19.8L301.5 21.0L292.8 24.5L281.8 31.8L273.3 39.7L258.0 55.3L243.5 68.2L235.8 72.8L231.3 74.5L223.0 76.2L216.3 76.0L209.8 74.2L204.7 71.3L200.2 67.0L197.5 62.7L195.8 58.7L194.7 52.3L194.7 47.0L195.8 40.8L197.0 39.0L199.0 33.0L203.3 27.0L211.2 19.8L219.7 15.2L223.3 14.2L224.7 12.5L216.8 13.0L208.3 15.0L207.2 16.0L199.0 19.7L193.0 24.2L188.0 29.0L183.7 34.7L178.7 44.0L175.7 55.3L176.0 65.8L178.8 75.5L180.5 78.8L183.8 83.2L188.8 87.8L194.5 91.3L198.0 93.0L204.5 94.5L211.7 95.2L221.7 94.5L228.7 92.8L239.2 87.8L252.0 79.0L262.8 68.2L274.0 55.3L282.3 47.2L288.0 42.7L296.5 38.0L302.8 37.3L305.3 38.7L307.3 42.7L307.3 49.7L302.7 64.2L293.5 82.5L291.2 85.7L290.3 88.0L286.7 93.3L284.2 98.3L281.8 101.3L279.8 105.5L277.2 108.8L275.2 113.0L272.5 116.3L262.7 132.7L259.8 135.8L220.2 139.0L210.8 139.2L203.7 140.3L194.3 140.7L186.8 141.8L152.0 143.7L144.0 145.0L102.3 148.0L100.2 148.8L96.3 153.2L95.5 155.2L93.2 157.7L91.0 161.3L82.5 171.5L81.8 173.2L68.5 190.2L66.5 193.5L64.0 196.0L63.3 197.7L59.3 202.3L59.5 203.8L74.8 203.3L81.0 202.2L89.2 201.8L97.8 200.7L134.5 198.7L141.2 197.5L150.0 197.3L155.7 196.5L156.8 196.8L156.8 198.2L144.8 214.8L142.3 217.5L137.2 225.3L128.7 236.0L128.0 237.7L125.3 240.7L114.0 256.8L82.0 299.3L72.2 308.8L67.2 312.3L57.3 316.7L50.5 318.5L49.5 319.7L49.7 321.2L51.8 321.5L59.5 320.5L101.0 318.5L114.2 317.0L127.5 313.8L132.2 310.7L136.7 306.0L175.8 243.2L178.3 240.2L180.7 235.7L208.0 193.3L210.3 192.3L220.2 191.3L223.3 191.5L224.3 193.0L222.0 196.0L219.3 201.2L211.5 213.0L201.5 230.2L188.2 251.2L187.5 253.2L180.5 263.8L173.8 276.2L169.8 282.0L160.5 298.5L158.7 304.0L158.7 310.2L160.7 315.5L165.2 319.7L170.2 321.5L175.5 321.3L179.2 320.0L182.5 318.0L187.8 313.5L215.8 283.8L234.7 265.3L251.8 251.5L259.0 248.0L261.0 248.0L262.8 249.2L263.8 254.0L263.0 259.7L258.7 272.5L255.7 285.2L254.8 299.0L255.7 305.3L258.7 312.7L263.3 318.2L269.8 321.3L275.3 322.5L279.3 322.7L286.0 321.5L294.5 318.2L301.5 313.5L308.8 307.0L317.8 296.3L327.2 281.5L330.7 273.0L332.0 271.0L334.0 264.3L335.0 263.0L335.3 260.7L336.5 258.5L337.0 253.3L335.7 252.7L333.8 254.2L330.0 262.5L325.7 270.2L323.2 273.3L321.3 277.2L315.0 285.8L306.7 294.8L300.0 300.0L293.8 303.0L286.5 303.0L283.5 300.5L282.0 297.2L282.0 286.5L284.7 274.7L286.0 272.2L287.8 263.8L290.5 257.0L293.7 242.0L294.0 234.3L293.7 229.8L290.3 223.3L287.2 220.8L282.7 218.8L275.8 218.8L270.0 220.5L265.5 222.3L254.3 229.5L235.8 245.2L226.5 254.5L224.7 257.2L205.8 277.3L204.8 277.7L204.5 276.5L218.7 252.3L221.2 249.0L228.0 236.7L235.2 225.7L235.7 224.0L249.0 203.2L249.5 201.5L255.5 191.7L257.7 189.0L259.8 188.2L266.8 188.2L274.5 186.8L295.7 185.3L308.8 185.0L316.5 183.7L324.0 183.5L332.0 182.3L341.5 182.0L347.7 181.2L368.2 180.3L373.2 179.3L374.8 178.2L376.8 173.7L377.8 172.7L379.8 167.7L381.2 166.2L396.3 135.7L398.3 130.7L401.0 126.5L401.0 124.8L385.3 125.5L379.8 126.5L370.7 126.8L362.7 128.0L328.8 130.0L322.2 131.2L314.5 131.3L304.2 132.7L293.5 133.2L292.2 132.3L292.5 130.8L295.2 127.8L297.2 123.7L299.5 120.7L313.5 97.3L322.7 79.2L326.2 69.5L327.3 67.8L330.5 55.2L331.3 47.2L330.7 39.0L327.2 28.8Z" fill="currentColor" stroke="none"/></g>';
+
+        var mandala = [0,45,90,135,180,225,270,315].map(function (a) {
+            return '<ellipse cx="20" cy="10.5" rx="2.8" ry="6.5" transform="rotate(' + a + ' 20 20)"/>';
+        }).join('') + '<circle cx="20" cy="20" r="2.2"/>';
+
+        var icons = {
+            th: LOGO,
+            sun: '<circle cx="20" cy="20" r="6"/><path d="M20 4v4M20 32v4M4 20h4M32 20h4M8.7 8.7l2.8 2.8M28.5 28.5l2.8 2.8M8.7 31.3l2.8-2.8M28.5 11.5l2.8-2.8"/>',
+            moon: '<path transform="translate(3 3) scale(1.4)" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>',
+            eye: '<path d="M3 20c5-8 11-12 17-12s12 4 17 12c-5 8-11 12-17 12S8 28 3 20z"/><circle cx="20" cy="20" r="5.5"/><circle cx="20" cy="20" r="1.8"/>',
+            bolt: '<path d="M23 4L9 22h9l-2 14 15-19h-9z"/>',
+            T: '<text x="20" y="31" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="900" font-size="32" stroke-width="1.4">T</text>',
+            small: '<text x="20" y="28" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="900" font-size="22" stroke-width="1.3">th</text>',
+            ain: '<text x="20" y="29" text-anchor="middle" font-family="Cairo,sans-serif" font-weight="700" font-size="30" stroke-width="1.2">\u0639</text>',
+            tha: '<text x="20" y="29" text-anchor="middle" font-family="Cairo,sans-serif" font-weight="700" font-size="30" stroke-width="1.2">\u062b</text>',
+            note: '<path d="M14 29V9l16-4v20"/><ellipse cx="10.5" cy="29" rx="4.5" ry="3.5"/><ellipse cx="26.5" cy="25" rx="4.5" ry="3.5"/>',
+            mic: '<rect x="15.5" y="5" width="9" height="17" rx="4.5"/><path d="M10 19a10 10 0 0 0 20 0M20 29v6M14 35h12"/>',
+            doc: '<rect x="9" y="5" width="22" height="30" rx="3"/><path d="M14 14h12M14 20h12M14 26h7"/>',
+            bulb: '<path d="M15 29h10M17 34h6M20 5a10 10 0 0 0-6 18c1.2 1 2 2.6 2 4.5v1.5h8v-1.5c0-1.9.8-3.5 2-4.5A10 10 0 0 0 20 5z"/>',
+            mandala: mandala,
+            book: '<path d="M20 11c-4-3-9-4-14-3v22c5-1 10 0 14 3 4-3 9-4 14-3V8c-5-1-10 0-14 3zM20 11v22"/>',
+            target: '<circle cx="20" cy="20" r="13"/><circle cx="20" cy="20" r="8"/><circle cx="20" cy="20" r="3"/>'
+        };
+
+        var names = Object.keys(icons);
+        var STEP = 60, N = 6, TILE = STEP * N, SCALE = 0.72;
+        var angles = [-14, -6, 0, 7, 13, -9, 4];
+
+        var defs = '';
+
+        names.forEach(function (n) {
+            defs += '<g id="thi-' + n + '" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + icons[n] + '</g>';
+        });
+
+        var uses = '';
+
+        for (var r = 0; r < N; r++) {
+            for (var c = 0; c < N; c++) {
+                var id = names[(r * 5 + c * 3) % names.length];
+                var x = (r % 2 ? 45 : 15) + c * STEP;
+                var y = 30 + r * STEP;
+                var a = angles[(r * 3 + c * 5) % angles.length];
+
+                uses += '<use href="#thi-' + id + '" transform="translate(' + x + ' ' + y + ') rotate(' + a + ') scale(' + SCALE + ') translate(-20 -20)"/>';
+            }
+        }
+
+        var svg = '<svg id="thabitBg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+            '<defs>' + defs +
+            '<pattern id="thabitTile" width="' + TILE + '" height="' + TILE + '" patternUnits="userSpaceOnUse">' +
+            uses +
+            '</pattern></defs>' +
+            '<rect width="100%" height="100%" fill="url(#thabitTile)"/></svg>';
+
+        document.body.insertAdjacentHTML('afterbegin', svg);
+
+    })();
+    </script>
+
+    <!-- Floating Navigation Bar -->
+    <div class="mobile-floating-bar" id="mobileFloatingBar">
+        <button type="button" onclick="setLanguage('ar')" id="floatBtnAr" title="العربية" class="circle-badge-btn">ع</button>
+        <button type="button" onclick="setLanguage('en')" id="floatBtnEn" title="English" class="circle-badge-btn active">EN</button>
+        <button type="button" onclick="setLanguage('eg')" id="floatBtnEg" title="مصري" class="circle-badge-btn">مصر</button>
+        <div class="w-5 h-[1px] bg-slate-500 my-0.5"></div>
+        <button type="button" onclick="toggleTheme()" id="floatBtnTheme" title="Toggle Theme" data-tt="themeTitle" class="circle-badge-btn text-amber-400">
+            <i id="themeIcon" class="fa-solid fa-moon text-xs"></i>
+        </button>
+        <div class="w-5 h-[1px] bg-slate-500 my-0.5"></div>
+        <button type="button" onclick="handleAdminTriggerClick()" id="floatBtnAdmin" title="Fedawy Admin Panel" data-tt="adminTitleBtn" class="circle-badge-btn text-emerald-400">
+            <i class="fa-solid fa-plus text-xs"></i>
+        </button>
+        <div class="w-5 h-[1px] bg-slate-500 my-0.5"></div>
+        <button type="button" onclick="openReportModal()" id="floatBtnReport" title="Report a problem" data-tt="reportTitleBtn" class="circle-badge-btn text-rose-400">
+            <i class="fa-solid fa-triangle-exclamation text-xs"></i>
+        </button>
+    </div>
+
+    <header class="border-b border-slate-700 light-theme:border-black bg-slate-900/90 light-theme:bg-white backdrop-blur-lg sticky top-0 z-40 page-content-visible" id="mainHeader">
+        <div class="max-w-4xl mx-auto px-4 py-3.5 flex items-center justify-between">
+            <div class="w-24"></div>
+            <div class="flex flex-col items-center justify-center text-center">
+                <h1 class="leading-none m-0" aria-label="THABIT"><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' class='brand-logo' role='img' aria-label='THABIT'><rect width='64' height='64' rx='14' fill='#000'/><g transform='translate(-2.60 6.31) scale(0.1536)'><path d='M322.8 24.2L317.2 21.0L312.3 19.8L307.5 19.8L301.5 21.0L292.8 24.5L281.8 31.8L273.3 39.7L258.0 55.3L243.5 68.2L235.8 72.8L231.3 74.5L223.0 76.2L216.3 76.0L209.8 74.2L204.7 71.3L200.2 67.0L197.5 62.7L195.8 58.7L194.7 52.3L194.7 47.0L195.8 40.8L197.0 39.0L199.0 33.0L203.3 27.0L211.2 19.8L219.7 15.2L223.3 14.2L224.7 12.5L216.8 13.0L208.3 15.0L207.2 16.0L199.0 19.7L193.0 24.2L188.0 29.0L183.7 34.7L178.7 44.0L175.7 55.3L176.0 65.8L178.8 75.5L180.5 78.8L183.8 83.2L188.8 87.8L194.5 91.3L198.0 93.0L204.5 94.5L211.7 95.2L221.7 94.5L228.7 92.8L239.2 87.8L252.0 79.0L262.8 68.2L274.0 55.3L282.3 47.2L288.0 42.7L296.5 38.0L302.8 37.3L305.3 38.7L307.3 42.7L307.3 49.7L302.7 64.2L293.5 82.5L291.2 85.7L290.3 88.0L286.7 93.3L284.2 98.3L281.8 101.3L279.8 105.5L277.2 108.8L275.2 113.0L272.5 116.3L262.7 132.7L259.8 135.8L220.2 139.0L210.8 139.2L203.7 140.3L194.3 140.7L186.8 141.8L152.0 143.7L144.0 145.0L102.3 148.0L100.2 148.8L96.3 153.2L95.5 155.2L93.2 157.7L91.0 161.3L82.5 171.5L81.8 173.2L68.5 190.2L66.5 193.5L64.0 196.0L63.3 197.7L59.3 202.3L59.5 203.8L74.8 203.3L81.0 202.2L89.2 201.8L97.8 200.7L134.5 198.7L141.2 197.5L150.0 197.3L155.7 196.5L156.8 196.8L156.8 198.2L144.8 214.8L142.3 217.5L137.2 225.3L128.7 236.0L128.0 237.7L125.3 240.7L114.0 256.8L82.0 299.3L72.2 308.8L67.2 312.3L57.3 316.7L50.5 318.5L49.5 319.7L49.7 321.2L51.8 321.5L59.5 320.5L101.0 318.5L114.2 317.0L127.5 313.8L132.2 310.7L136.7 306.0L175.8 243.2L178.3 240.2L180.7 235.7L208.0 193.3L210.3 192.3L220.2 191.3L223.3 191.5L224.3 193.0L222.0 196.0L219.3 201.2L211.5 213.0L201.5 230.2L188.2 251.2L187.5 253.2L180.5 263.8L173.8 276.2L169.8 282.0L160.5 298.5L158.7 304.0L158.7 310.2L160.7 315.5L165.2 319.7L170.2 321.5L175.5 321.3L179.2 320.0L182.5 318.0L187.8 313.5L215.8 283.8L234.7 265.3L251.8 251.5L259.0 248.0L261.0 248.0L262.8 249.2L263.8 254.0L263.0 259.7L258.7 272.5L255.7 285.2L254.8 299.0L255.7 305.3L258.7 312.7L263.3 318.2L269.8 321.3L275.3 322.5L279.3 322.7L286.0 321.5L294.5 318.2L301.5 313.5L308.8 307.0L317.8 296.3L327.2 281.5L330.7 273.0L332.0 271.0L334.0 264.3L335.0 263.0L335.3 260.7L336.5 258.5L337.0 253.3L335.7 252.7L333.8 254.2L330.0 262.5L325.7 270.2L323.2 273.3L321.3 277.2L315.0 285.8L306.7 294.8L300.0 300.0L293.8 303.0L286.5 303.0L283.5 300.5L282.0 297.2L282.0 286.5L284.7 274.7L286.0 272.2L287.8 263.8L290.5 257.0L293.7 242.0L294.0 234.3L293.7 229.8L290.3 223.3L287.2 220.8L282.7 218.8L275.8 218.8L270.0 220.5L265.5 222.3L254.3 229.5L235.8 245.2L226.5 254.5L224.7 257.2L205.8 277.3L204.8 277.7L204.5 276.5L218.7 252.3L221.2 249.0L228.0 236.7L235.2 225.7L235.7 224.0L249.0 203.2L249.5 201.5L255.5 191.7L257.7 189.0L259.8 188.2L266.8 188.2L274.5 186.8L295.7 185.3L308.8 185.0L316.5 183.7L324.0 183.5L332.0 182.3L341.5 182.0L347.7 181.2L368.2 180.3L373.2 179.3L374.8 178.2L376.8 173.7L377.8 172.7L379.8 167.7L381.2 166.2L396.3 135.7L398.3 130.7L401.0 126.5L401.0 124.8L385.3 125.5L379.8 126.5L370.7 126.8L362.7 128.0L328.8 130.0L322.2 131.2L314.5 131.3L304.2 132.7L293.5 133.2L292.2 132.3L292.5 130.8L295.2 127.8L297.2 123.7L299.5 120.7L313.5 97.3L322.7 79.2L326.2 69.5L327.3 67.8L330.5 55.2L331.3 47.2L330.7 39.0L327.2 28.8Z' fill='#fff'/></g></svg></h1>
+                <p id="uiHeaderSub" data-cms="assist.headerSub" data-cms-ov class="text-xs text-slate-400 light-theme:text-slate-600 mt-0.5">pronounce on the go</p>
+            </div>
+            <div class="w-24"></div>
+        </div>
+    </header>
+
+    <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-6 flex flex-col gap-6 page-content-visible relative z-10">
+
+
+        <!-- Main Form Card -->
+        <div id="tourCard1" class="mirror-glow-card rounded-3xl p-6 shadow-2xl flex flex-col gap-5 relative z-10">
+            <div class="flex flex-col gap-2">
+                <label id="uiLabelName" class="text-sm font-semibold flex items-center gap-2 relative z-10">
+                    <i class="fa-solid fa-user text-indigo-400"></i> Your name <span class="text-rose-400">*</span>
+                </label>
+                <input type="text" id="userNameInput" placeholder="Enter trainee name here..." 
+                    class="w-full bg-slate-900/90 light-theme:bg-slate-100 border border-slate-700 light-theme:border-black rounded-2xl px-5 py-4 text-base font-medium placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 relative z-10">
+            </div>
+
+            <!-- Word Input Section -->
+            <div class="flex flex-col gap-2 relative z-10">
+                <label id="uiLabelWord" class="text-sm font-semibold flex items-center gap-2">
+                    <i class="fa-solid fa-pen-nib text-indigo-400"></i> your word (s) <span class="text-rose-400">*</span>
+                </label>
+                <div class="flex items-center gap-2 w-full">
+                    <div class="w-3/4">
+                        <input type="text" id="wordInput" value="Thabit" placeholder="Type words..." 
+                            class="w-full bg-slate-900/90 light-theme:bg-slate-100 border border-slate-700 light-theme:border-black rounded-2xl px-5 py-4 text-base font-semibold placeholder-slate-500 focus:outline-none transition-all duration-300" oninput="handleMainWordInput(this.value)">
+                    </div>
+                    <div class="w-1/4">
+                        <button type="button" id="reportMissingBtn" onclick="reportMissingWord()" class="w-full h-[58px] bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold rounded-2xl shadow-md transition flex flex-col items-center justify-center gap-1 px-1">
+                            <i class="fa-solid fa-triangle-exclamation text-sm"></i>
+                            <span data-t="reportMissing">Report Missing</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-4 bg-slate-950/60 light-theme:bg-slate-100 p-4 rounded-2xl border border-slate-700 light-theme:border-black relative z-10">
+                <div id="slidersDropdownTrigger" onclick="toggleSlidersDrawer(event)" class="flex flex-col items-center gap-1.5 bg-slate-900/90 light-theme:bg-white p-3 rounded-xl border border-amber-500/40 shadow-md cursor-pointer hover:border-amber-400 transition relative">
+                    <div class="flex items-center justify-between w-full px-1">
+                        <div class="flex items-center gap-2">
+                            <span id="uiPlaybackSpeed" class="text-[11px] text-amber-300 font-bold flex items-center gap-1">
+                                <i class="fa-solid fa-sliders text-xs"></i> <span data-t="wordSpeed">Word Speed</span>
+                            </span>
+                            <span class="text-[9px] bg-amber-500/20 text-amber-300 px-1.5 py-0.5 rounded-full border border-amber-500/30 animate-pulse" data-t="smartMenu">Smart Menu</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span id="valSpeed" class="text-[10px] text-amber-300 font-mono font-bold">1.0x</span>
+                            <i id="drawerToggleIcon" class="fa-solid fa-chevron-down text-xs text-amber-400 transition-transform duration-300"></i>
+                        </div>
+                    </div>
+                    <div class="custom-slider-track" id="sliderSpeed" onmousedown="startSliderDrag(event, 'speed')" ontouchstart="startSliderDrag(event, 'speed')">
+                        <div class="custom-slider-thumb" id="thumbSpeed"></div>
+                    </div>
+                </div>
+
+                <div id="slidersDrawerWrapper" class="sliders-drawer-wrapper collapsed flex flex-col gap-4 pt-1">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+                        <div class="flex flex-col items-center gap-1.5 bg-slate-900/80 light-theme:bg-white p-3 rounded-xl border border-slate-700 light-theme:border-black backdrop-blur-md">
+                            <div class="flex items-center justify-between w-full px-1">
+                                <span id="uiWaitTime" class="text-[11px] font-medium" data-t="waitTime">Multi-repeat Wait</span>
+                                <span id="valWait" class="text-[10px] text-amber-300 font-mono font-bold">700ms</span>
+                            </div>
+                            <div class="custom-slider-track" id="sliderWait" onmousedown="startSliderDrag(event, 'wait')" ontouchstart="startSliderDrag(event, 'wait')">
+                                <div class="custom-slider-thumb" id="thumbWait"></div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col items-center gap-1.5 bg-slate-900/80 light-theme:bg-white p-3 rounded-xl border border-slate-700 light-theme:border-black backdrop-blur-md">
+                            <div class="flex items-center justify-between w-full px-1">
+                                <span id="uiCommaSpeed" class="text-[11px] font-medium" data-t="commaTime">Between Words Pause</span>
+                                <span id="valComma" class="text-[10px] text-amber-300 font-mono font-bold">800ms</span>
+                            </div>
+                            <div class="custom-slider-track" id="sliderComma" onmousedown="startSliderDrag(event, 'comma')" ontouchstart="startSliderDrag(event, 'comma')">
+                                <div class="custom-slider-thumb" id="thumbComma"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="grid grid-cols-1 sm:grid-cols-4 gap-2.5 relative z-10">
+                <div class="flex flex-col gap-2">
+                    <button id="speakBtn" type="button" class="w-full py-3 px-2 telegram-btn-green font-medium rounded-xl transition flex items-center justify-center gap-1 shadow-md text-xs">
+                        <i class="fa-solid fa-volume-high"></i>
+                        <span id="uiSpeakBtn">Listen once</span>
+                    </button>
+                    <div class="flex items-center justify-center gap-1.5">
+                        <button type="button" onclick="triggerRepeatAndPlayListen(2, event)" id="btnListenRep2" class="repeat-btn-small">2</button>
+                        <button type="button" onclick="triggerRepeatAndPlayListen(3, event)" id="btnListenRep3" class="repeat-btn-small">3</button>
+                        <button type="button" onclick="triggerRepeatAndPlayListen(5, event)" id="btnListenRep5" class="repeat-btn-small">5</button>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <button id="recordYourVoiceBtn" type="button" onclick="toggleMainRecording()" class="w-full py-3 px-2 telegram-btn-red font-medium rounded-xl transition flex items-center justify-center gap-1 shadow-md text-xs">
+                        <i id="mainRecordIcon" class="fa-solid fa-microphone"></i>
+                        <span data-t="yourTurn">Your turn</span>
+                    </button>
+                    <div id="mainRecordTimerDisplay" class="font-mono text-[11px] text-amber-400 bg-slate-950/80 light-theme:bg-slate-200 py-1 rounded-lg border border-slate-700 light-theme:border-black text-center">00:00</div>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <button id="compareBtn" type="button" onclick="triggerComparisonPlayback()" class="w-full py-3 px-2 bg-indigo-600 hover:bg-indigo-500 text-white font-medium rounded-xl transition flex items-center justify-center gap-1 shadow-md text-xs">
+                        <i class="fa-solid fa-headphones"></i>
+                        <span data-t="comparison">Comparison</span>
+                    </button>
+                    <div class="flex items-center justify-center gap-1.5">
+                        <button type="button" onclick="triggerRepeatAndPlayComp(2, event)" id="btnCompRep2" class="repeat-btn-small">2</button>
+                        <button type="button" onclick="triggerRepeatAndPlayComp(3, event)" id="btnCompRep3" class="repeat-btn-small">3</button>
+                        <button type="button" onclick="triggerRepeatAndPlayComp(5, event)" id="btnCompRep5" class="repeat-btn-small">5</button>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <button id="downloadAudioBtn" type="button" onclick="downloadCombinedAudioPackage()" class="w-full py-3 px-2 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-xl transition flex items-center justify-center gap-1 shadow-md text-xs">
+                        <i class="fa-solid fa-download"></i>
+                        <span id="uiDownloadBtn">Take words</span>
+                    </button>
+                    <div class="h-7"></div>
+                </div>
+            </div>
+
+            <div class="bg-slate-900/80 light-theme:bg-slate-100 border border-slate-700 light-theme:border-black rounded-2xl p-4 flex items-stretch gap-3 relative z-10">
+                <div class="flex flex-col gap-2 min-w-0" style="width:75%">
+                    <div id="uiLabelTrans" class="text-xs font-medium flex items-center gap-2">
+                        <i class="fa-solid fa-language text-indigo-400"></i> Translation / Meaning
+                    </div>
+                    <div id="translationOutput" class="font-medium text-sm sm:text-base break-words">ثابت</div>
+                </div>
+                <div class="flex flex-col justify-center gap-1.5" style="width:25%;min-width:62px">
+                    <button type="button" id="modeArBtn" onclick="setMeaningMode('ar')" data-tt="meanAr" title="Arabic meaning" class="mean-btn on">Arabic</button>
+                    <button type="button" id="modeEnBtn" onclick="setMeaningMode('en')" data-tt="meanEn" title="English meaning" class="mean-btn">English</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="border-t border-slate-700 light-theme:border-black bg-slate-900 light-theme:bg-white py-4 px-4 text-center text-xs flex flex-col sm:flex-row items-center justify-between gap-3 page-content-visible relative z-40">
+        <span>&copy; 2026 Thabit</span>
+        <span data-t="footerTag">Pronounce on the go</span>
+    </footer>
+
+    <script>
+        
+        let isAdminAuthenticated = false;
+
+        const SUPABASE_URL = "https://vkfexceitwjmxncwceqb.supabase.co";
+        const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZrZmV4Y2VpdHdqbXhuY3djZXFiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAzMzY5MTEsImV4cCI6MjEwNTkxMjkxMX0.6ArXtykrZhdNInphpg_LQTIvULkpwnnlzHA3dKhrNoI";
+        const BUCKET_NAME = "audio-files";
+
+        let globalDueWordsCache = [];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            try {
+                applyThemeState(localStorage.getItem('thabit_theme') === 'light');
+                const savedLang = localStorage.getItem('thabit_lang');
+                if (savedLang && translations[savedLang]) setLanguage(savedLang);
+            } catch (e) {}
+
+            setMeaningMode('ar');
+            fetchSmartTranslation();
+            initSliders();
+            checkMainWordStatus(document.getElementById('wordInput').value);
+        });
+
+        function handleAdminTriggerClick() {
+            window.location.href = 'admin.html';
+        }
+
+
+        function verifyAdminPassword() { /* login is now handled by Supabase Auth (see ThabitAdmin) */ }
+
+
+        // ================= Clean Text Function (Ignores Punctuation) =================
+        function cleanWordString(str) {
+            if (!str) return "";
+            // Removes punctuation like . , ! ? " ' ; : etc.
+            return str.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").trim().toLowerCase();
+        }
+
+        function handleMainWordInput(value) {
+            fetchSmartTranslation();
+            checkMainWordStatus(value);
+        }
+
+
+        // ================= Sliders & Audio Logic =================
+        const totalSegments = 18;
+        let sliderValues = { speed: 0.5, wait: 0.75, comma: 0.75 };
+        let maxReachedFlags = { speed: false, wait: false, comma: false };
+
+        const speedOptions = [0.75, 0.85, 0.95, 1.0, 1.1, 'lightning'];
+        const waitOptions = [100, 300, 500, 700, 1000, 'lightning'];
+        const commaOptions = [150, 300, 500, 800, 1200, 'lightning'];
+
+        function getActiveSpeed() {
+            let idx = Math.floor(sliderValues.speed * (speedOptions.length - 1));
+            let val = speedOptions[Math.max(0, Math.min(speedOptions.length - 1, idx))];
+            return val === 'lightning' ? 1.4 : val;
+        }
+
+        function getActiveWaitTime() {
+            let idx = Math.floor(sliderValues.wait * (waitOptions.length - 1));
+            let val = waitOptions[Math.max(0, Math.min(waitOptions.length - 1, idx))];
+            return val === 'lightning' ? 50 : val;
+        }
+
+        function getActiveCommaWait() {
+            let idx = Math.floor(sliderValues.comma * (commaOptions.length - 1));
+            let val = commaOptions[Math.max(0, Math.min(commaOptions.length - 1, idx))];
+            return val === 'lightning' ? 50 : val;
+        }
+
+        function initSliders() {
+            ['speed', 'wait', 'comma'].forEach(type => {
+                const track = document.getElementById(`slider${type.charAt(0).toUpperCase() + type.slice(1)}`);
+                track.innerHTML = '<div class="custom-slider-thumb" id="thumb' + type.charAt(0).toUpperCase() + type.slice(1) + '"></div>';
+                for (let i = 0; i < totalSegments; i++) {
+                    const seg = document.createElement('div');
+                    seg.className = "custom-slider-segment";
+                    seg.id = `seg-${type}-${i}`;
+                    track.appendChild(seg);
+                }
+                updateSliderVisuals(type);
+            });
+        }
+
+        function updateSliderVisuals(type) {
+            const val = sliderValues[type];
+            const thumbName = `thumb${type.charAt(0).toUpperCase() + type.slice(1)}`;
+            const thumb = document.getElementById(thumbName);
+            const percentage = val * 100;
+            if (thumb) {
+                thumb.style.left = `${percentage}%`;
+            }
+
+            if (type === 'speed') {
+                let currentSpeed = getActiveSpeed();
+                document.getElementById('valSpeed').innerHTML = currentSpeed === 1.4 ? '<i class="fa-solid fa-bolt text-amber-400 animate-pulse"></i>' : currentSpeed + 'x';
+            } else if (type === 'wait') {
+                let currentWait = getActiveWaitTime();
+                document.getElementById('valWait').innerHTML = currentWait === 50 ? '<i class="fa-solid fa-bolt text-amber-400 animate-pulse"></i>' : currentWait + 'ms';
+            } else if (type === 'comma') {
+                let currentComma = getActiveCommaWait();
+                document.getElementById('valComma').innerHTML = currentComma === 50 ? '<i class="fa-solid fa-bolt text-amber-400 animate-pulse"></i>' : currentComma + 'ms';
+            }
+
+            const activeCount = Math.round(val * totalSegments);
+            for (let i = 0; i < totalSegments; i++) {
+                const seg = document.getElementById(`seg-${type}-${i}`);
+                if (!seg) continue;
+                if (i < activeCount) {
+                    let colorClass = i < 3 ? "bg-rose-600" : i < 6 ? "bg-orange-500" : i < 9 ? "bg-yellow-400" : i < 12 ? "bg-lime-500" : i < 15 ? "bg-emerald-500" : "bg-sky-500";
+                    seg.className = `custom-slider-segment ${colorClass}`;
+                } else {
+                    seg.className = "custom-slider-segment bg-slate-700 light-theme:bg-slate-300";
+                }
+            }
+        }
+
+        let activeSliderType = null;
+        function startSliderDrag(e, type) {
+            e.stopPropagation();
+            e.preventDefault();
+            activeSliderType = type;
+            updateSliderPositionFromEvent(e, type);
+            window.addEventListener('mousemove', onSliderDrag);
+            window.addEventListener('mouseup', stopSliderDrag);
+            window.addEventListener('touchmove', onSliderDrag);
+            window.addEventListener('touchend', stopSliderDrag);
+        }
+
+        function onSliderDrag(e) {
+            if (!activeSliderType) return;
+            updateSliderPositionFromEvent(e, activeSliderType);
+        }
+
+        function updateSliderPositionFromEvent(e, type) {
+            const track = document.getElementById(`slider${type.charAt(0).toUpperCase() + type.slice(1)}`);
+            const rect = track.getBoundingClientRect();
+            const clientX = e.clientX || (e.touches ? e.touches[0].clientX : 0);
+            let pos = (clientX - rect.left) / rect.width;
+            pos = Math.max(0, Math.min(1, pos));
+            sliderValues[type] = pos;
+            updateSliderVisuals(type);
+        }
+
+        function stopSliderDrag() {
+            activeSliderType = null;
+            window.removeEventListener('mousemove', onSliderDrag);
+            window.removeEventListener('mouseup', stopSliderDrag);
+            window.removeEventListener('touchmove', onSliderDrag);
+            window.removeEventListener('touchend', stopSliderDrag);
+        }
+
+
+
+        const translations = {
+            en: { headerSub: "pronounce on the go", adminPanelTitle: "Fedawy Admin Panel", adminTrainerOnly: "Trainer Only", adminWordLabel: "word (s):", uploadSaveBtn: "Upload & Save to Database", labelName: "Your name *", namePlaceholder: "Enter trainee name here...", labelWord: "your word (s) *", wordPlaceholder: "Type words...", speakBtn: "Listen once", downloadBtn: "Take words", labelTrans: "Translation / Meaning", arabicMeaningBtn: "Arabic", englishMeaningBtn: "English" },
+            ar: { headerSub: "انطق وأنت في طريقك", adminPanelTitle: "لوحة إدارة الفداوي", adminTrainerOnly: "للمدرب فقط", adminWordLabel: "الكلمة (الكلمات):", uploadSaveBtn: "رفع وحفظ في قاعدة البيانات", labelName: "اسمك *", namePlaceholder: "اكتب اسم المتدرب هنا...", labelWord: "كلمتك (كلماتك) *", wordPlaceholder: "اكتب الكلمات...", speakBtn: "استمع مرة واحدة", downloadBtn: "خذ كلماتك", labelTrans: "الترجمة / المعنى", arabicMeaningBtn: "عربي", englishMeaningBtn: "إنجليزي" },
+            eg: { headerSub: "انطق وانت ماشي", adminPanelTitle: "لوحة تحكم الفداوي", adminTrainerOnly: "للمدرب بس", adminWordLabel: "الكلمة (الكلمات):", uploadSaveBtn: "ارفع واحفظ في الداتابيز", labelName: "اسمك *", namePlaceholder: "اكتب اسمك هنا يا بطل...", labelWord: "كلمتك (كلماتك) *", wordPlaceholder: "اكتب الكلمات...", speakBtn: "اسمع مرة واحدة", downloadBtn: "خد كلماتك", labelTrans: "الترجمة والمعنى", arabicMeaningBtn: "عربي", englishMeaningBtn: "إنجليزي" }
+        };
+
+        function setLanguage(lang) {
+            try { localStorage.setItem('thabit_lang', lang); } catch (e) {}
+            document.querySelectorAll('.circle-badge-btn').forEach(btn => {
+                if(btn.id !== 'floatBtnTheme' && btn.id !== 'floatBtnAdmin') btn.classList.remove('active');
+            });
+            if (lang === 'ar') document.getElementById('floatBtnAr').classList.add('active');
+            else if (lang === 'en') document.getElementById('floatBtnEn').classList.add('active');
+            else if (lang === 'eg') document.getElementById('floatBtnEg').classList.add('active');
+
+            const t = translations[lang];
+            const htmlRoot = document.getElementById('htmlRoot');
+            if (lang === 'ar' || lang === 'eg') {
+                htmlRoot.setAttribute('dir', 'rtl');
+                htmlRoot.setAttribute('lang', lang === 'ar' ? 'ar' : 'arz');
+            } else {
+                htmlRoot.setAttribute('dir', 'ltr');
+                htmlRoot.setAttribute('lang', 'en');
+            }
+
+            document.getElementById('uiHeaderSub').textContent = t.headerSub;
+            document.getElementById('uiLabelName').innerHTML = `<i class="fa-solid fa-user text-indigo-400"></i> ${t.labelName}`;
+            document.getElementById('userNameInput').placeholder = t.namePlaceholder;
+            document.getElementById('uiLabelWord').innerHTML = `<i class="fa-solid fa-pen-nib text-indigo-400"></i> ${t.labelWord}`;
+            document.getElementById('wordInput').placeholder = t.wordPlaceholder;
+            document.getElementById('uiSpeakBtn').textContent = t.speakBtn;
+            document.getElementById('uiDownloadBtn').textContent = t.downloadBtn;
+            document.getElementById('uiLabelTrans').innerHTML = `<i class="fa-solid fa-language text-indigo-400"></i> ${t.labelTrans}`;
+            document.getElementById('modeArBtn').textContent = t.arabicMeaningBtn;
+            document.getElementById('modeEnBtn').textContent = t.englishMeaningBtn;
+            if (typeof applyExtraI18n === 'function') applyExtraI18n(lang);
+        }
+
+        let isLightTheme = false;
+        function applyThemeState(light) {
+            isLightTheme = light;
+            document.getElementById('bodyRoot').classList.toggle('light-theme', light);
+            document.getElementById('themeIcon').className = light ? "fa-solid fa-sun text-xs" : "fa-solid fa-moon text-xs";
+        }
+        function toggleTheme() {
+            applyThemeState(!isLightTheme);
+            try { localStorage.setItem('thabit_theme', isLightTheme ? 'light' : 'dark'); } catch (e) {}
+        }
+
+        async function fetchSmartTranslation() {
+            const query = document.getElementById('wordInput').value.trim();
+            const outputDiv = document.getElementById('translationOutput');
+            if (!query) {
+                outputDiv.textContent = currentMeaningMode === 'ar' ? "ثابت" : "Stable";
+                return;
+            }
+            try {
+                const targetLang = currentMeaningMode === 'ar' ? 'ar' : 'en';
+                const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLang}&dt=t&q=${encodeURIComponent(query)}`;
+                const response = await fetch(url);
+                const data = await response.json();
+                let translatedText = "";
+                if (data && data[0]) {
+                    data[0].forEach(item => { if (item[0]) translatedText += item[0]; });
+                }
+                if (translatedText) outputDiv.textContent = translatedText;
+            } catch (err) {}
+        }
+
+        let currentMeaningMode = 'ar';
+        function setMeaningMode(mode) {
+            currentMeaningMode = mode;
+            document.getElementById('modeArBtn').classList.toggle('on', mode === 'ar');
+            document.getElementById('modeEnBtn').classList.toggle('on', mode === 'en');
+            fetchSmartTranslation();
+        }
+
+    </script>
+<style id="assistantExtraCss">
+body .tha-modal { align-items: flex-start; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+body .tha-box { margin: auto; max-height: none; overflow: visible; }
+#thaTabA { display: none !important; }
+.admin-big { display:flex; align-items:center; gap:12px; width:100%; padding:16px 18px; border-radius:16px; border:1px solid rgba(148,163,184,.35); background:rgba(30,41,59,.6); color:inherit; font:800 .95rem 'Cairo',sans-serif; cursor:pointer; text-align:start; transition:transform .15s, border-color .15s; }
+.admin-big:hover { transform: translateY(-2px); border-color:#fbbf24; }
+.admin-big i { font-size:1.2rem; color:#fbbf24; width:26px; text-align:center; }
+.admin-big small { display:block; font-weight:600; opacity:.7; font-size:.72rem; margin-top:2px; }
+.admin-big .tha-tag { margin-inline-start:auto; }
+body.light-theme .admin-big { background:#f1f5f9; }
+body.light-theme .admin-big i { color:#a16207; }
+#generalToast { position:fixed; left:50%; top:50%; transform:translate(-50%,-50%); z-index:200000; display:none; align-items:center; gap:10px; max-width:min(90vw,420px); width:max-content; padding:14px 20px; border-radius:16px; font:700 .9rem 'Cairo','Inter',sans-serif; text-align:center; color:#fff; box-shadow:0 20px 60px rgba(0,0,0,.55); pointer-events:none; }
+#generalToast.show { display:flex; animation:toastPop .25s ease; }
+#generalToast.t-success { background:#047857; border:1px solid #34d399; }
+#generalToast.t-orange { background:#b45309; border:1px solid #fbbf24; }
+#generalToast.t-red { background:#be123c; border:1px solid #fb7185; }
+@keyframes toastPop { from { opacity:0; transform:translate(-50%,-46%) scale(.96); } to { opacity:1; transform:translate(-50%,-50%) scale(1); } }
+.report-card { white-space:pre-wrap; word-break:break-word; }
+</style>
+
+<!-- Report a problem (public) -->
+<div id="reportOverlay" class="tha-modal"><div class="tha-box" style="max-width:480px">
+  <div class="tha-h"><h3><i class="fa-solid fa-triangle-exclamation"></i> <span data-t="rpTitle">Report a problem</span></h3><button type="button" class="tha-x" onclick="closeReportModal()"><i class="fa-solid fa-xmark"></i></button></div>
+  <p class="tha-note" style="margin-bottom:12px" data-t="rpIntro">Tell us exactly what happened so we can fix it.</p>
+  <label class="tha-lab" style="margin-bottom:6px"><span><span data-t="rpName">Your name</span> <span style="color:#f43f5e">*</span></span></label>
+  <input id="rpName" class="tha-in" maxlength="80" data-tp="rpNamePh" placeholder="Enter your name...">
+  <label class="tha-lab" style="margin:12px 0 6px"><span><span data-t="rpDetails">What exactly is the problem?</span> <span style="color:#f43f5e">*</span></span></label>
+  <textarea id="rpProblem" class="tha-in" maxlength="2000" style="min-height:140px" data-tp="rpDetailsPh" placeholder="Describe what you did, what you expected, and what happened instead..."></textarea>
+  <p id="rpErr" class="tha-note" style="color:#f43f5e;min-height:18px;margin-top:8px"></p>
+  <div class="tha-btns" style="margin-top:8px">
+    <button type="button" class="tha-b gray" style="flex:1" onclick="closeReportModal()" data-t="rpCancel">Cancel</button>
+    <button type="button" class="tha-b" style="flex:1" id="rpSendBtn" onclick="submitReport()"><i class="fa-solid fa-paper-plane"></i> <span data-t="rpSend">Send</span></button>
+  </div>
+</div></div>
+
+<div id="barTip" role="tooltip"></div>
+<script>
+/* side-bar hover tooltip: appears after the pointer rests on a button */
+(function () {
+  var HOVER_DELAY_MS = 1500;   // how long to hover before the bar shows
+  var tip = document.getElementById('barTip');
+  var bar = document.getElementById('mobileFloatingBar');
+  if (!tip || !bar) return;
+  var timer = null, hideTimer = null;
+  function hide() { clearTimeout(timer); clearTimeout(hideTimer); tip.classList.remove('show'); }
+  function show(btn) {
+    var text = btn.dataset.tip;
+    if (!text) return;
+    tip.textContent = text;
+    var r = btn.getBoundingClientRect();
+    tip.style.left = (r.right + 10) + 'px';
+    tip.style.top = (r.top + r.height / 2) + 'px';
+    tip.classList.add('show');
+  }
+  function arm(btn, delay) {
+    if (btn.hasAttribute('title')) { btn.dataset.tip = btn.getAttribute('title'); btn.removeAttribute('title'); }
+    clearTimeout(timer); clearTimeout(hideTimer);
+    timer = setTimeout(function () { show(btn); }, delay);
+  }
+  bar.querySelectorAll('button').forEach(function (btn) {
+    btn.addEventListener('mouseenter', function () { arm(btn, HOVER_DELAY_MS); });
+    btn.addEventListener('mouseleave', hide);
+    btn.addEventListener('click', hide);
+    btn.addEventListener('focus', function () { arm(btn, 800); });
+    btn.addEventListener('blur', hide);
+    btn.addEventListener('touchstart', function () { arm(btn, 600); hideTimer = setTimeout(hide, 2600); }, { passive: true });
+  });
+})();
+</script>
+
+<!-- Central toast (outside <main>) -->
+<div id="generalToast" role="status" aria-live="polite"><i id="generalToastIcon" class="fa-solid"></i><span id="generalToastMsg"></span></div>
+
+<script>
+/* ===== i18n for everything added after the original translations ===== */
+const XT = {
+  en: {
+    reportMissing: "Report Missing", wordSpeed: "Word Speed", smartMenu: "Smart Menu",
+    waitTime: "Multi-repeat Wait", commaTime: "Between Words Pause",
+    yourTurn: "Your turn", stop: "Stop", comparison: "Comparison", footerTag: "Pronounce on the go",
+    themeTitle: "Toggle theme", meanAr: "Arabic meaning", meanEn: "English meaning", adminTitleBtn: "Fedawy Admin Panel", reportTitleBtn: "Report a problem",
+    listenGoogle: "Listen to Google Translation", phExample: "e.g. Hello",
+    admReports: "Reports", admReportsSub: "Problems sent by trainees",
+    admMods: "Modifications", admModsSub: "Edit page texts, policies, plans and settings",
+    admVoices: "Upload voices to the database", admVoicesSub: "Record words, due words and trash",
+    admBack: "Back", admRefresh: "Refresh", admConflict: "⚠️ This word already exists in the database! What would you like to do?",
+    admReplace: "Replace Audio", admExplain: "Add Explanation / Note",
+    admDue: "Global Due Words / Reported Missing", admTrash: "Trash Bin", admShowHide: "Show / Hide",
+    rpTitle: "Report a problem", rpIntro: "Tell us exactly what happened so we can fix it.",
+    rpName: "Your name", rpNamePh: "Enter your name...", rpDetails: "What exactly is the problem?",
+    rpDetailsPh: "Describe what you did, what you expected, and what happened instead...",
+    rpCancel: "Cancel", rpSend: "Send",
+    rpNameReq: "Please enter your name.", rpProblemReq: "Please describe the problem in detail (at least a few words).",
+    rpSentOk: "Your report was sent. Thank you!", rpFail: "Could not send the report. Please try again.",
+    rpWait: "Please wait a moment before sending another report.",
+    typeWord: "Type a word first!", notInDb: "This word isn't in the database yet — press Report Missing.",
+    noAudioFor: "No audio for: ", dbFail: "Could not reach the database, check your connection.",
+    recordFirst: "Record your voice first with “Your turn”.", recSaved: "Your recording is saved ✓ — try Comparison.",
+    micDenied: "Please allow microphone access first.", dlOk: "Words downloaded ✓", dlFiles: "Files downloaded ✓",
+    dlFail: "Download failed, please try again.", missingSending: "Sending the word to the trainer...",
+    missingOk: "🚨 Reported! The trainer received your word.", missingFail: "Could not send the report.",
+    missingEmpty: "Type a word or sentence first!"
+  },
+  ar: {
+    reportMissing: "بلّغ عن كلمة ناقصة", wordSpeed: "سرعة الكلمة", smartMenu: "قائمة ذكية",
+    waitTime: "الانتظار بين التكرارات", commaTime: "التوقف بين الكلمات",
+    yourTurn: "دورك", stop: "إيقاف", comparison: "المقارنة", footerTag: "انطق وأنت في طريقك",
+    themeTitle: "الوضع الفاتح / الداكن", meanAr: "المعنى بالعربية", meanEn: "المعنى بالإنجليزية", adminTitleBtn: "لوحة إدارة الفداوي", reportTitleBtn: "الإبلاغ عن مشكلة",
+    listenGoogle: "استمع لنطق جوجل", phExample: "مثال: Hello",
+    admReports: "البلاغات", admReportsSub: "المشاكل التي أرسلها المتدربون",
+    admMods: "التعديلات", admModsSub: "تعديل نصوص الصفحات والسياسات والخطط والإعدادات",
+    admVoices: "رفع الأصوات إلى قاعدة البيانات", admVoicesSub: "تسجيل الكلمات والكلمات المطلوبة والمهملات",
+    admBack: "رجوع", admRefresh: "تحديث", admConflict: "⚠️ هذه الكلمة موجودة بالفعل في قاعدة البيانات! ماذا تريد أن تفعل؟",
+    admReplace: "استبدال الصوت", admExplain: "إضافة شرح / ملاحظة",
+    admDue: "الكلمات المطلوبة / المبلّغ عنها", admTrash: "سلة المهملات", admShowHide: "إظهار / إخفاء",
+    rpTitle: "الإبلاغ عن مشكلة", rpIntro: "اشرح لنا ما حدث بالتفصيل حتى نتمكن من إصلاحه.",
+    rpName: "اسمك", rpNamePh: "اكتب اسمك...", rpDetails: "ما المشكلة بالتحديد؟",
+    rpDetailsPh: "اشرح ما فعلته، وما كنت تتوقعه، وما الذي حدث بدلاً من ذلك...",
+    rpCancel: "إلغاء", rpSend: "إرسال",
+    rpNameReq: "من فضلك اكتب اسمك.", rpProblemReq: "من فضلك اشرح المشكلة بالتفصيل (بضع كلمات على الأقل).",
+    rpSentOk: "تم إرسال بلاغك. شكرًا لك!", rpFail: "تعذر إرسال البلاغ، حاول مرة أخرى.",
+    rpWait: "انتظر لحظة قبل إرسال بلاغ آخر.",
+    typeWord: "اكتب كلمة أولاً!", notInDb: "هذه الكلمة غير موجودة بعد في قاعدة البيانات — اضغط «بلّغ عن كلمة ناقصة».",
+    noAudioFor: "لا يوجد صوت لـ: ", dbFail: "تعذر الاتصال بقاعدة البيانات، تأكد من الاتصال.",
+    recordFirst: "سجّل صوتك أولاً بزر «دورك».", recSaved: "تم حفظ تسجيلك ✓ — جرّب المقارنة.",
+    micDenied: "اسمح للمتصفح باستخدام الميكروفون أولاً.", dlOk: "تم تنزيل الكلمات ✓", dlFiles: "تم تنزيل الملفات ✓",
+    dlFail: "فشل التنزيل، حاول مرة أخرى.", missingSending: "جارٍ إرسال الكلمة إلى المدرب...",
+    missingOk: "🚨 تم التبليغ! وصلت الكلمة إلى المدرب.", missingFail: "تعذر إرسال البلاغ.",
+    missingEmpty: "اكتب كلمة أو جملة أولاً!"
+  },
+  eg: {
+    reportMissing: "بلّغ إن الكلمة ناقصة", wordSpeed: "سرعة الكلمة", smartMenu: "قايمة ذكية",
+    waitTime: "الانتظار بين كل تكرار", commaTime: "الوقفة بين الكلمات",
+    yourTurn: "دورك انت", stop: "وقّف", comparison: "قارن", footerTag: "انطق وانت ماشي",
+    themeTitle: "فاتح / داكن", meanAr: "المعنى بالعربي", meanEn: "المعنى بالإنجليزي", adminTitleBtn: "لوحة تحكم الفداوي", reportTitleBtn: "بلّغ عن مشكلة",
+    listenGoogle: "اسمع نطق جوجل", phExample: "مثال: Hello",
+    admReports: "البلاغات", admReportsSub: "المشاكل اللي المتدربين بعتوها",
+    admMods: "التعديلات", admModsSub: "عدّل نصوص الصفحات والسياسات والخطط والإعدادات",
+    admVoices: "ارفع الأصوات للداتابيز", admVoicesSub: "سجّل الكلمات والكلمات المطلوبة والزبالة",
+    admBack: "رجوع", admRefresh: "تحديث", admConflict: "⚠️ الكلمة دي موجودة في الداتابيز! عايز تعمل إيه؟",
+    admReplace: "استبدل الصوت", admExplain: "ضيف شرح / ملاحظة",
+    admDue: "الكلمات المطلوبة / المبلّغ عنها", admTrash: "سلة المهملات", admShowHide: "اظهر / اخفي",
+    rpTitle: "بلّغ عن مشكلة", rpIntro: "احكيلنا اللي حصل بالتفصيل عشان نصلحه.",
+    rpName: "اسمك", rpNamePh: "اكتب اسمك هنا...", rpDetails: "إيه المشكلة بالظبط؟",
+    rpDetailsPh: "احكي عملت إيه، وكنت مستني إيه، وإيه اللي حصل بدل كده...",
+    rpCancel: "إلغاء", rpSend: "ابعت",
+    rpNameReq: "اكتب اسمك الأول.", rpProblemReq: "احكي المشكلة بالتفصيل (كام كلمة على الأقل).",
+    rpSentOk: "بلاغك وصل. شكرًا ليك!", rpFail: "مقدرتش أبعت البلاغ، جرّب تاني.",
+    rpWait: "استنى شوية قبل ما تبعت بلاغ تاني.",
+    typeWord: "اكتب كلمة الأول!", notInDb: "الكلمة دي لسه مش في الداتابيز — دوس على «بلّغ إن الكلمة ناقصة».",
+    noAudioFor: "مفيش صوت لـ: ", dbFail: "مش قادر أوصل للداتابيز، اتأكد من النت.",
+    recordFirst: "سجّل صوتك الأول بزرار «دورك انت».", recSaved: "تسجيلك اتحفظ ✓ — جرّب قارن.",
+    micDenied: "اسمح للمتصفح يستخدم المايك الأول.", dlOk: "الكلمات اتنزّلت ✓", dlFiles: "الملفات اتنزّلت ✓",
+    dlFail: "التنزيل فشل، جرّب تاني.", missingSending: "بنبعت الكلمة للمدرب...",
+    missingOk: "🚨 اتبلّغ! الكلمة وصلت للمدرب.", missingFail: "مقدرتش أبعت البلاغ.",
+    missingEmpty: "اكتب كلمة أو جملة الأول!"
+  }
+};
+let uiLang = 'en';
+try { const l = localStorage.getItem('thabit_lang'); if (l && XT[l]) uiLang = l; } catch (e) {}
+function T(k) { const d = XT[uiLang] || XT.en; return d[k] !== undefined ? d[k] : (XT.en[k] !== undefined ? XT.en[k] : k); }
+function applyExtraI18n(lang) {
+  if (XT[lang]) uiLang = lang;
+  document.querySelectorAll('[data-t]').forEach(function (el) { el.textContent = T(el.dataset.t); });
+  document.querySelectorAll('[data-tp]').forEach(function (el) { el.placeholder = T(el.dataset.tp); });
+  document.querySelectorAll('[data-tt]').forEach(function (el) { el.title = T(el.dataset.tt); });
+  const rb = document.querySelector('#recordYourVoiceBtn span');
+  if (rb) rb.textContent = mainRecording ? T('stop') : T('yourTurn');
+}
+window.addEventListener('DOMContentLoaded', function () { applyExtraI18n(uiLang); });
+
+function escapeHtml(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+
+/* ===== central toast ===== */
+let toastTimer = null;
+function showGeneralToast(msg, type) {
+  const el = document.getElementById('generalToast');
+  const ic = document.getElementById('generalToastIcon');
+  const kind = type === 'red' ? 'red' : (type === 'orange' || type === 'error') ? 'orange' : 'success';
+  el.className = 'show t-' + kind;
+  ic.className = 'fa-solid ' + (kind === 'success' ? 'fa-circle-check' : kind === 'red' ? 'fa-circle-exclamation' : 'fa-triangle-exclamation');
+  document.getElementById('generalToastMsg').textContent = msg;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function () { el.className = ''; }, 3800);
+}
+function showAdminToast(msg, type) { showGeneralToast(msg, type === 'success' ? 'success' : 'red'); }
+
+function toggleSlidersDrawer(e) {
+  if (e && e.target && e.target.closest && e.target.closest('.custom-slider-track')) return;
+  const d = document.getElementById('slidersDrawerWrapper');
+  const ic = document.getElementById('drawerToggleIcon');
+  const collapsed = d.classList.toggle('collapsed');
+  if (ic) ic.style.transform = collapsed ? '' : 'rotate(180deg)';
+}
+
+/* ===== report a problem (public): saved to Supabase + sent to Telegram ===== */
+let lastReportAt = 0;
+function openReportModal() {
+  document.getElementById('rpName').value = (document.getElementById('userNameInput').value || '').trim();
+  document.getElementById('rpProblem').value = '';
+  document.getElementById('rpErr').textContent = '';
+  document.getElementById('reportOverlay').classList.add('open');
+  setTimeout(function () {
+    const n = document.getElementById('rpName');
+    (n.value ? document.getElementById('rpProblem') : n).focus();
+  }, 80);
+}
+function closeReportModal() { document.getElementById('reportOverlay').classList.remove('open'); }
+
+async function submitReport() {
+  const nameEl = document.getElementById('rpName');
+  const probEl = document.getElementById('rpProblem');
+  const err = document.getElementById('rpErr');
+  const btn = document.getElementById('rpSendBtn');
+  const name = nameEl.value.trim();
+  const problem = probEl.value.trim();
+  if (!name) { err.textContent = T('rpNameReq'); nameEl.focus(); return; }
+  if (problem.length < 10) { err.textContent = T('rpProblemReq'); probEl.focus(); return; }
+  if (Date.now() - lastReportAt < 20000) { err.textContent = T('rpWait'); return; }
+  err.textContent = '';
+  btn.disabled = true;
+  const hdrs = { 'Content-Type': 'application/json', apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + SUPABASE_ANON_KEY };
+  const saveP = fetch(SUPABASE_URL + '/rest/v1/reports', {
+    method: 'POST', headers: Object.assign({ Prefer: 'return=minimal' }, hdrs),
+    body: JSON.stringify({ name: name, problem: problem, page: location.pathname })
+  }).then(function (r) { return r.ok; }).catch(function () { return false; });
+  const tgP = fetch(SUPABASE_URL + '/functions/v1/send-telegram', {
+    method: 'POST', headers: hdrs, body: JSON.stringify({ name: name, problem: problem })
+  }).then(function (r) { return r.ok; }).catch(function () { return false; });
+  const results = await Promise.all([saveP, tgP]);
+  btn.disabled = false;
+  if (results[0] || results[1]) {
+    lastReportAt = Date.now();
+    closeReportModal();
+    showGeneralToast(T('rpSentOk'), 'success');
+  } else {
+    err.textContent = T('rpFail');
+  }
+}
+document.addEventListener('keydown', function (e) {
+  if (e.key !== 'Escape') return;
+  closeReportModal();
+});
+
+/* ===== report a missing word ===== */
+async function reportMissingWord() {
+  const wordVal = document.getElementById('wordInput').value.trim();
+  const traineeName = document.getElementById('userNameInput').value.trim() || 'Anonymous';
+  if (!wordVal) { showGeneralToast(T('missingEmpty'), 'red'); return; }
+  showGeneralToast(T('missingSending'), 'orange');
+  try {
+    const res = await fetch(SUPABASE_URL + '/rest/v1/due_words_table', {
+      method: 'POST',
+      headers: {
+        apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + SUPABASE_ANON_KEY,
+        'Content-Type': 'application/json', Prefer: 'return=representation'
+      },
+      body: JSON.stringify({ word: wordVal, trainee_name: traineeName, created_at: new Date().toISOString(), status: 'pending' })
+    });
+    if (!res.ok) throw new Error();
+    showGeneralToast(T('missingOk'), 'success');
+  } catch (e) { showGeneralToast(T('missingFail'), 'red'); }
+}
+
+/* ===== word status: green = all words exist, red = something missing ===== */
+let wordsCache = null, wordsCacheAt = 0, statusTimer = null;
+let currentAudio = null, currentResolve = null, playToken = 0;
+let userRecBlob = null, userRecUrl = null;
+let mainRecorder = null, mainChunks = [], mainRecording = false, mainTimerId = null, mainSeconds = 0;
+
+function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+function splitWords(str) {
+  return String(str || '').split(/[,،\n]+/).map(function (x) { return x.trim(); }).filter(Boolean);
+}
+async function getWordsList(force) {
+  if (!force && wordsCache && Date.now() - wordsCacheAt < 15000) return wordsCache;
+  const res = await fetch(SUPABASE_URL + '/rest/v1/words_table?select=word,audio_url', {
+    headers: { apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + SUPABASE_ANON_KEY }
+  });
+  const d = await res.json();
+  wordsCache = Array.isArray(d) ? d : [];
+  wordsCacheAt = Date.now();
+  return wordsCache;
+}
+function findAudio(list, part) {
+  const c = cleanWordString(part);
+  let url = null;
+  list.forEach(function (r) { if (r.word && r.audio_url && cleanWordString(r.word) === c) url = r.audio_url; });
+  return url;
+}
+function checkMainWordStatus() {
+  clearTimeout(statusTimer);
+  statusTimer = setTimeout(runWordStatusCheck, 300);
+}
+async function runWordStatusCheck() {
+  const input = document.getElementById('wordInput');
+  const btn = document.getElementById('reportMissingBtn');
+  input.classList.remove('word-found', 'word-missing');
+  if (btn) btn.classList.remove('pop-pulse');
+  if (!splitWords(input.value).length) return;
+  try {
+    const list = await getWordsList();
+    const parts = splitWords(input.value);
+    if (!parts.length) return;
+    const allFound = parts.every(function (p) { return findAudio(list, p); });
+    input.classList.remove('word-found', 'word-missing');
+    if (allFound) input.classList.add('word-found');
+    else { input.classList.add('word-missing'); if (btn) btn.classList.add('pop-pulse'); }
+  } catch (e) {}
+}
+
+/* ===== audio engine ===== */
+function stopAllAudio() {
+  playToken++;
+  if (currentAudio) { try { currentAudio.pause(); } catch (e) {} currentAudio = null; }
+  if (currentResolve) { const r = currentResolve; currentResolve = null; r(); }
+}
+function playUrl(url, token, rate) {
+  return new Promise(function (resolve) {
+    if (token !== playToken) return resolve();
+    const a = new Audio(url);
+    a.preload = 'auto';
+    a.playbackRate = rate || 1;
+    try { a.preservesPitch = true; a.webkitPreservesPitch = true; } catch (e) {}
+    currentAudio = a;
+    currentResolve = resolve;
+    const done = function () { if (currentResolve === resolve) currentResolve = null; resolve(); };
+    a.onended = done;
+    a.onerror = done;
+    a.play().catch(done);
+  });
+}
+async function playSeq(urls, token) {
+  for (let i = 0; i < urls.length; i++) {
+    if (token !== playToken) return;
+    await playUrl(urls[i], token, getActiveSpeed());
+    if (i < urls.length - 1 && token === playToken) await sleep(getActiveCommaWait());
+  }
+}
+async function resolveWordUrls() {
+  const parts = splitWords(document.getElementById('wordInput').value);
+  if (!parts.length) { showGeneralToast(T('typeWord'), 'red'); return null; }
+  let list;
+  try { list = await getWordsList(); }
+  catch (e) { showGeneralToast(T('dbFail'), 'red'); return null; }
+  const urls = [], missing = [];
+  parts.forEach(function (p) { const u = findAudio(list, p); if (u) urls.push(u); else missing.push(p); });
+  if (!urls.length) { showGeneralToast(T('notInDb'), 'orange'); return null; }
+  if (missing.length) showGeneralToast(T('noAudioFor') + missing.join('، '), 'orange');
+  return urls;
+}
+function markBtn(btn, on) { if (btn) btn.classList.toggle('playing-active', on); }
+
+async function runListen(times, btn) {
+  stopAllAudio();
+  const token = playToken;
+  markBtn(btn, true);
+  try {
+    const urls = await resolveWordUrls();
+    if (!urls || token !== playToken) return;
+    for (let i = 0; i < times; i++) {
+      if (token !== playToken) break;
+      await playSeq(urls, token);
+      if (i < times - 1 && token === playToken) await sleep(getActiveWaitTime());
+    }
+  } finally { markBtn(btn, false); }
+}
+async function runComparison(times, btn) {
+  if (!userRecUrl) { showGeneralToast(T('recordFirst'), 'orange'); return; }
+  stopAllAudio();
+  const token = playToken;
+  markBtn(btn, true);
+  try {
+    const urls = await resolveWordUrls();
+    if (!urls || token !== playToken) return;
+    for (let i = 0; i < times; i++) {
+      if (token !== playToken) break;
+      await playSeq(urls, token);
+      if (token !== playToken) break;
+      await sleep(150);
+      await playUrl(userRecUrl, token, 1);
+      if (i < times - 1 && token === playToken) await sleep(getActiveWaitTime());
+    }
+  } finally { markBtn(btn, false); }
+}
+function triggerRepeatAndPlayListen(n, ev) { runListen(n, ev && ev.currentTarget); }
+function triggerRepeatAndPlayComp(n, ev) { runComparison(n, ev && ev.currentTarget); }
+function triggerComparisonPlayback() { runComparison(1, document.getElementById('compareBtn')); }
+document.getElementById('speakBtn').addEventListener('click', function () { runListen(1, null); });
+
+/* ===== trainee recording ===== */
+async function toggleMainRecording() {
+  const btn = document.getElementById('recordYourVoiceBtn');
+  const icon = document.getElementById('mainRecordIcon');
+  const label = btn.querySelector('span');
+  const timer = document.getElementById('mainRecordTimerDisplay');
+  if (!mainRecording) {
+    stopAllAudio();
+    try {
+      const st = await navigator.mediaDevices.getUserMedia({ audio: true });
+      mainRecorder = new MediaRecorder(st);
+      mainChunks = [];
+      mainRecorder.ondataavailable = function (e) { if (e.data.size > 0) mainChunks.push(e.data); };
+      mainRecorder.onstop = function () {
+        st.getTracks().forEach(function (t) { t.stop(); });
+        userRecBlob = new Blob(mainChunks, { type: mainRecorder.mimeType || 'audio/webm' });
+        if (userRecUrl) URL.revokeObjectURL(userRecUrl);
+        userRecUrl = URL.createObjectURL(userRecBlob);
+        showGeneralToast(T('recSaved'), 'success');
+      };
+      mainRecorder.start();
+      mainRecording = true;
+      icon.className = 'fa-solid fa-stop';
+      label.textContent = T('stop');
+      mainSeconds = 0;
+      timer.textContent = '00:00';
+      mainTimerId = setInterval(function () {
+        mainSeconds++;
+        timer.textContent = String(Math.floor(mainSeconds / 60)).padStart(2, '0') + ':' + String(mainSeconds % 60).padStart(2, '0');
+      }, 1000);
+    } catch (e) { showGeneralToast(T('micDenied'), 'red'); }
+  } else {
+    try { mainRecorder.stop(); } catch (e) {}
+    mainRecording = false;
+    clearInterval(mainTimerId);
+    icon.className = 'fa-solid fa-microphone';
+    label.textContent = T('yourTurn');
+  }
+}
+
+/* ===== take words (download) ===== */
+function encodeWav(samples, sr) {
+  const buf = new ArrayBuffer(44 + samples.length * 2);
+  const v = new DataView(buf);
+  const str = function (o, t) { for (let i = 0; i < t.length; i++) v.setUint8(o + i, t.charCodeAt(i)); };
+  str(0, 'RIFF'); v.setUint32(4, 36 + samples.length * 2, true); str(8, 'WAVE'); str(12, 'fmt ');
+  v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true);
+  v.setUint32(24, sr, true); v.setUint32(28, sr * 2, true); v.setUint16(32, 2, true); v.setUint16(34, 16, true);
+  str(36, 'data'); v.setUint32(40, samples.length * 2, true);
+  let o = 44;
+  for (let i = 0; i < samples.length; i++, o += 2) {
+    const x = Math.max(-1, Math.min(1, samples[i]));
+    v.setInt16(o, x < 0 ? x * 0x8000 : x * 0x7FFF, true);
+  }
+  return new Blob([v], { type: 'audio/wav' });
+}
+function saveBlob(blob, name) {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = name;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+}
+async function downloadCombinedAudioPackage() {
+  const btn = document.getElementById('downloadAudioBtn');
+  const urls = await resolveWordUrls();
+  if (!urls) return;
+  btn.disabled = true;
+  const baseName = (splitWords(document.getElementById('wordInput').value).join('_') || 'thabit_words').replace(/[^\w؀-ۿ\-]+/g, '_').slice(0, 60);
+  try {
+    const Ctx = window.AudioContext || window.webkitAudioContext;
+    const ctx = new Ctx();
+    const buffers = [];
+    for (const u of urls) {
+      const ab = await (await fetch(u)).arrayBuffer();
+      buffers.push(await ctx.decodeAudioData(ab));
+    }
+    const sr = ctx.sampleRate;
+    const gap = Math.round(sr * getActiveCommaWait() / 1000);
+    let total = 0;
+    buffers.forEach(function (b, i) { total += b.length + (i < buffers.length - 1 ? gap : 0); });
+    const out = new Float32Array(total);
+    let pos = 0;
+    buffers.forEach(function (b, i) {
+      const chs = b.numberOfChannels;
+      for (let c = 0; c < chs; c++) {
+        const d = b.getChannelData(c);
+        for (let k = 0; k < d.length; k++) out[pos + k] += d[k] / chs;
+      }
+      pos += b.length + (i < buffers.length - 1 ? gap : 0);
+    });
+    ctx.close();
+    saveBlob(encodeWav(out, sr), baseName + '.wav');
+    showGeneralToast(T('dlOk'), 'success');
+  } catch (e) {
+    try {
+      for (let i = 0; i < urls.length; i++) {
+        const b = await (await fetch(urls[i])).blob();
+        saveBlob(b, baseName + '_' + (i + 1) + '.mp3');
+        await sleep(400);
+      }
+      showGeneralToast(T('dlFiles'), 'success');
+    } catch (e2) { showGeneralToast(T('dlFail'), 'red'); }
+  } finally { btn.disabled = false; }
+}
+</script>
+
+<!-- ===== THABIT SHARED: content editor + admin panel + theme fixes (start) ===== -->
+<style id="thaSharedCss">
+.circle-badge-btn.admin-btn{color:#10b981}
+body.light-theme .circle-badge-btn.theme-btn{color:#b45309}
+body.light-theme .circle-badge-btn.admin-btn{color:#047857}
+body.light-theme .text-slate-400,body.light-theme .text-slate-500{color:#475569!important}
+body.light-theme .text-amber-300,body.light-theme .text-amber-400{color:#b45309!important}
+body.light-theme .text-emerald-300,body.light-theme .text-emerald-400{color:#047857!important}
+body.light-theme .text-indigo-300,body.light-theme .text-indigo-400{color:#4f46e5!important}
+body.light-theme .text-rose-300,body.light-theme .text-rose-400{color:#be123c!important}
+body.light-theme .bg-slate-800{background:#e2e8f0!important;color:#0f172a}
+.tha-modal{position:fixed;inset:0;z-index:100000;display:none;align-items:center;justify-content:center;padding:14px;background:rgba(2,6,23,.8);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.tha-modal.open{display:flex;animation:thaIn .25s ease}
+@keyframes thaIn{from{opacity:0}to{opacity:1}}
+@keyframes thaPop{from{transform:translateY(14px) scale(.97);opacity:0}to{transform:none;opacity:1}}
+.tha-box{width:100%;max-width:600px;max-height:92vh;overflow-y:auto;border-radius:22px;padding:20px;background:#0f172a;color:#f1f5f9;border:1px solid rgba(255,255,255,.15);box-shadow:0 30px 80px rgba(0,0,0,.7);font-family:'Cairo','Plus Jakarta Sans',sans-serif;animation:thaPop .3s cubic-bezier(.16,1,.3,1)}
+body.light-theme .tha-box{background:#fff;color:#0f172a;border-color:rgba(15,23,42,.35)}
+.tha-h{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+.tha-h h3{font-size:1.05rem;font-weight:900;color:#fbbf24;display:flex;gap:8px;align-items:center}
+body.light-theme .tha-h h3{color:#a16207}
+.tha-x{width:34px;height:34px;border-radius:50%;border:0;cursor:pointer;background:rgba(148,163,184,.25);color:inherit;font-size:14px}
+.tha-tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tha-tab{flex:1;min-width:80px;padding:8px 10px;border-radius:12px;border:1px solid rgba(148,163,184,.4);background:transparent;color:inherit;font:700 .78rem 'Cairo',sans-serif;cursor:pointer}
+.tha-tab.on{background:#2563eb;border-color:#2563eb;color:#fff}
+.tha-in{width:100%;padding:10px 12px;border-radius:12px;border:1px solid rgba(148,163,184,.45);background:rgba(2,6,23,.55);color:inherit;font:600 .85rem 'Cairo',sans-serif;outline:none}
+body.light-theme .tha-in{background:#f1f5f9}
+textarea.tha-in{min-height:84px;resize:vertical;line-height:1.6}
+.tha-row{padding:12px;border:1px solid rgba(148,163,184,.3);border-radius:14px;margin-top:10px;display:flex;flex-direction:column;gap:8px}
+.tha-lab{font-size:.8rem;font-weight:800;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.tha-tag{font-size:.62rem;padding:2px 8px;border-radius:99px;background:rgba(212,175,55,.2);color:#d4af37;font-weight:800;white-space:nowrap}
+body.light-theme .tha-tag{color:#a16207}
+.tha-btns{display:flex;gap:6px;flex-wrap:wrap}
+.tha-b{padding:8px 12px;border-radius:10px;border:0;cursor:pointer;font:800 .75rem 'Cairo',sans-serif;color:#fff;background:#059669}
+.tha-b.gray{background:#475569}.tha-b.red{background:#e11d48}.tha-b.blue{background:#2563eb}
+.tha-b:disabled{opacity:.5;cursor:wait}
+.tha-note{font-size:.72rem;opacity:.75;line-height:1.6}
+.tha-img{max-width:100%;max-height:120px;border-radius:10px;object-fit:contain;align-self:flex-start}
+#thaMsg{min-height:18px;margin-top:10px;font-weight:700}
+</style>
+
+<script>
+(function(){
+  var SB="https://vkfexceitwjmxncwceqb.supabase.co";
+  var KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZrZmV4Y2VpdHdqbXhuY3djZXFiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAzMzY5MTEsImV4cCI6MjEwNTkxMjkxMX0.6ArXtykrZhdNInphpg_LQTIvULkpwnnlzHA3dKhrNoI";
+  var SESSKEY="thabit_admin_session";
+  var $=function(i){return document.getElementById(i)};
+  function H(x){var h={apikey:KEY,Authorization:"Bearer "+KEY};for(var k in x)h[k]=x[k];return h}
+  var defs={},order=[],over={},hooks=[];
+  try{over=JSON.parse(localStorage.getItem("thabit_cms")||"{}")||{}}catch(e){over={}}
+  function lang(){try{return localStorage.getItem("thabit_lang")||"en"}catch(e){return"en"}}
+  function cache(){try{localStorage.setItem("thabit_cms",JSON.stringify(over))}catch(e){}}
+  function R(key,label,type,page,def,hint){defs[key]={label:label,type:type,page:page,def:def,hint:hint||""};order.push(key)}
+  function defOf(k){var d=defs[k];if(!d)return"";var v=d.def;if(typeof v==="function")v=v(lang());else if(v&&typeof v==="object")v=v[lang()]||v.en;return v==null?"":v}
+  function hasOv(k){return over[k]!==undefined&&over[k]!==""}
+  function get(k){return hasOv(k)?over[k]:defOf(k)}
+  function sub(s){return String(s).replace(/\{fee\}/g,get("pl.lateFee")).replace(/\{price\}/g,get("pl.price"))}
+  function apply(){
+    document.querySelectorAll("[data-cms]").forEach(function(el){
+      var k=el.getAttribute("data-cms"),d=defs[k];if(!d)return;
+      if(el.hasAttribute("data-cms-ov")&&!hasOv(k))return;
+      var v=get(k);
+      if(d.type==="image"){if(v){el.src=v;el.style.display=""}else{el.removeAttribute("src");el.style.display="none"}}
+      else if(d.type==="list"){el.innerHTML="";String(v).split("\n").forEach(function(s){if(!s.trim())return;var li=document.createElement("li");li.textContent=sub(s.trim());el.appendChild(li)})}
+      else el.textContent=sub(v);
+    });
+    hooks.forEach(function(f){try{f()}catch(e){}});
+  }
+  function sess(){try{return JSON.parse(localStorage.getItem(SESSKEY)||"null")}catch(e){return null}}
+  function setSess(x){try{if(x)localStorage.setItem(SESSKEY,JSON.stringify(x));else localStorage.removeItem(SESSKEY)}catch(e){}}
+  function keep(j){setSess({access:j.access_token,refresh:j.refresh_token,exp:Date.now()+(j.expires_in||3600)*1000})}
+  function ensure(){
+    var x=sess();if(!x)return Promise.resolve(null);
+    if(x.exp>Date.now()+30000)return Promise.resolve(x.access);
+    return fetch(SB+"/auth/v1/token?grant_type=refresh_token",{method:"POST",headers:{apikey:KEY,"Content-Type":"application/json"},body:JSON.stringify({refresh_token:x.refresh})}).then(function(r){return r.ok?r.json():null}).then(function(j){if(!j||!j.access_token){setSess(null);return null}keep(j);return j.access_token}).catch(function(){return null});
+  }
+  function hdr(extra){return ensure().then(function(t){var h={apikey:KEY,Authorization:"Bearer "+(t||KEY)};for(var k in extra)h[k]=extra[k];return h})}
+  function adminFetch(url,o){return ensure().then(function(t){if(!t)throw new Error("auth");o=o||{};o.headers=Object.assign({apikey:KEY,Authorization:"Bearer "+t},o.headers||{});return fetch(url,o)})}
+  function login(email,pass){
+    return fetch(SB+"/auth/v1/token?grant_type=password",{method:"POST",headers:{apikey:KEY,"Content-Type":"application/json"},body:JSON.stringify({email:email,password:pass})}).then(function(r){return r.json().then(function(j){return{ok:r.ok,j:j}})}).then(function(o){if(!o.ok||!o.j.access_token)throw new Error("bad");keep(o.j)});
+  }
+  function load(){
+    return fetch(SB+"/rest/v1/site_content?select=key,value",{headers:H()}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(rows){var m={};rows.forEach(function(r){m[r.key]=r.value});over=m;cache();apply()}).catch(function(){})
+  }
+  function save(k,v){
+    over[k]=v;cache();apply();
+    return adminFetch(SB+"/rest/v1/site_content?on_conflict=key",{method:"POST",headers:{"Content-Type":"application/json",Prefer:"resolution=merge-duplicates,return=minimal"},body:JSON.stringify({key:k,value:v,updated_at:new Date().toISOString()})}).then(function(r){if(r.ok)return true;return r.text().then(function(t){save.err=r.status+" "+String(t||"").slice(0,140);return false})}).catch(function(e){save.err=(e&&e.message)||String(e);return false});
+  }
+  function reset(k){
+    delete over[k];cache();apply();
+    return adminFetch(SB+"/rest/v1/site_content?key=eq."+encodeURIComponent(k),{method:"DELETE"}).then(function(r){return r.ok}).catch(function(){return false});
+  }
+  function upload(file,folder,bucket,asAdmin){
+    bucket=bucket||"placement-files";
+    var name=folder+"/"+Date.now()+"_"+Math.random().toString(36).slice(2,10)+"_"+file.name.replace(/[^\w.\-]+/g,"_");
+    var o={method:"POST",headers:{"Content-Type":file.type||"application/octet-stream"},body:file},url=SB+"/storage/v1/object/"+bucket+"/"+name;
+    var p=asAdmin?adminFetch(url,o):fetch(url,{method:"POST",headers:H(o.headers),body:file});
+    return p.then(function(r){if(!r.ok)throw new Error("upload");return SB+"/storage/v1/object/public/"+bucket+"/"+name});
+  }
+  function post(table,obj){
+    return fetch(SB+"/rest/v1/"+table,{method:"POST",headers:H({"Content-Type":"application/json",Prefer:"return=minimal"}),body:JSON.stringify(obj)}).then(function(r){return r.ok}).catch(function(){return false});
+  }
+
+  /* ---------- registry of every editable thing in the whole site ---------- */
+  R("portal.servicesDesc","Booking card text","textarea","Portal",{en:"Pick your time slot, upload the required files, and confirm your payment with ease.",ar:"قم باختيار ميعادك، ورفع الملفات المطلوبة، وإثبات الدفع بكل سهولة ويسر.",eg:"اختار ميعادك، وارفع الملفات المطلوبة، وأثبت الدفع بكل سهولة."});
+  R("portal.aboutDesc","About Us text","textarea","Portal",{en:"THABIT is a state-of-the-art educational ecosystem built to bridge the gap between mentors and trainees.",ar:"ثابت منظومة تعليمية متطورة صُممت لسد الفجوة بين المدربين والمتدربين.",eg:"ثابت منظومة تعليمية متطورة اتعملت عشان تقرّب بين المدرب والمتدرب."});
+  R("dash.subtitle","Dashboard subtitle","text","Dashboard",{en:"Your personal trainee dashboard in the Thabit system",ar:"لوحة قيادة المتدرب الخاصة بك في نظام Thabit",eg:"لوحة التحكم بتاعتك كمتدرب في نظام Thabit"});
+  R("assist.headerSub","Assistant header subtitle","text","Assistant",{en:"pronounce on the go",ar:"انطق وأنت في طريقك",eg:"انطق وانت ماشي"});
+
+  R("pl.price","Placement session price","text","Placement",{en:"XXX EGP",ar:"XXX جنيه",eg:"XXX جنيه"},"Shown in the payment step and the receipt");
+  R("pl.lateFee","Late fee per minute (number)","text","Placement","25","Used in the rules as {fee}");
+  R("pl.slots","Daily time slots","textarea","Placement","10:00, 11:00, 12:00, 13:00, 14:00, 15:00, 16:00, 17:00, 18:00, 19:00, 20:00, 21:00","24h format HH:MM, separated by commas or new lines");
+  R("pl.blocked","Unavailable dates","textarea","Placement","","YYYY-MM-DD separated by commas/new lines. Thursday & Friday are always closed automatically.");
+  R("pl.booked","Booked slots","textarea","Placement","","One per line: YYYY-MM-DD HH:MM (e.g. 2026-10-14 16:00)");
+  R("pl.englishHint","English test: hint","text","Placement",{en:"Upload a PDF / screenshot of your external English test result, or paste its link.",ar:"ارفع ملف PDF أو لقطة شاشة لنتيجة اختبار الإنجليزي الخارجي، أو ضع رابطه.",eg:"ارفع PDF أو سكرين شوت لنتيجة اختبار الإنجليزي الخارجي، أو حط اللينك بتاعه."});
+  R("pl.psychHint","Psychological test: hint","text","Placement",{en:"Upload an image / PDF of your psychological test result, or paste its link.",ar:"ارفع صورة أو ملف PDF لنتيجة الاختبار السيكولوجي، أو ضع رابطه.",eg:"ارفع صورة أو PDF لنتيجة الاختبار السيكولوجي، أو حط اللينك بتاعه."});
+  R("pl.secretHint","Secret file: hint","text","Placement",{en:"Got something special to share? Drop it here. Totally optional.",ar:"عندك شيء مميز تريد مشاركته؟ ضعه هنا. اختياري تمامًا.",eg:"عندك حاجة مميزة؟ حطها هنا. اختياري خالص."});
+  R("pl.payNote","Payment note","text","Placement",{en:"Pay with one of the methods below, then come back and add your proof.",ar:"ادفع بإحدى الطرق التالية ثم عد وأضف إثبات الدفع.",eg:"ادفع بأي طريقة من دول وبعدين ارجع وحط إثبات الدفع."});
+  R("pl.instapayLink","InstaPay link","text","Placement","https://ipn.eg/S/thabit");
+  R("pl.vodafone","Vodafone Cash number","text","Placement","01000000000");
+  R("pl.qr","Payment QR / image (optional)","image","Placement","");
+  R("pl.rules","Placement session instructions","list","Placement",{
+    en:"Be on time: if you are more than 20 minutes late after the agreed time, your payment is non-refundable.\nIf you are late by less than 20 minutes, a late fee of {fee} EGP per minute applies.\nBring a pen and paper to take notes — this is very important.\nMake sure your internet connection is stable.\nUse good headphones — or at least make sure the audio is crystal clear: no crackling, no background noise, no side conversations.",
+    ar:"الالتزام بالموعد: إذا تأخرت أكثر من 20 دقيقة عن الموعد المتفق عليه فلن يتم استرداد المبلغ المدفوع.\nإذا كان التأخير أقل من 20 دقيقة تُحتسب غرامة {fee} جنيهًا عن كل دقيقة تأخير.\nأحضر ورقة وقلمًا لتدوين الملاحظات، وهذا مهم جدًا.\nتأكد من ثبات اتصال الإنترنت.\nاستخدم سماعة جيدة، أو على الأقل تأكد من وضوح الصوت تمامًا: بدون تقطيع أو ضوضاء أو أحاديث جانبية.",
+    eg:"الالتزام بالميعاد: لو اتأخرت أكتر من 20 دقيقة عن الميعاد المتفق عليه فلوسك مش هتترجع.\nلو التأخير أقل من 20 دقيقة بتتحسب غرامة {fee} جنيه على كل دقيقة.\nهات ورقة وقلم تدوّن عليهم ملاحظات، ودي مهمة جدًا.\nتأكد إن النت ثابت.\nاستخدم سماعة كويسة، أو على الأقل الصوت يكون واضح: من غير خرفشة ولا دوشة ولا كلام جانبي."
+  },"One rule per line");
+  R("pl.termsTitle","Terms heading","text","Placement",{en:"Thabit's strict terms are as follows:",ar:"بنود ثابت الصارمة كالتالي:",eg:"بنود ثابت الصارمة هي كالتالي:"});
+  R("pl.terms","Terms & policies","list","Placement",{
+    en:"Term number one — edit me from the admin panel\nTerm number two — edit me from the admin panel\nTerm number three — edit me from the admin panel",
+    ar:"البند الأول — عدّلني من لوحة الأدمن\nالبند الثاني — عدّلني من لوحة الأدمن\nالبند الثالث — عدّلني من لوحة الأدمن",
+    eg:"البند الأول — عدّلني من لوحة الأدمن\nالبند الثاني — عدّلني من لوحة الأدمن\nالبند الثالث — عدّلني من لوحة الأدمن"
+  },"One term per line (numbered automatically)");
+  R("pl.wa","WhatsApp number (digits, with country code)","text","Placement","201000000000");
+  R("pl.tg","Telegram username (without @)","text","Placement","thabit");
+
+  var o=window.setLanguage;
+  if(typeof o==="function"&&!o._tha){var w=function(){var r=o.apply(this,arguments);apply();return r};w._tha=1;window.setLanguage=w}
+
+  window.ThabitCMS={get:get,apply:apply,load:load,save:save,upload:upload,post:post,onApply:function(f){hooks.push(f)},sub:sub};
+    apply();load();
+})();
+</script>
+<!-- ===== THABIT SHARED (end) ===== -->
+
+</body>
+</html>

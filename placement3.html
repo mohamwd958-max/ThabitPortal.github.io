@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="htmlRoot">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thabit - Placement</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA2NCA2NCc+PHJlY3Qgd2lkdGg9JzY0JyBoZWlnaHQ9JzY0JyByeD0nMTQnIGZpbGw9JyMwMDAnLz48ZyB0cmFuc2Zvcm09J3RyYW5zbGF0ZSgtMi42MCA2LjMxKSBzY2FsZSgwLjE1MzYpJz48cGF0aCBkPSdNMzIyLjggMjQuMkwzMTcuMiAyMS4wTDMxMi4zIDE5LjhMMzA3LjUgMTkuOEwzMDEuNSAyMS4wTDI5Mi44IDI0LjVMMjgxLjggMzEuOEwyNzMuMyAzOS43TDI1OC4wIDU1LjNMMjQzLjUgNjguMkwyMzUuOCA3Mi44TDIzMS4zIDc0LjVMMjIzLjAgNzYuMkwyMTYuMyA3Ni4wTDIwOS44IDc0LjJMMjA0LjcgNzEuM0wyMDAuMiA2Ny4wTDE5Ny41IDYyLjdMMTk1LjggNTguN0wxOTQuNyA1Mi4zTDE5NC43IDQ3LjBMMTk1LjggNDAuOEwxOTcuMCAzOS4wTDE5OS4wIDMzLjBMMjAzLjMgMjcuMEwyMTEuMiAxOS44TDIxOS43IDE1LjJMMjIzLjMgMTQuMkwyMjQuNyAxMi41TDIxNi44IDEzLjBMMjA4LjMgMTUuMEwyMDcuMiAxNi4wTDE5OS4wIDE5LjdMMTkzLjAgMjQuMkwxODguMCAyOS4wTDE4My43IDM0LjdMMTc4LjcgNDQuMEwxNzUuNyA1NS4zTDE3Ni4wIDY1LjhMMTc4LjggNzUuNUwxODAuNSA3OC44TDE4My44IDgzLjJMMTg4LjggODcuOEwxOTQuNSA5MS4zTDE5OC4wIDkzLjBMMjA0LjUgOTQuNUwyMTEuNyA5NS4yTDIyMS43IDk0LjVMMjI4LjcgOTIuOEwyMzkuMiA4Ny44TDI1Mi4wIDc5LjBMMjYyLjggNjguMkwyNzQuMCA1NS4zTDI4Mi4zIDQ3LjJMMjg4LjAgNDIuN0wyOTYuNSAzOC4wTDMwMi44IDM3LjNMMzA1LjMgMzguN0wzMDcuMyA0Mi43TDMwNy4zIDQ5LjdMMzAyLjcgNjQuMkwyOTMuNSA4Mi41TDI5MS4yIDg1LjdMMjkwLjMgODguMEwyODYuNyA5My4zTDI4NC4yIDk4LjNMMjgxLjggMTAxLjNMMjc5LjggMTA1LjVMMjc3LjIgMTA4LjhMMjc1LjIgMTEzLjBMMjcyLjUgMTE2LjNMMjYyLjcgMTMyLjdMMjU5LjggMTM1LjhMMjIwLjIgMTM5LjBMMjEwLjggMTM5LjJMMjAzLjcgMTQwLjNMMTk0LjMgMTQwLjdMMTg2LjggMTQxLjhMMTUyLjAgMTQzLjdMMTQ0LjAgMTQ1LjBMMTAyLjMgMTQ4LjBMMTAwLjIgMTQ4LjhMOTYuMyAxNTMuMkw5NS41IDE1NS4yTDkzLjIgMTU3LjdMOTEuMCAxNjEuM0w4Mi41IDE3MS41TDgxLjggMTczLjJMNjguNSAxOTAuMkw2Ni41IDE5My41TDY0LjAgMTk2LjBMNjMuMyAxOTcuN0w1OS4zIDIwMi4zTDU5LjUgMjAzLjhMNzQuOCAyMDMuM0w4MS4wIDIwMi4yTDg5LjIgMjAxLjhMOTcuOCAyMDAuN0wxMzQuNSAxOTguN0wxNDEuMiAxOTcuNUwxNTAuMCAxOTcuM0wxNTUuNyAxOTYuNUwxNTYuOCAxOTYuOEwxNTYuOCAxOTguMkwxNDQuOCAyMTQuOEwxNDIuMyAyMTcuNUwxMzcuMiAyMjUuM0wxMjguNyAyMzYuMEwxMjguMCAyMzcuN0wxMjUuMyAyNDAuN0wxMTQuMCAyNTYuOEw4Mi4wIDI5OS4zTDcyLjIgMzA4LjhMNjcuMiAzMTIuM0w1Ny4zIDMxNi43TDUwLjUgMzE4LjVMNDkuNSAzMTkuN0w0OS43IDMyMS4yTDUxLjggMzIxLjVMNTkuNSAzMjAuNUwxMDEuMCAzMTguNUwxMTQuMiAzMTcuMEwxMjcuNSAzMTMuOEwxMzIuMiAzMTAuN0wxMzYuNyAzMDYuMEwxNzUuOCAyNDMuMkwxNzguMyAyNDAuMkwxODAuNyAyMzUuN0wyMDguMCAxOTMuM0wyMTAuMyAxOTIuM0wyMjAuMiAxOTEuM0wyMjMuMyAxOTEuNUwyMjQuMyAxOTMuMEwyMjIuMCAxOTYuMEwyMTkuMyAyMDEuMkwyMTEuNSAyMTMuMEwyMDEuNSAyMzAuMkwxODguMiAyNTEuMkwxODcuNSAyNTMuMkwxODAuNSAyNjMuOEwxNzMuOCAyNzYuMkwxNjkuOCAyODIuMEwxNjAuNSAyOTguNUwxNTguNyAzMDQuMEwxNTguNyAzMTAuMkwxNjAuNyAzMTUuNUwxNjUuMiAzMTkuN0wxNzAuMiAzMjEuNUwxNzUuNSAzMjEuM0wxNzkuMiAzMjAuMEwxODIuNSAzMTguMEwxODcuOCAzMTMuNUwyMTUuOCAyODMuOEwyMzQuNyAyNjUuM0wyNTEuOCAyNTEuNUwyNTkuMCAyNDguMEwyNjEuMCAyNDguMEwyNjIuOCAyNDkuMkwyNjMuOCAyNTQuMEwyNjMuMCAyNTkuN0wyNTguNyAyNzIuNUwyNTUuNyAyODUuMkwyNTQuOCAyOTkuMEwyNTUuNyAzMDUuM0wyNTguNyAzMTIuN0wyNjMuMyAzMTguMkwyNjkuOCAzMjEuM0wyNzUuMyAzMjIuNUwyNzkuMyAzMjIuN0wyODYuMCAzMjEuNUwyOTQuNSAzMTguMkwzMDEuNSAzMTMuNUwzMDguOCAzMDcuMEwzMTcuOCAyOTYuM0wzMjcuMiAyODEuNUwzMzAuNyAyNzMuMEwzMzIuMCAyNzEuMEwzMzQuMCAyNjQuM0wzMzUuMCAyNjMuMEwzMzUuMyAyNjAuN0wzMzYuNSAyNTguNUwzMzcuMCAyNTMuM0wzMzUuNyAyNTIuN0wzMzMuOCAyNTQuMkwzMzAuMCAyNjIuNUwzMjUuNyAyNzAuMkwzMjMuMiAyNzMuM0wzMjEuMyAyNzcuMkwzMTUuMCAyODUuOEwzMDYuNyAyOTQuOEwzMDAuMCAzMDAuMEwyOTMuOCAzMDMuMEwyODYuNSAzMDMuMEwyODMuNSAzMDAuNUwyODIuMCAyOTcuMkwyODIuMCAyODYuNUwyODQuNyAyNzQuN0wyODYuMCAyNzIuMkwyODcuOCAyNjMuOEwyOTAuNSAyNTcuMEwyOTMuNyAyNDIuMEwyOTQuMCAyMzQuM0wyOTMuNyAyMjkuOEwyOTAuMyAyMjMuM0wyODcuMiAyMjAuOEwyODIuNyAyMTguOEwyNzUuOCAyMTguOEwyNzAuMCAyMjAuNUwyNjUuNSAyMjIuM0wyNTQuMyAyMjkuNUwyMzUuOCAyNDUuMkwyMjYuNSAyNTQuNUwyMjQuNyAyNTcuMkwyMDUuOCAyNzcuM0wyMDQuOCAyNzcuN0wyMDQuNSAyNzYuNUwyMTguNyAyNTIuM0wyMjEuMiAyNDkuMEwyMjguMCAyMzYuN0wyMzUuMiAyMjUuN0wyMzUuNyAyMjQuMEwyNDkuMCAyMDMuMkwyNDkuNSAyMDEuNUwyNTUuNSAxOTEuN0wyNTcuNyAxODkuMEwyNTkuOCAxODguMkwyNjYuOCAxODguMkwyNzQuNSAxODYuOEwyOTUuNyAxODUuM0wzMDguOCAxODUuMEwzMTYuNSAxODMuN0wzMjQuMCAxODMuNUwzMzIuMCAxODIuM0wzNDEuNSAxODIuMEwzNDcuNyAxODEuMkwzNjguMiAxODAuM0wzNzMuMiAxNzkuM0wzNzQuOCAxNzguMkwzNzYuOCAxNzMuN0wzNzcuOCAxNzIuN0wzNzkuOCAxNjcuN0wzODEuMiAxNjYuMkwzOTYuMyAxMzUuN0wzOTguMyAxMzAuN0w0MDEuMCAxMjYuNUw0MDEuMCAxMjQuOEwzODUuMyAxMjUuNUwzNzkuOCAxMjYuNUwzNzAuNyAxMjYuOEwzNjIuNyAxMjguMEwzMjguOCAxMzAuMEwzMjIuMiAxMzEuMkwzMTQuNSAxMzEuM0wzMDQuMiAxMzIuN0wyOTMuNSAxMzMuMkwyOTIuMiAxMzIuM0wyOTIuNSAxMzAuOEwyOTUuMiAxMjcuOEwyOTcuMiAxMjMuN0wyOTkuNSAxMjAuN0wzMTMuNSA5Ny4zTDMyMi43IDc5LjJMMzI2LjIgNjkuNUwzMjcuMyA2Ny44TDMzMC41IDU1LjJMMzMxLjMgNDcuMkwzMzAuNyAzOS4wTDMyNy4yIDI4LjhaJyBmaWxsPScjZmZmJy8+PC9nPjwvc3ZnPg==">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Montserrat:ital,wght@0,900;1,700;1,900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{
+  --bg:#030712;--text:#f1f5f9;--text-strong:#ffffff;--muted:#94a3b8;--soft:#cbd5e1;
+  --card:rgba(18,27,48,.78);--card-border:rgba(255,255,255,.10);
+  --input-bg:rgba(3,7,18,.85);--input-border:rgba(255,255,255,.12);
+  --gold:#d4af37;--ok:#10b981;--off:#ef4444;
+  --shadow:0 30px 60px rgba(0,0,0,.6);--shadow-strong:0 50px 100px -20px rgba(0,0,0,.9);
+  --icon-color:rgba(255,255,255,.17);
+}
+body.light-theme{
+  --bg:#f8fafc;--text:#1e293b;--text-strong:#0f172a;--muted:#475569;--soft:#334155;
+  --card:rgba(255,255,255,.92);--card-border:rgba(15,23,42,.14);
+  --input-bg:#f1f5f9;--input-border:rgba(15,23,42,.28);
+  --gold:#a16207;--ok:#047857;--off:#b91c1c;
+  --shadow:0 20px 45px rgba(15,23,42,.14);--shadow-strong:0 30px 70px -15px rgba(15,23,42,.28);
+  --icon-color:rgba(15,23,42,.15);
+}
+#thabitBg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;color:var(--icon-color);
+  -webkit-mask-image:radial-gradient(ellipse 65% 55% at 50% 50%,rgba(0,0,0,.4) 0%,#000 100%);
+  mask-image:radial-gradient(ellipse 65% 55% at 50% 50%,rgba(0,0,0,.4) 0%,#000 100%)}
+*,*:before,*:after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+*:focus{outline:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);min-height:100vh;font-family:'Cairo','Plus Jakarta Sans',sans-serif;padding:34px 18px 140px;position:relative;overflow-x:hidden;transition:background-color .3s,color .3s}
+button{font-family:inherit}
+
+/* floating bar (same as other pages) */
+.mobile-floating-bar{position:fixed;left:10px;bottom:20px;z-index:50;background:rgba(15,23,42,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.2);padding:6px;border-radius:9999px;display:flex;flex-direction:column;gap:6px;align-items:center;box-shadow:0 10px 25px -5px rgba(0,0,0,.5)}
+body.light-theme .mobile-floating-bar{background:rgba(255,255,255,.9);border:1px solid #000;box-shadow:0 10px 25px -5px rgba(0,0,0,.15)}
+.circle-badge-btn{width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;background:#1e293b;color:#fff;border:none;border-radius:50%;cursor:pointer;transition:transform .2s;font-family:'Cairo',sans-serif;text-decoration:none}
+body.light-theme .circle-badge-btn{background:#e2e8f0;color:#000}
+.circle-badge-btn:hover{transform:scale(1.12)}
+.circle-badge-btn.active{background:#2563eb!important;color:#fff!important}
+.circle-badge-btn.theme-btn{color:#fbbf24}
+.circle-badge-btn i{font-size:13px}
+.bar-divider{width:20px;height:1px;background:#64748b;margin:1px 0}
+
+.wrap{position:relative;z-index:5;width:100%;max-width:760px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:20px}
+.hero{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;animation:fadeUp .8s cubic-bezier(.16,1,.3,1) both}
+.glass-3d-logo-btn{width:84px;height:84px;border-radius:50%;background:radial-gradient(circle at 32% 32%,#475569 0%,#1e293b 45%,#090d16 75%,#020408 100%);box-shadow:inset 0 6px 12px rgba(255,255,255,.35),inset 0 -12px 25px rgba(0,0,0,.95),0 20px 40px rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;animation:floaty 4s ease-in-out infinite}
+.glass-logo-text{font-family:'Montserrat',sans-serif;font-weight:900;font-size:2.1rem;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.8)}
+.hero h1{font-size:1.9rem;font-weight:900;color:var(--text-strong);letter-spacing:.5px}
+.hero p{color:var(--muted);font-size:.95rem;font-weight:600}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes cardGoldSwipe{0%{transform:translate(-30%,-30%)}100%{transform:translate(35%,35%)}}
+@keyframes cardIn{from{opacity:0;transform:translateY(24px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.6)}}
+@keyframes slotIn{from{opacity:0;transform:translateX(-14px)}to{opacity:1;transform:none}}
+[dir=rtl] .slot{animation-name:slotInR}
+@keyframes slotInR{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.pcard{display:none;width:100%;background:var(--card);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--card-border);padding:28px 24px;border-radius:22px;box-shadow:var(--shadow-strong);position:relative;overflow:hidden}
+.pcard.active{display:block;animation:cardIn .6s cubic-bezier(.16,1,.3,1)}
+.pcard::before{content:'';position:absolute;top:-150%;left:-150%;width:350%;height:350%;background:linear-gradient(135deg,transparent 35%,rgba(212,175,55,.04) 42%,rgba(255,215,0,.14) 50%,rgba(212,175,55,.04) 58%,transparent 65%);pointer-events:none;z-index:1;animation:cardGoldSwipe 7s linear infinite}
+.pcard>*{position:relative;z-index:2}
+.ptitle{font-size:1.3rem;font-weight:900;color:var(--text-strong);display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.ptitle .num{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#d4af37,#f5d76e);color:#1a1200;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.lbl{display:flex;align-items:center;gap:6px;margin-bottom:6px;font-size:.92rem;color:var(--text-strong);font-weight:700}
+.req{width:7px;height:7px;background:#f43f5e;border-radius:50%;box-shadow:0 0 8px rgba(244,63,94,.8)}
+.inp{width:100%;height:46px;padding:0 16px;background:var(--input-bg);border:1px solid var(--input-border);border-radius:12px;color:var(--text-strong);font-size:.95rem;font-family:inherit;font-weight:600}
+.inp::placeholder{color:var(--muted);opacity:.8}
+.inp:focus{border-color:var(--gold)}
+.btn{width:100%;padding:13px 16px;color:#fff!important;border-radius:14px;font-size:1.05rem;font-weight:900;cursor:pointer;background:linear-gradient(135deg,#000 0%,#111827 20%,#047857 40%,#fff 50%,#dc2626 60%,#111827 80%,#000 100%)!important;border:1px solid rgba(255,255,255,.15);text-shadow:0 1px 6px rgba(0,0,0,.85);transition:transform .2s,opacity .2s}
+.btn:hover:not(:disabled){transform:translateY(-2px)}
+.btn:disabled{opacity:.4;cursor:not-allowed;filter:grayscale(.6)}
+.btn.ghost{background:var(--input-bg)!important;color:var(--text-strong)!important;text-shadow:none;border:1px solid var(--card-border)}
+.navrow{display:flex;gap:10px;margin-top:20px}
+.navrow .btn{flex:1}
+.navrow .btn.ghost{flex:0 0 38%}
+[dir=rtl] .flip{transform:scaleX(-1)}
+
+/* calendar */
+.cal-head{display:flex;align-items:center;justify-content:space-between;margin:18px 0 12px}
+.cal-title{font-weight:900;font-size:1.1rem;color:var(--text-strong)}
+.cal-nav{width:38px;height:38px;border-radius:50%;border:1px solid var(--card-border);background:var(--input-bg);color:var(--text-strong);cursor:pointer;transition:transform .2s}
+.cal-nav:hover:not(:disabled){transform:scale(1.1)}
+.cal-nav:disabled{opacity:.3;cursor:not-allowed}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cal-dow{text-align:center;font-size:.72rem;font-weight:800;color:var(--muted);padding:4px 0}
+.day{aspect-ratio:1;border-radius:12px;border:1px solid var(--card-border);background:var(--input-bg);color:var(--text-strong);font-size:.95rem;font-weight:800;cursor:pointer;position:relative;transition:transform .2s,box-shadow .2s,background .2s}
+.day.empty{visibility:hidden}
+.day.open{border-color:rgba(16,185,129,.55);background:rgba(16,185,129,.10)}
+.day.open:hover{transform:translateY(-3px) scale(1.07);box-shadow:0 8px 20px rgba(16,185,129,.3)}
+.day.off{background:rgba(239,68,68,.07);border-color:rgba(239,68,68,.25);color:var(--off);opacity:.6;cursor:not-allowed;text-decoration:line-through}
+.day.past{opacity:.28;cursor:not-allowed}
+.day.is-today{box-shadow:0 0 0 2px var(--gold)}
+.day.is-today::after{content:'';position:absolute;bottom:4px;left:50%;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:var(--gold);animation:pulse 1.6s infinite}
+.day.sel{background:linear-gradient(135deg,#d4af37,#f5d76e);color:#1a1200;border-color:#d4af37;transform:scale(1.08);box-shadow:0 10px 24px rgba(212,175,55,.45);text-decoration:none;opacity:1}
+.legend{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:14px;font-size:.75rem;color:var(--muted);font-weight:700}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:4px;margin-inline-end:5px;vertical-align:-1px}
+
+/* timeline */
+.timeline{margin-top:22px;scroll-margin-top:16px;animation:cardIn .5s both}
+.timeline.hidden{display:none}
+.tl-head{display:flex;align-items:center;gap:10px;font-weight:900;color:var(--text-strong);font-size:1.05rem;margin-bottom:6px}
+.tl-head i{color:var(--gold)}
+.tl-list{position:relative;padding-inline-start:30px}
+.tl-list::before{content:'';position:absolute;inset-inline-start:11px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--gold),transparent)}
+.tl-group{font-size:.78rem;font-weight:900;color:var(--gold);margin:14px 0 8px;display:flex;gap:8px;align-items:center}
+.slot{position:relative;display:flex;align-items:center;justify-content:space-between;width:100%;padding:12px 16px;margin-bottom:8px;border-radius:14px;border:1px solid var(--card-border);background:var(--input-bg);color:var(--text-strong);font-size:1rem;font-weight:800;cursor:pointer;opacity:0;animation:slotIn .5s forwards;transition:transform .2s,background .2s,border-color .2s}
+.slot::before{content:'';position:absolute;inset-inline-start:-24px;top:50%;width:12px;height:12px;margin-top:-6px;border-radius:50%;background:var(--bg);border:2px solid var(--gold);transition:.2s}
+.slot:hover:not(.off){transform:translateX(4px);border-color:var(--gold)}
+[dir=rtl] .slot:hover:not(.off){transform:translateX(-4px)}
+.slot .st{font-size:.75rem;font-weight:700;color:var(--ok)}
+.slot.sel{background:linear-gradient(135deg,#047857,#10b981);color:#fff;border-color:#10b981}
+.slot.sel .st{color:#fff}
+.slot.sel::before{background:#10b981;box-shadow:0 0 0 4px rgba(16,185,129,.3)}
+.slot.off{cursor:not-allowed;filter:saturate(.2) opacity(.55)}
+.slot.off .st{color:var(--off)}
+.slot.off .tm{text-decoration:line-through}
+.pick{margin-top:16px;padding:12px 16px;border-radius:14px;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.4);color:var(--text-strong);font-weight:800;display:none;align-items:center;gap:10px}
+.pick.show{display:flex;animation:cardIn .4s both}
+.pick i{color:var(--ok)}
+.nodata{color:var(--muted);text-align:center;padding:14px;font-weight:700}
+
+/* files */
+.fcard{padding:16px;border:1px solid var(--card-border);border-radius:16px;background:var(--input-bg);margin-bottom:14px;transition:border-color .3s,box-shadow .3s;scroll-margin-top:20px}
+.fcard:focus-within,.fcard.done{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 10px 30px rgba(212,175,55,.12)}
+.fcard.secret{border-style:dashed}
+.fhead{display:flex;align-items:center;gap:10px;font-weight:900;color:var(--text-strong);margin-bottom:6px}
+.fhead i{color:var(--gold);width:22px;text-align:center}
+.fhead .opt{font-size:.68rem;padding:2px 8px;border-radius:99px;background:rgba(148,163,184,.25);color:var(--muted);margin-inline-start:auto}
+.fhint{font-size:.82rem;color:var(--muted);margin-bottom:10px;line-height:1.6}
+.frow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.upl{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:12px;background:linear-gradient(135deg,#059669,#047857);color:#fff;font-weight:800;font-size:.88rem;cursor:pointer;transition:transform .2s}
+.upl:hover{transform:translateY(-2px)}
+.fstatus{font-size:.82rem;font-weight:700;color:var(--muted);display:flex;align-items:center;gap:6px;word-break:break-all}
+.fstatus.ok{color:var(--ok)}.fstatus.bad{color:var(--off)}
+.spin{width:14px;height:14px;border-radius:50%;border:2px solid var(--gold);border-top-color:transparent;animation:spin .8s linear infinite;display:inline-block}
+.linkrow{display:flex;gap:8px;align-items:center}
+.linkrow>i{color:var(--muted)}
+.linkrow .inp{height:42px;font-size:.88rem}
+.iconbtn{width:42px;height:42px;flex-shrink:0;border-radius:12px;border:1px solid var(--card-border);background:var(--input-bg);color:var(--text-strong);cursor:pointer}
+.warn{margin-top:12px;font-size:.82rem;color:var(--off);font-weight:700;display:none}
+.warn.show{display:block}
+
+/* payment */
+.amount{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-radius:16px;background:linear-gradient(135deg,rgba(212,175,55,.18),rgba(212,175,55,.05));border:1px solid rgba(212,175,55,.5);margin-bottom:12px;font-weight:900;color:var(--text-strong)}
+.amount b{font-size:1.4rem;color:var(--gold)}
+.paycard{display:flex;align-items:center;gap:12px;padding:14px;border:1px solid var(--card-border);border-radius:16px;background:var(--input-bg);margin-bottom:10px}
+.paycard .pi{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;flex-shrink:0}
+.paycard .pm{flex:1;min-width:0}
+.paycard .pn{font-weight:900;color:var(--text-strong);font-size:.95rem}
+.paycard .pv{font-family:monospace;color:var(--soft);font-size:.85rem;word-break:break-all;direction:ltr;text-align:start}
+.mini{padding:8px 12px;border-radius:10px;border:0;background:#2563eb;color:#fff;font-weight:800;font-size:.78rem;cursor:pointer;text-decoration:none;display:inline-flex;gap:6px;align-items:center}
+.qr{max-width:200px;border-radius:14px;margin:6px auto 12px;display:block}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 14px}
+.chip{flex:1;min-width:100px;padding:10px;border-radius:12px;border:1px solid var(--card-border);background:var(--input-bg);color:var(--text-strong);font-weight:800;font-size:.85rem;cursor:pointer;transition:.2s}
+.chip.sel{background:linear-gradient(135deg,#d4af37,#f5d76e);color:#1a1200;border-color:#d4af37}
+.subhead{font-weight:900;color:var(--gold);margin:16px 0 8px;font-size:1rem}
+.note{color:var(--soft);font-size:.9rem;line-height:1.7;margin-bottom:12px}
+
+/* rules */
+.rules{list-style:none;margin-bottom:14px}
+.rules li{position:relative;padding:10px 14px;padding-inline-start:44px;margin-bottom:8px;border-radius:12px;background:var(--input-bg);border:1px solid var(--card-border);color:var(--text-strong);font-weight:600;line-height:1.7;font-size:.92rem}
+.rules li::before{content:'\f00c';font-family:'Font Awesome 6 Free';font-weight:900;position:absolute;inset-inline-start:14px;top:11px;color:var(--ok)}
+.terms{margin-bottom:14px;padding-inline-start:26px;color:var(--text-strong);font-weight:600;line-height:1.9;font-size:.92rem}
+.agree{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;border:1px solid var(--card-border);background:var(--input-bg);cursor:pointer;font-weight:800;color:var(--text-strong);margin-bottom:6px;user-select:none}
+.agree input{display:none}
+.agree .box{width:26px;height:26px;border-radius:8px;border:2px solid var(--muted);display:flex;align-items:center;justify-content:center;color:transparent;transition:.25s;flex-shrink:0}
+.agree input:checked+.box{background:var(--ok);border-color:var(--ok);color:#fff;transform:scale(1.1)}
+.divider{height:1px;background:var(--card-border);margin:22px 0}
+.hide{display:none!important}
+
+/* progress pill */
+.pill{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:0;padding:7px 10px;border-radius:9999px;background:rgba(15,23,42,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.2);box-shadow:0 12px 30px -6px rgba(0,0,0,.6);direction:ltr;transition:all .5s cubic-bezier(.16,1,.3,1)}
+body.light-theme .pill{background:rgba(255,255,255,.92);border-color:#000;box-shadow:0 12px 30px -6px rgba(0,0,0,.25)}
+.pdot{width:36px;height:36px;border-radius:50%;border:2px solid #475569;background:transparent;color:#94a3b8;display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;transition:.3s;flex-shrink:0}
+body.light-theme .pdot{border-color:#94a3b8;color:#475569}
+.pdot.cur{border-color:var(--gold);color:var(--gold);box-shadow:0 0 0 4px rgba(212,175,55,.25);animation:pulseRing 2s infinite}
+.pdot.done{background:var(--ok);border-color:var(--ok);color:#fff}
+.pdot.fin{background:#2563eb;border-color:#2563eb;color:#fff;margin-inline-start:6px;display:none}
+.pill.alldone .pdot.fin{display:flex;animation:cardIn .5s both}
+.pline{width:16px;height:2px;background:#475569;transition:.3s;flex-shrink:0}
+.pline.done{background:var(--ok)}
+@keyframes pulseRing{0%,100%{box-shadow:0 0 0 3px rgba(212,175,55,.25)}50%{box-shadow:0 0 0 7px rgba(212,175,55,.08)}}
+.pill-done{display:none;align-items:center;gap:10px;border:0;background:transparent;color:#fff;font-weight:900;font-size:1rem;cursor:pointer;padding:6px 14px}
+body.light-theme .pill-done{color:#0f172a}
+.pill-done i{color:var(--ok);font-size:1.2rem}
+.pill.complete{background:linear-gradient(135deg,#047857,#10b981);border-color:#10b981;animation:pillPop .7s cubic-bezier(.16,1,.3,1)}
+.pill.complete .pdot,.pill.complete .pline{display:none}
+.pill.complete .pill-done{display:flex;color:#fff}
+.pill.complete .pill-done i{color:#fff}
+@keyframes pillPop{0%{transform:translateX(-50%) scale(1.3)}60%{transform:translateX(-50%) scale(.95)}100%{transform:translateX(-50%) scale(1)}}
+
+/* receipt */
+.rrow{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px dashed rgba(148,163,184,.4);font-size:.9rem}
+.rrow:last-child{border:0}
+.rrow span:first-child{color:#94a3b8;font-weight:700}
+body.light-theme .rrow span:first-child{color:#475569}
+.rrow span:last-child{font-weight:800;text-align:end;word-break:break-all}
+.sharebtn{flex:1;min-width:130px;padding:12px;border-radius:12px;border:0;color:#fff;font-weight:900;cursor:pointer;display:flex;gap:8px;align-items:center;justify-content:center;font-size:.9rem;text-decoration:none}
+.sharebtn.tg{background:#229ED9}.sharebtn.wa{background:#25D366}.sharebtn.cp{background:#475569}
+
+/* toast + confetti */
+#toast{position:fixed;top:18px;left:50%;transform:translate(-50%,-30px);opacity:0;z-index:100001;padding:12px 18px;border-radius:14px;background:#0f172a;color:#fff;font-weight:800;font-size:.88rem;border:1px solid rgba(255,255,255,.2);box-shadow:0 14px 40px rgba(0,0,0,.5);transition:.35s;max-width:92vw;text-align:center;pointer-events:none}
+body.light-theme #toast{background:#fff;color:#0f172a;border-color:#000}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+#toast.bad{border-color:#ef4444}
+.confetti{position:fixed;left:50%;bottom:40px;width:9px;height:9px;border-radius:2px;z-index:100002;pointer-events:none;animation:conf 1.6s cubic-bezier(.1,.7,.3,1) forwards}
+@keyframes conf{0%{transform:translate(0,0) rotate(0);opacity:1}100%{transform:translate(var(--x),var(--y)) rotate(var(--r));opacity:0}}
+
+@media(max-width:600px){body{padding-left:64px;padding-right:12px}.pcard{padding:22px 16px}.pill{left:calc(50% + 24px)}.navrow .btn.ghost{flex:0 0 32%}}
+</style>
+</head>
+<body>
+<script>try{if(localStorage.getItem('thabit_theme')==='light')document.body.classList.add('light-theme')}catch(e){}</script>
+<script>
+    (function () {
+
+        var LOGO = '<g transform="translate(2.00 4.12) scale(0.10237) translate(-49.5 -12.5)"><path d="M322.8 24.2L317.2 21.0L312.3 19.8L307.5 19.8L301.5 21.0L292.8 24.5L281.8 31.8L273.3 39.7L258.0 55.3L243.5 68.2L235.8 72.8L231.3 74.5L223.0 76.2L216.3 76.0L209.8 74.2L204.7 71.3L200.2 67.0L197.5 62.7L195.8 58.7L194.7 52.3L194.7 47.0L195.8 40.8L197.0 39.0L199.0 33.0L203.3 27.0L211.2 19.8L219.7 15.2L223.3 14.2L224.7 12.5L216.8 13.0L208.3 15.0L207.2 16.0L199.0 19.7L193.0 24.2L188.0 29.0L183.7 34.7L178.7 44.0L175.7 55.3L176.0 65.8L178.8 75.5L180.5 78.8L183.8 83.2L188.8 87.8L194.5 91.3L198.0 93.0L204.5 94.5L211.7 95.2L221.7 94.5L228.7 92.8L239.2 87.8L252.0 79.0L262.8 68.2L274.0 55.3L282.3 47.2L288.0 42.7L296.5 38.0L302.8 37.3L305.3 38.7L307.3 42.7L307.3 49.7L302.7 64.2L293.5 82.5L291.2 85.7L290.3 88.0L286.7 93.3L284.2 98.3L281.8 101.3L279.8 105.5L277.2 108.8L275.2 113.0L272.5 116.3L262.7 132.7L259.8 135.8L220.2 139.0L210.8 139.2L203.7 140.3L194.3 140.7L186.8 141.8L152.0 143.7L144.0 145.0L102.3 148.0L100.2 148.8L96.3 153.2L95.5 155.2L93.2 157.7L91.0 161.3L82.5 171.5L81.8 173.2L68.5 190.2L66.5 193.5L64.0 196.0L63.3 197.7L59.3 202.3L59.5 203.8L74.8 203.3L81.0 202.2L89.2 201.8L97.8 200.7L134.5 198.7L141.2 197.5L150.0 197.3L155.7 196.5L156.8 196.8L156.8 198.2L144.8 214.8L142.3 217.5L137.2 225.3L128.7 236.0L128.0 237.7L125.3 240.7L114.0 256.8L82.0 299.3L72.2 308.8L67.2 312.3L57.3 316.7L50.5 318.5L49.5 319.7L49.7 321.2L51.8 321.5L59.5 320.5L101.0 318.5L114.2 317.0L127.5 313.8L132.2 310.7L136.7 306.0L175.8 243.2L178.3 240.2L180.7 235.7L208.0 193.3L210.3 192.3L220.2 191.3L223.3 191.5L224.3 193.0L222.0 196.0L219.3 201.2L211.5 213.0L201.5 230.2L188.2 251.2L187.5 253.2L180.5 263.8L173.8 276.2L169.8 282.0L160.5 298.5L158.7 304.0L158.7 310.2L160.7 315.5L165.2 319.7L170.2 321.5L175.5 321.3L179.2 320.0L182.5 318.0L187.8 313.5L215.8 283.8L234.7 265.3L251.8 251.5L259.0 248.0L261.0 248.0L262.8 249.2L263.8 254.0L263.0 259.7L258.7 272.5L255.7 285.2L254.8 299.0L255.7 305.3L258.7 312.7L263.3 318.2L269.8 321.3L275.3 322.5L279.3 322.7L286.0 321.5L294.5 318.2L301.5 313.5L308.8 307.0L317.8 296.3L327.2 281.5L330.7 273.0L332.0 271.0L334.0 264.3L335.0 263.0L335.3 260.7L336.5 258.5L337.0 253.3L335.7 252.7L333.8 254.2L330.0 262.5L325.7 270.2L323.2 273.3L321.3 277.2L315.0 285.8L306.7 294.8L300.0 300.0L293.8 303.0L286.5 303.0L283.5 300.5L282.0 297.2L282.0 286.5L284.7 274.7L286.0 272.2L287.8 263.8L290.5 257.0L293.7 242.0L294.0 234.3L293.7 229.8L290.3 223.3L287.2 220.8L282.7 218.8L275.8 218.8L270.0 220.5L265.5 222.3L254.3 229.5L235.8 245.2L226.5 254.5L224.7 257.2L205.8 277.3L204.8 277.7L204.5 276.5L218.7 252.3L221.2 249.0L228.0 236.7L235.2 225.7L235.7 224.0L249.0 203.2L249.5 201.5L255.5 191.7L257.7 189.0L259.8 188.2L266.8 188.2L274.5 186.8L295.7 185.3L308.8 185.0L316.5 183.7L324.0 183.5L332.0 182.3L341.5 182.0L347.7 181.2L368.2 180.3L373.2 179.3L374.8 178.2L376.8 173.7L377.8 172.7L379.8 167.7L381.2 166.2L396.3 135.7L398.3 130.7L401.0 126.5L401.0 124.8L385.3 125.5L379.8 126.5L370.7 126.8L362.7 128.0L328.8 130.0L322.2 131.2L314.5 131.3L304.2 132.7L293.5 133.2L292.2 132.3L292.5 130.8L295.2 127.8L297.2 123.7L299.5 120.7L313.5 97.3L322.7 79.2L326.2 69.5L327.3 67.8L330.5 55.2L331.3 47.2L330.7 39.0L327.2 28.8Z" fill="currentColor" stroke="none"/></g>';
+
+        var mandala = [0,45,90,135,180,225,270,315].map(function (a) {
+            return '<ellipse cx="20" cy="10.5" rx="2.8" ry="6.5" transform="rotate(' + a + ' 20 20)"/>';
+        }).join('') + '<circle cx="20" cy="20" r="2.2"/>';
+
+        var icons = {
+            th: LOGO,
+            sun: '<circle cx="20" cy="20" r="6"/><path d="M20 4v4M20 32v4M4 20h4M32 20h4M8.7 8.7l2.8 2.8M28.5 28.5l2.8 2.8M8.7 31.3l2.8-2.8M28.5 11.5l2.8-2.8"/>',
+            moon: '<path transform="translate(3 3) scale(1.4)" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>',
+            eye: '<path d="M3 20c5-8 11-12 17-12s12 4 17 12c-5 8-11 12-17 12S8 28 3 20z"/><circle cx="20" cy="20" r="5.5"/><circle cx="20" cy="20" r="1.8"/>',
+            bolt: '<path d="M23 4L9 22h9l-2 14 15-19h-9z"/>',
+            T: '<text x="20" y="31" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="900" font-size="32" stroke-width="1.4">T</text>',
+            small: '<text x="20" y="28" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="900" font-size="22" stroke-width="1.3">th</text>',
+            ain: '<text x="20" y="29" text-anchor="middle" font-family="Cairo,sans-serif" font-weight="700" font-size="30" stroke-width="1.2">\u0639</text>',
+            tha: '<text x="20" y="29" text-anchor="middle" font-family="Cairo,sans-serif" font-weight="700" font-size="30" stroke-width="1.2">\u062b</text>',
+            note: '<path d="M14 29V9l16-4v20"/><ellipse cx="10.5" cy="29" rx="4.5" ry="3.5"/><ellipse cx="26.5" cy="25" rx="4.5" ry="3.5"/>',
+            mic: '<rect x="15.5" y="5" width="9" height="17" rx="4.5"/><path d="M10 19a10 10 0 0 0 20 0M20 29v6M14 35h12"/>',
+            doc: '<rect x="9" y="5" width="22" height="30" rx="3"/><path d="M14 14h12M14 20h12M14 26h7"/>',
+            bulb: '<path d="M15 29h10M17 34h6M20 5a10 10 0 0 0-6 18c1.2 1 2 2.6 2 4.5v1.5h8v-1.5c0-1.9.8-3.5 2-4.5A10 10 0 0 0 20 5z"/>',
+            mandala: mandala,
+            book: '<path d="M20 11c-4-3-9-4-14-3v22c5-1 10 0 14 3 4-3 9-4 14-3V8c-5-1-10 0-14 3zM20 11v22"/>',
+            target: '<circle cx="20" cy="20" r="13"/><circle cx="20" cy="20" r="8"/><circle cx="20" cy="20" r="3"/>'
+        };
+
+        var names = Object.keys(icons);
+        var STEP = 60, N = 6, TILE = STEP * N, SCALE = 0.72;
+        var angles = [-14, -6, 0, 7, 13, -9, 4];
+
+        var defs = '';
+
+        names.forEach(function (n) {
+            defs += '<g id="thi-' + n + '" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + icons[n] + '</g>';
+        });
+
+        var uses = '';
+
+        for (var r = 0; r < N; r++) {
+            for (var c = 0; c < N; c++) {
+                var id = names[(r * 5 + c * 3) % names.length];
+                var x = (r % 2 ? 45 : 15) + c * STEP;
+                var y = 30 + r * STEP;
+                var a = angles[(r * 3 + c * 5) % angles.length];
+
+                uses += '<use href="#thi-' + id + '" transform="translate(' + x + ' ' + y + ') rotate(' + a + ') scale(' + SCALE + ') translate(-20 -20)"/>';
+            }
+        }
+
+        var svg = '<svg id="thabitBg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+            '<defs>' + defs +
+            '<pattern id="thabitTile" width="' + TILE + '" height="' + TILE + '" patternUnits="userSpaceOnUse">' +
+            uses +
+            '</pattern></defs>' +
+            '<rect width="100%" height="100%" fill="url(#thabitTile)"/></svg>';
+
+        document.body.insertAdjacentHTML('afterbegin', svg);
+
+    })();
+    </script>
+
+<div class="mobile-floating-bar" id="mobileFloatingBar">
+  <a href="/" class="circle-badge-btn" id="homeBtn" title="Home" data-i18n-title="home"><i class="fa-solid fa-house"></i></a>
+  <div class="bar-divider"></div>
+  <button type="button" onclick="setLanguage('ar')" id="floatBtnAr" title="العربية" class="circle-badge-btn">ع</button>
+  <button type="button" onclick="setLanguage('en')" id="floatBtnEn" title="English" class="circle-badge-btn active">EN</button>
+  <button type="button" onclick="setLanguage('eg')" id="floatBtnEg" title="مصري" class="circle-badge-btn">مصر</button>
+  <div class="bar-divider"></div>
+  <button type="button" onclick="toggleTheme()" id="floatBtnTheme" title="Light / Dark" class="circle-badge-btn theme-btn"><i id="themeIcon" class="fa-solid fa-moon"></i></button>
+</div>
+
+<div id="toast"></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="glass-3d-logo-btn"><span class="glass-logo-text">T</span></div>
+    <h1 data-i18n="pageTitle">Placement</h1>
+    <p data-i18n="pageSub">Book your level-assessment session in four quick steps</p>
+  </div>
+
+  <!-- STEP 1 -->
+  <section class="pcard active" id="step1">
+    <div class="ptitle"><span class="num">1</span><i class="fa-regular fa-calendar-check" style="color:var(--gold)"></i><span data-i18n="s1">Pick your time</span></div>
+    <label class="lbl"><i class="fa-regular fa-user"></i><span data-i18n="yourName">Your name</span><span class="req"></span></label>
+    <input class="inp" id="nameInput" data-i18n-ph="yourNamePh" placeholder="Enter your full name..." autocomplete="name">
+
+    <div class="cal-head">
+      <button type="button" class="cal-nav" id="prevM"><i class="fa-solid fa-chevron-left flip"></i></button>
+      <div class="cal-title" id="calTitle"></div>
+      <button type="button" class="cal-nav" id="nextM"><i class="fa-solid fa-chevron-right flip"></i></button>
+    </div>
+    <div class="cal-grid" id="calGrid"></div>
+    <div class="legend">
+      <span><i style="background:rgba(16,185,129,.5)"></i><span data-i18n="legAvail">Available</span></span>
+      <span><i style="background:rgba(239,68,68,.5)"></i><span data-i18n="legOff">Closed</span></span>
+      <span><i style="box-shadow:0 0 0 2px var(--gold)"></i><span data-i18n="legToday">Today</span></span>
+      <span><i style="background:rgba(148,163,184,.4)"></i><span data-i18n="legPast">Past</span></span>
+    </div>
+
+    <div class="timeline hidden" id="timeline">
+      <div class="tl-head"><i class="fa-regular fa-clock"></i><span id="tlDate"></span></div>
+      <div class="tl-list" id="tlList"></div>
+    </div>
+    <div class="pick" id="pick"><i class="fa-solid fa-circle-check"></i><span id="pickTxt"></span></div>
+    <div class="navrow"><button type="button" class="btn" id="c1" disabled><span data-i18n="cont">Continue</span> <i class="fa-solid fa-arrow-right flip"></i></button></div>
+  </section>
+
+  <!-- STEP 2 -->
+  <section class="pcard" id="step2">
+    <div class="ptitle"><span class="num">2</span><i class="fa-regular fa-folder-open" style="color:var(--gold)"></i><span data-i18n="s2">Your files</span></div>
+
+    <div class="fcard" data-file="english">
+      <div class="fhead"><i class="fa-solid fa-language"></i><span data-i18n="fEnglish">External English Test</span></div>
+      <p class="fhint" data-cms="pl.englishHint"></p>
+      <div class="frow"><label class="upl"><i class="fa-solid fa-upload"></i><span data-i18n="upload">Upload PDF / image</span><input type="file" accept="image/*,application/pdf" hidden></label><div class="fstatus"></div></div>
+      <div class="linkrow"><i class="fa-solid fa-link"></i><input class="inp" type="url" data-i18n-ph="pasteLink" placeholder="Paste link here..." dir="ltr"><button type="button" class="iconbtn paste"><i class="fa-regular fa-paste"></i></button></div>
+    </div>
+
+    <div class="fcard" data-file="psych">
+      <div class="fhead"><i class="fa-solid fa-brain"></i><span data-i18n="fPsych">The Psychological Test</span></div>
+      <p class="fhint" data-cms="pl.psychHint"></p>
+      <div class="frow"><label class="upl"><i class="fa-solid fa-upload"></i><span data-i18n="upload">Upload PDF / image</span><input type="file" accept="image/*,application/pdf" hidden></label><div class="fstatus"></div></div>
+      <div class="linkrow"><i class="fa-solid fa-link"></i><input class="inp" type="url" data-i18n-ph="pasteLink" placeholder="Paste link here..." dir="ltr"><button type="button" class="iconbtn paste"><i class="fa-regular fa-paste"></i></button></div>
+    </div>
+
+    <div class="fcard secret" data-file="secret">
+      <div class="fhead"><i class="fa-solid fa-user-secret"></i><span data-i18n="fSecret">The Secret File</span><span class="opt" data-i18n="optional">Optional</span></div>
+      <p class="fhint" data-cms="pl.secretHint"></p>
+      <div class="frow"><label class="upl"><i class="fa-solid fa-upload"></i><span data-i18n="upload">Upload PDF / image</span><input type="file" accept="image/*,application/pdf" hidden></label><div class="fstatus"></div></div>
+      <div class="linkrow"><i class="fa-solid fa-link"></i><input class="inp" type="url" data-i18n-ph="pasteLink" placeholder="Paste link here..." dir="ltr"><button type="button" class="iconbtn paste"><i class="fa-regular fa-paste"></i></button></div>
+    </div>
+
+    <p class="warn" id="warn2" data-i18n="needFile">Provide at least the English test or the psychological test — one is enough.</p>
+    <div class="navrow"><button type="button" class="btn ghost" data-back="1"><i class="fa-solid fa-arrow-left flip"></i> <span data-i18n="back">Back</span></button><button type="button" class="btn" id="c2" disabled><span data-i18n="cont">Continue</span> <i class="fa-solid fa-arrow-right flip"></i></button></div>
+  </section>
+
+  <!-- STEP 3 -->
+  <section class="pcard" id="step3">
+    <div class="ptitle"><span class="num">3</span><i class="fa-solid fa-wallet" style="color:var(--gold)"></i><span data-i18n="s3">Payment</span></div>
+    <div class="amount"><span data-i18n="amount">Amount</span><b data-cms="pl.price"></b></div>
+    <p class="note" data-cms="pl.payNote"></p>
+
+    <div class="paycard">
+      <div class="pi" style="background:linear-gradient(135deg,#7c3aed,#4f46e5)"><i class="fa-solid fa-bolt"></i></div>
+      <div class="pm"><div class="pn" data-i18n="instapay">InstaPay</div><div class="pv" id="ipLink"></div></div>
+      <button type="button" class="mini" data-copy="ip"><i class="fa-regular fa-copy"></i><span data-i18n="copy">Copy</span></button>
+      <a class="mini" id="ipOpen" target="_blank" rel="noopener" style="background:#475569"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+    </div>
+    <div class="paycard">
+      <div class="pi" style="background:linear-gradient(135deg,#e11d48,#be123c)"><i class="fa-solid fa-mobile-screen-button"></i></div>
+      <div class="pm"><div class="pn" data-i18n="vodafone">Vodafone Cash</div><div class="pv" id="vfNum"></div></div>
+      <button type="button" class="mini" data-copy="vf"><i class="fa-regular fa-copy"></i><span data-i18n="copy">Copy</span></button>
+    </div>
+    <img class="qr" data-cms="pl.qr" alt="QR" style="display:none">
+
+    <div class="subhead" data-i18n="paidVia">Paid via</div>
+    <div class="chips" id="chips">
+      <button type="button" class="chip sel" data-m="instapay">InstaPay</button>
+      <button type="button" class="chip" data-m="vodafone">Vodafone Cash</button>
+      <button type="button" class="chip" data-m="cash" data-i18n="inPerson">In person / cash</button>
+    </div>
+
+    <div id="proofBox">
+      <div class="fcard" data-file="proof" style="margin-bottom:0">
+        <div class="fhead"><i class="fa-solid fa-receipt"></i><span data-i18n="proofTitle">Payment proof</span></div>
+        <div class="frow"><label class="upl"><i class="fa-solid fa-image"></i><span data-i18n="proofUpload">Upload screenshot</span><input type="file" accept="image/*,application/pdf" hidden></label><div class="fstatus"></div></div>
+        <div class="linkrow"><i class="fa-solid fa-link"></i><input class="inp" type="url" data-i18n-ph="proofLink" placeholder="Or paste a link to the proof..." dir="ltr"><button type="button" class="iconbtn paste"><i class="fa-regular fa-paste"></i></button></div>
+      </div>
+    </div>
+    <p class="warn" id="warn3" data-i18n="needProof">Add your payment proof (image or link), or choose In person.</p>
+    <div class="navrow"><button type="button" class="btn ghost" data-back="2"><i class="fa-solid fa-arrow-left flip"></i> <span data-i18n="back">Back</span></button><button type="button" class="btn" id="c3" disabled><span data-i18n="cont">Continue</span> <i class="fa-solid fa-arrow-right flip"></i></button></div>
+  </section>
+
+  <!-- STEP 4 -->
+  <section class="pcard" id="step4">
+    <div class="ptitle"><span class="num">4</span><i class="fa-solid fa-scroll" style="color:var(--gold)"></i><span data-i18n="s4">Rules &amp; policies</span></div>
+    <div class="subhead" style="margin-top:0" data-i18n="rulesTitle">Placement session instructions</div>
+    <ul class="rules" data-cms="pl.rules"></ul>
+    <label class="agree"><input type="checkbox" id="agreeRules"><span class="box"><i class="fa-solid fa-check"></i></span><span data-i18n="agreeRules">I agree to all of the above</span></label>
+
+    <div class="divider"></div>
+    <div class="subhead" data-i18n="termsHeading">Terms &amp; policies</div>
+    <p class="note" style="font-weight:800;color:var(--text-strong)" data-cms="pl.termsTitle"></p>
+    <ol class="terms" data-cms="pl.terms"></ol>
+    <label class="agree"><input type="checkbox" id="agreeTerms"><span class="box"><i class="fa-solid fa-check"></i></span><span data-i18n="agreeTerms">I accept the terms &amp; policies</span></label>
+
+    <div class="navrow"><button type="button" class="btn ghost" data-back="3"><i class="fa-solid fa-arrow-left flip"></i> <span data-i18n="back">Back</span></button></div>
+  </section>
+</div>
+
+<!-- progress pill -->
+<div class="pill" id="pill">
+  <button type="button" class="pdot" data-s="1"></button><div class="pline"></div>
+  <button type="button" class="pdot" data-s="2"></button><div class="pline"></div>
+  <button type="button" class="pdot" data-s="3"></button><div class="pline"></div>
+  <button type="button" class="pdot" data-s="4"></button>
+  <button type="button" class="pdot fin" id="finDot" title="Details"><i class="fa-solid fa-receipt"></i></button>
+  <button type="button" class="pill-done" id="pillDone"><i class="fa-solid fa-receipt"></i><span data-i18n="details">Booking details</span></button>
+</div>
+
+<!-- receipt -->
+<div class="tha-modal" id="receipt"><div class="tha-box" style="max-width:480px">
+  <div class="tha-h"><h3><i class="fa-solid fa-circle-check" style="color:#10b981"></i> <span data-i18n="rTitle">Booking summary</span></h3><button type="button" class="tha-x" id="rClose"><i class="fa-solid fa-xmark"></i></button></div>
+  <p class="tha-note" style="margin-bottom:8px" data-i18n="doneSub">Your booking is ready — send the details to confirm.</p>
+  <div id="rBody"></div>
+  <div class="tha-btns" style="margin-top:16px">
+    <a class="sharebtn tg" id="shTg" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-telegram"></i><span data-i18n="sendTg">Telegram</span></a>
+    <a class="sharebtn wa" id="shWa" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span data-i18n="sendWa">WhatsApp</span></a>
+  </div>
+  <div class="tha-btns" style="margin-top:8px">
+    <button type="button" class="sharebtn cp" id="shCp"><i class="fa-regular fa-copy"></i><span data-i18n="copySummary">Copy summary</span></button>
+    <button type="button" class="sharebtn cp" id="shEdit" style="background:#b45309"><i class="fa-solid fa-pen"></i><span data-i18n="edit">Edit booking</span></button>
+  </div>
+</div></div>
+
+<!-- ===== THABIT SHARED: content editor + admin panel + theme fixes (start) ===== -->
+<style id="thaSharedCss">
+.circle-badge-btn.admin-btn{color:#10b981}
+body.light-theme .circle-badge-btn.theme-btn{color:#b45309}
+body.light-theme .circle-badge-btn.admin-btn{color:#047857}
+body.light-theme .text-slate-400,body.light-theme .text-slate-500{color:#475569!important}
+body.light-theme .text-amber-300,body.light-theme .text-amber-400{color:#b45309!important}
+body.light-theme .text-emerald-300,body.light-theme .text-emerald-400{color:#047857!important}
+body.light-theme .text-indigo-300,body.light-theme .text-indigo-400{color:#4f46e5!important}
+body.light-theme .text-rose-300,body.light-theme .text-rose-400{color:#be123c!important}
+body.light-theme .bg-slate-800{background:#e2e8f0!important;color:#0f172a}
+.tha-modal{position:fixed;inset:0;z-index:100000;display:none;align-items:center;justify-content:center;padding:14px;background:rgba(2,6,23,.8);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.tha-modal.open{display:flex;animation:thaIn .25s ease}
+@keyframes thaIn{from{opacity:0}to{opacity:1}}
+@keyframes thaPop{from{transform:translateY(14px) scale(.97);opacity:0}to{transform:none;opacity:1}}
+.tha-box{width:100%;max-width:600px;max-height:92vh;overflow-y:auto;border-radius:22px;padding:20px;background:#0f172a;color:#f1f5f9;border:1px solid rgba(255,255,255,.15);box-shadow:0 30px 80px rgba(0,0,0,.7);font-family:'Cairo','Plus Jakarta Sans',sans-serif;animation:thaPop .3s cubic-bezier(.16,1,.3,1)}
+body.light-theme .tha-box{background:#fff;color:#0f172a;border-color:rgba(15,23,42,.35)}
+.tha-h{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+.tha-h h3{font-size:1.05rem;font-weight:900;color:#fbbf24;display:flex;gap:8px;align-items:center}
+body.light-theme .tha-h h3{color:#a16207}
+.tha-x{width:34px;height:34px;border-radius:50%;border:0;cursor:pointer;background:rgba(148,163,184,.25);color:inherit;font-size:14px}
+.tha-tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tha-tab{flex:1;min-width:80px;padding:8px 10px;border-radius:12px;border:1px solid rgba(148,163,184,.4);background:transparent;color:inherit;font:700 .78rem 'Cairo',sans-serif;cursor:pointer}
+.tha-tab.on{background:#2563eb;border-color:#2563eb;color:#fff}
+.tha-in{width:100%;padding:10px 12px;border-radius:12px;border:1px solid rgba(148,163,184,.45);background:rgba(2,6,23,.55);color:inherit;font:600 .85rem 'Cairo',sans-serif;outline:none}
+body.light-theme .tha-in{background:#f1f5f9}
+textarea.tha-in{min-height:84px;resize:vertical;line-height:1.6}
+.tha-row{padding:12px;border:1px solid rgba(148,163,184,.3);border-radius:14px;margin-top:10px;display:flex;flex-direction:column;gap:8px}
+.tha-lab{font-size:.8rem;font-weight:800;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.tha-tag{font-size:.62rem;padding:2px 8px;border-radius:99px;background:rgba(212,175,55,.2);color:#d4af37;font-weight:800;white-space:nowrap}
+body.light-theme .tha-tag{color:#a16207}
+.tha-btns{display:flex;gap:6px;flex-wrap:wrap}
+.tha-b{padding:8px 12px;border-radius:10px;border:0;cursor:pointer;font:800 .75rem 'Cairo',sans-serif;color:#fff;background:#059669}
+.tha-b.gray{background:#475569}.tha-b.red{background:#e11d48}.tha-b.blue{background:#2563eb}
+.tha-b:disabled{opacity:.5;cursor:wait}
+.tha-note{font-size:.72rem;opacity:.75;line-height:1.6}
+.tha-img{max-width:100%;max-height:120px;border-radius:10px;object-fit:contain;align-self:flex-start}
+#thaMsg{min-height:18px;margin-top:10px;font-weight:700}
+</style>
+
+<div id="thaAuth" class="tha-modal"><div class="tha-box" style="max-width:380px;text-align:center">
+  <i class="fa-solid fa-lock" style="font-size:2rem;color:#fbbf24"></i>
+  <h3 style="margin:10px 0 4px;font-weight:900">Fedawy Admin</h3>
+  <p class="tha-note" style="margin-bottom:12px">سجّل دخول بحساب الأدمن · Sign in with the admin account</p>
+  <input id="thaEmail" type="email" autocomplete="username" class="tha-in" style="text-align:center;margin-bottom:8px" placeholder="Email">
+  <input id="thaPass" type="password" autocomplete="current-password" class="tha-in" style="text-align:center" placeholder="Password">
+  <p id="thaAuthErr" class="tha-note" style="color:#f43f5e;margin-top:8px;min-height:16px"></p>
+  <div class="tha-btns" style="margin-top:12px"><button type="button" class="tha-b gray" style="flex:1" id="thaAuthCancel">إلغاء</button><button type="button" class="tha-b" style="flex:1" id="thaAuthOk">دخول</button></div>
+</div></div>
+
+<div id="thaPanel" class="tha-modal"><div class="tha-box">
+  <div class="tha-h"><h3><i class="fa-solid fa-shield-halved"></i> Fedawy Admin Panel</h3><button type="button" class="tha-x" id="thaClose"><i class="fa-solid fa-xmark"></i></button></div>
+  <div class="tha-tabs" style="margin-bottom:12px">
+    <button type="button" class="tha-tab on" id="thaTabC"><i class="fa-solid fa-pen-to-square"></i> تعديل المحتوى · Content</button>
+    <button type="button" class="tha-tab" id="thaTabA"><i class="fa-solid fa-microphone"></i> صوتيات · Audio</button>
+    <button type="button" class="tha-tab" id="thaTabB"><i class="fa-solid fa-list-check"></i> حجوزات · Bookings</button>
+  </div>
+  <div id="thaPaneC">
+    <input id="thaSearch" class="tha-in" placeholder="Search... / ابحث...">
+    <div id="thaPages" class="tha-tabs" style="margin-top:10px"></div>
+    <div id="thaList"></div>
+  </div>
+  <div id="thaPaneA" style="display:none">
+    <label class="tha-lab" style="margin-bottom:6px">word (s):</label>
+    <input id="thaWord" class="tha-in" placeholder="e.g. Hello">
+    <div class="tha-btns" style="margin-top:10px;align-items:center">
+      <button type="button" class="tha-b red" id="thaRec"><i class="fa-solid fa-microphone"></i> Record</button>
+      <span id="thaTimer" style="font-family:monospace">00:00</span>
+      <audio id="thaPlay" controls style="height:34px;display:none;max-width:100%"></audio>
+    </div>
+    <button type="button" class="tha-b" id="thaUp" style="margin-top:12px;width:100%;padding:12px" disabled><i class="fa-solid fa-cloud-arrow-up"></i> Upload &amp; Save to Database</button>
+  </div>
+  <div id="thaPaneB" style="display:none"><div id="thaBook" class="tha-note">...</div></div>
+  <div class="tha-btns" style="margin-top:10px"><button type="button" class="tha-b gray" id="thaOut"><i class="fa-solid fa-right-from-bracket"></i> Sign out</button></div>
+  <div id="thaMsg" class="tha-note"></div>
+</div></div>
+
+<script>
+(function(){
+  var SB="https://vkfexceitwjmxncwceqb.supabase.co";
+  var KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZrZmV4Y2VpdHdqbXhuY3djZXFiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAzMzY5MTEsImV4cCI6MjEwNTkxMjkxMX0.6ArXtykrZhdNInphpg_LQTIvULkpwnnlzHA3dKhrNoI";
+  var SESSKEY="thabit_admin_session";
+  var $=function(i){return document.getElementById(i)};
+  function H(x){var h={apikey:KEY,Authorization:"Bearer "+KEY};for(var k in x)h[k]=x[k];return h}
+  var defs={},order=[],over={},hooks=[];
+  try{over=JSON.parse(localStorage.getItem("thabit_cms")||"{}")||{}}catch(e){over={}}
+  function lang(){try{return localStorage.getItem("thabit_lang")||"en"}catch(e){return"en"}}
+  function cache(){try{localStorage.setItem("thabit_cms",JSON.stringify(over))}catch(e){}}
+  function R(key,label,type,page,def,hint){defs[key]={label:label,type:type,page:page,def:def,hint:hint||""};order.push(key)}
+  function defOf(k){var d=defs[k];if(!d)return"";var v=d.def;if(typeof v==="function")v=v(lang());else if(v&&typeof v==="object")v=v[lang()]||v.en;return v==null?"":v}
+  function hasOv(k){return over[k]!==undefined&&over[k]!==""}
+  function get(k){return hasOv(k)?over[k]:defOf(k)}
+  function sub(s){return String(s).replace(/\{fee\}/g,get("pl.lateFee")).replace(/\{price\}/g,get("pl.price"))}
+  function apply(){
+    document.querySelectorAll("[data-cms]").forEach(function(el){
+      var k=el.getAttribute("data-cms"),d=defs[k];if(!d)return;
+      if(el.hasAttribute("data-cms-ov")&&!hasOv(k))return;
+      var v=get(k);
+      if(d.type==="image"){if(v){el.src=v;el.style.display=""}else{el.removeAttribute("src");el.style.display="none"}}
+      else if(d.type==="list"){el.innerHTML="";String(v).split("\n").forEach(function(s){if(!s.trim())return;var li=document.createElement("li");li.textContent=sub(s.trim());el.appendChild(li)})}
+      else el.textContent=sub(v);
+    });
+    hooks.forEach(function(f){try{f()}catch(e){}});
+  }
+  function sess(){try{return JSON.parse(sessionStorage.getItem(SESSKEY)||"null")}catch(e){return null}}
+  function setSess(x){try{if(x)sessionStorage.setItem(SESSKEY,JSON.stringify(x));else sessionStorage.removeItem(SESSKEY)}catch(e){}}
+  function keep(j){setSess({access:j.access_token,refresh:j.refresh_token,exp:Date.now()+(j.expires_in||3600)*1000})}
+  function ensure(){
+    var x=sess();if(!x)return Promise.resolve(null);
+    if(x.exp>Date.now()+30000)return Promise.resolve(x.access);
+    return fetch(SB+"/auth/v1/token?grant_type=refresh_token",{method:"POST",headers:{apikey:KEY,"Content-Type":"application/json"},body:JSON.stringify({refresh_token:x.refresh})}).then(function(r){return r.ok?r.json():null}).then(function(j){if(!j||!j.access_token){setSess(null);return null}keep(j);return j.access_token}).catch(function(){return null});
+  }
+  function hdr(extra){return ensure().then(function(t){var h={apikey:KEY,Authorization:"Bearer "+(t||KEY)};for(var k in extra)h[k]=extra[k];return h})}
+  function adminFetch(url,o){return ensure().then(function(t){if(!t)throw new Error("auth");o=o||{};o.headers=Object.assign({apikey:KEY,Authorization:"Bearer "+t},o.headers||{});return fetch(url,o)})}
+  function login(email,pass){
+    return fetch(SB+"/auth/v1/token?grant_type=password",{method:"POST",headers:{apikey:KEY,"Content-Type":"application/json"},body:JSON.stringify({email:email,password:pass})}).then(function(r){return r.json().then(function(j){return{ok:r.ok,j:j}})}).then(function(o){if(!o.ok||!o.j.access_token)throw new Error("bad");keep(o.j)});
+  }
+  function load(){
+    return fetch(SB+"/rest/v1/site_content?select=key,value",{headers:H()}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(rows){var m={};rows.forEach(function(r){m[r.key]=r.value});over=m;cache();apply()}).catch(function(){})
+  }
+  function save(k,v){
+    over[k]=v;cache();apply();
+    return adminFetch(SB+"/rest/v1/site_content?on_conflict=key",{method:"POST",headers:{"Content-Type":"application/json",Prefer:"resolution=merge-duplicates,return=minimal"},body:JSON.stringify({key:k,value:v,updated_at:new Date().toISOString()})}).then(function(r){return r.ok}).catch(function(){return false});
+  }
+  function reset(k){
+    delete over[k];cache();apply();
+    return adminFetch(SB+"/rest/v1/site_content?key=eq."+encodeURIComponent(k),{method:"DELETE"}).then(function(r){return r.ok}).catch(function(){return false});
+  }
+  function upload(file,folder,bucket,asAdmin){
+    bucket=bucket||"placement-files";
+    var name=folder+"/"+Date.now()+"_"+Math.random().toString(36).slice(2,10)+"_"+file.name.replace(/[^\w.\-]+/g,"_");
+    var o={method:"POST",headers:{"Content-Type":file.type||"application/octet-stream"},body:file},url=SB+"/storage/v1/object/"+bucket+"/"+name;
+    var p=asAdmin?adminFetch(url,o):fetch(url,{method:"POST",headers:H(o.headers),body:file});
+    return p.then(function(r){if(!r.ok)throw new Error("upload");return SB+"/storage/v1/object/public/"+bucket+"/"+name});
+  }
+  function post(table,obj){
+    return fetch(SB+"/rest/v1/"+table,{method:"POST",headers:H({"Content-Type":"application/json",Prefer:"return=minimal"}),body:JSON.stringify(obj)}).then(function(r){return r.ok}).catch(function(){return false});
+  }
+
+  /* ---------- registry of every editable thing in the whole site ---------- */
+  R("portal.servicesDesc","Booking card text","textarea","Portal",{en:"Pick your time slot, upload the required files, and confirm your payment with ease.",ar:"قم باختيار ميعادك، ورفع الملفات المطلوبة، وإثبات الدفع بكل سهولة ويسر.",eg:"اختار ميعادك، وارفع الملفات المطلوبة، وأثبت الدفع بكل سهولة."});
+  R("portal.aboutDesc","About Us text","textarea","Portal",{en:"THABIT is a state-of-the-art educational ecosystem built to bridge the gap between mentors and trainees.",ar:"ثابت منظومة تعليمية متطورة صُممت لسد الفجوة بين المدربين والمتدربين.",eg:"ثابت منظومة تعليمية متطورة اتعملت عشان تقرّب بين المدرب والمتدرب."});
+  R("dash.subtitle","Dashboard subtitle","text","Dashboard",{en:"Your personal trainee dashboard in the Thabit system",ar:"لوحة قيادة المتدرب الخاصة بك في نظام Thabit",eg:"لوحة التحكم بتاعتك كمتدرب في نظام Thabit"});
+  R("assist.headerSub","Assistant header subtitle","text","Assistant",{en:"pronounce on the go",ar:"انطق وأنت في طريقك",eg:"انطق وانت ماشي"});
+
+  R("pl.price","Placement session price","text","Placement",{en:"XXX EGP",ar:"XXX جنيه",eg:"XXX جنيه"},"Shown in the payment step and the receipt");
+  R("pl.lateFee","Late fee per minute (number)","text","Placement","25","Used in the rules as {fee}");
+  R("pl.slots","Daily time slots","textarea","Placement","10:00, 11:00, 12:00, 13:00, 14:00, 15:00, 16:00, 17:00, 18:00, 19:00, 20:00, 21:00","24h format HH:MM, separated by commas or new lines");
+  R("pl.blocked","Unavailable dates","textarea","Placement","","YYYY-MM-DD separated by commas/new lines. Thursday & Friday are always closed automatically.");
+  R("pl.booked","Booked slots","textarea","Placement","","One per line: YYYY-MM-DD HH:MM (e.g. 2026-10-14 16:00)");
+  R("pl.englishHint","English test: hint","text","Placement",{en:"Upload a PDF / screenshot of your external English test result, or paste its link.",ar:"ارفع ملف PDF أو لقطة شاشة لنتيجة اختبار الإنجليزي الخارجي، أو ضع رابطه.",eg:"ارفع PDF أو سكرين شوت لنتيجة اختبار الإنجليزي الخارجي، أو حط اللينك بتاعه."});
+  R("pl.psychHint","Psychological test: hint","text","Placement",{en:"Upload an image / PDF of your psychological test result, or paste its link.",ar:"ارفع صورة أو ملف PDF لنتيجة الاختبار السيكولوجي، أو ضع رابطه.",eg:"ارفع صورة أو PDF لنتيجة الاختبار السيكولوجي، أو حط اللينك بتاعه."});
+  R("pl.secretHint","Secret file: hint","text","Placement",{en:"Got something special to share? Drop it here. Totally optional.",ar:"عندك شيء مميز تريد مشاركته؟ ضعه هنا. اختياري تمامًا.",eg:"عندك حاجة مميزة؟ حطها هنا. اختياري خالص."});
+  R("pl.payNote","Payment note","text","Placement",{en:"Pay with one of the methods below, then come back and add your proof.",ar:"ادفع بإحدى الطرق التالية ثم عد وأضف إثبات الدفع.",eg:"ادفع بأي طريقة من دول وبعدين ارجع وحط إثبات الدفع."});
+  R("pl.instapayLink","InstaPay link","text","Placement","https://ipn.eg/S/thabit");
+  R("pl.vodafone","Vodafone Cash number","text","Placement","01000000000");
+  R("pl.qr","Payment QR / image (optional)","image","Placement","");
+  R("pl.rules","Placement session instructions","list","Placement",{
+    en:"Be on time: if you are more than 20 minutes late after the agreed time, your payment is non-refundable.\nIf you are late by less than 20 minutes, a late fee of {fee} EGP per minute applies.\nBring a pen and paper to take notes — this is very important.\nMake sure your internet connection is stable.\nUse good headphones — or at least make sure the audio is crystal clear: no crackling, no background noise, no side conversations.",
+    ar:"الالتزام بالموعد: إذا تأخرت أكثر من 20 دقيقة عن الموعد المتفق عليه فلن يتم استرداد المبلغ المدفوع.\nإذا كان التأخير أقل من 20 دقيقة تُحتسب غرامة {fee} جنيهًا عن كل دقيقة تأخير.\nأحضر ورقة وقلمًا لتدوين الملاحظات، وهذا مهم جدًا.\nتأكد من ثبات اتصال الإنترنت.\nاستخدم سماعة جيدة، أو على الأقل تأكد من وضوح الصوت تمامًا: بدون تقطيع أو ضوضاء أو أحاديث جانبية.",
+    eg:"الالتزام بالميعاد: لو اتأخرت أكتر من 20 دقيقة عن الميعاد المتفق عليه فلوسك مش هتترجع.\nلو التأخير أقل من 20 دقيقة بتتحسب غرامة {fee} جنيه على كل دقيقة.\nهات ورقة وقلم تدوّن عليهم ملاحظات، ودي مهمة جدًا.\nتأكد إن النت ثابت.\nاستخدم سماعة كويسة، أو على الأقل الصوت يكون واضح: من غير خرفشة ولا دوشة ولا كلام جانبي."
+  },"One rule per line");
+  R("pl.termsTitle","Terms heading","text","Placement",{en:"Thabit's strict terms are as follows:",ar:"بنود ثابت الصارمة كالتالي:",eg:"بنود ثابت الصارمة هي كالتالي:"});
+  R("pl.terms","Terms & policies","list","Placement",{
+    en:"Term number one — edit me from the admin panel\nTerm number two — edit me from the admin panel\nTerm number three — edit me from the admin panel",
+    ar:"البند الأول — عدّلني من لوحة الأدمن\nالبند الثاني — عدّلني من لوحة الأدمن\nالبند الثالث — عدّلني من لوحة الأدمن",
+    eg:"البند الأول — عدّلني من لوحة الأدمن\nالبند الثاني — عدّلني من لوحة الأدمن\nالبند الثالث — عدّلني من لوحة الأدمن"
+  },"One term per line (numbered automatically)");
+  R("pl.wa","WhatsApp number (digits, with country code)","text","Placement","201000000000");
+  R("pl.tg","Telegram username (without @)","text","Placement","thabit");
+
+  /* ---------- admin UI ---------- */
+  var curPage="";
+  var p=location.pathname.toLowerCase();
+  if(p.indexOf("placement")>-1)curPage="Placement";else if(p.indexOf("assistant")>-1)curPage="Assistant";else if(p.indexOf("dashboard")>-1)curPage="Dashboard";else curPage="Portal";
+  function msg(t,bad){var m=$("thaMsg");m.textContent=t;m.style.color=bad?"#f43f5e":"#10b981";clearTimeout(msg._t);msg._t=setTimeout(function(){m.textContent=""},4500)}
+  function renderPages(){
+    var pages=["All"];order.forEach(function(k){if(pages.indexOf(defs[k].page)<0)pages.push(defs[k].page)});
+    var box=$("thaPages");box.innerHTML="";
+    pages.forEach(function(pg){var b=document.createElement("button");b.type="button";b.className="tha-tab"+((curPage===pg||(!curPage&&pg==="All"))?" on":"");b.textContent=pg;b.onclick=function(){curPage=pg==="All"?"":pg;renderPages();renderList()};box.appendChild(b)});
+  }
+  function renderList(){
+    var q=($("thaSearch").value||"").toLowerCase(),box=$("thaList");box.innerHTML="";
+    order.forEach(function(k){
+      var d=defs[k];if(curPage&&d.page!==curPage)return;
+      if(q&&(k+" "+d.label).toLowerCase().indexOf(q)<0)return;
+      var row=document.createElement("div");row.className="tha-row";
+      var lab=document.createElement("div");lab.className="tha-lab";
+      var s1=document.createElement("span");s1.textContent=d.label;var s2=document.createElement("span");s2.className="tha-tag";s2.textContent=d.page;
+      lab.appendChild(s1);lab.appendChild(s2);row.appendChild(lab);
+      var val=hasOv(k)?over[k]:defOf(k);
+      var inp=document.createElement(d.type==="text"||d.type==="image"?"input":"textarea");inp.className="tha-in";inp.value=val;
+      if(d.type==="image")inp.placeholder="https://... image URL";
+      row.appendChild(inp);
+      if(d.hint){var h=document.createElement("div");h.className="tha-note";h.textContent=d.hint;row.appendChild(h)}
+      var img=null;
+      if(d.type==="image"){img=document.createElement("img");img.className="tha-img";if(val)img.src=val;else img.style.display="none";row.appendChild(img);inp.oninput=function(){if(inp.value){img.src=inp.value;img.style.display=""}else img.style.display="none"}}
+      var bt=document.createElement("div");bt.className="tha-btns";
+      if(d.type==="image"){
+        var fi=document.createElement("input");fi.type="file";fi.accept="image/*";fi.style.display="none";
+        var ub=document.createElement("button");ub.type="button";ub.className="tha-b blue";ub.innerHTML='<i class="fa-solid fa-upload"></i> Upload image';
+        ub.onclick=function(){fi.click()};
+        fi.onchange=function(){if(!fi.files[0])return;ub.disabled=true;upload(fi.files[0],"site",null,true).then(function(u){inp.value=u;img.src=u;img.style.display="";msg("Uploaded ✓ — press Save")}).catch(function(){msg("Upload failed (create the placement-files bucket)",1)}).then(function(){ub.disabled=false})};
+        bt.appendChild(ub);bt.appendChild(fi);
+      }
+      var sb=document.createElement("button");sb.type="button";sb.className="tha-b";sb.innerHTML='<i class="fa-solid fa-floppy-disk"></i> Save';
+      sb.onclick=function(){sb.disabled=true;save(k,inp.value).then(function(ok){msg(ok?"Saved ✓":"Saved on this device only — create the site_content table (see SQL)",!ok)}).then(function(){sb.disabled=false})};
+      var rb=document.createElement("button");rb.type="button";rb.className="tha-b gray";rb.innerHTML='<i class="fa-solid fa-rotate-left"></i> Reset';
+      rb.onclick=function(){reset(k).then(function(){inp.value=defOf(k);if(img){if(inp.value){img.src=inp.value}else img.style.display="none"}msg("Back to default ✓")})};
+      bt.appendChild(sb);bt.appendChild(rb);row.appendChild(bt);box.appendChild(row);
+    });
+    if(!box.children.length){box.innerHTML='<p class="tha-note" style="margin-top:12px">Nothing here.</p>'}
+  }
+  var pending=null;
+  function showPanel(){$("thaPanel").classList.add("open");renderPages();renderList()}
+  function open(cb){
+    pending=typeof cb==="function"?cb:showPanel;
+    ensure().then(function(t){if(t){var f=pending;pending=null;f()}else{$("thaAuthErr").textContent="";$("thaAuth").classList.add("open");setTimeout(function(){$("thaEmail").focus()},50)}});
+  }
+  function auth(){
+    var b=$("thaAuthOk");b.disabled=true;
+    login($("thaEmail").value.trim(),$("thaPass").value).then(function(){$("thaPass").value="";$("thaAuth").classList.remove("open");var f=pending||showPanel;pending=null;f()}).catch(function(){$("thaAuthErr").textContent="الإيميل أو الباسورد غلط · Wrong email or password"}).then(function(){b.disabled=false});
+  }
+  $("thaAuthOk").onclick=auth;$("thaPass").onkeydown=function(e){if(e.key==="Enter")auth()};
+  $("thaAuthCancel").onclick=function(){pending=null;$("thaAuth").classList.remove("open")};
+  $("thaOut").onclick=function(){setSess(null);$("thaPanel").classList.remove("open");msg("")};
+  $("thaClose").onclick=function(){$("thaPanel").classList.remove("open")};
+  $("thaSearch").oninput=renderList;
+  function tab(n){["C","A","B"].forEach(function(x){$("thaPane"+x).style.display=x===n?"":"none";$("thaTab"+x).classList.toggle("on",x===n)});if(n==="B")loadBookings()}
+  $("thaTabC").onclick=function(){tab("C")};$("thaTabA").onclick=function(){tab("A")};$("thaTabB").onclick=function(){tab("B")};
+  function loadBookings(){
+    var box=$("thaBook");box.textContent="...";
+    adminFetch(SB+"/rest/v1/placement_bookings?select=*&order=created_at.desc&limit=50").then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(rows){
+      box.innerHTML="";if(!rows.length){box.textContent="No bookings yet.";return}
+      rows.forEach(function(b){
+        var d=document.createElement("div");d.className="tha-row";
+        var l=document.createElement("div");l.className="tha-lab";var a=document.createElement("span");a.textContent=b.name+" · "+b.date+" "+b.time;var g=document.createElement("span");g.className="tha-tag";g.textContent=b.pay_method;l.appendChild(a);l.appendChild(g);d.appendChild(l);
+        [["English",b.english],["Psych",b.psych],["Secret",b.secret],["Proof",b.proof]].forEach(function(x){if(!x[1])return;var an=document.createElement("a");an.href=x[1];an.target="_blank";an.rel="noopener";an.textContent=x[0]+" ↗";an.style.cssText="color:#60a5fa;font-weight:800;font-size:.8rem";d.appendChild(an)});
+        box.appendChild(d);
+      });
+    }).catch(function(){box.textContent="Could not load bookings (sign in again / check the table policies)."});
+  }
+
+  /* audio tab */
+  var rec=null,chunks=[],blob=null,on=false,tmr=null,sec=0;
+  $("thaRec").onclick=function(){
+    var btn=$("thaRec");
+    if(!on){
+      navigator.mediaDevices.getUserMedia({audio:true}).then(function(st){
+        rec=new MediaRecorder(st);chunks=[];
+        rec.ondataavailable=function(e){if(e.data.size>0)chunks.push(e.data)};
+        rec.onstop=function(){st.getTracks().forEach(function(t){t.stop()});blob=new Blob(chunks,{type:"audio/mp3"});var a=$("thaPlay");a.src=URL.createObjectURL(blob);a.style.display="";$("thaUp").disabled=false};
+        rec.start();on=true;btn.innerHTML='<i class="fa-solid fa-stop"></i> Stop';sec=0;
+        tmr=setInterval(function(){sec++;$("thaTimer").textContent="00:"+(sec<10?"0":"")+sec},1000);
+      }).catch(function(){msg("Microphone not allowed",1)});
+    }else{rec.stop();on=false;clearInterval(tmr);btn.innerHTML='<i class="fa-solid fa-microphone"></i> Record'}
+  };
+  $("thaUp").onclick=function(){
+    var w=$("thaWord").value.trim();if(!w||!blob){msg("Type a word and record first",1);return}
+    var b=this;b.disabled=true;var fn=w.replace(/\s+/g,"_")+"_"+Date.now()+".mp3";
+    adminFetch(SB+"/storage/v1/object/audio-files/"+fn,{method:"POST",headers:{"Content-Type":"audio/mp3"},body:blob}).then(function(r){if(!r.ok)throw 0;
+      return adminFetch(SB+"/rest/v1/words_table",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({word:w,audio_url:SB+"/storage/v1/object/public/audio-files/"+fn})})}).then(function(r){if(!r.ok)throw 0;msg("Saved ✓");$("thaWord").value="";$("thaPlay").style.display="none";blob=null}).catch(function(){msg("Upload failed",1);b.disabled=false});
+  };
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"){$("thaPanel").classList.remove("open");$("thaAuth").classList.remove("open")}});
+
+  /* mount admin button in the floating bar */
+  function mount(){
+    var bar=$("mobileFloatingBar");if(!bar||$("floatBtnAdmin"))return;
+    var d=document.createElement("div");d.className="bar-divider";
+    var b=document.createElement("button");b.type="button";b.id="floatBtnAdmin";b.title="Fedawy Admin Panel";b.className="circle-badge-btn admin-btn";b.innerHTML='<i class="fa-solid fa-plus"></i>';b.onclick=open;
+    bar.appendChild(d);bar.appendChild(b);
+  }
+  mount();
+  var o=window.setLanguage;
+  if(typeof o==="function"&&!o._tha){var w=function(){var r=o.apply(this,arguments);apply();return r};w._tha=1;window.setLanguage=w}
+
+  window.ThabitCMS={get:get,apply:apply,load:load,save:save,upload:upload,post:post,onApply:function(f){hooks.push(f)},sub:sub};
+  window.ThabitAdmin={open:open,hdr:hdr};
+  apply();load();
+})();
+</script>
+<!-- ===== THABIT SHARED (end) ===== -->
+
+
+<script>
+(function(){
+var CMS=window.ThabitCMS;
+var $=function(i){return document.getElementById(i)};
+var PAGE_I18N={
+en:{pageTitle:"Placement",pageSub:"Book your level-assessment session in four quick steps",s1:"Pick your time",s2:"Your files",s3:"Payment",s4:"Rules & policies",
+yourName:"Your name",yourNamePh:"Enter your full name...",legAvail:"Available",legOff:"Closed",legToday:"Today",legPast:"Past",
+morning:"Morning",afternoon:"Afternoon",evening:"Evening",booked:"Booked",passed:"Passed",free:"Free",noSlots:"No slots left on this day",
+cont:"Continue",back:"Back",fEnglish:"External English Test",fPsych:"The Psychological Test",fSecret:"The Secret File",optional:"Optional",
+upload:"Upload PDF / image",pasteLink:"Paste link here...",uploading:"Uploading...",uploaded:"Uploaded",upFail:"Upload failed — paste a link instead",linkSaved:"Link added",
+needFile:"Provide at least the English test or the psychological test — one is enough.",
+amount:"Amount",instapay:"InstaPay",vodafone:"Vodafone Cash",copy:"Copy",copied:"Copied!",paidVia:"Paid via",inPerson:"In person / cash",
+proofTitle:"Payment proof",proofUpload:"Upload screenshot",proofLink:"Or paste a link to the proof...",needProof:"Add your payment proof (image or link), or choose In person.",
+rulesTitle:"Placement session instructions",agreeRules:"I agree to all of the above",termsHeading:"Terms & policies",agreeTerms:"I accept the terms & policies",
+details:"Booking details",rTitle:"Booking summary",rName:"Name",rDate:"Date",rTime:"Time",rEnglish:"English test",rPsych:"Psychological test",rSecret:"Secret file",rPay:"Payment",rAmount:"Amount",rAgree:"Rules & terms",agreed:"Agreed",none:"—",
+sendTg:"Telegram",sendWa:"WhatsApp",copySummary:"Copy summary",edit:"Edit booking",tgCopied:"Summary copied — paste it in the Telegram chat",
+done:"All set! 🎉",doneSub:"Your booking is ready — send the details to confirm.",needName:"Please enter your name first",home:"Home",themeTitle:"Light / Dark",
+fileWord:"File",linkWord:"Link",locked:"Finish the previous steps first",hdr:"Thabit — Placement booking"},
+ar:{pageTitle:"تحديد المستوى",pageSub:"احجز جلسة تحديد مستواك في أربع خطوات سريعة",s1:"اختر موعدك",s2:"ملفاتك",s3:"الدفع",s4:"التعليمات والسياسات",
+yourName:"اسمك",yourNamePh:"اكتب اسمك الكامل...",legAvail:"متاح",legOff:"مغلق",legToday:"اليوم",legPast:"مضى",
+morning:"الصباح",afternoon:"بعد الظهر",evening:"المساء",booked:"محجوز",passed:"انتهى",free:"متاح",noSlots:"لا توجد مواعيد متاحة في هذا اليوم",
+cont:"متابعة",back:"رجوع",fEnglish:"اختبار الإنجليزية الخارجي",fPsych:"الاختبار السيكولوجي",fSecret:"الملف السري",optional:"اختياري",
+upload:"رفع PDF / صورة",pasteLink:"ضع الرابط هنا...",uploading:"جارٍ الرفع...",uploaded:"تم الرفع",upFail:"فشل الرفع — ضع رابطًا بدلًا من ذلك",linkSaved:"تمت إضافة الرابط",
+needFile:"قدّم على الأقل اختبار الإنجليزية أو الاختبار السيكولوجي — يكفي أحدهما.",
+amount:"المبلغ",instapay:"إنستا باي",vodafone:"فودافون كاش",copy:"نسخ",copied:"تم النسخ!",paidVia:"طريقة الدفع",inPerson:"يدًا بيد / كاش",
+proofTitle:"إثبات الدفع",proofUpload:"رفع لقطة شاشة",proofLink:"أو ضع رابط الإثبات...",needProof:"أضف إثبات الدفع (صورة أو رابط)، أو اختر يدًا بيد.",
+rulesTitle:"تعليمات جلسة تحديد المستوى",agreeRules:"أوافق على كل ما سبق",termsHeading:"الشروط والسياسات",agreeTerms:"أوافق على الشروط والسياسات",
+details:"تفاصيل الحجز",rTitle:"ملخص الحجز",rName:"الاسم",rDate:"اليوم",rTime:"الوقت",rEnglish:"اختبار الإنجليزية",rPsych:"الاختبار السيكولوجي",rSecret:"الملف السري",rPay:"الدفع",rAmount:"المبلغ",rAgree:"التعليمات والشروط",agreed:"تمت الموافقة",none:"—",
+sendTg:"تيليجرام",sendWa:"واتساب",copySummary:"نسخ الملخص",edit:"تعديل الحجز",tgCopied:"تم نسخ الملخص — الصقه في محادثة تيليجرام",
+done:"تم! 🎉",doneSub:"حجزك جاهز — أرسل التفاصيل للتأكيد.",needName:"من فضلك اكتب اسمك أولًا",home:"الرئيسية",themeTitle:"فاتح / داكن",
+fileWord:"ملف",linkWord:"رابط",locked:"أكمل الخطوات السابقة أولًا",hdr:"ثابت — حجز تحديد المستوى"},
+eg:{pageTitle:"تحديد المستوى",pageSub:"احجز جلسة تحديد مستواك في أربع خطوات سريعة",s1:"اختار ميعادك",s2:"ملفاتك",s3:"الدفع",s4:"التعليمات والسياسات",
+yourName:"اسمك",yourNamePh:"اكتب اسمك بالكامل...",legAvail:"متاح",legOff:"مقفول",legToday:"النهارده",legPast:"فات",
+morning:"الصبح",afternoon:"بعد الضهر",evening:"المسا",booked:"محجوز",passed:"فات",free:"متاح",noSlots:"مفيش مواعيد فاضية في اليوم ده",
+cont:"كمّل",back:"رجوع",fEnglish:"اختبار الإنجليزي الخارجي",fPsych:"الاختبار السيكولوجي",fSecret:"الملف السري",optional:"اختياري",
+upload:"ارفع PDF / صورة",pasteLink:"حط اللينك هنا...",uploading:"بيترفع...",uploaded:"اترفع",upFail:"الرفع فشل — حط لينك بدله",linkSaved:"اللينك اتضاف",
+needFile:"لازم على الأقل اختبار الإنجليزي أو الاختبار السيكولوجي — واحد يكفي.",
+amount:"المبلغ",instapay:"إنستا باي",vodafone:"فودافون كاش",copy:"انسخ",copied:"اتنسخ!",paidVia:"دفعت إزاي",inPerson:"بالإيد / كاش",
+proofTitle:"إثبات الدفع",proofUpload:"ارفع سكرين شوت",proofLink:"أو حط لينك الإثبات...",needProof:"حط إثبات الدفع (صورة أو لينك)، أو اختار بالإيد.",
+rulesTitle:"تعليمات جلسة تحديد المستوى",agreeRules:"موافق على كل اللي فوق",termsHeading:"الشروط والسياسات",agreeTerms:"موافق على الشروط والسياسات",
+details:"تفاصيل الحجز",rTitle:"ملخص الحجز",rName:"الاسم",rDate:"اليوم",rTime:"الوقت",rEnglish:"اختبار الإنجليزي",rPsych:"الاختبار السيكولوجي",rSecret:"الملف السري",rPay:"الدفع",rAmount:"المبلغ",rAgree:"التعليمات والشروط",agreed:"وافقت",none:"—",
+sendTg:"تيليجرام",sendWa:"واتساب",copySummary:"انسخ الملخص",edit:"عدّل الحجز",tgCopied:"الملخص اتنسخ — الصقه في شات تيليجرام",
+done:"خلصنا! 🎉",doneSub:"حجزك جاهز — ابعت التفاصيل للتأكيد.",needName:"اكتب اسمك الأول",home:"الرئيسية",themeTitle:"فاتح / داكن",
+fileWord:"ملف",linkWord:"لينك",locked:"خلّص الخطوات اللي قبلها الأول",hdr:"ثابت — حجز تحديد المستوى"}
+};
+var cur="en",light=false;
+function sv(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function ld(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function t(k){return (PAGE_I18N[cur]&&PAGE_I18N[cur][k])||PAGE_I18N.en[k]||k}
+var LOC={en:"en-US",ar:"ar-EG",eg:"ar-EG"};
+
+window.toggleTheme=function(){light=!light;document.body.classList.toggle("light-theme",light);$("themeIcon").className=light?"fa-solid fa-sun":"fa-solid fa-moon";sv("thabit_theme",light?"light":"dark")};
+window.setLanguage=function(lang){
+  if(!PAGE_I18N[lang])lang="en";cur=lang;sv("thabit_lang",lang);
+  var ids={ar:"floatBtnAr",en:"floatBtnEn",eg:"floatBtnEg"};
+  Object.keys(ids).forEach(function(k){$(ids[k]).classList.toggle("active",k===lang)});
+  var r=document.documentElement;r.setAttribute("dir",lang==="en"?"ltr":"rtl");r.setAttribute("lang",lang==="ar"?"ar":(lang==="eg"?"arz":"en"));
+  var T=PAGE_I18N[lang];
+  document.querySelectorAll("[data-i18n]").forEach(function(el){var v=T[el.dataset.i18n];if(v!==undefined)el.textContent=v});
+  document.querySelectorAll("[data-i18n-ph]").forEach(function(el){var v=T[el.dataset.i18nPh];if(v!==undefined)el.placeholder=v});
+  document.querySelectorAll("[data-i18n-title]").forEach(function(el){var v=T[el.dataset.i18nTitle];if(v!==undefined)el.title=v});
+  CMS.apply();
+};
+
+/* ---------- state ---------- */
+var today=new Date();
+var view={y:today.getFullYear(),m:today.getMonth()};
+var S={name:"",date:null,time:null,files:{english:{},psych:{},secret:{},proof:{}},method:"instapay",rules:false,terms:false,step:1,complete:false,editing:false,saved:false};
+function pad(n){return n<10?"0"+n:""+n}
+function key(y,m,d){return y+"-"+pad(m+1)+"-"+pad(d)}
+function num(n){return new Intl.NumberFormat(LOC[cur]).format(n)}
+function validLink(s){return /^(https?:\/\/|www\.)\S+\.\S+/i.test((s||"").trim())}
+function fileDone(id){var f=S.files[id];return !!(f&&(f.url||validLink(f.link)))}
+function focusCenter(el){setTimeout(function(){el.scrollIntoView({behavior:"smooth",block:"center"})},80)}
+var toastT;
+function toast(m,bad){var e=$("toast");e.textContent=m;e.className="show"+(bad?" bad":"");clearTimeout(toastT);toastT=setTimeout(function(){e.className=""},2800)}
+
+/* ---------- admin-driven data ---------- */
+function parseList(s){return String(s||"").split(/[\s,;]+/).filter(Boolean)}
+function blocked(){return new Set(parseList(CMS.get("pl.blocked")).filter(function(x){return /^\d{4}-\d{2}-\d{2}$/.test(x)}))}
+function booked(){var set=new Set();String(CMS.get("pl.booked")||"").split("\n").forEach(function(l){var m=l.trim().match(/^(\d{4}-\d{2}-\d{2})\s+(\d{1,2}):(\d{2})$/);if(m)set.add(m[1]+" "+pad(+m[2])+":"+m[3])});return set}
+function slots(){var a=String(CMS.get("pl.slots")||"").split(/[,;\n]+/).map(function(x){return x.trim()}).filter(function(x){return /^\d{1,2}:\d{2}$/.test(x)}).map(function(x){var p=x.split(":");return pad(+p[0])+":"+p[1]});return a.sort()}
+function fmtTime(tm){var p=tm.split(":");return new Date(2000,0,1,+p[0],+p[1]).toLocaleTimeString(LOC[cur],{hour:"numeric",minute:"2-digit"})}
+function fmtDate(k,long){var p=k.split("-");return new Date(+p[0],+p[1]-1,+p[2]).toLocaleDateString(LOC[cur],long?{weekday:"long",day:"numeric",month:"long",year:"numeric"}:{weekday:"short",day:"numeric",month:"short"})}
+
+/* ---------- calendar ---------- */
+function dayState(y,m,d,bl){
+  var dt=new Date(y,m,d),t0=new Date(today.getFullYear(),today.getMonth(),today.getDate());
+  var isT=dt.getTime()===t0.getTime();
+  if(dt<t0)return{cls:"past",today:false};
+  var dow=dt.getDay();
+  if(dow===4||dow===5||bl.has(key(y,m,d)))return{cls:"off",today:isT};
+  return{cls:"open",today:isT};
+}
+function renderCal(){
+  var y=view.y,m=view.m,loc=LOC[cur],bl=blocked();
+  $("calTitle").textContent=new Intl.DateTimeFormat(loc,{month:"long",year:"numeric"}).format(new Date(y,m,1));
+  var h="";for(var i=0;i<7;i++)h+='<div class="cal-dow">'+new Intl.DateTimeFormat(loc,{weekday:"short"}).format(new Date(2026,9,10+i))+"</div>";
+  var first=(new Date(y,m,1).getDay()+1)%7,n=new Date(y,m+1,0).getDate();
+  for(i=0;i<first;i++)h+='<div class="day empty"></div>';
+  for(var d=1;d<=n;d++){var st=dayState(y,m,d,bl),k=key(y,m,d);
+    h+='<button type="button" class="day '+st.cls+(st.today?" is-today":"")+(S.date===k?" sel":"")+'" data-k="'+k+'"'+(st.cls==="open"?"":" disabled")+">"+num(d)+"</button>"}
+  $("calGrid").innerHTML=h;
+  var ahead=(y-today.getFullYear())*12+m-today.getMonth();
+  $("prevM").disabled=ahead<=0;$("nextM").disabled=ahead>=3;
+}
+$("calGrid").addEventListener("click",function(e){var b=e.target.closest(".day.open");if(!b)return;S.date=b.dataset.k;S.time=null;renderCal();renderTimeline();update();setTimeout(function(){$("timeline").scrollIntoView({behavior:"smooth",block:"start"})},80)});
+$("prevM").onclick=function(){view.m--;if(view.m<0){view.m=11;view.y--}renderCal()};
+$("nextM").onclick=function(){view.m++;if(view.m>11){view.m=0;view.y++}renderCal()};
+
+/* ---------- timeline ---------- */
+function renderTimeline(){
+  var w=$("timeline");
+  if(!S.date){w.classList.add("hidden");return}
+  var first=w.classList.contains("hidden");w.classList.remove("hidden");
+  $("tlDate").textContent=fmtDate(S.date,true);
+  var sl=slots(),bk=booked(),now=new Date(),isT=S.date===key(now.getFullYear(),now.getMonth(),now.getDate());
+  var groups=[["morning",0,12],["afternoon",12,17],["evening",17,24]],html="",idx=0,any=false;
+  groups.forEach(function(g){
+    var items=sl.filter(function(x){var h=+x.split(":")[0];return h>=g[1]&&h<g[2]});if(!items.length)return;
+    html+='<div class="tl-group"><i class="fa-solid fa-'+(g[0]==="morning"?"sun":g[0]==="afternoon"?"cloud-sun":"moon")+'"></i>'+t(g[0])+"</div>";
+    items.forEach(function(x){
+      var p=x.split(":"),isPast=isT&&(+p[0]*60+ +p[1])<=(now.getHours()*60+now.getMinutes());
+      var isBk=bk.has(S.date+" "+x),off=isPast||isBk;if(!off)any=true;
+      html+='<button type="button" class="slot'+(off?" off":"")+(S.time===x?" sel":"")+'" data-t="'+x+'" style="animation-delay:'+(idx++*40)+'ms"'+(off?" disabled":"")+'><span class="tm">'+fmtTime(x)+'</span><span class="st">'+(isBk?t("booked"):isPast?t("passed"):(S.time===x?'<i class="fa-solid fa-check"></i>':t("free")))+"</span></button>";
+    });
+  });
+  if(!any)html+='<div class="nodata">'+t("noSlots")+"</div>";
+  $("tlList").innerHTML=html;
+}
+$("tlList").addEventListener("click",function(e){var b=e.target.closest(".slot");if(!b||b.disabled)return;S.time=b.dataset.t;renderTimeline();update();focusCenter($("pick"))});
+
+/* ---------- files ---------- */
+function setStatus(card,id){
+  var st=card.querySelector(".fstatus"),f=S.files[id]||{};
+  st.className="fstatus";
+  if(f.busy){st.innerHTML='<span class="spin"></span>'+t("uploading")}
+  else if(f.err){st.className="fstatus bad";st.innerHTML='<i class="fa-solid fa-triangle-exclamation"></i>'+t("upFail")}
+  else if(f.url){st.className="fstatus ok";st.innerHTML='<i class="fa-solid fa-circle-check"></i>';st.appendChild(document.createTextNode(t("uploaded")+" · "+f.name))}
+  else if(validLink(f.link)){st.className="fstatus ok";st.innerHTML='<i class="fa-solid fa-circle-check"></i>'+t("linkSaved")}
+  else st.textContent="";
+  card.classList.toggle("done",fileDone(id));
+}
+function renderFiles(){document.querySelectorAll(".fcard[data-file]").forEach(function(c){setStatus(c,c.dataset.file)})}
+document.querySelectorAll(".fcard[data-file]").forEach(function(card){
+  var id=card.dataset.file,fi=card.querySelector("input[type=file]"),li=card.querySelector("input[type=url]");
+  fi.addEventListener("change",function(){
+    var f=fi.files[0];if(!f)return;var o=S.files[id];o.name=f.name;o.url="";o.err=false;o.busy=true;setStatus(card,id);focusCenter(card);
+    CMS.upload(f,"placement/"+id).then(function(u){o.url=u}).catch(function(){o.err=true}).then(function(){o.busy=false;setStatus(card,id);update();focusCenter(card)});
+  });
+  li.addEventListener("input",function(){S.files[id].link=li.value.trim();setStatus(card,id);update()});
+  li.addEventListener("focus",function(){focusCenter(card)});
+  card.querySelector(".paste").addEventListener("click",function(){
+    if(navigator.clipboard&&navigator.clipboard.readText)navigator.clipboard.readText().then(function(v){li.value=v.trim();li.dispatchEvent(new Event("input"))}).catch(function(){li.focus()});else li.focus();
+  });
+});
+
+/* ---------- payment ---------- */
+function copyText(s){
+  var ok=function(){toast(t("copied"))};
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(s).then(ok).catch(function(){fb()});else fb();
+  function fb(){var a=document.createElement("textarea");a.value=s;document.body.appendChild(a);a.select();try{document.execCommand("copy");ok()}catch(e){}a.remove()}
+}
+function renderPay(){
+  var ip=CMS.get("pl.instapayLink"),vf=CMS.get("pl.vodafone");
+  $("ipLink").textContent=ip;$("vfNum").textContent=vf;
+  $("ipOpen").href=/^https?:/i.test(ip)?ip:"#";$("ipOpen").style.display=/^https?:/i.test(ip)?"":"none";
+  document.querySelectorAll("#chips .chip").forEach(function(c){c.classList.toggle("sel",c.dataset.m===S.method)});
+  $("proofBox").classList.toggle("hide",S.method==="cash");
+}
+document.querySelectorAll("[data-copy]").forEach(function(b){b.addEventListener("click",function(){copyText(b.dataset.copy==="ip"?CMS.get("pl.instapayLink"):CMS.get("pl.vodafone"));if(S.method==="cash"){S.method=b.dataset.copy==="ip"?"instapay":"vodafone";renderPay();update()}focusCenter($("proofBox"))})});
+$("chips").addEventListener("click",function(e){var c=e.target.closest(".chip");if(!c)return;S.method=c.dataset.m;renderPay();update();if(S.method!=="cash")focusCenter($("proofBox"))});
+
+/* ---------- agreements ---------- */
+$("agreeRules").onchange=function(){S.rules=this.checked;update()};
+$("agreeTerms").onchange=function(){S.terms=this.checked;update()};
+$("nameInput").addEventListener("input",function(){S.name=this.value;update()});
+
+/* ---------- completion + navigation ---------- */
+function comp(){return[S.name.trim().length>1&&!!S.date&&!!S.time,fileDone("english")||fileDone("psych"),S.method==="cash"||fileDone("proof"),S.rules&&S.terms]}
+function canGo(n){var c=comp();for(var i=0;i<n-1;i++)if(!c[i])return false;return true}
+function go(n){
+  if(!canGo(n)){toast(t("locked"),1);return}
+  S.step=n;document.querySelectorAll(".pcard").forEach(function(s,i){s.classList.toggle("active",i+1===n)});
+  window.scrollTo({top:0,behavior:"smooth"});renderPill();
+}
+document.querySelectorAll(".pdot[data-s]").forEach(function(d){d.addEventListener("click",function(){go(+d.dataset.s)})});
+document.querySelectorAll("[data-back]").forEach(function(b){b.addEventListener("click",function(){go(+b.dataset.back)})});
+$("c1").onclick=function(){if(S.name.trim().length<2){toast(t("needName"),1);$("nameInput").focus();return}go(2)};
+$("c2").onclick=function(){go(3)};$("c3").onclick=function(){go(4)};
+
+var ICONS=["fa-regular fa-calendar-check","fa-regular fa-folder-open","fa-solid fa-wallet","fa-solid fa-scroll"];
+function renderPill(){
+  var c=comp(),all=c.every(Boolean);
+  document.querySelectorAll(".pdot[data-s]").forEach(function(d,i){
+    d.className="pdot"+(c[i]?" done":(S.step===i+1?" cur":""));
+    d.innerHTML=c[i]?'<i class="fa-solid fa-check"></i>':'<i class="'+ICONS[i]+'"></i>';
+  });
+  document.querySelectorAll(".pline").forEach(function(l,i){l.classList.toggle("done",c[i])});
+  var p=$("pill");p.classList.toggle("alldone",all);p.classList.toggle("complete",all&&S.complete&&!S.editing);
+}
+function update(){
+  var c=comp();
+  $("c1").disabled=!c[0];$("c2").disabled=!c[1];$("c3").disabled=!c[2];
+  $("warn2").classList.toggle("show",!c[1]&&(fileDone("secret")||S.files.english.err||S.files.psych.err));
+  $("warn3").classList.toggle("show",!c[2]&&(S.files.proof.err));
+  var pk=$("pick");
+  if(S.date&&S.time){pk.classList.add("show");$("pickTxt").textContent=fmtDate(S.date,true)+" · "+fmtTime(S.time)}else pk.classList.remove("show");
+  var all=c.every(Boolean);
+  if(all&&!S.complete){S.complete=true;S.editing=false;celebrate();saveBooking()}
+  else if(!all&&S.complete){S.complete=false;S.editing=false}
+  renderPill();
+}
+
+/* ---------- celebration + receipt ---------- */
+function celebrate(){
+  toast(t("done"));
+  var cols=["#d4af37","#10b981","#ef4444","#ffffff","#2563eb"];
+  for(var i=0;i<26;i++){var s=document.createElement("span");s.className="confetti";s.style.background=cols[i%cols.length];
+    s.style.setProperty("--x",(Math.random()*360-180)+"px");s.style.setProperty("--y",(-(Math.random()*260+80))+"px");s.style.setProperty("--r",(Math.random()*720-360)+"deg");
+    s.style.animationDelay=(Math.random()*.15)+"s";document.body.appendChild(s);setTimeout(function(x){x.remove()},2000,s)}
+}
+function fileLine(id){var f=S.files[id];if(f.url)return t("fileWord")+": "+f.name+"\n"+f.url;if(validLink(f.link))return t("linkWord")+": "+f.link;return t("none")}
+function payLine(){return S.method==="cash"?t("inPerson"):(S.method==="instapay"?t("instapay"):t("vodafone"))}
+function summary(){
+  var L=[t("hdr"),"",t("rName")+": "+S.name.trim(),t("rDate")+": "+fmtDate(S.date,true),t("rTime")+": "+fmtTime(S.time),"",
+   t("rEnglish")+": "+fileLine("english"),t("rPsych")+": "+fileLine("psych")];
+  if(fileDone("secret"))L.push(t("rSecret")+": "+fileLine("secret"));
+  L.push("",t("rPay")+": "+payLine()+" ("+CMS.get("pl.price")+")");
+  if(S.method!=="cash")L.push(fileLine("proof"));
+  L.push(t("rAgree")+": "+t("agreed"));return L.join("\n");
+}
+function rrow(a,b){var d=document.createElement("div");d.className="rrow";var x=document.createElement("span"),y=document.createElement("span");x.textContent=a;y.textContent=b;d.appendChild(x);d.appendChild(y);return d}
+function shortFile(id){var f=S.files[id];return f.url?f.name:(validLink(f.link)?f.link:t("none"))}
+function openReceipt(){
+  var b=$("rBody");b.innerHTML="";
+  b.appendChild(rrow(t("rName"),S.name.trim()));b.appendChild(rrow(t("rDate"),fmtDate(S.date,true)));b.appendChild(rrow(t("rTime"),fmtTime(S.time)));
+  b.appendChild(rrow(t("rEnglish"),shortFile("english")));b.appendChild(rrow(t("rPsych"),shortFile("psych")));
+  if(fileDone("secret"))b.appendChild(rrow(t("rSecret"),shortFile("secret")));
+  b.appendChild(rrow(t("rPay"),payLine()+(S.method!=="cash"?" · "+shortFile("proof"):"")));
+  b.appendChild(rrow(t("rAmount"),CMS.get("pl.price")));b.appendChild(rrow(t("rAgree"),"✓ "+t("agreed")));
+  var txt=summary();
+  $("shWa").href="https://wa.me/"+String(CMS.get("pl.wa")).replace(/\D/g,"")+"?text="+encodeURIComponent(txt);
+  $("shTg").href="https://t.me/"+String(CMS.get("pl.tg")).replace(/^@/,"");
+  $("receipt").classList.add("open");
+}
+$("pillDone").onclick=openReceipt;
+$("finDot").onclick=function(){S.editing=false;renderPill();openReceipt()};
+$("rClose").onclick=function(){$("receipt").classList.remove("open")};
+$("receipt").addEventListener("click",function(e){if(e.target===this)this.classList.remove("open")});
+$("shTg").addEventListener("click",function(){copyText(summary());toast(t("tgCopied"))});
+$("shCp").onclick=function(){copyText(summary())};
+$("shEdit").onclick=function(){S.editing=true;$("receipt").classList.remove("open");renderPill();go(1)};
+function saveBooking(){
+  if(S.saved)return;S.saved=true;
+  function fv(id){var f=S.files[id];return f.url||(validLink(f.link)?f.link:"")}
+  CMS.post("placement_bookings",{name:S.name.trim(),date:S.date,time:S.time,english:fv("english"),psych:fv("psych"),secret:fv("secret"),pay_method:S.method,proof:fv("proof"),price:CMS.get("pl.price"),created_at:new Date().toISOString()});
+}
+
+/* ---------- render all ---------- */
+function renderAll(){
+  renderCal();renderTimeline();renderFiles();renderPay();update();
+}
+CMS.onApply(renderAll);
+
+/* init */
+light=ld("thabit_theme")==="light";
+document.body.classList.toggle("light-theme",light);$("themeIcon").className=light?"fa-solid fa-sun":"fa-solid fa-moon";
+var sl=ld("thabit_lang");window.setLanguage(sl&&PAGE_I18N[sl]?sl:"en");
+})();
+</script>
+</body>
+</html>
