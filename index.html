@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thabit - Portal</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA2NCA2NCc+PHJlY3Qgd2lkdGg9JzY0JyBoZWlnaHQ9JzY0JyByeD0nMTQnIGZpbGw9JyMwMDAnLz48ZyB0cmFuc2Zvcm09J3RyYW5zbGF0ZSgtMi42MCA2LjMxKSBzY2FsZSgwLjE1MzYpJz48cGF0aCBkPSdNMzIyLjggMjQuMkwzMTcuMiAyMS4wTDMxMi4zIDE5LjhMMzA3LjUgMTkuOEwzMDEuNSAyMS4wTDI5Mi44IDI0LjVMMjgxLjggMzEuOEwyNzMuMyAzOS43TDI1OC4wIDU1LjNMMjQzLjUgNjguMkwyMzUuOCA3Mi44TDIzMS4zIDc0LjVMMjIzLjAgNzYuMkwyMTYuMyA3Ni4wTDIwOS44IDc0LjJMMjA0LjcgNzEuM0wyMDAuMiA2Ny4wTDE5Ny41IDYyLjdMMTk1LjggNTguN0wxOTQuNyA1Mi4zTDE5NC43IDQ3LjBMMTk1LjggNDAuOEwxOTcuMCAzOS4wTDE5OS4wIDMzLjBMMjAzLjMgMjcuMEwyMTEuMiAxOS44TDIxOS43IDE1LjJMMjIzLjMgMTQuMkwyMjQuNyAxMi41TDIxNi44IDEzLjBMMjA4LjMgMTUuMEwyMDcuMiAxNi4wTDE5OS4wIDE5LjdMMTkzLjAgMjQuMkwxODguMCAyOS4wTDE4My43IDM0LjdMMTc4LjcgNDQuMEwxNzUuNyA1NS4zTDE3Ni4wIDY1LjhMMTc4LjggNzUuNUwxODAuNSA3OC44TDE4My44IDgzLjJMMTg4LjggODcuOEwxOTQuNSA5MS4zTDE5OC4wIDkzLjBMMjA0LjUgOTQuNUwyMTEuNyA5NS4yTDIyMS43IDk0LjVMMjI4LjcgOTIuOEwyMzkuMiA4Ny44TDI1Mi4wIDc5LjBMMjYyLjggNjguMkwyNzQuMCA1NS4zTDI4Mi4zIDQ3LjJMMjg4LjAgNDIuN0wyOTYuNSAzOC4wTDMwMi44IDM3LjNMMzA1LjMgMzguN0wzMDcuMyA0Mi43TDMwNy4zIDQ5LjdMMzAyLjcgNjQuMkwyOTMuNSA4Mi41TDI5MS4yIDg1LjdMMjkwLjMgODguMEwyODYuNyA5My4zTDI4NC4yIDk4LjNMMjgxLjggMTAxLjNMMjc5LjggMTA1LjVMMjc3LjIgMTA4LjhMMjc1LjIgMTEzLjBMMjcyLjUgMTE2LjNMMjYyLjcgMTMyLjdMMjU5LjggMTM1LjhMMjIwLjIgMTM5LjBMMjEwLjggMTM5LjJMMjAzLjcgMTQwLjNMMTk0LjMgMTQwLjdMMTg2LjggMTQxLjhMMTUyLjAgMTQzLjdMMTQ0LjAgMTQ1LjBMMTAyLjMgMTQ4LjBMMTAwLjIgMTQ4LjhMOTYuMyAxNTMuMkw5NS41IDE1NS4yTDkzLjIgMTU3LjdMOTEuMCAxNjEuM0w4Mi41IDE3MS41TDgxLjggMTczLjJMNjguNSAxOTAuMkw2Ni41IDE5My41TDY0LjAgMTk2LjBMNjMuMyAxOTcuN0w1OS4zIDIwMi4zTDU5LjUgMjAzLjhMNzQuOCAyMDMuM0w4MS4wIDIwMi4yTDg5LjIgMjAxLjhMOTcuOCAyMDAuN0wxMzQuNSAxOTguN0wxNDEuMiAxOTcuNUwxNTAuMCAxOTcuM0wxNTUuNyAxOTYuNUwxNTYuOCAxOTYuOEwxNTYuOCAxOTguMkwxNDQuOCAyMTQuOEwxNDIuMyAyMTcuNUwxMzcuMiAyMjUuM0wxMjguNyAyMzYuMEwxMjguMCAyMzcuN0wxMjUuMyAyNDAuN0wxMTQuMCAyNTYuOEw4Mi4wIDI5OS4zTDcyLjIgMzA4LjhMNjcuMiAzMTIuM0w1Ny4zIDMxNi43TDUwLjUgMzE4LjVMNDkuNSAzMTkuN0w0OS43IDMyMS4yTDUxLjggMzIxLjVMNTkuNSAzMjAuNUwxMDEuMCAzMTguNUwxMTQuMiAzMTcuMEwxMjcuNSAzMTMuOEwxMzIuMiAzMTAuN0wxMzYuNyAzMDYuMEwxNzUuOCAyNDMuMkwxNzguMyAyNDAuMkwxODAuNyAyMzUuN0wyMDguMCAxOTMuM0wyMTAuMyAxOTIuM0wyMjAuMiAxOTEuM0wyMjMuMyAxOTEuNUwyMjQuMyAxOTMuMEwyMjIuMCAxOTYuMEwyMTkuMyAyMDEuMkwyMTEuNSAyMTMuMEwyMDEuNSAyMzAuMkwxODguMiAyNTEuMkwxODcuNSAyNTMuMkwxODAuNSAyNjMuOEwxNzMuOCAyNzYuMkwxNjkuOCAyODIuMEwxNjAuNSAyOTguNUwxNTguNyAzMDQuMEwxNTguNyAzMTAuMkwxNjAuNyAzMTUuNUwxNjUuMiAzMTkuN0wxNzAuMiAzMjEuNUwxNzUuNSAzMjEuM0wxNzkuMiAzMjAuMEwxODIuNSAzMTguMEwxODcuOCAzMTMuNUwyMTUuOCAyODMuOEwyMzQuNyAyNjUuM0wyNTEuOCAyNTEuNUwyNTkuMCAyNDguMEwyNjEuMCAyNDguMEwyNjIuOCAyNDkuMkwyNjMuOCAyNTQuMEwyNjMuMCAyNTkuN0wyNTguNyAyNzIuNUwyNTUuNyAyODUuMkwyNTQuOCAyOTkuMEwyNTUuNyAzMDUuM0wyNTguNyAzMTIuN0wyNjMuMyAzMTguMkwyNjkuOCAzMjEuM0wyNzUuMyAzMjIuNUwyNzkuMyAzMjIuN0wyODYuMCAzMjEuNUwyOTQuNSAzMTguMkwzMDEuNSAzMTMuNUwzMDguOCAzMDcuMEwzMTcuOCAyOTYuM0wzMjcuMiAyODEuNUwzMzAuNyAyNzMuMEwzMzIuMCAyNzEuMEwzMzQuMCAyNjQuM0wzMzUuMCAyNjMuMEwzMzUuMyAyNjAuN0wzMzYuNSAyNTguNUwzMzcuMCAyNTMuM0wzMzUuNyAyNTIuN0wzMzMuOCAyNTQuMkwzMzAuMCAyNjIuNUwzMjUuNyAyNzAuMkwzMjMuMiAyNzMuM0wzMjEuMyAyNzcuMkwzMTUuMCAyODUuOEwzMDYuNyAyOTQuOEwzMDAuMCAzMDAuMEwyOTMuOCAzMDMuMEwyODYuNSAzMDMuMEwyODMuNSAzMDAuNUwyODIuMCAyOTcuMkwyODIuMCAyODYuNUwyODQuNyAyNzQuN0wyODYuMCAyNzIuMkwyODcuOCAyNjMuOEwyOTAuNSAyNTcuMEwyOTMuNyAyNDIuMEwyOTQuMCAyMzQuM0wyOTMuNyAyMjkuOEwyOTAuMyAyMjMuM0wyODcuMiAyMjAuOEwyODIuNyAyMTguOEwyNzUuOCAyMTguOEwyNzAuMCAyMjAuNUwyNjUuNSAyMjIuM0wyNTQuMyAyMjkuNUwyMzUuOCAyNDUuMkwyMjYuNSAyNTQuNUwyMjQuNyAyNTcuMkwyMDUuOCAyNzcuM0wyMDQuOCAyNzcuN0wyMDQuNSAyNzYuNUwyMTguNyAyNTIuM0wyMjEuMiAyNDkuMEwyMjguMCAyMzYuN0wyMzUuMiAyMjUuN0wyMzUuNyAyMjQuMEwyNDkuMCAyMDMuMkwyNDkuNSAyMDEuNUwyNTUuNSAxOTEuN0wyNTcuNyAxODkuMEwyNTkuOCAxODguMkwyNjYuOCAxODguMkwyNzQuNSAxODYuOEwyOTUuNyAxODUuM0wzMDguOCAxODUuMEwzMTYuNSAxODMuN0wzMjQuMCAxODMuNUwzMzIuMCAxODIuM0wzNDEuNSAxODIuMEwzNDcuNyAxODEuMkwzNjguMiAxODAuM0wzNzMuMiAxNzkuM0wzNzQuOCAxNzguMkwzNzYuOCAxNzMuN0wzNzcuOCAxNzIuN0wzNzkuOCAxNjcuN0wzODEuMiAxNjYuMkwzOTYuMyAxMzUuN0wzOTguMyAxMzAuN0w0MDEuMCAxMjYuNUw0MDEuMCAxMjQuOEwzODUuMyAxMjUuNUwzNzkuOCAxMjYuNUwzNzAuNyAxMjYuOEwzNjIuNyAxMjguMEwzMjguOCAxMzAuMEwzMjIuMiAxMzEuMkwzMTQuNSAxMzEuM0wzMDQuMiAxMzIuN0wyOTMuNSAxMzMuMkwyOTIuMiAxMzIuM0wyOTIuNSAxMzAuOEwyOTUuMiAxMjcuOEwyOTcuMiAxMjMuN0wyOTkuNSAxMjAuN0wzMTMuNSA5Ny4zTDMyMi43IDc5LjJMMzI2LjIgNjkuNUwzMjcuMyA2Ny44TDMzMC41IDU1LjJMMzMxLjMgNDcuMkwzMzAuNyAzOS4wTDMyNy4yIDI4LjhaJyBmaWxsPScjZmZmJy8+PC9nPjwvc3ZnPg==">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA2NCA2NCc+PHJlY3Qgd2lkdGg9JzY0JyBoZWlnaHQ9JzY0JyByeD0nMTQnIGZpbGw9JyMwMDAnLz48ZyB0cmFuc2Zvcm09J3RyYW5zbGF0ZSgtMi42MCA2LjMxKSBzY2FsZSgwLjE1MzYpJz48cGF0aCBkPSdNMzIyLjggMjQuMkwzMTcuMiAyMS4wTDMxMi4zIDE5LjhMMzA3LjUgMTkuOEwzMDEuNSAyMS4wTDI5Mi44IDI0LjVMMjgxLjggMzEuOEwyNzMuMyAzOS43TDI1OC4wIDU1LjNMMjQzLjUgNjguMkwyMzUuOCA3Mi44TDIzMS4zIDc0LjVMMjIzLjAgNzYuMkwyMTYuMyA3Ni4wTDIwOS44IDc0LjJMMjA0LjcgNzEuM0wyMDAuMiA2Ny4wTDE5Ny41IDYyLjdMMTk1LjggNTguN0wxOTQuNyA1Mi4zTDE5NC43IDQ3LjBMMTk1LjggNDAuOEwxOTcuMCAzOS4wTDE5OS4wIDMzLjBMMjAzLjMgMjcuMEwyMTEuMiAxOS44TDIxOS43IDE1LjJMMjIzLjMgMTQuMkwyMjQuNyAxMi41TDIxNi44IDEzLjBMMjA4LjMgMTUuMEwyMDcuMiAxNi4wTDE5OS4wIDE5LjdMMTkzLjAgMjQuMkwxODguMCAyOS4wTDE4My43IDM0LjdMMTc4LjcgNDQuMEwxNzUuNyA1NS4zTDE3Ni4wIDY1LjhMMTc4LjggNzUuNUwxODAuNSA3OC44TDE4My44IDgzLjJMMTg4LjggODcuOEwxOTQuNSA5MS4zTDE5OC4wIDkzLjBMMjA0LjUgOTQuNUwyMTEuNyA5NS4yTDIyMS43IDk0LjVMMjI4LjcgOTIuOEwyMzkuMiA4Ny44TDI1Mi4wIDc5LjBMMjYyLjggNjguMkwyNzQuMCA1NS4zTDI4Mi4zIDQ3LjJMMjg4LjAgNDIuN0wyOTYuNSAzOC4wTDMwMi44IDM3LjNMMzA1LjMgMzguN0wzMDcuMyA0Mi43TDMwNy4zIDQ5LjdMMzAyLjcgNjQuMkwyOTMuNSA4Mi41TDI5MS4yIDg1LjdMMjkwLjMgODguMEwyODYuNyA5My4zTDI4NC4yIDk4LjNMMjgxLggxMDEuM0wyNzkuOCAxMDUuNUwyNzcuMiAxMDguOEwyNzUuMiAxMTMuMkwyNzIuNSAxMTYuM0wyNjIuNyAxMzIuM0wyNTkuOCAxMzUuOEwyMjAuMiAxMzkuMDBMMjEwLjggMTM5LjJMMjAzLjcgMTQwLjNMMTk0LjMgMTQwLjdMMTg2LjggMTQxLjhMMTUyLjAgMTQzLjdMMTQ0LjAgMTQ1LjBMMTAyLjMgMTQ4LjBMMTAwLjIgMTQ4LjhMOTYuMyAxNTMuMkw5NS41IDE1NS4yTDkzLjIgMTU3LjdMOTEuMCAxNjEuM0w4Mi41IDE3MS41TDgxLjggMTczLjJMNjguNSAxOTAuMkw2Ni41IDE5My41TDY0LjAgMTk2LjBMNjMuMyAxOTcuN0w1OS4zIDIwMi4zTDU5LjUgMjAzLjhMNzQuOCAyMDMuM0w4MS4wIDIwMi4yTDg5LjIgMjAxLjhMOTcuOCAyMDAuN0wxMzQuNSAxOTguN0wxNDEuMiAxOTcuNUwxNTAuMCAxOTcuM0wxNTUuNyAxOTYuNUwxNTYuOCAxOTYuOEwxNTYuOCAxOTguMkwxNDQuOCAyMTQuOEwxNDIuMyAyMTcuNUwxMzcuMiAyMjUuM0wxMjguNyAyMzYuMEwxMjguMCAyMzcuN0wxMjUuMyAyNDAuN0wxMTQuMCAyNTYuOEw4Mi4wIDI5OS4zTDcyLjIgMzA4LjhMNjcuMiAzMTIuM0w1Ny4zIDMxNi43TDUwLjUgMzE4LjVMNDkuNSAzMTkuN0w0OS43IDMyMS4yTDUxLjggMzIxLjVMNTkuNSAzMjAuNUwxMDEuMCAzMTguNUwxMTQuMiAzMTcuMEwxMjcuNSAzMTMuOEwxMzIuMiAzMTAuN0wxMzYuNyAzMDYuMEwxNzUuOCAyNDMuMkwxNzguMyAyNDAuMkwxODAuNyAyMzUuN0wyMDguMCAxOTMuM0wyMTAuMyAxOTIuM0wyMjAuMiAxOTEuM0wyMjMuMyAxOTEuNUwyMjQuMyAxOTMuMEwyMjIuMCAxOTYuMEwyMTkuMyAyMDEuMkwyMTEuNSAyMTMuMEwyMDEuNSAyMzAuMkwxODguMiAyNTEuMkwxODcuNSAyNTMuMkwxODAuNSAyNjMuOEwxNzMuOCAyNzYuMkwxNjkuOCAyODIuMEwxNjAuNSAyOTguNUwxNTguNyAzMDQuMEwxNTguNyAzMTAuMkwxNjAuNyAzMTUuNUwxNjUuMiAzMTkuN0wxNzAuMiAzMjEuNUwxNzUuNSAzMjEuM0wxNzkuMiAzMjAuMEwxODIuNSAzMTguMEwxODcuOCAzMTMuNUwyMTUuOCAyODMuOEwyMzQuNyAyNjUuM0wyNTEuOCAyNTEuNUwyNTkuMCAyNDguMEwyNjEuMCAyNDguMEwyNjIuOCAyNDkuMkwyNjMuOCAyNTQuMEwyNjMuMCAyNTkuN0wyNTguNyAyNzIuNUwyNTUuNyAyODUuMkwyN", ...>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Montserrat:ital,wght@0,900;1,700;1,900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        
         :root {
             --bg: #030712; --text: #f1f5f9; --text-strong: #ffffff; --muted: #94a3b8; --soft: #cbd5e1;
             --card: rgba(18, 27, 48, 0.78); --card-border: rgba(255, 255, 255, 0.10);
@@ -403,7 +402,6 @@
             cursor: wait;
         }
 
-        /* NEW: Independent button for Assistant */
         .assistant-join-btn {
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             color: #ffffff !important;
@@ -545,9 +543,9 @@
         } catch(e) {}
     </script>
 
-    <!-- Floating left bar -->
+    <!-- Floating left bar with Assistant Link -->
     <div class="mobile-floating-bar" id="mobileFloatingBar">
-        <a href="/assistant"
+        <a href="assistant7.html"
            id="assistBtn"
            class="assist-btn"
            title="Pronunciation Assistant"
@@ -692,7 +690,7 @@
                 </div>
 
 
-                <!-- 2. Services Card -->
+                <!-- 2. Services Card (Linked to placement3.html) -->
                 <div class="portal-card side-card left"
                      id="cardServices"
                      onclick="switchPortalCard('services')">
@@ -716,8 +714,8 @@
                         </p>
 
 
-                        <!-- NEW INDEPENDENT BUTTON -->
-                        <a href="/placement"
+                        <!-- Linked directly to placement3.html -->
+                        <a href="placement3.html"
                            id="assistantJoinBtn"
                            class="assistant-join-btn"
                            onclick="event.stopPropagation();">
@@ -783,7 +781,7 @@
     <script>
     (function () {
 
-        var LOGO = '<g transform="translate(2.00 4.12) scale(0.10237) translate(-49.5 -12.5)"><path d="M322.8 24.2L317.2 21.0L312.3 19.8L307.5 19.8L301.5 21.0L292.8 24.5L281.8 31.8L273.3 39.7L258.0 55.3L243.5 68.2L235.8 72.8L231.3 74.5L223.0 76.2L216.3 76.0L209.8 74.2L204.7 71.3L200.2 67.0L197.5 62.7L195.8 58.7L194.7 52.3L194.7 47.0L195.8 40.8L197.0 39.0L199.0 33.0L203.3 27.0L211.2 19.8L219.7 15.2L223.3 14.2L224.7 12.5L216.8 13.0L208.3 15.0L207.2 16.0L199.0 19.7L193.0 24.2L188.0 29.0L183.7 34.7L178.7 44.0L175.7 55.3L176.0 65.8L178.8 75.5L180.5 78.8L183.8 83.2L188.8 87.8L194.5 91.3L198.0 93.0L204.5 94.5L211.7 95.2L221.7 94.5L228.7 92.8L239.2 87.8L252.0 79.0L262.8 68.2L274.0 55.3L282.3 47.2L288.0 42.7L296.5 38.0L302.8 37.3L305.3 38.7L307.3 42.7L307.3 49.7L302.7 64.2L293.5 82.5L291.2 85.7L290.3 88.0L286.7 93.3L284.2 98.3L281.8 101.3L279.8 105.5L277.2 108.8L275.2 113.0L272.5 116.3L262.7 132.7L259.8 135.8L220.2 139.0L210.8 139.2L203.7 140.3L194.3 140.7L186.8 141.8L152.0 143.7L144.0 145.0L102.3 148.0L100.2 148.8L96.3 153.2L95.5 155.2L93.2 157.7L91.0 161.3L82.5 171.5L81.8 173.2L68.5 190.2L66.5 193.5L64.0 196.0L63.3 197.7L59.3 202.3L59.5 203.8L74.8 203.3L81.0 202.2L89.2 201.8L97.8 200.7L134.5 198.7L141.2 197.5L150.0 197.3L155.7 196.5L156.8 196.8L156.8 198.2L144.8 214.8L142.3 217.5L137.2 225.3L128.7 236.0L128.0 237.7L125.3 240.7L114.0 256.8L82.0 299.3L72.2 308.8L67.2 312.3L57.3 316.7L50.5 318.5L49.5 319.7L49.7 321.2L51.8 321.5L59.5 320.5L101.0 318.5L114.2 317.0L127.5 313.8L132.2 310.7L136.7 306.0L175.8 243.2L178.3 240.2L180.7 235.7L208.0 193.3L210.3 192.3L220.2 191.3L223.3 191.5L224.3 193.0L222.0 196.0L219.3 201.2L211.5 213.0L201.5 230.2L188.2 251.2L187.5 253.2L180.5 263.8L173.8 276.2L169.8 282.0L160.5 298.5L158.7 304.0L158.7 310.2L160.7 315.5L165.2 319.7L170.2 321.5L175.5 321.3L179.2 320.0L182.5 318.0L187.8 313.5L215.8 283.8L234.7 265.3L251.8 251.5L259.0 248.0L261.0 248.0L262.8 249.2L263.8 254.0L263.0 259.7L258.7 272.5L255.7 285.2L254.8 299.0L255.7 305.3L258.7 312.7L263.3 318.2L269.8 321.3L275.3 322.5L279.3 322.7L286.0 321.5L294.5 318.2L301.5 313.5L308.8 307.0L317.8 296.3L327.2 281.5L330.7 273.0L332.0 271.0L334.0 264.3L335.0 263.0L335.3 260.7L336.5 258.5L337.0 253.3L335.7 252.7L333.8 254.2L330.0 262.5L325.7 270.2L323.2 273.3L321.3 277.2L315.0 285.8L306.7 294.8L300.0 300.0L293.8 303.0L286.5 303.0L283.5 300.5L282.0 297.2L282.0 286.5L284.7 274.7L286.0 272.2L287.8 263.8L290.5 257.0L293.7 242.0L294.0 234.3L293.7 229.8L290.3 223.3L287.2 220.8L282.7 218.8L275.8 218.8L270.0 220.5L265.5 222.3L254.3 229.5L235.8 245.2L226.5 254.5L224.7 257.2L205.8 277.3L204.8 277.7L204.5 276.5L218.7 252.3L221.2 249.0L228.0 236.7L235.2 225.7L235.7 224.0L249.0 203.2L249.5 201.5L255.5 191.7L257.7 189.0L259.8 188.2L266.8 188.2L274.5 186.8L295.7 185.3L308.8 185.0L316.5 183.7L324.0 183.5L332.0 182.3L341.5 182.0L347.7 181.2L368.2 180.3L373.2 179.3L374.8 178.2L376.8 173.7L377.8 172.7L379.8 167.7L381.2 166.2L396.3 135.7L398.3 130.7L401.0 126.5L401.0 124.8L385.3 125.5L379.8 126.5L370.7 126.8L362.7 128.0L328.8 130.0L322.2 131.2L314.5 131.3L304.2 132.7L293.5 133.2L292.2 132.3L292.5 130.8L295.2 127.8L297.2 123.7L299.5 120.7L313.5 97.3L322.7 79.2L326.2 69.5L327.3 67.8L330.5 55.2L331.3 47.2L330.7 39.0L327.2 28.8Z" fill="currentColor" stroke="none"/></g>';
+        var LOGO = '<g transform="translate(2.00 4.12) scale(0.10237) translate(-49.5 -12.5)"><path d="M322.8 24.2L317.2 21.0L312.3 19.8L307.5 19.8L301.5 21.0L292.8 24.5L281.8 31.8L273.3 39.7L258.0 55.3L243.5 68.2L235.8 72.8L231.3 74.5L223.0 76.2L216.3 76.0L209.8 74.2L204.7 71.3L200.2 67.0L197.5 62.7L195.8 58.7L194.7 52.3L194.7 47.0L195.8 40.8L197.0 39.0L199.0 33.0L203.3 27.0L211.2 19.8L219.7 15.2L223.3 14.2L224.7 12.5L216.8 13.0L208.3 15.0L207.2 16.0L199.0 19.7L193.0 24.2L188.0 29.0L183.7 34.7L178.7 44.0L175.7 55.3L176.0 65.8L178.8 75.5L180.5 78.8L183.8 83.2L188.8 87.8L194.5 91.3L198.0 93.0L204.5 94.5L211.7 95.2L221.7 94.5L228.7 92.8L239.2 87.8L252.0 79.0L262.8 68.2L274.0 55.3L282.3 47.2L288.0 42.7L296.5 38.0L302.8 37.3L305.3 38.7L307.3 42.7L307.3 49.7L302.7 64.2L293.5 82.5L291.2 85.7L290.3 88.0L286.7 93.3L284.2 98.3L281.8 101.3L279.8 105.5L277.2 108.8L275.2 113.0L272.5 116.3L262.7 132.7L259.8 135.8L220.2 139.0L210.8 139.2L203.7 140.3L194.3 140.7L186.8 141.8L152.0 143.7L144.0 145.0L102.3 148.0L100.2 148.8L96.3 153.2L95.5 155.2L93.2 157.7L91.0 161.3L82.5 171.5L81.8 173.2L68.5 190.2L66.5 193.5L64.0 196.0L63.3 197.7L59.3 202.3L59.5 203.8L74.8 203.3L81.0 202.2L89.2 201.8L97.8 200.7L134.5 198.7L141.2 197.5L150.0 197.3L155.7 196.5L156.8 196.8L156.8 198.2L144.8 214.8L142.3 217.5L137.2 225.3L128.7 236.0L128.0 237.7L125.3 240.7L114.0 256.8L82.0 299.3L72.2 308.8L67.2 312.3L57.3 316.7L50.5 318.5L49.5 319.7L49.7 321.2L51.8 321.5L59.5 320.5L101.0 318.5L114.2 317.0L127.5 313.8L132.2 310.7L136.7 306.0L175.8 243.2L178.3 240.2L180.7 235.7L208.0 193.3L210.3 192.3L220.2 191.3L223.3 191.5L224.3 193.0L222.0 196.0L219.3 201.2L211.5 213.0L201.5 230.2L188.2 251.2L187.5 253.2L180.5 263.8L173.8 276.2L169.8 282.0L160.5 298.5L158.7 304.0L158.7 310.2L160.7 315.5L165.2 319.7L170.2 321.5L175.5 321.3L179.2 320.0L182.5 318.0L187.8 313.5L215.8 283.8L234.7 265.3L251.8 251.5L259.0 248.0L261.0 248.0L262.8 249.2L263.8 254.0L263.0 259.7L258.7 272.5L255.7 285.2L254.8 299.0L255.7 305.3L258.7 312.7L263.3 318.2L269.8 321.3L275.3 322.5L279.3 322.7L286.0 321.5L294.5 318.2L301.5 313.5L308.8 307.0L317.8 296.3L327.2 281.5L330.7 273.0L332.0 271.0L334.0 264.3L335.0 263.0L335.3 260.7L336.5 258.5L337.0 253.3L335.7 252.7L333.8 254.2L330.0 262.5L325.7 270.2L323.2 273.3L321.3 277.2L315.0 285.8L306.7 294.8L300.0 300.0L293.8 303.0L286.5 303.0L283.5 300.5L282.0 297.2L282.0 286.5L284.7 274.7L286.0 272.2L287.8 263.8L290.5 257.0L293.7 242.0L294.0 234.3L293.7 229.8L290.3 223.3L287.2 220.8L282.7 218.8L275.8 218.8L270.0 220.5L265.5 222.3L254.3 229.5L235.8 245.2L226.5 254.5L224.7 257.2L205.8 277.3L204.8 277.7L204.5 276.5L218.7 252.3L221.2 249.0L228.0 236.7L235.2 225.7L235.7 224.0L249.0 203.2L249.5 201.5L255.5 191.7L257.7 189.0L259.8 188.2L266.8 188.2L274.5 186.8L295.7 185.3L308.8 185.0L316.5 183.7L324.0 183.5L332.0 182.3L341.5 182.0L347.7 181.2L368.2 180.3L373.2 179.3L374.8 178.2L376.8 173.7L377.8 172.7L379.8 167.7L381.2 166.2L396.3 135.7L398.3 130.7L401.0 126.5L401.0 124.8L385.3 125.5L379.8 126.5L370.7 126.8L362.7 128.0L328.8 130.0L322.2 131.2L314.5 131.3L304.2 132.7L293.5 133.2L292.2 132.3L292.5 130.8L295.2 127.8L297.2 123.7L299.5 120.7L313.5 97.3L322.7 79.2L326.2 69.5L327.3 67.8L330.5 55.2L331.3 47.2L330.7 39.0L327.2 28.8Z' fill='currentColor' stroke='none'/></g>";
 
         var mandala = [0,45,90,135,180,225,270,315].map(function (a) {
             return '<ellipse cx="20" cy="10.5" rx="2.8" ry="6.5" transform="rotate(' + a + ' 20 20)"/>';
@@ -1254,7 +1252,7 @@
                     setTimeout(() => {
 
                         window.location.href =
-                            '/dashboard';
+                            'dashboard3.html';
 
                     }, 1000);
 
@@ -1477,7 +1475,7 @@ body.light-theme .tha-tag{color:#a16207}
   R("pl.rules","Placement session instructions","list","Placement",{
     en:"Be on time: if you are more than 20 minutes late after the agreed time, your payment is non-refundable.\nIf you are late by less than 20 minutes, a late fee of {fee} EGP per minute applies.\nBring a pen and paper to take notes — this is very important.\nMake sure your internet connection is stable.\nUse good headphones — or at least make sure the audio is crystal clear: no crackling, no background noise, no side conversations.",
     ar:"الالتزام بالموعد: إذا تأخرت أكثر من 20 دقيقة عن الموعد المتفق عليه فلن يتم استرداد المبلغ المدفوع.\nإذا كان التأخير أقل من 20 دقيقة تُحتسب غرامة {fee} جنيهًا عن كل دقيقة تأخير.\nأحضر ورقة وقلمًا لتدوين الملاحظات، وهذا مهم جدًا.\nتأكد من ثبات اتصال الإنترنت.\nاستخدم سماعة جيدة، أو على الأقل تأكد من وضوح الصوت تمامًا: بدون تقطيع أو ضوضاء أو أحاديث جانبية.",
-    eg:"الالتزام بالميعاد: لو اتأخرت أكتر من 20 دقيقة عن الميعاد المتفق عليه فلوسك مش هتترجع.\nلو التأخير أقل من 20 دقيقة بتتحسب غرامة {fee} جنيه على كل دقيقة.\nهات ورقة وقلم تدوّن عليهم ملاحظات، ودي مهمة جدًا.\nتأكد إن النت ثابت.\nاستخدم سماعة كويسة، أو على الأقل الصوت يكون واضح: من غير خرفشة ولا دوشة ولا كلام جانبي."
+    eg:"الالتزام بالميعاد: لو اتأخرت أكتر من 20 دقيقة عن الميعاد المتفق عليه فلوسك مش هتترجع.\nلو التأخير أقل من 20 دقيقة بتتحسب غرامة {fee} جنيه على كل دقيقة.\nهات ورقة وقلم تدوّن عليهم ملاحظات ودي مهمة جدًا.\nتأكد إن النت ثابت.\nاستخدم سماعة كويسة أو على الأقل الصوت يكون واضح: من غير خرفشة ولا دوشة ولا كلام جانبي."
   },"One rule per line");
   R("pl.termsTitle","Terms heading","text","Placement",{en:"Thabit's strict terms are as follows:",ar:"بنود ثابت الصارمة كالتالي:",eg:"بنود ثابت الصارمة هي كالتالي:"});
   R("pl.terms","Terms & policies","list","Placement",{
@@ -1516,14 +1514,14 @@ body.light-theme .tha-tag{color:#a16207}
       if(d.type==="image"){img=document.createElement("img");img.className="tha-img";if(val)img.src=val;else img.style.display="none";row.appendChild(img);inp.oninput=function(){if(inp.value){img.src=inp.value;img.style.display=""}else img.style.display="none"}}
       var bt=document.createElement("div");bt.className="tha-btns";
       if(d.type==="image"){
-        var fi=document.createElement("input");fi.type="file";fi.accept="image/*";fi.style.display="none";
+        var fi=document.createElement("file");fi.type="file";fi.accept="image/*";fi.style.display="none";
         var ub=document.createElement("button");ub.type="button";ub.className="tha-b blue";ub.innerHTML='<i class="fa-solid fa-upload"></i> Upload image';
         ub.onclick=function(){fi.click()};
-        fi.onchange=function(){if(!fi.files[0])return;ub.disabled=true;upload(fi.files[0],"site",null,true).then(function(u){inp.value=u;img.src=u;img.style.display="";msg("Uploaded ✓ — press Save")}).catch(function(){msg("Upload failed (create the placement-files bucket)",1)}).then(function(){ub.disabled=false})};
+        fi.onchange=function(){if(!fi.files[0])return;ub.disabled=true;upload(fi.files[0],"site",null,true).then(function(u){inp.value=u;img.src=u;img.style.display="";msg("Uploaded ✓ — press Save")}).catch(function(){msg("Upload failed",1)}).then(function(){ub.disabled=false})};
         bt.appendChild(ub);bt.appendChild(fi);
       }
       var sb=document.createElement("button");sb.type="button";sb.className="tha-b";sb.innerHTML='<i class="fa-solid fa-floppy-disk"></i> Save';
-      sb.onclick=function(){sb.disabled=true;save(k,inp.value).then(function(ok){msg(ok?"Saved ✓":"Saved on this device only — create the site_content table (see SQL)",!ok)}).then(function(){sb.disabled=false})};
+      sb.onclick=function(){sb.disabled=true;save(k,inp.value).then(function(ok){msg(ok?"Saved ✓":"Error",!ok)}).then(function(){sb.disabled=false})};
       var rb=document.createElement("button");rb.type="button";rb.className="tha-b gray";rb.innerHTML='<i class="fa-solid fa-rotate-left"></i> Reset';
       rb.onclick=function(){reset(k).then(function(){inp.value=defOf(k);if(img){if(inp.value){img.src=inp.value}else img.style.display="none"}msg("Back to default ✓")})};
       bt.appendChild(sb);bt.appendChild(rb);row.appendChild(bt);box.appendChild(row);
@@ -1538,7 +1536,7 @@ body.light-theme .tha-tag{color:#a16207}
   }
   function auth(){
     var b=$("thaAuthOk");b.disabled=true;
-    login($("thaEmail").value.trim(),$("thaPass").value).then(function(){$("thaPass").value="";$("thaAuth").classList.remove("open");var f=pending||showPanel;pending=null;f()}).catch(function(){$("thaAuthErr").textContent="الإيميل أو الباسورد غلط · Wrong email or password"}).then(function(){b.disabled=false});
+    login($("thaEmail").value.trim(),$("thaPass").value).then(function(){$("thaPass").value="";$("thaAuth").classList.remove("open");var f=pending||showPanel;pending=null;f()}).catch(function(){$("thaAuthErr").textContent="خطأ في الإيميل أو الباسورد · Wrong email or password"}).then(function(){b.disabled=false});
   }
   $("thaAuthOk").onclick=auth;$("thaPass").onkeydown=function(e){if(e.key==="Enter")auth()};
   $("thaAuthCancel").onclick=function(){pending=null;$("thaAuth").classList.remove("open")};
@@ -1557,7 +1555,7 @@ body.light-theme .tha-tag{color:#a16207}
         [["English",b.english],["Psych",b.psych],["Secret",b.secret],["Proof",b.proof]].forEach(function(x){if(!x[1])return;var an=document.createElement("a");an.href=x[1];an.target="_blank";an.rel="noopener";an.textContent=x[0]+" ↗";an.style.cssText="color:#60a5fa;font-weight:800;font-size:.8rem";d.appendChild(an)});
         box.appendChild(d);
       });
-    }).catch(function(){box.textContent="Could not load bookings (sign in again / check the table policies)."});
+    }).catch(function(){box.textContent="Could not load bookings."});
   }
 
   /* audio tab */
