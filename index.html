@@ -1,322 +1,1604 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" id="htmlRoot">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THABIT - Login</title>
+    <title>Thabit - Portal</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA2NCA2NCc+PHJlY3Qgd2lkdGg9JzY0JyBoZWlnaHQ9JzY0JyByeD0nMTQnIGZpbGw9JyMwMDAnLz48ZyB0cmFuc2Zvcm09J3RyYW5zbGF0ZSgtMi42MCA2LjMxKSBzY2FsZSgwLjE1MzYpJz48cGF0aCBkPSdNMzIyLjggMjQuMkwzMTcuMiAyMS4wTDMxMi4zIDE5LjhMMzA3LjUgMTkuOEwzMDEuNSAyMS4wTDI5Mi44IDI0LjVMMjgxLjggMzEuOEwyNzMuMyAzOS43TDI1OC4wIDU1LjNMMjQzLjUgNjguMkwyMzUuOCA3Mi44TDIzMS4zIDc0LjVMMjIzLjAgNzYuMkwyMTYuMyA3Ni4wTDIwOS44IDc0LjJMMjA0LjcgNzEuM0wyMDAuMiA2Ny4wTDE5Ny41IDYyLjdMMTk1LjggNTguN0wxOTQuNyA1Mi4zTDE5NC43IDQ3LjBMMTk1LjggNDAuOEwxOTcuMCAzOS4wTDE5OS4wIDMzLjBMMjAzLjMgMjcuMEwyMTEuMiAxOS44TDIxOS43IDE1LjJMMjIzLjMgMTQuMkwyMjQuNyAxMi41TDIxNi44IDEzLjBMMjA4LjMgMTUuMEwyMDcuMiAxNi4wTDE5OS4wIDE5LjdMMTkzLjAgMjQuMkwxODguMCAyOS4wTDE4My43IDM0LjdMMTc4LjcgNDQuMEwxNzUuNyA1NS4zTDE3Ni4wIDY1LjhMMTc4LjggNzUuNUwxODAuNSA3OC44TDE4My44IDgzLjJMMTg4LjggODcuOEwxOTQuNSA5MS4zTDE5OC4wIDkzLjBMMjA0LjUgOTQuNUwyMTEuNyA5NS4yTDIyMS43IDk0LjVMMjI4LjcgOTIuOEwyMzkuMiA4Ny44TDI1Mi4wIDc5LjBMMjYyLjggNjguMkwyNzQuMCA1NS4zTDI4Mi4zIDQ3LjJMMjg4LjAgNDIuN0wyOTYuNSAzOC4wTDMwMi44IDM3LjNMMzA1LjMgMzguN0wzMDcuMyA0Mi43TDMwNy4zIDQ5LjdMMzAyLjcgNjQuMkwyOTMuNSA4Mi41TDI5MS4yIDg1LjdMMjkwLjMgODguMEwyODYuNyA5My4zTDI4NC4yIDk4LjNMMjgxLjggMTAxLjNMMjc5LjggMTA1LjVMMjc3LjIgMTA4LjhMMjc1LjIgMTEzLjBMMjcyLjUgMTE2LjNMMjYyLjcgMTMyLjdMMjU5LjggMTM1LjhMMjIwLjIgMTM5LjBMMjEwLjggMTM5LjJMMjAzLjcgMTQwLjNMMTk0LjMgMTQwLjdMMTg2LjggMTQxLjhMMTUyLjAgMTQzLjdMMTQ0LjAgMTQ1LjBMMTAyLjMgMTQ4LjBMMTAwLjIgMTQ4LjhMOTYuMyAxNTMuMkw5NS41IDE1NS4yTDkzLjIgMTU3LjdMOTEuMCAxNjEuM0w4Mi41IDE3MS41TDgxLjggMTczLjJMNjguNSAxOTAuMkw2Ni41IDE5My41TDY0LjAgMTk2LjBMNjMuMyAxOTcuN0w1OS4zIDIwMi4zTDU5LjUgMjAzLjhMNzQuOCAyMDMuM0w4MS4wIDIwMi4yTDg5LjIgMjAxLjhMOTcuOCAyMDAuN0wxMzQuNSAxOTguN0wxNDEuMiAxOTcuNUwxNTAuMCAxOTcuM0wxNTUuNyAxOTYuNUwxNTYuOCAxOTYuOEwxNTYuOCAxOTguMkwxNDQuOCAyMTQuOEwxNDIuMyAyMTcuNUwxMzcuMiAyMjUuM0wxMjguNyAyMzYuMEwxMjguMCAyMzcuN0wxMjUuMyAyNDAuN0wxMTQuMCAyNTYuOEw4Mi4wIDI5OS4zTDcyLjIgMzA4LjhMNjcuMiAzMTIuM0w1Ny4zIDMxNi43TDUwLjUgMzE4LjVMNDkuNSAzMTkuN0w0OS43IDMyMS4yTDUxLjggMzIxLjVMNTkuNSAzMjAuNUwxMDEuMCAzMTguNUwxMTQuMiAzMTcuMEwxMjcuNSAzMTMuOEwxMzIuMiAzMTAuN0wxMzYuNyAzMDYuMEwxNzUuOCAyNDMuMkwxNzguMyAyNDAuMkwxODAuNyAyMzUuN0wyMDguMCAxOTMuM0wyMTAuMyAxOTIuM0wyMjAuMiAxOTEuM0wyMjMuMyAxOTEuNUwyMjQuMyAxOTMuMEwyMjIuMCAxOTYuMEwyMTkuMyAyMDEuMkwyMTEuNSAyMTMuMEwyMDEuNSAyMzAuMkwxODguMiAyNTEuMkwxODcuNSAyNTMuMkwxODAuNSAyNjMuOEwxNzMuOCAyNzYuMkwxNjkuOCAyODIuMEwxNjAuNSAyOTguNUwxNTguNyAzMDQuMEwxNTguNyAzMTAuMkwxNjAuNyAzMTUuNUwxNjUuMiAzMTkuN0wxNzAuMiAzMjEuNUwxNzUuNSAzMjEuM0wxNzkuMiAzMjAuMEwxODIuNSAzMTguMEwxODcuOCAzMTMuNUwyMTUuOCAyODMuOEwyMzQuNyAyNjUuM0wyNTEuOCAyNTEuNUwyNTkuMCAyNDguMEwyNjEuMCAyNDguMEwyNjIuOCAyNDkuMkwyNjMuOCAyNTQuMEwyNjMuMCAyNTkuN0wyNTguNyAyNzIuNUwyNTUuNyAyODUuMkwyNTQuOCAyOTkuMEwyNTUuNyAzMDUuM0wyNTguNyAzMTIuN0wyNjMuMyAzMTguMkwyNjkuOCAzMjEuM0wyNzUuMyAzMjIuNUwyNzkuMyAzMjIuN0wyODYuMCAzMjEuNUwyOTQuNSAzMTguMkwzMDEuNSAzMTMuNUwzMDguOCAzMDcuMEwzMTcuOCAyOTYuM0wzMjcuMiAyODEuNUwzMzAuNyAyNzMuMEwzMzIuMCAyNzEuMEwzMzQuMCAyNjQuM0wzMzUuMCAyNjMuMEwzMzUuMyAyNjAuN0wzMzYuNSAyNTguNUwzMzcuMCAyNTMuM0wzMzUuNyAyNTIuN0wzMzMuOCAyNTQuMkwzMzAuMCAyNjIuNUwzMjUuNyAyNzAuMkwzMjMuMiAyNzMuM0wzMjEuMyAyNzcuMkwzMTUuMCAyODUuOEwzMDYuNyAyOTQuOEwzMDAuMCAzMDAuMEwyOTMuOCAzMDMuMEwyODYuNSAzMDMuMEwyODMuNSAzMDAuNUwyODIuMCAyOTcuMkwyODIuMCAyODYuNUwyODQuNyAyNzQuN0wyODYuMCAyNzIuMkwyODcuOCAyNjMuOEwyOTAuNSAyNTcuMEwyOTMuNyAyNDIuMEwyOTQuMCAyMzQuM0wyOTMuNyAyMjkuOEwyOTAuMyAyMjMuM0wyODcuMiAyMjAuOEwyODIuNyAyMTguOEwyNzUuOCAyMTguOEwyNzAuMCAyMjAuNUwyNjUuNSAyMjIuM0wyNTQuMyAyMjkuNUwyMzUuOCAyNDUuMkwyMjYuNSAyNTQuNUwyMjQuNyAyNTcuMkwyMDUuOCAyNzcuM0wyMDQuOCAyNzcuN0wyMDQuNSAyNzYuNUwyMTguNyAyNTIuM0wyMjEuMiAyNDkuMEwyMjguMCAyMzYuN0wyMzUuMiAyMjUuN0wyMzUuNyAyMjQuMEwyNDkuMCAyMDMuMkwyNDkuNSAyMDEuNUwyNTUuNSAxOTEuN0wyNTcuNyAxODkuMEwyNTkuOCAxODguMkwyNjYuOCAxODguMkwyNzQuNSAxODYuOEwyOTUuNyAxODUuM0wzMDguOCAxODUuMEwzMTYuNSAxODMuN0wzMjQuMCAxODMuNUwzMzIuMCAxODIuM0wzNDEuNSAxODIuMEwzNDcuNyAxODEuMkwzNjguMiAxODAuM0wzNzMuMiAxNzkuM0wzNzQuOCAxNzguMkwzNzYuOCAxNzMuN0wzNzcuOCAxNzIuN0wzNzkuOCAxNjcuN0wzODEuMiAxNjYuMkwzOTYuMyAxMzUuN0wzOTguMyAxMzAuN0w0MDEuMCAxMjYuNUw0MDEuMCAxMjQuOEwzODUuMyAxMjUuNUwzNzkuOCAxMjYuNUwzNzAuNyAxMjYuOEwzNjIuNyAxMjguMEwzMjguOCAxMzAuMEwzMjIuMiAxMzEuMkwzMTQuNSAxMzEuM0wzMDQuMiAxMzIuN0wyOTMuNSAxMzMuMkwyOTIuMiAxMzIuM0wyOTIuNSAxMzAuOEwyOTUuMiAxMjcuOEwyOTcuMiAxMjMuN0wyOTkuNSAxMjAuN0wzMTMuNSA5Ny4zTDMyMi43IDc5LjJMMzI2LjIgNjkuNUwzMjcuMyA2Ny44TDMzMC41IDU1LjJMMzMxLjMgNDcuMkwzMzAuNyAzOS4wTDMyNy4yIDI4LjhaJyBmaWxsPScjZmZmJy8+PC9nPjwvc3ZnPg==">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Montserrat:ital,wght@0,900;1,700;1,900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        * {
+        
+        :root {
+            --bg: #030712; --text: #f1f5f9; --text-strong: #ffffff; --muted: #94a3b8; --soft: #cbd5e1;
+            --card: rgba(18, 27, 48, 0.78); --card-border: rgba(255, 255, 255, 0.10);
+            --input-bg: rgba(3, 7, 18, 0.85); --input-border: rgba(255, 255, 255, 0.12);
+            --gold: #d4af37;
+            --shadow: 0 30px 60px rgba(0, 0, 0, 0.6); --shadow-strong: 0 50px 100px -20px rgba(0, 0, 0, 0.9);
+            --icon-color: rgba(255, 255, 255, 0.17);
+        }
+
+        body.light-theme {
+            --bg: #f8fafc; --text: #1e293b; --text-strong: #0f172a; --muted: #475569; --soft: #334155;
+            --card: rgba(255, 255, 255, 0.92); --card-border: rgba(15, 23, 42, 0.14);
+            --input-bg: #f1f5f9; --input-border: rgba(15, 23, 42, 0.28);
+            --gold: #a16207;
+            --shadow: 0 20px 45px rgba(15, 23, 42, 0.14); --shadow-strong: 0 30px 70px -15px rgba(15, 23, 42, 0.28);
+            --icon-color: rgba(15, 23, 42, 0.15);
+        }
+
+        #thabitBg {
+            position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;
+            color: var(--icon-color);
+            -webkit-mask-image: radial-gradient(ellipse 65% 55% at 50% 50%, rgba(0,0,0,0.4) 0%, #000 100%);
+            mask-image: radial-gradient(ellipse 65% 55% at 50% 50%, rgba(0,0,0,0.4) 0%, #000 100%);
+        }
+
+        .mobile-floating-bar {
+            position: fixed; left: 10px; bottom: 20px; z-index: 50;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px; border-radius: 9999px;
+            display: flex; flex-direction: column; gap: 6px; align-items: center;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        body.light-theme .mobile-floating-bar {
+            background: rgba(255, 255, 255, 0.9); border: 1px solid #000000;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+        }
+
+        .circle-badge-btn {
+            width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+            font-size: 11px; font-weight: 800; background: #1e293b; color: #ffffff;
+            border: none; border-radius: 50%; cursor: pointer; transition: transform 0.2s;
+            font-family: 'Cairo', 'Inter', sans-serif;
+        }
+
+        body.light-theme .circle-badge-btn { background: #e2e8f0; color: #000000; }
+        .circle-badge-btn:hover { transform: scale(1.12); }
+        .circle-badge-btn.active { background: #2563eb !important; color: #ffffff !important; }
+        .circle-badge-btn.theme-btn { color: #fbbf24; }
+        .circle-badge-btn i { font-size: 13px; }
+        .bar-divider { width: 20px; height: 1px; background: #64748b; margin: 1px 0; }
+
+        .assist-btn {
+            width: 42px; height: 42px; border-radius: 50%;
+            background: linear-gradient(135deg, #059669, #047857); color: #ffffff !important;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+            text-decoration: none; font-family: 'Cairo', sans-serif; font-size: 7px; font-weight: 800; line-height: 1;
+            transition: transform 0.2s; box-shadow: 0 4px 10px rgba(5, 150, 105, 0.45);
+        }
+
+        .assist-btn i { font-size: 14px; }
+        .assist-btn:hover { transform: scale(1.12); }
+
+        *, *:before, *:after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
+
+        *:focus { outline: none !important; }
 
         body {
-            background-color: #030509;
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            height: 100vh;
-            color: #fff;
+            justify-content: center;
             position: relative;
-            overflow: hidden;
+            overflow-x: hidden;
+            font-family: 'Cairo', 'Plus Jakarta Sans', sans-serif !important;
+            padding: 40px 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* طبقة الـ Intro المظلمة بالكامل في البداية */
-        #intro-overlay {
+        #cinematicIntroOverlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #030509;
+            inset: 0;
+            background-color: #020617;
+            z-index: 99999;
             display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+        }
+
+        #cinematicIntroOverlay.fade-out {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .cinematic-intro-title {
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 900 !important;
+            font-size: 2rem;
+            letter-spacing: 0.15em;
+            padding-left: 0.2em;
+            color: #d4af37;
+            position: relative;
+            opacity: 0;
+            transform: scale(0.9);
+            animation: introWordSequence 3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes introWordSequence {
+            0% { opacity: 0; transform: scale(0.85); filter: drop-shadow(0 0 0px rgba(212,175,55,0)); }
+            25% { opacity: 1; transform: scale(1); color: #d4af37; filter: drop-shadow(0 0 10px rgba(212,175,55,0.4)); }
+            50% { color: #fef08a; filter: drop-shadow(0 0 25px rgba(234, 179, 8, 0.9)) drop-shadow(0 0 45px rgba(212, 175, 55, 0.7)); transform: scale(1.05); }
+            75% { color: #d4af37; filter: drop-shadow(0 0 10px rgba(212,175,55,0.5)); transform: scale(1); opacity: 1; }
+            100% { opacity: 0; transform: scale(1.08); filter: drop-shadow(0 0 0px rgba(212,175,55,0)); }
+        }
+
+        .page-content-hidden { opacity: 0; visibility: hidden; }
+        .page-content-visible { opacity: 1; visibility: visible; animation: fadeInContent 1s ease forwards; }
+
+        @keyframes fadeInContent {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .screen {
+            display: none;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 5;
+        }
+
+        .screen.active { display: flex; }
+
+        #login-screen {
             justify-content: center;
             align-items: center;
-            z-index: 9999;
-            animation: fadeOutIntro 0.8s ease forwards;
-            animation-delay: 2.2s;
         }
 
-        /* كلمة THABIT وهي منورة لوحدها في الظلام */
-        .intro-logo {
-            font-size: 36px;
-            font-weight: 800;
-            letter-spacing: 3px;
-            color: #ffffff;
-            text-shadow: 0 0 10px rgba(59, 130, 246, 0.5), 
-                         0 0 20px rgba(59, 130, 246, 0.4), 
-                         0 0 40px rgba(59, 130, 246, 0.3);
-            animation: pulseGlow 1.5s infinite alternate ease-in-out;
-        }
-
-        @keyframes pulseGlow {
-            0% {
-                text-shadow: 0 0 10px rgba(59, 130, 246, 0.4), 0 0 20px rgba(59, 130, 246, 0.2);
-                transform: scale(1);
-            }
-            100% {
-                text-shadow: 0 0 20px rgba(59, 130, 246, 0.9), 0 0 40px rgba(59, 130, 246, 0.7), 0 0 60px rgba(59, 130, 246, 0.5);
-                transform: scale(1.05);
-            }
-        }
-
-        @keyframes fadeOutIntro {
-            0% { opacity: 1; visibility: visible; }
-            100% { opacity: 0; visibility: hidden; }
-        }
-
-        /* خلفية الإزاز والكور المتحركة الناعمة */
-        .glass-background-layer {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .portal-layout {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-            background: rgba(3, 5, 9, 0.7);
-            backdrop-filter: blur(40px);
-            -webkit-backdrop-filter: blur(40px);
-        }
-
-        .glow-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.5;
-            animation: floatOrbs 15s infinite alternate ease-in-out;
-        }
-
-        .orb-one {
-            width: 400px;
-            height: 400px;
-            background: #1d4ed8;
-            top: -10%;
-            left: -10%;
-            animation-duration: 18s;
-        }
-
-        .orb-two {
-            width: 450px;
-            height: 450px;
-            background: #6d28d9;
-            bottom: -15%;
-            right: -10%;
-            animation-duration: 22s;
-        }
-
-        .orb-three {
-            width: 300px;
-            height: 300px;
-            background: #0891b2;
-            top: 30%;
-            left: 40%;
-            animation-duration: 14s;
-        }
-
-        @keyframes floatOrbs {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(80px, 60px) scale(1.1); }
-            100% { transform: translate(-60px, -80px) scale(0.95); }
-        }
-
-        /* الـ Header العلوي بعرض الصفحة بالكامل */
-        .page-header {
-            width: 100%;
-            text-align: center;
-            position: absolute;
-            top: 60px;
-            left: 0;
-            z-index: 1;
-        }
-
-        .page-header h1 {
-            font-size: 32px;
-            font-weight: 800;
-            letter-spacing: 3px;
-            color: #ffffff;
-            margin-bottom: 8px;
-        }
-
-        .page-header .slogan {
-            font-size: 15px;
-            color: #94a3b8;
-            font-style: italic;
-            font-weight: 300;
-        }
-
-        /* الكارد في المنتصف (يحتوي Username, Password, Login فقط) */
-        .login-card {
-            background-color: #111621;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(59, 130, 246, 0.2);
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
+            max-width: 1300px;
             position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            gap: 30px;
+            z-index: 10;
+            margin-bottom: 25px;
+            direction: ltr;
+        }
+
+        .portal-card {
+            background: var(--card);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid var(--card-border);
+            padding: 35px 30px;
+            border-radius: 22px;
+            width: 380px;
+            min-height: 480px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden !important;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            user-select: none;
+        }
+
+        [dir="rtl"] .portal-card { direction: rtl; }
+        [dir="ltr"] .portal-card { direction: ltr; }
+
+        .portal-card::before {
+            content: '';
+            position: absolute;
+            top: -150%;
+            left: -150%;
+            width: 350%;
+            height: 350%;
+            background: linear-gradient(135deg, transparent 35%, rgba(212, 175, 55, 0.04) 42%, rgba(255, 215, 0, 0.16) 50%, rgba(212, 175, 55, 0.04) 58%, transparent 65%);
+            pointer-events: none;
             z-index: 1;
-            margin-top: 50px;
+            animation: cardGoldSwipe 7s linear infinite;
+        }
+
+        @keyframes cardGoldSwipe {
+            0% { transform: translate(-30%, -30%); }
+            100% { transform: translate(35%, 35%); }
+        }
+
+        .portal-card.side-card {
+            transform: scale(0.9);
+            opacity: 0.7;
+            filter: blur(0.3px);
+            pointer-events: auto;
+            z-index: 2;
+        }
+
+        .portal-card.side-card:hover {
+            opacity: 0.9;
+            filter: blur(0px);
+            transform: scale(0.93);
+            box-shadow: var(--shadow);
+        }
+
+        .portal-card.active-card {
+            transform: scale(1.04);
+            opacity: 1;
+            filter: blur(0px);
+            z-index: 20;
+            box-shadow: var(--shadow-strong);
+            cursor: default;
+            pointer-events: auto;
+        }
+
+        .portal-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-wrapper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            align-self: center;
+            margin-bottom: 25px;
+            z-index: 10;
+        }
+
+        .glass-3d-logo-btn {
+            position: relative;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 32% 32%, #475569 0%, #1e293b 45%, #090d16 75%, #020408 100%);
+            box-shadow:
+                inset 0 6px 12px rgba(255, 255, 255, 0.35),
+                inset 0 -12px 25px rgba(0, 0, 0, 0.95),
+                0 20px 40px rgba(0, 0, 0, 0.55),
+                0 0 25px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            cursor: pointer;
+            transition: background 0.4s ease, box-shadow 0.4s ease;
+            transform: scale(1) !important;
+        }
+
+        .glass-logo-text {
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 900 !important;
+            font-size: 2.2rem !important;
+            color: #ffffff !important;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .card-header-title {
+            font-size: 1.4rem;
+            color: var(--text-strong);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Cairo', sans-serif !important;
         }
 
         .input-group {
-            margin-bottom: 20px;
-            text-align: left;
+            margin-bottom: 16px;
+            position: relative;
         }
 
-        .input-group input {
+        .input-group label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+            color: var(--text-strong);
+            font-weight: 700;
+            font-family: 'Cairo', sans-serif !important;
+        }
+
+        .required-dot {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            background-color: #f43f5e;
+            border-radius: 50%;
+            margin-left: 3px;
+            box-shadow: 0 0 8px rgba(244, 63, 94, 0.8);
+            vertical-align: middle;
+        }
+
+        [dir="rtl"] .required-dot {
+            margin-left: 0;
+            margin-right: 3px;
+        }
+
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
             width: 100%;
-            padding: 12px 15px;
-            background-color: #0a0e17;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 8px;
-            color: #fff;
-            font-size: 14px;
-            box-sizing: border-box;
-            outline: none;
-            transition: 0.3s;
+            height: 46px;
+            padding: 0 16px;
+            background: var(--input-bg);
+            border: 1px solid var(--input-border) !important;
+            border-radius: 12px;
+            color: var(--text-strong);
+            font-size: 0.95rem;
+            outline: none !important;
+            box-shadow: none !important;
+            font-family: 'Cairo', sans-serif !important;
+            font-weight: 600;
         }
 
-        .input-group input:focus {
-            border-color: #3b82f6;
-            box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+        .input-group input::placeholder {
+            color: var(--muted);
+            opacity: 0.8;
         }
 
-        .login-btn {
+        .password-wrapper {
+            position: relative;
             width: 100%;
-            padding: 12px;
-            background-color: #3b82f6;
-            border: none;
-            border-radius: 8px;
-            color: #fff;
-            font-size: 16px;
-            font-weight: bold;
+        }
+
+        .password-wrapper input {
+            padding-right: 48px;
+        }
+
+        [dir="rtl"] .password-wrapper input {
+            padding-right: 16px;
+            padding-left: 48px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--soft);
             cursor: pointer;
-            margin-top: 10px;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
-            transition: background-color 0.3s;
+            z-index: 5;
+            font-size: 1.1rem;
         }
 
-        .login-btn:hover {
-            background-color: #2563eb;
+        [dir="rtl"] .toggle-password {
+            right: auto;
+            left: 16px;
         }
 
-        .forgot-password {
-            margin-top: 15px;
-            margin-bottom: 5px;
-            font-size: 12px;
-            color: #64748b;
+        .btn {
+            width: 100%;
+            padding: 13px 16px;
+            color: #ffffff !important;
+            border-radius: 14px;
+            font-size: 1.1rem;
+            font-weight: 900;
+            cursor: pointer;
+            position: relative;
+            font-family: 'Cairo', sans-serif !important;
+            background: linear-gradient(135deg, #000000 0%, #111827 20%, #047857 40%, #ffffff 50%, #dc2626 60%, #111827 80%, #000000 100%) !important;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            margin-top: 6px;
+            text-shadow: 0 1px 6px rgba(0,0,0,0.85);
+        }
+
+        .btn:disabled {
+            opacity: 0.7;
+            cursor: wait;
+        }
+
+        /* NEW: Independent button for Assistant */
+        .assistant-join-btn {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: #ffffff !important;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            width: 100%;
+            padding: 16px;
+            border-radius: 14px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            font-family: 'Cairo', sans-serif !important;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
             text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .assistant-join-btn:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        .services-wrap {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .services-desc {
+            color: var(--soft);
+            text-align: center;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .card-footnote {
+            font-size: 0.85rem;
+            color: var(--muted);
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .card-footnote.strong {
+            font-size: 0.95rem;
+            color: var(--text-strong);
+            font-weight: 700;
+        }
+
+        .info-content {
+            color: var(--text-strong);
+            font-size: 1rem;
+            line-height: 1.7;
+            font-weight: 600;
+        }
+
+        .icon-soft {
+            color: var(--soft);
+        }
+
+        #webAlertBox {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-family: 'Cairo', sans-serif !important;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: none;
+            background: var(--input-bg);
+            text-align: center;
+        }
+
+        #webAlertBox.show {
             display: block;
-            transition: 0.2s;
         }
 
-        .forgot-password:hover {
-            color: #94a3b8;
+        #webAlertBox.alert-success {
+            border: 1px solid #10b981;
+            color: #10b981;
         }
 
-        .error-message {
-            margin-top: 12px;
-            font-size: 12px;
+        #webAlertBox.alert-error {
+            border: 1px solid #ef4444;
             color: #ef4444;
         }
 
-        /* حاوية الـ Connected */
-        .connection-status {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            font-size: 13px;
-            color: #94a3b8;
-            display: flex;
-            align-items: center;
-            z-index: 1;
-            background: rgba(17, 22, 33, 0.5);
-            padding: 6px 12px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
+        @media (max-width: 900px) {
+            body {
+                padding: 20px 15px;
+            }
+
+            .portal-layout {
+                flex-direction: column !important;
+                gap: 20px;
+                align-items: center;
+            }
+
+            .portal-card {
+                width: 100% !important;
+                max-width: 380px;
+                min-height: auto !important;
+                transform: none !important;
+                opacity: 1 !important;
+                filter: none !important;
+                box-shadow: var(--shadow);
+            }
+
+            .portal-card.side-card,
+            .portal-card.active-card {
+                transform: none !important;
+                opacity: 1 !important;
+                filter: none !important;
+            }
         }
 
-        .status-dot {
-            height: 14px;
-            width: 14px;
-            background-color: #22c55e;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 8px;
-            animation: telegramPulse 2s infinite ease-in-out;
-        }
-
-        @keyframes telegramPulse {
-            0% {
-                box-shadow: 0 0 4px #22c55e, 0 0 8px #22c55e;
-                opacity: 0.6;
-            }
-            50% {
-                box-shadow: 0 0 16px #22c55e, 0 0 28px #22c55e;
-                opacity: 1;
-            }
-            100% {
-                box-shadow: 0 0 4px #22c55e, 0 0 8px #22c55e;
-                opacity: 0.6;
+        @media (max-width: 600px) {
+            body {
+                padding-left: 64px;
+                padding-right: 14px;
             }
         }
     </style>
 </head>
+
 <body>
 
-    <!-- طبقة الظلام وكلمة ثابت المنورة في البداية -->
-    <div id="intro-overlay">
-        <div class="intro-logo">THABIT</div>
+    <script>
+        try {
+            if (localStorage.getItem('thabit_theme') === 'light')
+                document.body.classList.add('light-theme');
+        } catch(e) {}
+    </script>
+
+    <!-- Floating left bar -->
+    <div class="mobile-floating-bar" id="mobileFloatingBar">
+        <a href="/assistant"
+           id="assistBtn"
+           class="assist-btn"
+           title="Pronunciation Assistant"
+           data-i18n-title="assistTitle">
+            <i class="fa-solid fa-microphone-lines"></i>
+            <span data-i18n="assistShort">Assistant</span>
+        </a>
+
+        <div class="bar-divider"></div>
+
+        <button type="button"
+                onclick="setLanguage('ar')"
+                id="floatBtnAr"
+                title="العربية"
+                class="circle-badge-btn">ع</button>
+
+        <button type="button"
+                onclick="setLanguage('en')"
+                id="floatBtnEn"
+                title="English"
+                class="circle-badge-btn active">EN</button>
+
+        <button type="button"
+                onclick="setLanguage('eg')"
+                id="floatBtnEg"
+                title="مصري"
+                class="circle-badge-btn">مصر</button>
+
+        <div class="bar-divider"></div>
+
+        <button type="button"
+                onclick="toggleTheme()"
+                id="floatBtnTheme"
+                title="Light / Dark"
+                data-i18n-title="themeTitle"
+                class="circle-badge-btn theme-btn">
+            <i id="themeIcon" class="fa-solid fa-moon"></i>
+        </button>
     </div>
 
-    <div class="glass-background-layer">
-        <div class="glow-orb orb-one"></div>
-        <div class="glow-orb orb-two"></div>
-        <div class="glow-orb orb-three"></div>
+    <div id="cinematicIntroOverlay">
+        <h1 class="cinematic-intro-title">THABIT</h1>
     </div>
 
-    <!-- الـ Header العلوي بعرض الصفحة -->
-    <header class="page-header">
-        <h1>THABIT</h1>
-        <div class="slogan">Welcome to the Future of Secure Access</div>
-    </header>
+    <div id="login-screen" class="screen page-content-hidden">
 
-    <!-- الكارد في المنتصف (Username, Password, Login فقط) -->
-    <div class="login-card">
-        <form method="POST">
-            <div class="input-group">
-                <input type="text" name="username" placeholder="Username" required>
+        <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+
+            <div class="logo-wrapper">
+                <div class="glass-3d-logo-btn"
+                     id="glassLogoBtn"
+                     title="THABIT Portal">
+                    <span class="glass-logo-text">T</span>
+                </div>
             </div>
-            <div class="input-group">
-                <input type="password" name="password" placeholder="Password" required>
+
+            <div class="portal-layout" id="portalLayout">
+
+                <!-- 1. Login Card -->
+                <div class="portal-card active-card"
+                     id="cardLogin"
+                     onclick="switchPortalCard('login')">
+
+                    <div>
+
+                        <div class="card-header-title"
+                             style="justify-content: center;">
+
+                            <span id="lblLoginTitle"
+                                  data-i18n="loginTitle"
+                                  style="letter-spacing: 1px;">
+                                Login
+                            </span>
+
+                        </div>
+
+                        <div id="webAlertBox"></div>
+
+                        <div class="input-group">
+
+                            <label>
+                                <i class="fa-regular fa-user"></i>
+
+                                <span id="lblUser"
+                                      data-i18n="username">
+                                    Username
+                                </span>
+
+                                <span class="required-dot"
+                                      id="dotUser">
+                                </span>
+                            </label>
+
+                            <input type="text"
+                                   id="username"
+                                   data-i18n-ph="usernamePh"
+                                   placeholder="Enter username..."
+                                   autocomplete="off">
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <label>
+                                <i class="fa-solid fa-lock"></i>
+
+                                <span id="lblPass"
+                                      data-i18n="password">
+                                    Password
+                                </span>
+
+                                <span class="required-dot"
+                                      id="dotPass">
+                                </span>
+                            </label>
+
+                            <div class="password-wrapper">
+
+                                <input type="password"
+                                       id="password"
+                                       data-i18n-ph="passwordPh"
+                                       placeholder="Enter password...">
+
+                                <i class="fa-solid fa-eye toggle-password"
+                                   id="togglePassword"
+                                   onclick="togglePassVisibility()">
+                                </i>
+
+                            </div>
+
+                        </div>
+
+                        <button class="btn"
+                                id="btnLoginBtn"
+                                data-i18n="getIn"
+                                onclick="handleLogin()">
+                            Get In
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 2. Services Card -->
+                <div class="portal-card side-card left"
+                     id="cardServices"
+                     onclick="switchPortalCard('services')">
+
+                    <div class="services-wrap">
+
+                        <div class="card-header-title"
+                             style="justify-content: center; text-align: center;">
+
+                            <i class="fa-solid fa-calendar-check icon-soft"></i>
+
+                            <span data-i18n="notYet">
+                                Not a Thabit Yet ?
+                            </span>
+
+                        </div>
+
+                        <p class="services-desc"
+                           data-i18n="servicesDesc" data-cms="portal.servicesDesc" data-cms-ov>
+                            Pick your time slot, upload the required files, and confirm your payment with ease.
+                        </p>
+
+
+                        <!-- NEW INDEPENDENT BUTTON -->
+                        <a href="/placement"
+                           id="assistantJoinBtn"
+                           class="assistant-join-btn"
+                           onclick="event.stopPropagation();">
+
+                            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+
+                            <span data-i18n="wantJoin">
+                                Want to join ?
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                    <div class="card-footnote"
+                         data-i18n="bookingPortal">
+                        Direct Booking Portal
+                    </div>
+
+                </div>
+
+
+                <!-- 3. About Us Card -->
+                <div class="portal-card side-card"
+                     id="cardAbout"
+                     onclick="switchPortalCard('about')">
+
+                    <div>
+
+                        <div class="card-header-title">
+
+                            <i class="fa-solid fa-circle-info"></i>
+
+                            <span id="lblAboutTitle"
+                                  data-i18n="aboutTitle">
+                                About Us
+                            </span>
+
+                        </div>
+
+                        <p class="info-content"
+                           id="lblAboutDesc"
+                           data-i18n="aboutDesc" data-cms="portal.aboutDesc" data-cms-ov>
+                            THABIT is a state-of-the-art educational ecosystem built to bridge the gap between mentors and trainees.
+                        </p>
+
+                    </div>
+
+                    <div class="card-footnote strong"
+                         data-i18n="clickView">
+                        Click to view
+                    </div>
+
+                </div>
+
             </div>
-            <button type="submit" class="login-btn">Login</button>
-        </form>
 
-        <a href="/forgot-password" class="forgot-password">Forgot password?</a>
+        </div>
 
-        <div class="error-message">اسم المستخدم أو كلمة المرور غير صحيحة!</div>
     </div>
 
-    <div class="connection-status">
-        <span class="status-dot"></span> Connected
-    </div>
 
     <script>
-        // مسح الـ Intro تماماً من الصفحة بعد انتهاء الأنيميشن
-        setTimeout(function() {
-            var overlay = document.getElementById('intro-overlay');
-            if (overlay) {
-                overlay.style.display = 'none';
+    (function () {
+
+        var LOGO = '<g transform="translate(2.00 4.12) scale(0.10237) translate(-49.5 -12.5)"><path d="M322.8 24.2L317.2 21.0L312.3 19.8L307.5 19.8L301.5 21.0L292.8 24.5L281.8 31.8L273.3 39.7L258.0 55.3L243.5 68.2L235.8 72.8L231.3 74.5L223.0 76.2L216.3 76.0L209.8 74.2L204.7 71.3L200.2 67.0L197.5 62.7L195.8 58.7L194.7 52.3L194.7 47.0L195.8 40.8L197.0 39.0L199.0 33.0L203.3 27.0L211.2 19.8L219.7 15.2L223.3 14.2L224.7 12.5L216.8 13.0L208.3 15.0L207.2 16.0L199.0 19.7L193.0 24.2L188.0 29.0L183.7 34.7L178.7 44.0L175.7 55.3L176.0 65.8L178.8 75.5L180.5 78.8L183.8 83.2L188.8 87.8L194.5 91.3L198.0 93.0L204.5 94.5L211.7 95.2L221.7 94.5L228.7 92.8L239.2 87.8L252.0 79.0L262.8 68.2L274.0 55.3L282.3 47.2L288.0 42.7L296.5 38.0L302.8 37.3L305.3 38.7L307.3 42.7L307.3 49.7L302.7 64.2L293.5 82.5L291.2 85.7L290.3 88.0L286.7 93.3L284.2 98.3L281.8 101.3L279.8 105.5L277.2 108.8L275.2 113.0L272.5 116.3L262.7 132.7L259.8 135.8L220.2 139.0L210.8 139.2L203.7 140.3L194.3 140.7L186.8 141.8L152.0 143.7L144.0 145.0L102.3 148.0L100.2 148.8L96.3 153.2L95.5 155.2L93.2 157.7L91.0 161.3L82.5 171.5L81.8 173.2L68.5 190.2L66.5 193.5L64.0 196.0L63.3 197.7L59.3 202.3L59.5 203.8L74.8 203.3L81.0 202.2L89.2 201.8L97.8 200.7L134.5 198.7L141.2 197.5L150.0 197.3L155.7 196.5L156.8 196.8L156.8 198.2L144.8 214.8L142.3 217.5L137.2 225.3L128.7 236.0L128.0 237.7L125.3 240.7L114.0 256.8L82.0 299.3L72.2 308.8L67.2 312.3L57.3 316.7L50.5 318.5L49.5 319.7L49.7 321.2L51.8 321.5L59.5 320.5L101.0 318.5L114.2 317.0L127.5 313.8L132.2 310.7L136.7 306.0L175.8 243.2L178.3 240.2L180.7 235.7L208.0 193.3L210.3 192.3L220.2 191.3L223.3 191.5L224.3 193.0L222.0 196.0L219.3 201.2L211.5 213.0L201.5 230.2L188.2 251.2L187.5 253.2L180.5 263.8L173.8 276.2L169.8 282.0L160.5 298.5L158.7 304.0L158.7 310.2L160.7 315.5L165.2 319.7L170.2 321.5L175.5 321.3L179.2 320.0L182.5 318.0L187.8 313.5L215.8 283.8L234.7 265.3L251.8 251.5L259.0 248.0L261.0 248.0L262.8 249.2L263.8 254.0L263.0 259.7L258.7 272.5L255.7 285.2L254.8 299.0L255.7 305.3L258.7 312.7L263.3 318.2L269.8 321.3L275.3 322.5L279.3 322.7L286.0 321.5L294.5 318.2L301.5 313.5L308.8 307.0L317.8 296.3L327.2 281.5L330.7 273.0L332.0 271.0L334.0 264.3L335.0 263.0L335.3 260.7L336.5 258.5L337.0 253.3L335.7 252.7L333.8 254.2L330.0 262.5L325.7 270.2L323.2 273.3L321.3 277.2L315.0 285.8L306.7 294.8L300.0 300.0L293.8 303.0L286.5 303.0L283.5 300.5L282.0 297.2L282.0 286.5L284.7 274.7L286.0 272.2L287.8 263.8L290.5 257.0L293.7 242.0L294.0 234.3L293.7 229.8L290.3 223.3L287.2 220.8L282.7 218.8L275.8 218.8L270.0 220.5L265.5 222.3L254.3 229.5L235.8 245.2L226.5 254.5L224.7 257.2L205.8 277.3L204.8 277.7L204.5 276.5L218.7 252.3L221.2 249.0L228.0 236.7L235.2 225.7L235.7 224.0L249.0 203.2L249.5 201.5L255.5 191.7L257.7 189.0L259.8 188.2L266.8 188.2L274.5 186.8L295.7 185.3L308.8 185.0L316.5 183.7L324.0 183.5L332.0 182.3L341.5 182.0L347.7 181.2L368.2 180.3L373.2 179.3L374.8 178.2L376.8 173.7L377.8 172.7L379.8 167.7L381.2 166.2L396.3 135.7L398.3 130.7L401.0 126.5L401.0 124.8L385.3 125.5L379.8 126.5L370.7 126.8L362.7 128.0L328.8 130.0L322.2 131.2L314.5 131.3L304.2 132.7L293.5 133.2L292.2 132.3L292.5 130.8L295.2 127.8L297.2 123.7L299.5 120.7L313.5 97.3L322.7 79.2L326.2 69.5L327.3 67.8L330.5 55.2L331.3 47.2L330.7 39.0L327.2 28.8Z" fill="currentColor" stroke="none"/></g>';
+
+        var mandala = [0,45,90,135,180,225,270,315].map(function (a) {
+            return '<ellipse cx="20" cy="10.5" rx="2.8" ry="6.5" transform="rotate(' + a + ' 20 20)"/>';
+        }).join('') + '<circle cx="20" cy="20" r="2.2"/>';
+
+        var icons = {
+            th: LOGO,
+            sun: '<circle cx="20" cy="20" r="6"/><path d="M20 4v4M20 32v4M4 20h4M32 20h4M8.7 8.7l2.8 2.8M28.5 28.5l2.8 2.8M8.7 31.3l2.8-2.8M28.5 11.5l2.8-2.8"/>',
+            moon: '<path transform="translate(3 3) scale(1.4)" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>',
+            eye: '<path d="M3 20c5-8 11-12 17-12s12 4 17 12c-5 8-11 12-17 12S8 28 3 20z"/><circle cx="20" cy="20" r="5.5"/><circle cx="20" cy="20" r="1.8"/>',
+            bolt: '<path d="M23 4L9 22h9l-2 14 15-19h-9z"/>',
+            T: '<text x="20" y="31" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="900" font-size="32" stroke-width="1.4">T</text>',
+            small: '<text x="20" y="28" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="900" font-size="22" stroke-width="1.3">th</text>',
+            ain: '<text x="20" y="29" text-anchor="middle" font-family="Cairo,sans-serif" font-weight="700" font-size="30" stroke-width="1.2">\u0639</text>',
+            tha: '<text x="20" y="29" text-anchor="middle" font-family="Cairo,sans-serif" font-weight="700" font-size="30" stroke-width="1.2">\u062b</text>',
+            note: '<path d="M14 29V9l16-4v20"/><ellipse cx="10.5" cy="29" rx="4.5" ry="3.5"/><ellipse cx="26.5" cy="25" rx="4.5" ry="3.5"/>',
+            mic: '<rect x="15.5" y="5" width="9" height="17" rx="4.5"/><path d="M10 19a10 10 0 0 0 20 0M20 29v6M14 35h12"/>',
+            doc: '<rect x="9" y="5" width="22" height="30" rx="3"/><path d="M14 14h12M14 20h12M14 26h7"/>',
+            bulb: '<path d="M15 29h10M17 34h6M20 5a10 10 0 0 0-6 18c1.2 1 2 2.6 2 4.5v1.5h8v-1.5c0-1.9.8-3.5 2-4.5A10 10 0 0 0 20 5z"/>',
+            mandala: mandala,
+            book: '<path d="M20 11c-4-3-9-4-14-3v22c5-1 10 0 14 3 4-3 9-4 14-3V8c-5-1-10 0-14 3zM20 11v22"/>',
+            target: '<circle cx="20" cy="20" r="13"/><circle cx="20" cy="20" r="8"/><circle cx="20" cy="20" r="3"/>'
+        };
+
+        var names = Object.keys(icons);
+        var STEP = 60, N = 6, TILE = STEP * N, SCALE = 0.72;
+        var angles = [-14, -6, 0, 7, 13, -9, 4];
+
+        var defs = '';
+
+        names.forEach(function (n) {
+            defs += '<g id="thi-' + n + '" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + icons[n] + '</g>';
+        });
+
+        var uses = '';
+
+        for (var r = 0; r < N; r++) {
+            for (var c = 0; c < N; c++) {
+                var id = names[(r * 5 + c * 3) % names.length];
+                var x = (r % 2 ? 45 : 15) + c * STEP;
+                var y = 30 + r * STEP;
+                var a = angles[(r * 3 + c * 5) % angles.length];
+
+                uses += '<use href="#thi-' + id + '" transform="translate(' + x + ' ' + y + ') rotate(' + a + ') scale(' + SCALE + ') translate(-20 -20)"/>';
             }
-        }, 3000);
+        }
+
+        var svg = '<svg id="thabitBg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+            '<defs>' + defs +
+            '<pattern id="thabitTile" width="' + TILE + '" height="' + TILE + '" patternUnits="userSpaceOnUse">' +
+            uses +
+            '</pattern></defs>' +
+            '<rect width="100%" height="100%" fill="url(#thabitTile)"/></svg>';
+
+        document.body.insertAdjacentHTML('afterbegin', svg);
+
+    })();
     </script>
+
+
+    <script>
+
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwdTjCpH7KYgNX0jV_rOmupRF2kaR1CH6RtH0wTkOccqmyuIB4zsmUD0GqKPrxaiBqd-A/exec";
+
+        const PAGE_I18N = {
+
+            en: {
+                loginTitle: "Login",
+                username: "Username",
+                usernamePh: "Enter username...",
+                password: "Password",
+                passwordPh: "Enter password...",
+                getIn: "Get In",
+                checking: "Checking...",
+                notYet: "Not a Thabit Yet ?",
+                servicesDesc: "Pick your time slot, upload the required files, and confirm your payment with ease.",
+                wantJoin: "Want to join ?",
+                bookingPortal: "Direct Booking Portal",
+                aboutTitle: "About Us",
+                aboutDesc: "THABIT is a state-of-the-art educational ecosystem built to bridge the gap between mentors and trainees.",
+                clickView: "Click to view",
+                assistShort: "Assistant",
+                assistTitle: "Pronunciation Assistant",
+                themeTitle: "Light / Dark",
+                errEmpty: "Please enter username and password!",
+                welcome: "Welcome, {name}! Redirecting...",
+                errWrong: "Wrong username or password!",
+                errConn: "Could not reach the database, check your connection."
+            },
+
+            ar: {
+                loginTitle: "تسجيل الدخول",
+                username: "اسم المستخدم",
+                usernamePh: "أدخل اسم المستخدم...",
+                password: "كلمة المرور",
+                passwordPh: "أدخل كلمة المرور...",
+                getIn: "دخول",
+                checking: "جارٍ التحقق...",
+                notYet: "لست من ثابت بعد؟",
+                servicesDesc: "قم باختيار ميعادك، ورفع الملفات المطلوبة، وإثبات الدفع بكل سهولة ويسر.",
+                wantJoin: "هل تريد الانضمام؟",
+                bookingPortal: "بوابة الحجز المباشر",
+                aboutTitle: "من نحن",
+                aboutDesc: "ثابت منظومة تعليمية متطورة صُممت لسد الفجوة بين المدربين والمتدربين.",
+                clickView: "اضغط للعرض",
+                assistShort: "المساعد",
+                assistTitle: "مساعد النطق",
+                themeTitle: "فاتح / داكن",
+                errEmpty: "من فضلك أدخل اسم المستخدم وكلمة المرور!",
+                welcome: "أهلاً بك، {name}! جارٍ التحويل...",
+                errWrong: "خطأ في اسم المستخدم أو كلمة المرور!",
+                errConn: "تعذر الاتصال بقاعدة البيانات، تأكد من الاتصال."
+            },
+
+            eg: {
+                loginTitle: "دخول",
+                username: "اسم المستخدم",
+                usernamePh: "اكتب اسم المستخدم...",
+                password: "الباسورد",
+                passwordPh: "اكتب الباسورد...",
+                getIn: "ادخل",
+                checking: "بنتأكد...",
+                notYet: "لسه مش من ثابت؟",
+                servicesDesc: "اختار ميعادك، وارفع الملفات المطلوبة، وأثبت الدفع بكل سهولة.",
+                wantJoin: "عايز تنضم؟",
+                bookingPortal: "بوابة الحجز المباشر",
+                aboutTitle: "احنا مين",
+                aboutDesc: "ثابت منظومة تعليمية متطورة اتعملت عشان تقرّب بين المدرب والمتدرب.",
+                clickView: "دوس عشان تشوف",
+                assistShort: "المساعد",
+                assistTitle: "مساعد النطق",
+                themeTitle: "فاتح / داكن",
+                errEmpty: "اكتب اسم المستخدم والباسورد!",
+                welcome: "أهلاً يا {name}! جاري التحويل...",
+                errWrong: "اسم المستخدم أو الباسورد غلط!",
+                errConn: "مش قادر أوصل للداتابيز، اتأكد من النت."
+            }
+        };
+
+
+        let currentLang = 'en';
+        let isLightTheme = false;
+
+        function thabitSave(k, v) {
+            try {
+                localStorage.setItem(k, v);
+            } catch (e) {}
+        }
+
+        function thabitLoad(k) {
+            try {
+                return localStorage.getItem(k);
+            } catch (e) {
+                return null;
+            }
+        }
+
+        function applyTheme(light) {
+
+            isLightTheme = light;
+
+            document.body.classList.toggle('light-theme', light);
+
+            const ic = document.getElementById('themeIcon');
+
+            if (ic)
+                ic.className = light
+                    ? 'fa-solid fa-sun'
+                    : 'fa-solid fa-moon';
+        }
+
+        function toggleTheme() {
+
+            applyTheme(!isLightTheme);
+
+            thabitSave(
+                'thabit_theme',
+                isLightTheme ? 'light' : 'dark'
+            );
+        }
+
+        function setLanguage(lang) {
+
+            if (!PAGE_I18N[lang])
+                lang = 'en';
+
+            currentLang = lang;
+
+            thabitSave('thabit_lang', lang);
+
+            const ids = {
+                ar: 'floatBtnAr',
+                en: 'floatBtnEn',
+                eg: 'floatBtnEg'
+            };
+
+            Object.keys(ids).forEach(k => {
+
+                const b = document.getElementById(ids[k]);
+
+                if (b)
+                    b.classList.toggle(
+                        'active',
+                        k === lang
+                    );
+            });
+
+            const root = document.documentElement;
+
+            root.setAttribute(
+                'dir',
+                lang === 'en' ? 'ltr' : 'rtl'
+            );
+
+            root.setAttribute(
+                'lang',
+                lang === 'ar'
+                    ? 'ar'
+                    : (lang === 'eg' ? 'arz' : 'en')
+            );
+
+            const t = PAGE_I18N[lang];
+
+            document
+                .querySelectorAll('[data-i18n]')
+                .forEach(el => {
+
+                    const v = t[el.dataset.i18n];
+
+                    if (v !== undefined)
+                        el.textContent = v;
+                });
+
+            document
+                .querySelectorAll('[data-i18n-ph]')
+                .forEach(el => {
+
+                    const v = t[el.dataset.i18nPh];
+
+                    if (v !== undefined)
+                        el.placeholder = v;
+                });
+
+            document
+                .querySelectorAll('[data-i18n-title]')
+                .forEach(el => {
+
+                    const v = t[el.dataset.i18nTitle];
+
+                    if (v !== undefined)
+                        el.title = v;
+                });
+
+            if (typeof onLanguageApplied === 'function')
+                onLanguageApplied(lang, t);
+        }
+
+
+        function initThabitUI() {
+
+            applyTheme(
+                thabitLoad('thabit_theme') === 'light'
+            );
+
+            const saved = thabitLoad('thabit_lang');
+
+            setLanguage(
+                saved && PAGE_I18N[saved]
+                    ? saved
+                    : 'en'
+            );
+        }
+
+
+        function runCinematicIntro() {
+
+            const introOverlay =
+                document.getElementById('cinematicIntroOverlay');
+
+            const loginScreen =
+                document.getElementById('login-screen');
+
+            setTimeout(() => {
+
+                introOverlay.classList.add('fade-out');
+
+                setTimeout(() => {
+                    introOverlay.style.display = 'none';
+                }, 1000);
+
+                loginScreen.classList.remove(
+                    'page-content-hidden'
+                );
+
+                loginScreen.classList.add(
+                    'page-content-visible'
+                );
+
+                loginScreen.classList.add('active');
+
+            }, 3000);
+        }
+
+
+        function switchPortalCard(cardName) {
+
+            if (window.innerWidth <= 900)
+                return;
+
+            const cardServ =
+                document.getElementById('cardServices');
+
+            const cardLogin =
+                document.getElementById('cardLogin');
+
+            const cardAbout =
+                document.getElementById('cardAbout');
+
+            cardServ.className =
+                "portal-card side-card";
+
+            cardLogin.className =
+                "portal-card side-card";
+
+            cardAbout.className =
+                "portal-card side-card";
+
+
+            if (cardName === 'login') {
+
+                cardLogin.className =
+                    "portal-card active-card";
+
+                cardServ.className =
+                    "portal-card side-card left";
+
+            }
+
+            else if (cardName === 'services') {
+
+                cardServ.className =
+                    "portal-card active-card";
+
+            }
+
+            else if (cardName === 'about') {
+
+                cardAbout.className =
+                    "portal-card active-card";
+
+                cardLogin.className =
+                    "portal-card side-card left";
+            }
+        }
+
+
+        function togglePassVisibility() {
+
+            const passwordInput =
+                document.getElementById('password');
+
+            const toggleIcon =
+                document.getElementById('togglePassword');
+
+            if (passwordInput.type === 'password') {
+
+                passwordInput.type = 'text';
+
+                toggleIcon.classList.remove(
+                    'fa-eye'
+                );
+
+                toggleIcon.classList.add(
+                    'fa-eye-slash'
+                );
+
+            } else {
+
+                passwordInput.type = 'password';
+
+                toggleIcon.classList.remove(
+                    'fa-eye-slash'
+                );
+
+                toggleIcon.classList.add(
+                    'fa-eye'
+                );
+            }
+        }
+
+
+        async function handleLogin() {
+
+            const t = PAGE_I18N[currentLang];
+
+            const u =
+                document.getElementById('username')
+                .value
+                .trim();
+
+            const p =
+                document.getElementById('password')
+                .value
+                .trim();
+
+            const alertBox =
+                document.getElementById('webAlertBox');
+
+            const btn =
+                document.getElementById('btnLoginBtn');
+
+
+            if (!u || !p) {
+
+                alertBox.innerText =
+                    t.errEmpty;
+
+                alertBox.className =
+                    "show alert-error";
+
+                setTimeout(() => {
+
+                    alertBox.classList.remove(
+                        'show'
+                    );
+
+                }, 3000);
+
+                return;
+            }
+
+
+            btn.innerText =
+                t.checking;
+
+            btn.disabled = true;
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        `${SCRIPT_URL}?action=login&username=${encodeURIComponent(u)}&password=${encodeURIComponent(p)}`
+                    );
+
+                const result =
+                    await response.json();
+
+
+                if (result.status === 'success') {
+
+                    alertBox.innerText =
+                        t.welcome.replace(
+                            '{name}',
+                            result.user.who
+                        );
+
+                    alertBox.className =
+                        "show alert-success";
+
+
+                    localStorage.setItem(
+                        'currentTrainee',
+                        JSON.stringify(result.user)
+                    );
+
+
+                    setTimeout(() => {
+
+                        window.location.href =
+                            '/dashboard';
+
+                    }, 1000);
+
+
+                } else {
+
+                    alertBox.innerText =
+                        result.message ||
+                        t.errWrong;
+
+                    alertBox.className =
+                        "show alert-error";
+
+                    btn.innerText =
+                        t.getIn;
+
+                    btn.disabled = false;
+
+                    setTimeout(() => {
+
+                        alertBox.classList.remove(
+                            'show'
+                        );
+
+                    }, 4000);
+                }
+
+
+            } catch (err) {
+
+                alertBox.innerText =
+                    t.errConn;
+
+                alertBox.className =
+                    "show alert-error";
+
+                btn.innerText =
+                    t.getIn;
+
+                btn.disabled = false;
+
+                setTimeout(() => {
+
+                    alertBox.classList.remove(
+                        'show'
+                    );
+
+                }, 4000);
+            }
+        }
+
+
+        window.onload = () => {
+
+            initThabitUI();
+
+            runCinematicIntro();
+
+        };
+
+    </script>
+
+<!-- ===== THABIT SHARED: content editor + admin panel + theme fixes (start) ===== -->
+<style id="thaSharedCss">
+.circle-badge-btn.admin-btn{color:#10b981}
+body.light-theme .circle-badge-btn.theme-btn{color:#b45309}
+body.light-theme .circle-badge-btn.admin-btn{color:#047857}
+body.light-theme .text-slate-400,body.light-theme .text-slate-500{color:#475569!important}
+body.light-theme .text-amber-300,body.light-theme .text-amber-400{color:#b45309!important}
+body.light-theme .text-emerald-300,body.light-theme .text-emerald-400{color:#047857!important}
+body.light-theme .text-indigo-300,body.light-theme .text-indigo-400{color:#4f46e5!important}
+body.light-theme .text-rose-300,body.light-theme .text-rose-400{color:#be123c!important}
+body.light-theme .bg-slate-800{background:#e2e8f0!important;color:#0f172a}
+.tha-modal{position:fixed;inset:0;z-index:100000;display:none;align-items:center;justify-content:center;padding:14px;background:rgba(2,6,23,.8);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.tha-modal.open{display:flex;animation:thaIn .25s ease}
+@keyframes thaIn{from{opacity:0}to{opacity:1}}
+@keyframes thaPop{from{transform:translateY(14px) scale(.97);opacity:0}to{transform:none;opacity:1}}
+.tha-box{width:100%;max-width:600px;max-height:92vh;overflow-y:auto;border-radius:22px;padding:20px;background:#0f172a;color:#f1f5f9;border:1px solid rgba(255,255,255,.15);box-shadow:0 30px 80px rgba(0,0,0,.7);font-family:'Cairo','Plus Jakarta Sans',sans-serif;animation:thaPop .3s cubic-bezier(.16,1,.3,1)}
+body.light-theme .tha-box{background:#fff;color:#0f172a;border-color:rgba(15,23,42,.35)}
+.tha-h{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+.tha-h h3{font-size:1.05rem;font-weight:900;color:#fbbf24;display:flex;gap:8px;align-items:center}
+body.light-theme .tha-h h3{color:#a16207}
+.tha-x{width:34px;height:34px;border-radius:50%;border:0;cursor:pointer;background:rgba(148,163,184,.25);color:inherit;font-size:14px}
+.tha-tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tha-tab{flex:1;min-width:80px;padding:8px 10px;border-radius:12px;border:1px solid rgba(148,163,184,.4);background:transparent;color:inherit;font:700 .78rem 'Cairo',sans-serif;cursor:pointer}
+.tha-tab.on{background:#2563eb;border-color:#2563eb;color:#fff}
+.tha-in{width:100%;padding:10px 12px;border-radius:12px;border:1px solid rgba(148,163,184,.45);background:rgba(2,6,23,.55);color:inherit;font:600 .85rem 'Cairo',sans-serif;outline:none}
+body.light-theme .tha-in{background:#f1f5f9}
+textarea.tha-in{min-height:84px;resize:vertical;line-height:1.6}
+.tha-row{padding:12px;border:1px solid rgba(148,163,184,.3);border-radius:14px;margin-top:10px;display:flex;flex-direction:column;gap:8px}
+.tha-lab{font-size:.8rem;font-weight:800;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.tha-tag{font-size:.62rem;padding:2px 8px;border-radius:99px;background:rgba(212,175,55,.2);color:#d4af37;font-weight:800;white-space:nowrap}
+body.light-theme .tha-tag{color:#a16207}
+.tha-btns{display:flex;gap:6px;flex-wrap:wrap}
+.tha-b{padding:8px 12px;border-radius:10px;border:0;cursor:pointer;font:800 .75rem 'Cairo',sans-serif;color:#fff;background:#059669}
+.tha-b.gray{background:#475569}.tha-b.red{background:#e11d48}.tha-b.blue{background:#2563eb}
+.tha-b:disabled{opacity:.5;cursor:wait}
+.tha-note{font-size:.72rem;opacity:.75;line-height:1.6}
+.tha-img{max-width:100%;max-height:120px;border-radius:10px;object-fit:contain;align-self:flex-start}
+#thaMsg{min-height:18px;margin-top:10px;font-weight:700}
+</style>
+
+<div id="thaAuth" class="tha-modal"><div class="tha-box" style="max-width:380px;text-align:center">
+  <i class="fa-solid fa-lock" style="font-size:2rem;color:#fbbf24"></i>
+  <h3 style="margin:10px 0 4px;font-weight:900">Fedawy Admin</h3>
+  <p class="tha-note" style="margin-bottom:12px">سجّل دخول بحساب الأدمن · Sign in with the admin account</p>
+  <input id="thaEmail" type="email" autocomplete="username" class="tha-in" style="text-align:center;margin-bottom:8px" placeholder="Email">
+  <input id="thaPass" type="password" autocomplete="current-password" class="tha-in" style="text-align:center" placeholder="Password">
+  <p id="thaAuthErr" class="tha-note" style="color:#f43f5e;margin-top:8px;min-height:16px"></p>
+  <div class="tha-btns" style="margin-top:12px"><button type="button" class="tha-b gray" style="flex:1" id="thaAuthCancel">إلغاء</button><button type="button" class="tha-b" style="flex:1" id="thaAuthOk">دخول</button></div>
+</div></div>
+
+<div id="thaPanel" class="tha-modal"><div class="tha-box">
+  <div class="tha-h"><h3><i class="fa-solid fa-shield-halved"></i> Fedawy Admin Panel</h3><button type="button" class="tha-x" id="thaClose"><i class="fa-solid fa-xmark"></i></button></div>
+  <div class="tha-tabs" style="margin-bottom:12px">
+    <button type="button" class="tha-tab on" id="thaTabC"><i class="fa-solid fa-pen-to-square"></i> تعديل المحتوى · Content</button>
+    <button type="button" class="tha-tab" id="thaTabA"><i class="fa-solid fa-microphone"></i> صوتيات · Audio</button>
+    <button type="button" class="tha-tab" id="thaTabB"><i class="fa-solid fa-list-check"></i> حجوزات · Bookings</button>
+  </div>
+  <div id="thaPaneC">
+    <input id="thaSearch" class="tha-in" placeholder="Search... / ابحث...">
+    <div id="thaPages" class="tha-tabs" style="margin-top:10px"></div>
+    <div id="thaList"></div>
+  </div>
+  <div id="thaPaneA" style="display:none">
+    <label class="tha-lab" style="margin-bottom:6px">word (s):</label>
+    <input id="thaWord" class="tha-in" placeholder="e.g. Hello">
+    <div class="tha-btns" style="margin-top:10px;align-items:center">
+      <button type="button" class="tha-b red" id="thaRec"><i class="fa-solid fa-microphone"></i> Record</button>
+      <span id="thaTimer" style="font-family:monospace">00:00</span>
+      <audio id="thaPlay" controls style="height:34px;display:none;max-width:100%"></audio>
+    </div>
+    <button type="button" class="tha-b" id="thaUp" style="margin-top:12px;width:100%;padding:12px" disabled><i class="fa-solid fa-cloud-arrow-up"></i> Upload &amp; Save to Database</button>
+  </div>
+  <div id="thaPaneB" style="display:none"><div id="thaBook" class="tha-note">...</div></div>
+  <div class="tha-btns" style="margin-top:10px"><button type="button" class="tha-b gray" id="thaOut"><i class="fa-solid fa-right-from-bracket"></i> Sign out</button></div>
+  <div id="thaMsg" class="tha-note"></div>
+</div></div>
+
+<script>
+(function(){
+  var SB="https://vkfexceitwjmxncwceqb.supabase.co";
+  var KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZrZmV4Y2VpdHdqbXhuY3djZXFiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAzMzY5MTEsImV4cCI6MjEwNTkxMjkxMX0.6ArXtykrZhdNInphpg_LQTIvULkpwnnlzHA3dKhrNoI";
+  var SESSKEY="thabit_admin_session";
+  var $=function(i){return document.getElementById(i)};
+  function H(x){var h={apikey:KEY,Authorization:"Bearer "+KEY};for(var k in x)h[k]=x[k];return h}
+  var defs={},order=[],over={},hooks=[];
+  try{over=JSON.parse(localStorage.getItem("thabit_cms")||"{}")||{}}catch(e){over={}}
+  function lang(){try{return localStorage.getItem("thabit_lang")||"en"}catch(e){return"en"}}
+  function cache(){try{localStorage.setItem("thabit_cms",JSON.stringify(over))}catch(e){}}
+  function R(key,label,type,page,def,hint){defs[key]={label:label,type:type,page:page,def:def,hint:hint||""};order.push(key)}
+  function defOf(k){var d=defs[k];if(!d)return"";var v=d.def;if(typeof v==="function")v=v(lang());else if(v&&typeof v==="object")v=v[lang()]||v.en;return v==null?"":v}
+  function hasOv(k){return over[k]!==undefined&&over[k]!==""}
+  function get(k){return hasOv(k)?over[k]:defOf(k)}
+  function sub(s){return String(s).replace(/\{fee\}/g,get("pl.lateFee")).replace(/\{price\}/g,get("pl.price"))}
+  function apply(){
+    document.querySelectorAll("[data-cms]").forEach(function(el){
+      var k=el.getAttribute("data-cms"),d=defs[k];if(!d)return;
+      if(el.hasAttribute("data-cms-ov")&&!hasOv(k))return;
+      var v=get(k);
+      if(d.type==="image"){if(v){el.src=v;el.style.display=""}else{el.removeAttribute("src");el.style.display="none"}}
+      else if(d.type==="list"){el.innerHTML="";String(v).split("\n").forEach(function(s){if(!s.trim())return;var li=document.createElement("li");li.textContent=sub(s.trim());el.appendChild(li)})}
+      else el.textContent=sub(v);
+    });
+    hooks.forEach(function(f){try{f()}catch(e){}});
+  }
+  function sess(){try{return JSON.parse(sessionStorage.getItem(SESSKEY)||"null")}catch(e){return null}}
+  function setSess(x){try{if(x)sessionStorage.setItem(SESSKEY,JSON.stringify(x));else sessionStorage.removeItem(SESSKEY)}catch(e){}}
+  function keep(j){setSess({access:j.access_token,refresh:j.refresh_token,exp:Date.now()+(j.expires_in||3600)*1000})}
+  function ensure(){
+    var x=sess();if(!x)return Promise.resolve(null);
+    if(x.exp>Date.now()+30000)return Promise.resolve(x.access);
+    return fetch(SB+"/auth/v1/token?grant_type=refresh_token",{method:"POST",headers:{apikey:KEY,"Content-Type":"application/json"},body:JSON.stringify({refresh_token:x.refresh})}).then(function(r){return r.ok?r.json():null}).then(function(j){if(!j||!j.access_token){setSess(null);return null}keep(j);return j.access_token}).catch(function(){return null});
+  }
+  function hdr(extra){return ensure().then(function(t){var h={apikey:KEY,Authorization:"Bearer "+(t||KEY)};for(var k in extra)h[k]=extra[k];return h})}
+  function adminFetch(url,o){return ensure().then(function(t){if(!t)throw new Error("auth");o=o||{};o.headers=Object.assign({apikey:KEY,Authorization:"Bearer "+t},o.headers||{});return fetch(url,o)})}
+  function login(email,pass){
+    return fetch(SB+"/auth/v1/token?grant_type=password",{method:"POST",headers:{apikey:KEY,"Content-Type":"application/json"},body:JSON.stringify({email:email,password:pass})}).then(function(r){return r.json().then(function(j){return{ok:r.ok,j:j}})}).then(function(o){if(!o.ok||!o.j.access_token)throw new Error("bad");keep(o.j)});
+  }
+  function load(){
+    return fetch(SB+"/rest/v1/site_content?select=key,value",{headers:H()}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(rows){var m={};rows.forEach(function(r){m[r.key]=r.value});over=m;cache();apply()}).catch(function(){})
+  }
+  function save(k,v){
+    over[k]=v;cache();apply();
+    return adminFetch(SB+"/rest/v1/site_content?on_conflict=key",{method:"POST",headers:{"Content-Type":"application/json",Prefer:"resolution=merge-duplicates,return=minimal"},body:JSON.stringify({key:k,value:v,updated_at:new Date().toISOString()})}).then(function(r){return r.ok}).catch(function(){return false});
+  }
+  function reset(k){
+    delete over[k];cache();apply();
+    return adminFetch(SB+"/rest/v1/site_content?key=eq."+encodeURIComponent(k),{method:"DELETE"}).then(function(r){return r.ok}).catch(function(){return false});
+  }
+  function upload(file,folder,bucket,asAdmin){
+    bucket=bucket||"placement-files";
+    var name=folder+"/"+Date.now()+"_"+Math.random().toString(36).slice(2,10)+"_"+file.name.replace(/[^\w.\-]+/g,"_");
+    var o={method:"POST",headers:{"Content-Type":file.type||"application/octet-stream"},body:file},url=SB+"/storage/v1/object/"+bucket+"/"+name;
+    var p=asAdmin?adminFetch(url,o):fetch(url,{method:"POST",headers:H(o.headers),body:file});
+    return p.then(function(r){if(!r.ok)throw new Error("upload");return SB+"/storage/v1/object/public/"+bucket+"/"+name});
+  }
+  function post(table,obj){
+    return fetch(SB+"/rest/v1/"+table,{method:"POST",headers:H({"Content-Type":"application/json",Prefer:"return=minimal"}),body:JSON.stringify(obj)}).then(function(r){return r.ok}).catch(function(){return false});
+  }
+
+  /* ---------- registry of every editable thing in the whole site ---------- */
+  R("portal.servicesDesc","Booking card text","textarea","Portal",{en:"Pick your time slot, upload the required files, and confirm your payment with ease.",ar:"قم باختيار ميعادك، ورفع الملفات المطلوبة، وإثبات الدفع بكل سهولة ويسر.",eg:"اختار ميعادك، وارفع الملفات المطلوبة، وأثبت الدفع بكل سهولة."});
+  R("portal.aboutDesc","About Us text","textarea","Portal",{en:"THABIT is a state-of-the-art educational ecosystem built to bridge the gap between mentors and trainees.",ar:"ثابت منظومة تعليمية متطورة صُممت لسد الفجوة بين المدربين والمتدربين.",eg:"ثابت منظومة تعليمية متطورة اتعملت عشان تقرّب بين المدرب والمتدرب."});
+  R("dash.subtitle","Dashboard subtitle","text","Dashboard",{en:"Your personal trainee dashboard in the Thabit system",ar:"لوحة قيادة المتدرب الخاصة بك في نظام Thabit",eg:"لوحة التحكم بتاعتك كمتدرب في نظام Thabit"});
+  R("assist.headerSub","Assistant header subtitle","text","Assistant",{en:"pronounce on the go",ar:"انطق وأنت في طريقك",eg:"انطق وانت ماشي"});
+
+  R("pl.price","Placement session price","text","Placement",{en:"XXX EGP",ar:"XXX جنيه",eg:"XXX جنيه"},"Shown in the payment step and the receipt");
+  R("pl.lateFee","Late fee per minute (number)","text","Placement","25","Used in the rules as {fee}");
+  R("pl.slots","Daily time slots","textarea","Placement","10:00, 11:00, 12:00, 13:00, 14:00, 15:00, 16:00, 17:00, 18:00, 19:00, 20:00, 21:00","24h format HH:MM, separated by commas or new lines");
+  R("pl.blocked","Unavailable dates","textarea","Placement","","YYYY-MM-DD separated by commas/new lines. Thursday & Friday are always closed automatically.");
+  R("pl.booked","Booked slots","textarea","Placement","","One per line: YYYY-MM-DD HH:MM (e.g. 2026-10-14 16:00)");
+  R("pl.englishHint","English test: hint","text","Placement",{en:"Upload a PDF / screenshot of your external English test result, or paste its link.",ar:"ارفع ملف PDF أو لقطة شاشة لنتيجة اختبار الإنجليزي الخارجي، أو ضع رابطه.",eg:"ارفع PDF أو سكرين شوت لنتيجة اختبار الإنجليزي الخارجي، أو حط اللينك بتاعه."});
+  R("pl.psychHint","Psychological test: hint","text","Placement",{en:"Upload an image / PDF of your psychological test result, or paste its link.",ar:"ارفع صورة أو ملف PDF لنتيجة الاختبار السيكولوجي، أو ضع رابطه.",eg:"ارفع صورة أو PDF لنتيجة الاختبار السيكولوجي، أو حط اللينك بتاعه."});
+  R("pl.secretHint","Secret file: hint","text","Placement",{en:"Got something special to share? Drop it here. Totally optional.",ar:"عندك شيء مميز تريد مشاركته؟ ضعه هنا. اختياري تمامًا.",eg:"عندك حاجة مميزة؟ حطها هنا. اختياري خالص."});
+  R("pl.payNote","Payment note","text","Placement",{en:"Pay with one of the methods below, then come back and add your proof.",ar:"ادفع بإحدى الطرق التالية ثم عد وأضف إثبات الدفع.",eg:"ادفع بأي طريقة من دول وبعدين ارجع وحط إثبات الدفع."});
+  R("pl.instapayLink","InstaPay link","text","Placement","https://ipn.eg/S/thabit");
+  R("pl.vodafone","Vodafone Cash number","text","Placement","01000000000");
+  R("pl.qr","Payment QR / image (optional)","image","Placement","");
+  R("pl.rules","Placement session instructions","list","Placement",{
+    en:"Be on time: if you are more than 20 minutes late after the agreed time, your payment is non-refundable.\nIf you are late by less than 20 minutes, a late fee of {fee} EGP per minute applies.\nBring a pen and paper to take notes — this is very important.\nMake sure your internet connection is stable.\nUse good headphones — or at least make sure the audio is crystal clear: no crackling, no background noise, no side conversations.",
+    ar:"الالتزام بالموعد: إذا تأخرت أكثر من 20 دقيقة عن الموعد المتفق عليه فلن يتم استرداد المبلغ المدفوع.\nإذا كان التأخير أقل من 20 دقيقة تُحتسب غرامة {fee} جنيهًا عن كل دقيقة تأخير.\nأحضر ورقة وقلمًا لتدوين الملاحظات، وهذا مهم جدًا.\nتأكد من ثبات اتصال الإنترنت.\nاستخدم سماعة جيدة، أو على الأقل تأكد من وضوح الصوت تمامًا: بدون تقطيع أو ضوضاء أو أحاديث جانبية.",
+    eg:"الالتزام بالميعاد: لو اتأخرت أكتر من 20 دقيقة عن الميعاد المتفق عليه فلوسك مش هتترجع.\nلو التأخير أقل من 20 دقيقة بتتحسب غرامة {fee} جنيه على كل دقيقة.\nهات ورقة وقلم تدوّن عليهم ملاحظات، ودي مهمة جدًا.\nتأكد إن النت ثابت.\nاستخدم سماعة كويسة، أو على الأقل الصوت يكون واضح: من غير خرفشة ولا دوشة ولا كلام جانبي."
+  },"One rule per line");
+  R("pl.termsTitle","Terms heading","text","Placement",{en:"Thabit's strict terms are as follows:",ar:"بنود ثابت الصارمة كالتالي:",eg:"بنود ثابت الصارمة هي كالتالي:"});
+  R("pl.terms","Terms & policies","list","Placement",{
+    en:"Term number one — edit me from the admin panel\nTerm number two — edit me from the admin panel\nTerm number three — edit me from the admin panel",
+    ar:"البند الأول — عدّلني من لوحة الأدمن\nالبند الثاني — عدّلني من لوحة الأدمن\nالبند الثالث — عدّلني من لوحة الأدمن",
+    eg:"البند الأول — عدّلني من لوحة الأدمن\nالبند الثاني — عدّلني من لوحة الأدمن\nالبند الثالث — عدّلني من لوحة الأدمن"
+  },"One term per line (numbered automatically)");
+  R("pl.wa","WhatsApp number (digits, with country code)","text","Placement","201000000000");
+  R("pl.tg","Telegram username (without @)","text","Placement","thabit");
+
+  /* ---------- admin UI ---------- */
+  var curPage="";
+  var p=location.pathname.toLowerCase();
+  if(p.indexOf("placement")>-1)curPage="Placement";else if(p.indexOf("assistant")>-1)curPage="Assistant";else if(p.indexOf("dashboard")>-1)curPage="Dashboard";else curPage="Portal";
+  function msg(t,bad){var m=$("thaMsg");m.textContent=t;m.style.color=bad?"#f43f5e":"#10b981";clearTimeout(msg._t);msg._t=setTimeout(function(){m.textContent=""},4500)}
+  function renderPages(){
+    var pages=["All"];order.forEach(function(k){if(pages.indexOf(defs[k].page)<0)pages.push(defs[k].page)});
+    var box=$("thaPages");box.innerHTML="";
+    pages.forEach(function(pg){var b=document.createElement("button");b.type="button";b.className="tha-tab"+((curPage===pg||(!curPage&&pg==="All"))?" on":"");b.textContent=pg;b.onclick=function(){curPage=pg==="All"?"":pg;renderPages();renderList()};box.appendChild(b)});
+  }
+  function renderList(){
+    var q=($("thaSearch").value||"").toLowerCase(),box=$("thaList");box.innerHTML="";
+    order.forEach(function(k){
+      var d=defs[k];if(curPage&&d.page!==curPage)return;
+      if(q&&(k+" "+d.label).toLowerCase().indexOf(q)<0)return;
+      var row=document.createElement("div");row.className="tha-row";
+      var lab=document.createElement("div");lab.className="tha-lab";
+      var s1=document.createElement("span");s1.textContent=d.label;var s2=document.createElement("span");s2.className="tha-tag";s2.textContent=d.page;
+      lab.appendChild(s1);lab.appendChild(s2);row.appendChild(lab);
+      var val=hasOv(k)?over[k]:defOf(k);
+      var inp=document.createElement(d.type==="text"||d.type==="image"?"input":"textarea");inp.className="tha-in";inp.value=val;
+      if(d.type==="image")inp.placeholder="https://... image URL";
+      row.appendChild(inp);
+      if(d.hint){var h=document.createElement("div");h.className="tha-note";h.textContent=d.hint;row.appendChild(h)}
+      var img=null;
+      if(d.type==="image"){img=document.createElement("img");img.className="tha-img";if(val)img.src=val;else img.style.display="none";row.appendChild(img);inp.oninput=function(){if(inp.value){img.src=inp.value;img.style.display=""}else img.style.display="none"}}
+      var bt=document.createElement("div");bt.className="tha-btns";
+      if(d.type==="image"){
+        var fi=document.createElement("input");fi.type="file";fi.accept="image/*";fi.style.display="none";
+        var ub=document.createElement("button");ub.type="button";ub.className="tha-b blue";ub.innerHTML='<i class="fa-solid fa-upload"></i> Upload image';
+        ub.onclick=function(){fi.click()};
+        fi.onchange=function(){if(!fi.files[0])return;ub.disabled=true;upload(fi.files[0],"site",null,true).then(function(u){inp.value=u;img.src=u;img.style.display="";msg("Uploaded ✓ — press Save")}).catch(function(){msg("Upload failed (create the placement-files bucket)",1)}).then(function(){ub.disabled=false})};
+        bt.appendChild(ub);bt.appendChild(fi);
+      }
+      var sb=document.createElement("button");sb.type="button";sb.className="tha-b";sb.innerHTML='<i class="fa-solid fa-floppy-disk"></i> Save';
+      sb.onclick=function(){sb.disabled=true;save(k,inp.value).then(function(ok){msg(ok?"Saved ✓":"Saved on this device only — create the site_content table (see SQL)",!ok)}).then(function(){sb.disabled=false})};
+      var rb=document.createElement("button");rb.type="button";rb.className="tha-b gray";rb.innerHTML='<i class="fa-solid fa-rotate-left"></i> Reset';
+      rb.onclick=function(){reset(k).then(function(){inp.value=defOf(k);if(img){if(inp.value){img.src=inp.value}else img.style.display="none"}msg("Back to default ✓")})};
+      bt.appendChild(sb);bt.appendChild(rb);row.appendChild(bt);box.appendChild(row);
+    });
+    if(!box.children.length){box.innerHTML='<p class="tha-note" style="margin-top:12px">Nothing here.</p>'}
+  }
+  var pending=null;
+  function showPanel(){$("thaPanel").classList.add("open");renderPages();renderList()}
+  function open(cb){
+    pending=typeof cb==="function"?cb:showPanel;
+    ensure().then(function(t){if(t){var f=pending;pending=null;f()}else{$("thaAuthErr").textContent="";$("thaAuth").classList.add("open");setTimeout(function(){$("thaEmail").focus()},50)}});
+  }
+  function auth(){
+    var b=$("thaAuthOk");b.disabled=true;
+    login($("thaEmail").value.trim(),$("thaPass").value).then(function(){$("thaPass").value="";$("thaAuth").classList.remove("open");var f=pending||showPanel;pending=null;f()}).catch(function(){$("thaAuthErr").textContent="الإيميل أو الباسورد غلط · Wrong email or password"}).then(function(){b.disabled=false});
+  }
+  $("thaAuthOk").onclick=auth;$("thaPass").onkeydown=function(e){if(e.key==="Enter")auth()};
+  $("thaAuthCancel").onclick=function(){pending=null;$("thaAuth").classList.remove("open")};
+  $("thaOut").onclick=function(){setSess(null);$("thaPanel").classList.remove("open");msg("")};
+  $("thaClose").onclick=function(){$("thaPanel").classList.remove("open")};
+  $("thaSearch").oninput=renderList;
+  function tab(n){["C","A","B"].forEach(function(x){$("thaPane"+x).style.display=x===n?"":"none";$("thaTab"+x).classList.toggle("on",x===n)});if(n==="B")loadBookings()}
+  $("thaTabC").onclick=function(){tab("C")};$("thaTabA").onclick=function(){tab("A")};$("thaTabB").onclick=function(){tab("B")};
+  function loadBookings(){
+    var box=$("thaBook");box.textContent="...";
+    adminFetch(SB+"/rest/v1/placement_bookings?select=*&order=created_at.desc&limit=50").then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(rows){
+      box.innerHTML="";if(!rows.length){box.textContent="No bookings yet.";return}
+      rows.forEach(function(b){
+        var d=document.createElement("div");d.className="tha-row";
+        var l=document.createElement("div");l.className="tha-lab";var a=document.createElement("span");a.textContent=b.name+" · "+b.date+" "+b.time;var g=document.createElement("span");g.className="tha-tag";g.textContent=b.pay_method;l.appendChild(a);l.appendChild(g);d.appendChild(l);
+        [["English",b.english],["Psych",b.psych],["Secret",b.secret],["Proof",b.proof]].forEach(function(x){if(!x[1])return;var an=document.createElement("a");an.href=x[1];an.target="_blank";an.rel="noopener";an.textContent=x[0]+" ↗";an.style.cssText="color:#60a5fa;font-weight:800;font-size:.8rem";d.appendChild(an)});
+        box.appendChild(d);
+      });
+    }).catch(function(){box.textContent="Could not load bookings (sign in again / check the table policies)."});
+  }
+
+  /* audio tab */
+  var rec=null,chunks=[],blob=null,on=false,tmr=null,sec=0;
+  $("thaRec").onclick=function(){
+    var btn=$("thaRec");
+    if(!on){
+      navigator.mediaDevices.getUserMedia({audio:true}).then(function(st){
+        rec=new MediaRecorder(st);chunks=[];
+        rec.ondataavailable=function(e){if(e.data.size>0)chunks.push(e.data)};
+        rec.onstop=function(){st.getTracks().forEach(function(t){t.stop()});blob=new Blob(chunks,{type:"audio/mp3"});var a=$("thaPlay");a.src=URL.createObjectURL(blob);a.style.display="";$("thaUp").disabled=false};
+        rec.start();on=true;btn.innerHTML='<i class="fa-solid fa-stop"></i> Stop';sec=0;
+        tmr=setInterval(function(){sec++;$("thaTimer").textContent="00:"+(sec<10?"0":"")+sec},1000);
+      }).catch(function(){msg("Microphone not allowed",1)});
+    }else{rec.stop();on=false;clearInterval(tmr);btn.innerHTML='<i class="fa-solid fa-microphone"></i> Record'}
+  };
+  $("thaUp").onclick=function(){
+    var w=$("thaWord").value.trim();if(!w||!blob){msg("Type a word and record first",1);return}
+    var b=this;b.disabled=true;var fn=w.replace(/\s+/g,"_")+"_"+Date.now()+".mp3";
+    adminFetch(SB+"/storage/v1/object/audio-files/"+fn,{method:"POST",headers:{"Content-Type":"audio/mp3"},body:blob}).then(function(r){if(!r.ok)throw 0;
+      return adminFetch(SB+"/rest/v1/words_table",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({word:w,audio_url:SB+"/storage/v1/object/public/audio-files/"+fn})})}).then(function(r){if(!r.ok)throw 0;msg("Saved ✓");$("thaWord").value="";$("thaPlay").style.display="none";blob=null}).catch(function(){msg("Upload failed",1);b.disabled=false});
+  };
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"){$("thaPanel").classList.remove("open");$("thaAuth").classList.remove("open")}});
+
+  /* mount admin button in the floating bar */
+  function mount(){
+    var bar=$("mobileFloatingBar");if(!bar||$("floatBtnAdmin"))return;
+    var d=document.createElement("div");d.className="bar-divider";
+    var b=document.createElement("button");b.type="button";b.id="floatBtnAdmin";b.title="Fedawy Admin Panel";b.className="circle-badge-btn admin-btn";b.innerHTML='<i class="fa-solid fa-plus"></i>';b.onclick=open;
+    bar.appendChild(d);bar.appendChild(b);
+  }
+  mount();
+  var o=window.setLanguage;
+  if(typeof o==="function"&&!o._tha){var w=function(){var r=o.apply(this,arguments);apply();return r};w._tha=1;window.setLanguage=w}
+
+  window.ThabitCMS={get:get,apply:apply,load:load,save:save,upload:upload,post:post,onApply:function(f){hooks.push(f)},sub:sub};
+  window.ThabitAdmin={open:open,hdr:hdr};
+  apply();load();
+})();
+</script>
+<!-- ===== THABIT SHARED (end) ===== -->
 
 </body>
 </html>
