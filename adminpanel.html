@@ -15,24 +15,6 @@
 
 <div id="generalToast" role="status" aria-live="polite"><i id="generalToastIcon" class="fa-solid"></i><span id="generalToastMsg"></span></div>
 
-<!-- شاشة تسجيل الدخول الإجبارية -->
-<div id="thaAuth" class="tha-modal open">
-  <div class="tha-box" style="max-width:380px;text-align:center">
-    <i class="fa-solid fa-lock" style="font-size:2rem;color:#fbbf24"></i>
-    <h3 style="margin:10px 0 4px;font-weight:900">Fedawy Admin</h3>
-    <p class="tha-note" style="margin-bottom:12px">سجّل دخول بحساب الأدمن · Sign in with the admin account</p>
-    
-    <input id="thaEmail" type="email" autocomplete="username" class="tha-in" style="text-align:center;margin-bottom:8px" placeholder="Email" onkeydown="handleLoginEnter(event)">
-    <input id="thaPass" type="password" autocomplete="current-password" class="tha-in" style="text-align:center;margin-bottom:10px" placeholder="Password" onkeydown="handleLoginEnter(event)">
-    
-    <p id="thaAuthErr" class="tha-note" style="color:#f43f5e;margin-top:8px;min-height:16px"></p>
-    <div class="tha-btns" style="margin-top:12px">
-      <button type="button" class="tha-b gray" style="flex:1" id="thaAuthHome" onclick="toggleAdminPanel()">البورتال (Portal)</button>
-      <button type="button" class="tha-b" style="flex:1" id="thaAuthOk" onclick="handleAdminLogin()">دخول</button>
-    </div>
-  </div>
-</div>
-
 <!-- لوحة التحكم الرئيسية -->
 <div id="adminModalOverlay" class="tha-modal">
   <div id="adminPanel" class="tha-box" style="max-width:680px">
