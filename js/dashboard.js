@@ -27,9 +27,25 @@ function toggleTheme() {
   try { localStorage.setItem('thabit_theme', light ? 'light' : 'dark'); } catch (e) {}
 }
 async function logout() {
-  const t = tok(); try { localStorage.removeItem(TOKEN_KEY); localStorage.removeItem('currentTrainee'); } catch (e) {}
-  if (t) { try { await rpc('trainee_logout', { p_token: t }); } catch (e) {} }
-  location.href = PORTAL;
+  const t = tok();
+
+  // Clear local session immediately
+  try {
+    localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem('currentTrainee');
+  } catch (e) {}
+
+  // Tell Supabase to invalidate the session/token
+  if (t) {
+    try {
+      await rpc('trainee_logout', { p_token: t });
+    } catch (e) {
+      console.warn('Logout RPC failed:', e);
+    }
+  }
+
+  // Always return to main page
+  location.href = 'index.html';
 }
 
 function inRange(r) {
