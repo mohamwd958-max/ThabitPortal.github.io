@@ -4,9 +4,9 @@ const KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZi
 const TOKEN_KEY = 'thabit_trainee_token', PORTAL = 'index.html';
 const T = {
   en: { hi: 'Welcome, ', today: 'Today', week: '7 days', month: '30 days', all: 'Since start', last: 'Last session', info: 'My info', req: 'Send a request', hist: 'Sessions', send: 'Send', sessions: 'Sessions',
-        performance: 'Performance', attitude: 'Attitude', soft_skills: 'Soft skills', tefl: 'TEFL', qol: 'QOL', none: 'No data yet', ph: 'Write your request...', overall: 'Overall progress', avg: 'Average', tap: 'Tap a dot to see why', year: 'Year', duration: 'Time in program', subs: 'Sessions & sub titles', notes: 'Notes' },
+        performance: 'Performance', attitude: 'Attitude', soft_skills: 'Soft skills', tefl: 'TEFL', qol: 'QOL', none: 'No data yet', ph: 'Write your request...', overall: 'Overall progress', avg: 'Average', tap: 'Tap a dot to see why', revision: 'Revision', todo: 'To-Do', donet: 'Done tasks', alldone: 'All caught up ✓', handtip: 'Not sure about a task? Tap the ! next to it and tell me.', handq: 'What is unclear about this task?', sent: 'Sent ✓', fail: 'Could not send, try again', year: 'Year', duration: 'Time in program', subs: 'Sessions & sub titles', notes: 'Notes' },
   ar: { hi: 'أهلاً ', today: 'اليوم', week: '٧ أيام', month: '٣٠ يوم', all: 'منذ البداية', last: 'آخر جلسة', info: 'بياناتي', req: 'إرسال طلب', hist: 'الجلسات', send: 'إرسال', sessions: 'الجلسات',
-        performance: 'الأداء', attitude: 'السلوك', soft_skills: 'المهارات الشخصية', tefl: 'TEFL', qol: 'QOL', none: 'لا توجد بيانات بعد', ph: 'اكتب طلبك...', overall: 'التقدم العام', avg: 'المتوسط', tap: 'اضغط على نقطة لمعرفة السبب', year: 'سنة', duration: 'وقت البرنامج', subs: 'الجلسات والعناوين', notes: 'ملاحظات' },
+        performance: 'الأداء', attitude: 'السلوك', soft_skills: 'المهارات الشخصية', tefl: 'TEFL', qol: 'QOL', none: 'لا توجد بيانات بعد', ph: 'اكتب طلبك...', overall: 'التقدم العام', avg: 'المتوسط', tap: 'اضغط على نقطة لمعرفة السبب', revision: 'المراجعة', todo: 'المهام', donet: 'المهام المنتهية', alldone: 'خلصت كل المهام ✓', handtip: 'مش فاهم تاسك؟ اضغط على ! اللي جنبها وقولي.', handq: 'إيه اللي مش واضح في التاسك دي؟', sent: 'اتبعت ✓', fail: 'ما اتبعتش، حاول تاني', year: 'سنة', duration: 'وقت البرنامج', subs: 'الجلسات والعناوين', notes: 'ملاحظات' },
 };
 T.eg = Object.assign({}, T.ar, { hi: 'أهلاً يا ', last: 'آخر جلسة ليك' });
 let D = null, range = 'week', lang = 'en', CUR = [], SER = null;
@@ -44,7 +44,9 @@ function spark(vals) {
   const pts = vals.map((v, i) => `${(i / (vals.length - 1)) * 300},${60 - ((v - mn) / sp) * 50}`).join(' ');
   return `<svg class="ch" viewBox="0 0 300 70" preserveAspectRatio="none"><polyline points="${pts}" fill="none" stroke="#fbbf24" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg>`;
 }
-const MET = ['performance', 'attitude', 'soft_skills'];
+const MET = ['performance', 'attitude', 'soft_skills', 'revision'];
+const MD = [], TK = [], mk = (title, text) => MD.push([title, text]) - 1;
+let HAND_NEW = true, DTL_OPEN = false; try { HAND_NEW = !localStorage.getItem('thabit_hand_seen'); } catch (e) {}
 function val(r, k) {
   if (k === 'avg') { const v = MET.map(m => r[m]).filter(x => x != null).map(Number); return v.length ? +(v.reduce((a, b) => a + b, 0) / v.length).toFixed(1) : null; }
   return r[k] == null ? null : Number(r[k]);
@@ -70,20 +72,31 @@ function series(rows) {
   cum.avg = bk.map((_, i) => +(MET.reduce((a, k) => a + cum[k][i], 0) / MET.length).toFixed(1));
   return { bk, cum, max: 10 * days };
 }
+function smooth(p) {
+  const n = p.length; if (n < 2) return '';
+  let d = `M${p[0][0]},${p[0][1]}`; if (n === 2) return d + `L${p[1][0]},${p[1][1]}`;
+  const dx = [], m = [], t = [];
+  for (let i = 0; i < n - 1; i++) { dx[i] = p[i + 1][0] - p[i][0]; m[i] = (p[i + 1][1] - p[i][1]) / dx[i]; }
+  t[0] = m[0]; t[n - 1] = m[n - 2];
+  for (let i = 1; i < n - 1; i++) t[i] = m[i - 1] * m[i] <= 0 ? 0 : (m[i - 1] + m[i]) / 2;
+  for (let i = 0; i < n - 1; i++) { const h = dx[i] / 3; d += `C${p[i][0] + h},${p[i][1] + t[i] * h} ${p[i + 1][0] - h},${p[i + 1][1] - t[i + 1] * h} ${p[i + 1][0]},${p[i + 1][1]}`; }
+  return d;
+}
 function chart(S, keys, o) {
   const W = o.W, H = o.H, L = o.L, R = 22, Tp = 12, B = o.f + 10, n = S.bk.length, step = Math.ceil(n / o.lab);
   const x = i => n < 2 ? L + (W - L - R) / 2 : L + i * (W - L - R) / (n - 1), y = v => Tp + (1 - v / S.max) * (H - Tp - B);
   let s = `<svg class="c2" viewBox="0 0 ${W} ${H}">`;
   [0, S.max / 2, S.max].forEach(g => s += `<line class="gl" x1="${L}" x2="${W - R}" y1="${y(g)}" y2="${y(g)}"/><text class="tx" x="${L - 6}" y="${y(g) + o.f / 3}" text-anchor="end" font-size="${o.f}">${Math.round(g)}</text>`);
   S.bk.forEach((b, i) => { if (i % step === 0) s += `<text class="tx" x="${x(i)}" y="${H - 3}" text-anchor="middle" font-size="${o.f}">${b.label}</text>`; });
+  const show = range === 'today';
   keys.forEach(k => {
-    s += `<polyline class="ln ${k}" fill="none" stroke-width="${o.w}" points="${S.cum[k].map((v, i) => x(i) + ',' + y(v)).join(' ')}"/>`;
-    if (k !== 'avg') S.bk.forEach((b, i) => { if (b.rows.length) s += `<circle class="dot ${k}" cx="${x(i)}" cy="${y(S.cum[k][i])}" r="${o.r}" data-k="${k}" data-i="${i}"/>`; });
+    s += `<path class="ln ${k}" fill="none" stroke-width="${o.w}" d="${smooth(S.cum[k].map((v, i) => [x(i), y(v)]))}"/>`;
+    if (k !== 'avg') S.bk.forEach((b, i) => { if (b.rows.length) s += `<circle class="dot ${k}${show ? '' : ' hit'}" cx="${x(i)}" cy="${y(S.cum[k][i])}" r="${show ? o.r : 10}" data-k="${k}" data-i="${i}"/>`; });
   });
   return s + '</svg>';
 }
 function kpi(key, rows, all, S) {
-  const t = T[lang], vals = rows.map(r => r[key]).filter(v => v != null).map(Number);
+  const t = T[lang], vals = rows.map(r => r[key]).filter(v => v != null && v !== '').map(Number).filter(Number.isFinite);
   let h = `<div class="thabit-card dcard"><h4>${t[key]}</h4>`;
   if (!vals.length) return h + `<div class="sm">${t.none}</div>${chart(S, [key], { W: 300, H: 150, L: 30, f: 9, w: 2, r: 4, lab: 5 })}</div>`;
   const cur = vals[vals.length - 1];
@@ -96,7 +109,7 @@ function overall(rows, S) {
   const vals = rows.map(ra).filter(v => v != null);
   if (!vals.length) return `<h4>${t.overall}</h4><div class="sm">${t.none}</div>`;
   const cur = vals[vals.length - 1], base = vals.length > 1 ? vals[vals.length - 2] : cur;
-  const col = { performance: '#3b82f6', attitude: '#e8683a', soft_skills: '#10b981', avg: 'var(--avg)' };
+  const col = { performance: '#ef4444', attitude: '#3b82f6', soft_skills: '#10b981', revision: '#f97316', avg: 'var(--avg)' };
   return `<h4>${t.overall}</h4><div class="big">${cur} <span class="sm">/ 10</span></div>${delta(+(cur - base).toFixed(1))}` +
     `<div class="lg">${[...MET, 'avg'].map(k => `<span><i style="background:${col[k]}"></i>${k === 'avg' ? t.avg : t[k]}</span>`).join('')}</div>` +
     chart(S, [...MET, 'avg'], { W: 700, H: 300, L: 40, f: 13, w: 4, r: 7, lab: 10 });
@@ -107,18 +120,15 @@ const item = (r, body) => `<div class="it"><div class="dt">${r.supply_date}</div
 
 function render() {
   const t = T[lang], all = D.rows, rows = CUR = all.filter(inRange), p = D.profile || {}, S = SER = series(rows);
+  MD.length = 0; TK.length = 0;
   $('hello').textContent = t.hi + (p.trainee || '');
   $('rng').innerHTML = ['today', 'week', 'month', 'year', 'all'].map(k => `<button class="${k === range ? 'on' : ''}" onclick="range='${k}';render()">${t[k]}</button>`).join('');
   $('kpis').innerHTML = `<div class="thabit-card dcard" style="display:flex;gap:14px"><div style="flex:1"><h4>${t.sessions}</h4><div class="big">${rows.length}</div></div><div style="flex:1;border-inline-start:1px solid var(--border-color);padding-inline-start:14px"><h4>${t.duration}</h4><div class="big">${fmtDur(rows.reduce((a, r) => a + mins(r), 0))}</div></div></div>` + MET.map(k => kpi(k, rows, all, S)).join('');
   $('overall').innerHTML = overall(rows, S);
-  $('lists').innerHTML =
-    listCard(t.subs, rows, r => item(r, `<div dir="auto"><b>#${esc(r.session_number)} ${esc(r.session_title)}</b></div><div class="sm" dir="auto">${esc(r.sub_title)}</div>`)) +
-    listCard(t.notes, rows, r => r.notes ? item(r, `<div dir="auto" style="white-space:pre-line">${esc(r.notes)}</div>`) : '') +
-    listCard('TEFL', rows, r => r.tefl ? item(r, `<div dir="auto">${esc(r.tefl)}</div>`) : '') +
-    listCard('QOL', rows, r => r.qol ? item(r, `<div dir="auto">${esc(r.qol)}</div>`) : '');
+  $('lists').innerHTML = todoCard(all) + cap(rows, 'notes', t.notes) + cap(rows, 'tefl', 'TEFL') + cap(rows, 'qol', 'QOL');
   ['Last', 'Info', 'Req', 'Hist'].forEach(k => $('t' + k).textContent = t[k.toLowerCase()]);
   $('rqBtn').textContent = t.send; $('rqMsg').placeholder = t.ph;
-  const L = all[all.length - 1], line = (a, b) => b ? `<div class="row"><span class="sm">${a}</span><b>${esc(b)}</b></div>` : '';
+  const L = all[all.length - 1], line = (a, b) => !b ? '' : String(b).length > 90 ? `<div class="row"><span class="sm">${a}</span><b class="more" dir="auto" onclick="openModal(${mk(a, b)})">${esc(String(b).slice(0, 90))}…</b></div>` : `<div class="row"><span class="sm">${a}</span><b>${esc(b)}</b></div>`;
   const LF = [['supply_date','Date'],['session_number','Session #'],['group_name','Group'],['session_title','Title'],['sub_title','Sub title'],['start_time','Start'],['end_time','End'],
     ['revision','Revision'],['revision_details','Revision details'],['notes','Notes'],['tefl','TEFL'],['qol','QOL'],['attitude','Attitude'],['attitude_details','Attitude details'],
     ['soft_skills','Soft skills'],['soft_skills_details','Soft skills details'],['performance','Performance'],['why','Why'],['performance_details','Performance details'],
@@ -129,8 +139,57 @@ function render() {
     ['first_thabit_scoring','First Thabit scoring'],['first_approved_english_test','First English test'],['first_psychological_approved_test','First psychological test'],['preferred_phone','Phone'],['preferred_email','Email']];
   $('info').innerHTML = line('Group', L && L.group_name) + IF.map(f => line(f[1], p[f[0]])).join('');
   $('rqList').innerHTML = (D.requests || []).map(r => `<div class="row"><span>${esc(r.message)}<br><span class="sm">${esc(r.type)} · ${esc(r.status)}</span></span><b>${esc(r.admin_reply || '')}</b></div>`).join('');
-  $('hist').innerHTML = rows.length ? '<table><tr><th>Date</th><th>#</th><th>Title</th><th>Perf.</th><th>Att.</th><th>Soft</th><th>TEFL</th><th>QOL</th></tr>' +
-    rows.slice().reverse().map(r => `<tr><td>${r.supply_date}</td><td>${r.session_number}</td><td>${esc(r.session_title)}</td><td>${r.performance ?? ''}</td><td>${r.attitude ?? ''}</td><td>${r.soft_skills ?? ''}</td><td>${esc(r.tefl)}</td><td>${esc(r.qol)}</td></tr>`).join('') + '</table>' : `<div class="sm">${t.none}</div>`;
+  $('hist').innerHTML = rows.length ? '<table><tr><th>Date</th><th>#</th><th>Title</th><th>Perf.</th><th>Att.</th><th>Soft</th><th class="hm">TEFL</th><th class="hm">QOL</th></tr>' +
+    rows.slice().reverse().map(r => `<tr><td>${r.supply_date}</td><td>${r.session_number}</td><td>${esc(r.session_title)}</td><td>${r.performance ?? ''}</td><td>${r.attitude ?? ''}</td><td>${r.soft_skills ?? ''}</td><td class="hm">${esc(r.tefl)}</td><td class="hm">${esc(r.qol)}</td></tr>`).join('') + '</table>' : `<div class="sm">${t.none}</div>`;
+  watchTodo();
+}
+const fetchDone = () => rpc('trainee_done_tasks', { p_token: tok() }).then(a => Array.isArray(a) ? a : []).catch(() => []);
+const cap = (rows, key, title) => {
+  const it = rows.slice().reverse().filter(r => r[key]).map(r => `<button type="button" class="cap" onclick="openModal(${mk(r.supply_date + ' · ' + title, r[key])})"><span class="dt">${r.supply_date}</span><span dir="auto">${esc(String(r[key]).replace(/\s+/g, ' ').slice(0, 70))}</span></button>`).join('');
+  return `<div class="thabit-card dcard"><h4>${title}</h4><div class="lst">${it || `<div class="sm">${T[lang].none}</div>`}</div></div>`;
+};
+function parseTasks(r) {
+  return String(r.tasks || '').split('\n').map(l => l.trim()).filter(Boolean).map((l, i) => {
+    const p = l.split('/');
+    if (p.length >= 4 && /^\d+$/.test(p[0].trim())) return { date: r.supply_date, no: +p[0], type: p[1].trim(), det: p[2].trim(), text: p.slice(3).join('/').trim() };
+    return { date: r.supply_date, no: i + 1, type: '', det: '', text: l };
+  });
+}
+function todoCard(all) {
+  const t = T[lang], done = new Set((D.done || []).map(d => d.supply_date + '#' + d.task_no));
+  const days = all.slice().reverse().map(r => ({ date: r.supply_date, tasks: parseTasks(r) })).filter(d => d.tasks.length);
+  const task = (k, dn) => { const i = TK.push(k) - 1; return `<div class="tk${dn ? ' dn' : ''}"><input type="checkbox" ${dn ? 'checked' : ''} onchange="toggleTask(${i},this.checked)"><div class="tkb" dir="auto">${k.type || k.det ? `<div><b>${esc(k.type)}</b> <span class="sm">${esc(k.det)}</span></div>` : ''}<div>${esc(k.text)}</div></div><button type="button" class="hnd${HAND_NEW ? ' wv' : ''}" onclick="raiseHand(${i})" aria-label="Help">!</button></div>`; };
+  const split = f => days.map(d => ({ date: d.date, tasks: d.tasks.filter(k => done.has(k.date + '#' + k.no) === f) })).filter(d => d.tasks.length);
+  const blk = (d, f) => `<div class="it"><div class="dt">${d.date}</div>${d.tasks.map(k => task(k, f)).join('')}</div>`;
+  const pend = split(false), fin = split(true);
+  return `<div class="thabit-card dcard" id="todoCard"><h4>${t.todo}</h4>${HAND_NEW ? `<div class="tip" id="handTip">${t.handtip}</div>` : ''}<div class="lst">${pend.length ? pend.map(d => blk(d, false)).join('') : `<div class="sm">${days.length ? t.alldone : t.none}</div>`}</div>` +
+    (fin.length ? `<details class="dtl" ${DTL_OPEN ? 'open' : ''} ontoggle="DTL_OPEN=this.open"><summary>${t.donet}</summary><div class="lst">${fin.map(d => blk(d, true)).join('')}</div></details>` : '') + '</div>';
+}
+async function toggleTask(i, on) {
+  const k = TK[i]; D.done = (D.done || []).filter(d => !(d.supply_date === k.date && d.task_no === k.no));
+  if (on) D.done.push({ supply_date: k.date, task_no: k.no });
+  render();
+  const ok = await rpc('trainee_set_task', { p_token: tok(), p_date: k.date, p_no: k.no, p_text: k.text, p_done: on }).catch(() => null);
+  if (ok !== true) { D.done = await fetchDone(); render(); }
+}
+function openModal(i) { $('mT').textContent = MD[i][0]; $('mB').innerHTML = `<div dir="auto" style="white-space:pre-wrap">${esc(MD[i][1])}</div>`; $('mdl').classList.add('open'); }
+function closeModal() { $('mdl').classList.remove('open'); }
+function raiseHand(i) {
+  const k = TK[i], t = T[lang]; HAND_NEW = false; try { localStorage.setItem('thabit_hand_seen', '1'); } catch (e) {}
+  $('mT').textContent = `${k.date} · #${k.no}`;
+  $('mB').innerHTML = `<div class="sm" dir="auto" style="margin-bottom:8px">${esc(k.text)}</div><div style="margin-bottom:6px">${t.handq}</div><textarea id="hMsg" rows="4" maxlength="1000"></textarea><button type="button" class="btn2" id="hBtn">${t.send}</button><div id="hRes" class="sm" style="margin-top:8px"></div>`;
+  $('hBtn').onclick = async () => {
+    const m = $('hMsg').value.trim(); if (!m) return; $('hBtn').disabled = true;
+    const ok = await rpc('trainee_raise_hand', { p_token: tok(), p_date: k.date, p_no: k.no, p_task: k.text, p_message: m }).catch(() => null);
+    if (ok === true) { $('hRes').textContent = t.sent; setTimeout(closeModal, 1200); } else { $('hRes').textContent = t.fail; $('hBtn').disabled = false; }
+  };
+  $('mdl').classList.add('open');
+}
+function watchTodo() {
+  const c = $('todoCard'), tip = $('handTip'); if (!c || !tip) return;
+  const go = () => { tip.classList.add('show'); setTimeout(() => { try { localStorage.setItem('thabit_hand_seen', '1'); } catch (e) {} }, 10000); };
+  if (!window.IntersectionObserver) return go();
+  new IntersectionObserver((e, o) => { if (e[0].isIntersecting) { go(); o.disconnect(); } }, { threshold: .6 }).observe(c);
 }
 async function load() {
   const d = tok() ? await rpc('trainee_dashboard', { p_token: tok() }).catch(() => null) : null;
@@ -139,7 +198,7 @@ async function load() {
     console.warn('Thabit dashboard: no valid session', d);
     if (location.protocol !== 'file:') setTimeout(() => { location.href = PORTAL; }, 2500);
     return; }
-  d.rows = (d.rows || []).slice().sort((a, b) => (a.supply_date + String(a.session_number).padStart(5, '0')).localeCompare(b.supply_date + String(b.session_number).padStart(5, '0'))); D = d; render();
+  d.rows = (d.rows || []).slice().sort((a, b) => (a.supply_date + String(a.session_number).padStart(5, '0')).localeCompare(b.supply_date + String(b.session_number).padStart(5, '0'))); D = d; D.done = await fetchDone(); render();
 }
 async function sendReq() {
   const m = $('rqMsg').value.trim(); if (!m) return;
