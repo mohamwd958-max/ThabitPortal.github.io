@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="htmlRoot">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thabit - Portal</title>
+    <link rel="icon" type="image/svg+xml" href="assets/thabit-favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Montserrat:ital,wght@0,900;1,700;1,900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Embedded CSS for one-file testing -->
+        <link rel="stylesheet" href="css/portal.css">
+</head>
+
+<body>
+
+    <!-- Ornamental wall band behind the cards -->
+    <div class="thabit-moving-ornament" aria-hidden="true">
+        <img src="assets/thabit-ornament.png" alt="">
+        <img src="assets/thabit-ornament.png" alt="">
+    </div>
+
+    <!-- Floating left bar -->
+    <div class="mobile-floating-bar" id="mobileFloatingBar">
+        <button type="button" onclick="setLanguage('ar')" id="floatBtnAr" title="العربية" class="circle-badge-btn">عربي</button>
+        <button type="button" onclick="setLanguage('en')" id="floatBtnEn" title="English" class="circle-badge-btn active">EN</button>
+        <button type="button" onclick="setLanguage('eg')" id="floatBtnEg" title="مصري" class="circle-badge-btn">مصر</button>
+
+        <div class="bar-divider"></div>
+
+        <button type="button" onclick="toggleTheme()" id="floatBtnTheme" title="Light / Dark" data-i18n-title="themeTitle" class="circle-badge-btn theme-btn" style="color: #fbbf24;">
+            <i id="themeIcon" class="fa-solid fa-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+
+    <!-- شاشة اللوجن مباشرة بدون انيميشن يخفيها وتظهر فوراً -->
+    <div id="cinematicIntroOverlay" aria-hidden="true">
+        <span class="cinematic-intro-logo thabit-logo-mark" role="img" aria-label="TH logo"></span>
+    </div>
+
+    <div id="login-screen" class="screen page-content-hidden">
+
+        <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+
+            <div class="logo-wrapper thabit-marble-brand" id="thabitPortalLogo" aria-label="THABIT — return to Portal" role="button" tabindex="0" title="Return to Portal">
+                <span class="thabit-logo-glow" aria-hidden="true">
+                    <span class="thabit-logo-mark" role="img" aria-label="TH logo"></span>
+                </span>
+            </div>
+
+            <div class="portal-layout" id="portalLayout">
+
+                <!-- 1. Login Card -->
+                <div class="portal-card active-card" id="cardLogin" onclick="switchPortalCard('login', event)">
+                    <div>
+                        <div class="card-header-title" style="justify-content: center;">
+                            <span id="lblLoginTitle" data-i18n="loginTitle" style="letter-spacing: 1px;">Login</span>
+                        </div>
+
+                        <div id="webAlertBox"></div>
+
+                        <div class="input-group">
+                            <label>
+                                <i class="fa-regular fa-user"></i>
+                                <span id="lblUser" data-i18n="username">Username</span>
+                                <span class="required-dot" id="dotUser"></span>
+                            </label>
+                            <input type="text" id="username" data-i18n-ph="usernamePh" placeholder="Enter username..." autocomplete="off">
+                        </div>
+
+                        <div class="input-group">
+                            <label>
+                                <i class="fa-solid fa-lock"></i>
+                                <span id="lblPass" data-i18n="password">Password</span>
+                                <span class="required-dot" id="dotPass"></span>
+                            </label>
+
+                            <div class="password-wrapper">
+                                <input type="password" id="password" data-i18n-ph="passwordPh" placeholder="Enter password...">
+                                <i class="fa-solid fa-eye toggle-password" id="togglePassword" onclick="togglePassVisibility()"></i>
+                            </div>
+                        </div>
+
+                        <button class="btn" id="btnLoginBtn" data-i18n="getIn" onclick="handleLogin()">Get In</button>
+
+                        <a href="links/placement/placement.html" id="assistantJoinBtn" class="assistant-join-btn want-become-btn" onclick="event.stopPropagation();">
+                            <i class="fa-solid fa-arrow-right-to-bracket" aria-hidden="true"></i>
+                            <span>Want to Become Thabit?</span>
+                        </a>
+                    </div>
+                </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Report slide/modal copied from the Overall report flow -->
+    <div id="reportOverlay" class="tha-modal" role="dialog" aria-modal="true" aria-labelledby="rpTitle">
+      <div class="tha-box report-box">
+        <div class="tha-h">
+          <h3><i class="fa-solid fa-triangle-exclamation"></i> <span id="rpTitle">Report a problem</span></h3>
+          <button type="button" class="tha-x" id="rpCloseBtn" aria-label="Close report"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <p class="tha-note report-intro" id="rpIntro">Tell us exactly what happened so we can fix it.</p>
+        <label class="tha-lab report-label" for="rpName"><span id="rpNameLabel">Your name</span> <span class="report-required">*</span></label>
+        <input id="rpName" class="tha-in" maxlength="80" placeholder="Enter your name..." autocomplete="name">
+        <label class="tha-lab report-label report-problem-label" for="rpProblem"><span id="rpDetailsLabel">What exactly is the problem?</span> <span class="report-required">*</span></label>
+        <textarea id="rpProblem" class="tha-in" maxlength="2000" placeholder="Describe what you did, what you expected, and what happened instead..."></textarea>
+        <p id="rpErr" class="tha-note report-error" aria-live="polite"></p>
+        <div class="tha-btns report-actions">
+          <button type="button" class="tha-b gray" id="rpCancelBtn">Cancel</button>
+          <button type="button" class="tha-b" id="rpSendBtn"><i class="fa-solid fa-paper-plane"></i> <span id="rpSendLabel">Send</span></button>
+        </div>
+      </div>
+    </div>
+    <div id="reportToast" role="status" aria-live="polite"></div>
+
+    <!-- ربط ملف الـ JavaScript الصحيح portal.js -->
+        <script src="js/portal.js"></script>
+</body>
+</html>

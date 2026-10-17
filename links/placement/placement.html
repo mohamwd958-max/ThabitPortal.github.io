@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="htmlRoot">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thabit - Placement</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA2NCA2NCc+PHJlY3Qgd2lkdGg9JzY0JyBoZWlnaHQ9JzY0JyByeD0nMTQnIGZpbGw9JyMwMDAnLz48ZyB0cmFuc2Zvcm09J3RyYW5zbGF0ZSgtMi42MCA2LjMxKSBzY2FsZSgwLjE1MzYpJz48cGF0aCBkPSdNMzIyLjggMjQuMkwzMTcuMiAyMS4wTDMxMi4zIDE5LjhMMzA3LjUgMTkuOEwzMDEuNSAyMS4wTDI5Mi44IDI0LjVMMjgxLjggMzEuOEwyNzMuMyAzOS43TDI1OC4wIDU1LjNMMjQzLjUgNjguMkwyMzUuOCA3Mi44TDIzMS4zIDc0LjVMMjIzLjAgNzYuMkwyMTYuMyA3Ni4wTDIwOS44IDc0LjJMMjA0LjcgNzEuM0wyMDAuMiA2Ny4wTDE5Ny41IDYyLjdMMTk1LjggNTguN0wxOTQuNyA1Mi4zTDE5NC43IDQ3LjBMMTk1LjggNDAuOEwxOTcuMCAzOS4wTDE5OS4wIDMzLjBMMjAzLjMgMjcuMEwyMTEuMiAxOS44TDIxOS43IDE1LjJMMjIzLjMgMTQuMkwyMjQuNyAxMi41TDIxNi44IDEzLjBMMjA4LjMgMTUuMEwyMDcuMiAxNi4wTDE5OS4wIDE5LjdMMTkzLjAgMjQuMkwxODguMCAyOS4wTDE4My43IDM0LjdMMTc4LjcgNDQuMEwxNzUuNyA1NS4zTDE3Ni4wIDY1LjhMMTc4LjggNzUuNUwxODAuNSA3OC44TDE4My44IDgzLjJMMTg4LjggODcuOEwxOTQuNSA5MS4zTDE5OC4wIDkzLjBMMjA0LjUgOTQuNUwyMTEuNyA5NS4yTDIyMS43IDk0LjVMMjI4LjcgOTIuOEwyMzkuMiA4Ny44TDI1Mi4wIDc5LjBMMjYyLjggNjguMkwyNzQuMCA1NS4zTDI4Mi4zIDQ3LjJMMjg4LjAgNDIuN0wyOTYuNSAzOC4wTDMwMi44IDM3LjNMMzA1LjMgMzguN0wzMDcuMyA0Mi43TDMwNy4zIDQ5LjdMMzAyLjcgNjQuMkwyOTMuNSA4Mi41TDI5MS4yIDg1LjdMMjkwLjMgODguMEwyODYuNyA5My4zTDI4NC4yIDk4LjNMMjgxLjggMTAxLjNMMjc5LjggMTA1LjVMMjc3LjIgMTA4LjhMMjc1LjIgMTEzLjBMMjcyLjUgMTE2LjNMMjYyLjcgMTMyLjdMMjU5LjggMTM1LjhMMjIwLjIgMTM5LjBMMjEwLjggMTM5LjJMMjAzLjcgMTQwLjNMMTk0LjMgMTQwLjdMMTg2LjggMTQxLjhMMTUyLjAgMTQzLjdMMTQ0LjAgMTQ1LjBMMTAyLjMgMTQ4LjBMMTAwLjIgMTQ4LjhMOTYuMyAxNTMuMkw5NS41IDE1NS4yTDkzLjIgMTU3LjdMOTEuMCAxNjEuM0w4Mi41IDE3MS41TDgxLjggMTczLjJMNjguNSAxOTAuMkw2Ni41IDE5My41TDY0LjAgMTk2LjBMNjMuMyAxOTcuN0w1OS4zIDIwMi4zTDU5LjUgMjAzLjhMNzQuOCAyMDMuM0w4MS4wIDIwMi4yTDg5LjIgMjAxLjhMOTcuOCAyMDAuN0wxMzQuNSAxOTguN0wxNDEuMiAxOTcuNUwxNTAuMCAxOTcuM0wxNTUuNyAxOTYuNUwxNTYuOCAxOTYuOEwxNTYuOCAxOTguMkwxNDQuOCAyMTQuOEwxNDIuMyAyMTcuNUwxMzcuMiAyMjUuM0wxMjguNyAyMzYuMEwxMjguMCAyMzcuN0wxMjUuMyAyNDAuN0wxMTQuMCAyNTYuOEw4Mi4wIDI5OS4zTDcyLjIgMzA4LjhMNjcuMiAzMTIuM0w1Ny4zIDMxNi43TDUwLjUgMzE4LjVMNDkuNSAzMTkuN0w0OS43IDMyMS4yTDUxLjggMzIxLjVMNTkuNSAzMjAuNUwxMDEuMCAzMTguNUwxMTQuMiAzMTcuMEwxMjcuNSAzMTMuOEwxMzIuMiAzMTAuN0wxMzYuNyAzMDYuMEwxNzUuOCAyNDMuMkwxNzguMyAyNDAuMkwxODAuNyAyMzUuN0wyMDguMCAxOTMuM0wyMTAuMyAxOTIuM0wyMjAuMiAxOTEuM0wyMjMuMyAxOTEuNUwyMjQuMyAxOTMuMEwyMjIuMCAxOTYuMEwyMTkuMyAyMDEuMkwyMTEuNSAyMTMuMEwyMDEuNSAyMzAuMkwxODguMiAyNTEuMkwxODcuNSAyNTMuMkwxODAuNSAyNjMuOEwxNzMuOCAyNzYuMkwxNjkuOCAyODIuMEwxNjAuNSAyOTguNUwxNTguNyAzMDQuMEwxNTguNyAzMTAuMkwxNjAuNyAzMTUuNUwxNjUuMiAzMTkuN0wxNzAuMiAzMjEuNUwxNzUuNSAzMjEuM0wxNzkuMiAzMjAuMEwxODIuNSAzMTguMEwxODcuOCAzMTMuNUwyMTUuOCAyODMuOEwyMzQuNyAyNjUuM0wyNTEuOCAyNTEuNUwyNTkuMCAyNDguMEwyNjEuMCAyNDguMEwyNjIuOCAyNDkuMkwyNjMuOCAyNTQuMEwyNjMuMCAyNTkuN0wyNTguNyAyNzIuNUwyNTUuNyAyODUuMkwyNTQuOCAyOTkuMEwyNTUuNyAzMDUuM0wyNTguNyAzMTIuN0wyNjMuMyAzMTguMkwyNjkuOCAzMjEuM0wyNzUuMyAzMjIuNUwyNzkuMyAzMjIuN0wyODYuMCAzMjEuNUwyOTQuNSAzMTguMkwzMDEuNSAzMTMuNUwzMDguOCAzMDcuMEwzMTcuOCAyOTYuM0wzMjcuMiAyODEuNUwzMzAuNyAyNzMuMEwzMzIuMCAyNzEuMEwzMzQuMCAyNjQuM0wzMzUuMCAyNjMuMEwzMzUuMyAyNjAuN0wzMzYuNSAyNTguNUwzMzcuMCAyNTMuM0wzMzUuNyAyNTIuN0wzMzMuOCAyNTQuMkwzMzAuMCAyNjIuNUwzMjUuNyAyNzAuMkwzMjMuMiAyNzMuM0wzMjEuMyAyNzcuMkwzMTUuMCAyODUuOEwzMDYuNyAyOTQuOEwzMDAuMCAzMDAuMEwyOTMuOCAzMDMuMEwyODYuNSAzMDMuMEwyODMuNSAzMDAuNUwyODIuMCAyOTcuMkwyODIuMCAyODYuNUwyODQuNyAyNzQuN0wyODYuMCAyNzIuMkwyODcuOCAyNjMuOEwyOTAuNSAyNTcuMEwyOTMuNyAyNDIuMEwyOTQuMCAyMzQuM0wyOTMuNyAyMjkuOEwyOTAuMyAyMjMuM0wyODcuMiAyMjAuOEwyODIuNyAyMTguOEwyNzUuOCAyMTguOEwyNzAuMCAyMjAuNUwyNjUuNSAyMjIuM0wyNTQuMyAyMjkuNUwyMzUuOCAyNDUuMkwyMjYuNSAyNTQuNUwyMjQuNyAyNTcuMkwyMDUuOCAyNzcuM0wyMDQuOCAyNzcuN0wyMDQuNSAyNzYuNUwyMTguNyAyNTIuM0wyMjEuMiAyNDkuMEwyMjguMCAyMzYuN0wyMzUuMiAyMjUuN0wyMzUuNyAyMjQuMEwyNDkuMCAyMDMuMkwyNDkuNSAyMDEuNUwyNTUuNSAxOTEuN0wyNTcuNyAxODkuMEwyNTkuOCAxODguMkwyNjYuOCAxODguMkwyNzQuNSAxODYuOEwyOTUuNyAxODUuM0wzMDguOCAxODUuMEwzMTYuNSAxODMuN0wzMjQuMCAxODMuNUwzMzIuMCAxODIuM0wzNDEuNSAxODIuMEwzNDcuNyAxODEuMkwzNjguMiAxODAuM0wzNzMuMiAxNzkuM0wzNzQuOCAxNzguMkwzNzYuOCAxNzMuN0wzNzcuOCAxNzIuN0wzNzkuOCAxNjcuN0wzODEuMiAxNjYuMkwzOTYuMyAxMzUuN0wzOTguMyAxMzAuN0w0MDEuMCAxMjYuNUw0MDEuMCAxMjQuOEwzODUuMyAxMjUuNUwzNzkuOCAxMjYuNUwzNzAuNyAxMjYuOEwzNjIuNyAxMjguMEwzMjguOCAxMzAuMEwzMjIuMiAxMzEuMkwzMTQuNSAxMzEuM0wzMDQuMiAxMzIuN0wyOTMuNSAxMzMuMkwyOTIuMiAxMzIuM0wyOTIuNSAxMzAuOEwyOTUuMiAxMjcuOEwyOTcuMiAxMjMuN0wyOTkuNSAxMjAuN0wzMTMuNSA5Ny4zTDMyMi43IDc5LjJMMzI2LjIgNjkuNUwzMjcuMyA2Ny44TDMzMC41IDU1LjJMMzMxLjMgNDcuMkwzMzAuNyAzOS4wTDMyNyyIDI4LjhaJyBmaWxsPScjZmZmJy8+PC9nPjwvc3ZnPg==">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Montserrat:ital,wght@0,900;1,700;1,900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="css/placement.css">
+</head>
+<body>
+<script>try{if(localStorage.getItem('thabit_theme')==='light')document.body.classList.add('light-theme')}catch(e){}</script>
+<script>
+    (function () {
+        var LOGO = '<g transform="translate(2.00 4.12) scale(0.10237) translate(-49.5 -12.5)"><path d="M322.8 24.2L317.2 21.0L312.3 19.8L307.5 19.8L301.5 21.0L292.8 24.5L281.8 31.8L273.3 39.7L258.0 55.3L243.5 68.2L235.8 72.8L231.3 74.5L223.0 76.2L216.3 76.0L209.8 74.2L204.7 71.3L200.2 67.0L197.5 62.7L195.8 58.7L194.7 52.3L194.7 47.0L195.8 40.8L197.0 39.0L199.0 33.0L203.3 27.0L211.2 19.8L219.7 15.2L223.3 14.2L224.7 12.5L216.8 13.0L208.3 15.0L207.2 16.0L199.0 19.7L193.0 24.2L188.0 29.0L183.7 34.7L178.7 44.0L175.7 55.3L176.0 65.8L178.8 75.5L180.5 78.8L183.8 83.2L188.8 87.8L194.5 91.3L198.0 93.0L204.5 94.5L211.7 95.2L221.7 94.5L228.7 92.8L239.2 87.8L252.0 79.0L262.8 68.2L274.0 55.3L282.3 47.2L288.0 42.7L296.5 38.0L302.8 37.3L305.3 38.7L307.3 42.7L307.3 49.7L302.7 64.2L293.5 82.5L291.2 85.7L290.3 88.0L286.7 93.3L284.2 98.3L281.8 101.3L279.8 105.5L277.2 108.8L275.2 113.0L272.5 116.3L262.7 132.7L259.8 135.8L220.2 139.0L210.8 139.2L203.7 140.3L194.3 140.7L186.8 141.8L152.0 143.7L144.0 145.0L102.3 148.0L100.2 148.8L96.3 153.2L95.5 155.2L93.2 157.7L91.0 161.3L82.5 171.5L81.8 173.2L68.5 190.2L66.5 193.5L64.0 196.0L63.3 197.7L59.3 202.3L59.5 203.8L74.8 203.3L81.0 202.2L89.2 201.8L97.8 200.7L134.5 198.7L141.2 197.5L150.0 197.3L155.7 196.5L156.8 196.8L156.8 198.2L144.8 214.8L142.3 217.5L137.2 225.3L128.7 236.0L128.0 237.7L125.3 240.7L114.0 256.8L82.0 299.3L72.2 308.8L67.2 312.3L57.3 316.7L50.5 318.5L49.5 319.7L49.7 321.2L51.8 321.5L59.5 320.5L101.0 318.5L114.2 317.0L127.5 313.8L132.2 310.7L136.7 306.0L175.8 243.2L178.3 240.2L180.7 235.7L208.0 193.3L210.3 192.3L220.2 191.3L223.3 191.5L224.3 193.0L222.0 196.0L219.3 201.2L211.5 213.0L201.5 230.2L188.2 251.2L187.5 253.2L180.5 263.8L173.8 276.2L169.8 282.0L160.5 298.5L158.7 304.0L158.7 310.2L160.7 315.5L165.2 319.7L170.2 321.5L175.5 321.3L179.2 320.0L182.5 318.0L187.8 313.5L215.8 283.8L234.7 265.3L251.8 251.5L259.0 248.0L261.0 248.0L262.8 249.2L263.8 254.0L263.0 259.7L258.7 272.5L255.7 285.2L254.8 299.0L255.7 305.3L258.7 312.7L263.3 318.2L269.8 321.3L275.3 322.5L279.3 322.7L286.0 321.5L294.5 318.2L301.5 313.5L308.8 307.0L317.8 296.3L327.2 281.5L330.7 273.0L332.0 271.0L334.0 264.3L335.0 263.0L335.3 260.7L336.5 258.5L337.0 253.3L335.7 252.7L333.8 254.2L330.0 262.5L325.7 270.2L323.2 273.3L321.3 277.2L315.0 285.8L306.7 294.8L300.0 300.0L293.8 303.0L286.5 303.0L283.5 300.5L282.0 297.2L282.0 286.5L284.7 274.7L286.0 272.2L287.8 263.8L290.5 257.0L293.7 242.0L294.0 234.3L293.7 229.8L290.3 223.3L287.2 220.8L282.7 218.8L275.8 218.8L270.0 220.5L265.5 222.3L254.3 229.5L235.8 245.2L226.5 254.5L224.7 257.2L205.8 277.3L204.8 277.7L204.5 276.5L218.7 252.3L221.2 249.0L228.0 236.7L235.2 225.7L235.7 224.0L249.0 203.2L249.5 201.5L255.5 191.7L257.7 189.0L259.8 188.2L266.8 188.2L274.5 186.8L295.7 185.3L308.8 185.0L316.5 183.7L324.0 183.5L332.0 182.3L341.5 182.0L347.7 181.2L368.2 180.3L373.2 179.3L374.8 178.2L376.8 173.7L377.8 172.7L379.8 167.7L381.2 166.2L396.3 135.7L398.3 130.7L401.0 126.5L401.0 124.8L385.3 125.5L379.8 126.5L370.7 126.8L362.7 128.0L328.8 130.0L322.2 131.2L314.5 131.3L304.2 132.7L293.5 133.2L292.2 132.3L292.5 130.8L295.2 127.8L297.2 123.7L299.5 120.7L313.5 97.3L322.7 79.2L326.2 69.5L327.3 67.8L330.5 55.2L331.3 47.2L330.7 39.0L327.2 28.8Z" fill="currentColor" stroke="none"/></g>';
+        var mandala = [0,45,90,135,180,225,270,315].map(function (a) {
+            return '<ellipse cx="20" cy="10.5" rx="2.8" ry="6.5" transform="rotate(' + a + ' 20 20)"/>';
+        }).join('') + '<circle cx="20" cy="20" r="2.2"/>';
+        var icons = {
+            th: LOGO,
+            sun: '<circle cx="20" cy="20" r="6"/><path d="M20 4v4M20 32v4M4 20h4M32 20h4M8.7 8.7l2.8 2.8M28.5 28.5l2.8 2.8M8.7 31.3l2.8-2.8M28.5 11.5l2.8-2.8"/>',
+            moon: '<path transform="translate(3 3) scale(1.4)" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>',
+            eye: '<path d="M3 20c5-8 11-12 17-12s12 4 17 12c-5 8-11 12-17 12S8 28 3 20z"/><circle cx="20" cy="20" r="5.5"/><circle cx="20" cy="20" r="1.8"/>',
+            bolt: '<path d="M23 4L9 22h9l-2 14 15-19h-9z"/>',
+            T: '<text x="20" y="31" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="900" font-size="32" stroke-width="1.4">T</text>',
+            small: '<text x="20" y="28" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="900" font-size="22" stroke-width="1.3">th</text>',
+            ain: '<text x="20" y="29" text-anchor="middle" font-family="Cairo,sans-serif" font-weight="700" font-size="30" stroke-width="1.2">\u0639</text>',
+            tha: '<text x="20" y="29" text-anchor="middle" font-family="Cairo,sans-serif" font-weight="700" font-size="30" stroke-width="1.2">\u062b</text>',
+            note: '<path d="M14 29V9l16-4v20"/><ellipse cx="10.5" cy="29" rx="4.5" ry="3.5"/><ellipse cx="26.5" cy="25" rx="4.5" ry="3.5"/>',
+            mic: '<rect x="15.5" y="5" width="9" height="17" rx="4.5"/><path d="M10 19a10 10 0 0 0 20 0M20 29v6M14 35h12"/>',
+            doc: '<rect x="9" y="5" width="22" height="30" rx="3"/><path d="M14 14h12M14 20h12M14 26h7"/>',
+            bulb: '<path d="M15 29h10M17 34h6M20 5a10 10 0 0 0-6 18c1.2 1 2 2.6 2 4.5v1.5h8v-1.5c0-1.9.8-3.5 2-4.5A10 10 0 0 0 20 5z"/>',
+            mandala: mandala,
+            book: '<path d="M20 11c-4-3-9-4-14-3v22c5-1 10 0 14 3 4-3 9-4 14-3V8c-5-1-10 0-14 3zM20 11v22"/>',
+            target: '<circle cx="20" cy="20" r="13"/><circle cx="20" cy="20" r="8"/><circle cx="20" cy="20" r="3"/>'
+        };
+        var names = Object.keys(icons);
+        var STEP = 60, N = 6, TILE = STEP * N, SCALE = 0.72;
+        var angles = [-14, -6, 0, 7, 13, -9, 4];
+        var defs = '';
+        names.forEach(function (n) {
+            defs += '<g id="thi-' + n + '" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + icons[n] + '</g>';
+        });
+        var uses = '';
+        for (var r = 0; r < N; r++) {
+            for (var c = 0; c < N; c++) {
+                var id = names[(r * 5 + c * 3) % names.length];
+                var x = (r % 2 ? 45 : 15) + c * STEP;
+                var y = 30 + r * STEP;
+                var a = angles[(r * 3 + c * 5) % angles.length];
+                uses += '<use href="#thi-' + id + '" transform="translate(' + x + ' ' + y + ') rotate(' + a + ') scale(' + SCALE + ') translate(-20 -20)"/>';
+            }
+        }
+        var svg = '<svg id="thabitBg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+            '<defs>' + defs +
+            '<pattern id="thabitTile" width="' + TILE + '" height="' + TILE + '" patternUnits="userSpaceOnUse">' +
+            uses +
+            '</pattern></defs>' +
+            '<rect width="100%" height="100%" fill="url(#thabitTile)"/></svg>';
+        document.body.insertAdjacentHTML('afterbegin', svg);
+    })();
+</script>
+
+<div class="mobile-floating-bar" id="mobileFloatingBar">
+  <a href="/" class="circle-badge-btn" id="homeBtn" title="Home" data-i18n-title="home"><i class="fa-solid fa-house"></i></a>
+  <div class="bar-divider"></div>
+  <button type="button" onclick="setLanguage('ar')" id="floatBtnAr" title="العربية" class="circle-badge-btn">ع</button>
+  <button type="button" onclick="setLanguage('en')" id="floatBtnEn" title="English" class="circle-badge-btn active">EN</button>
+  <button type="button" onclick="setLanguage('eg')" id="floatBtnEg" title="مصري" class="circle-badge-btn">مصر</button>
+  <div class="bar-divider"></div>
+  <button type="button" onclick="toggleTheme()" id="floatBtnTheme" title="Light / Dark" class="circle-badge-btn theme-btn"><i id="themeIcon" class="fa-solid fa-moon"></i></button>
+</div>
+
+<div id="toast"></div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="glass-3d-logo-btn"><span class="glass-logo-text">T</span></div>
+    <h1 data-i18n="pageTitle">Placement</h1>
+    <p data-i18n="pageSub">Book your level-assessment session in four quick steps</p>
+  </div>
+
+  <!-- STEP 1 -->
+  <section class="pcard active" id="step1">
+    <div class="ptitle"><span class="num">1</span><i class="fa-regular fa-calendar-check" style="color:var(--gold)"></i><span data-i18n="s1">Pick your time</span></div>
+    <label class="lbl"><i class="fa-regular fa-user"></i><span data-i18n="yourName">Your name</span><span class="req"></span></label>
+    <input class="inp" id="nameInput" data-i18n-ph="yourNamePh" placeholder="Enter your full name..." autocomplete="name">
+
+    <div class="cal-head">
+      <button type="button" class="cal-nav" id="prevM"><i class="fa-solid fa-chevron-left flip"></i></button>
+      <div class="cal-title" id="calTitle"></div>
+      <button type="button" class="cal-nav" id="nextM"><i class="fa-solid fa-chevron-right flip"></i></button>
+    </div>
+    <div class="cal-grid" id="calGrid"></div>
+    <div class="legend">
+      <span><i style="background:rgba(16,185,129,.5)"></i><span data-i18n="legAvail">Available</span></span>
+      <span><i style="background:rgba(239,68,68,.5)"></i><span data-i18n="legOff">Closed</span></span>
+      <span><i style="box-shadow:0 0 0 2px var(--gold)"></i><span data-i18n="legToday">Today</span></span>
+      <span><i style="background:rgba(148,163,184,.4)"></i><span data-i18n="legPast">Past</span></span>
+    </div>
+
+    <div class="timeline hidden" id="timeline">
+      <div class="tl-head"><i class="fa-regular fa-clock"></i><span id="tlDate"></span></div>
+      <div class="tl-list" id="tlList"></div>
+    </div>
+    <div class="pick" id="pick"><i class="fa-solid fa-circle-check"></i><span id="pickTxt"></span></div>
+    <div class="navrow"><button type="button" class="btn" id="c1" disabled><span data-i18n="cont">Continue</span> <i class="fa-solid fa-arrow-right flip"></i></button></div>
+  </section>
+
+  <!-- STEP 2 -->
+  <section class="pcard" id="step2">
+    <div class="ptitle"><span class="num">2</span><i class="fa-regular fa-folder-open" style="color:var(--gold)"></i><span data-i18n="s2">Your files</span></div>
+
+    <div class="fcard" data-file="english">
+      <div class="fhead"><i class="fa-solid fa-language"></i><span data-i18n="fEnglish">External English Test</span></div>
+      <p class="fhint" data-cms="pl.englishHint"></p>
+      <div class="frow"><label class="upl"><i class="fa-solid fa-upload"></i><span data-i18n="upload">Upload PDF / image</span><input type="file" accept="image/*,application/pdf" hidden></label><div class="fstatus"></div></div>
+      <div class="linkrow"><i class="fa-solid fa-link"></i><input class="inp" type="url" data-i18n-ph="pasteLink" placeholder="Paste link here..." dir="ltr"><button type="button" class="iconbtn paste"><i class="fa-regular fa-paste"></i></button></div>
+    </div>
+
+    <div class="fcard" data-file="psych">
+      <div class="fhead"><i class="fa-solid fa-brain"></i><span data-i18n="fPsych">The Psychological Test</span></div>
+      <p class="fhint" data-cms="pl.psychHint"></p>
+      <div class="frow"><label class="upl"><i class="fa-solid fa-upload"></i><span data-i18n="upload">Upload PDF / image</span><input type="file" accept="image/*,application/pdf" hidden></label><div class="fstatus"></div></div>
+      <div class="linkrow"><i class="fa-solid fa-link"></i><input class="inp" type="url" data-i18n-ph="pasteLink" placeholder="Paste link here..." dir="ltr"><button type="button" class="iconbtn paste"><i class="fa-regular fa-paste"></i></button></div>
+    </div>
+
+    <div class="fcard secret" data-file="secret">
+      <div class="fhead"><i class="fa-solid fa-user-secret"></i><span data-i18n="fSecret">The Secret File</span><span class="opt" data-i18n="optional">Optional</span></div>
+      <p class="fhint" data-cms="pl.secretHint"></p>
+      <div class="frow"><label class="upl"><i class="fa-solid fa-upload"></i><span data-i18n="upload">Upload PDF / image</span><input type="file" accept="image/*,application/pdf" hidden></label><div class="fstatus"></div></div>
+      <div class="linkrow"><i class="fa-solid fa-link"></i><input class="inp" type="url" data-i18n-ph="pasteLink" placeholder="Paste link here..." dir="ltr"><button type="button" class="iconbtn paste"><i class="fa-regular fa-paste"></i></button></div>
+    </div>
+
+    <p class="warn" id="warn2" data-i18n="needFile">Provide at least the English test or the psychological test — one is enough.</p>
+    <div class="navrow"><button type="button" class="btn ghost" data-back="1"><i class="fa-solid fa-arrow-left flip"></i> <span data-i18n="back">Back</span></button><button type="button" class="btn" id="c2" disabled><span data-i18n="cont">Continue</span> <i class="fa-solid fa-arrow-right flip"></i></button></div>
+  </section>
+
+  <!-- STEP 3 -->
+  <section class="pcard" id="step3">
+    <div class="ptitle"><span class="num">3</span><i class="fa-solid fa-wallet" style="color:var(--gold)"></i><span data-i18n="s3">Payment</span></div>
+    <div class="amount"><span data-i18n="amount">Amount</span><b data-cms="pl.price"></b></div>
+    <p class="note" data-cms="pl.payNote"></p>
+
+    <div class="paycard">
+      <div class="pi" style="background:linear-gradient(135deg,#7c3aed,#4f46e5)"><i class="fa-solid fa-bolt"></i></div>
+      <div class="pm"><div class="pn" data-i18n="instapay">InstaPay</div><div class="pv" id="ipLink"></div></div>
+      <button type="button" class="mini" data-copy="ip"><i class="fa-regular fa-copy"></i><span data-i18n="copy">Copy</span></button>
+      <a class="mini" id="ipOpen" target="_blank" rel="noopener" style="background:#475569"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+    </div>
+    <div class="paycard">
+      <div class="pi" style="background:linear-gradient(135deg,#e11d48,#be123c)"><i class="fa-solid fa-mobile-screen-button"></i></div>
+      <div class="pm"><div class="pn" data-i18n="vodafone">Vodafone Cash</div><div class="pv" id="vfNum"></div></div>
+      <button type="button" class="mini" data-copy="vf"><i class="fa-regular fa-copy"></i><span data-i18n="copy">Copy</span></button>
+    </div>
+    <img class="qr" data-cms="pl.qr" alt="QR" style="display:none">
+
+    <div class="subhead" data-i18n="paidVia">Paid via</div>
+    <div class="chips" id="chips">
+      <button type="button" class="chip sel" data-m="instapay">InstaPay</button>
+      <button type="button" class="chip" data-m="vodafone">Vodafone Cash</button>
+      <button type="button" class="chip" data-m="cash" data-i18n="inPerson">In person / cash</button>
+    </div>
+
+    <div id="proofBox">
+      <div class="fcard" data-file="proof" style="margin-bottom:0">
+        <div class="fhead"><i class="fa-solid fa-receipt"></i><span data-i18n="proofTitle">Payment proof</span></div>
+        <div class="frow"><label class="upl"><i class="fa-solid fa-image"></i><span data-i18n="proofUpload">Upload screenshot</span><input type="file" accept="image/*,application/pdf" hidden></label><div class="fstatus"></div></div>
+        <div class="linkrow"><i class="fa-solid fa-link"></i><input class="inp" type="url" data-i18n-ph="proofLink" placeholder="Or paste a link to the proof..." dir="ltr"><button type="button" class="iconbtn paste"><i class="fa-regular fa-paste"></i></button></div>
+      </div>
+    </div>
+    <p class="warn" id="warn3" data-i18n="needProof">Add your payment proof (image or link), or choose In person.</p>
+    <div class="navrow"><button type="button" class="btn ghost" data-back="2"><i class="fa-solid fa-arrow-left flip"></i> <span data-i18n="back">Back</span></button><button type="button" class="btn" id="c3" disabled><span data-i18n="cont">Continue</span> <i class="fa-solid fa-arrow-right flip"></i></button></div>
+  </section>
+
+  <!-- STEP 4 -->
+  <section class="pcard" id="step4">
+    <div class="ptitle"><span class="num">4</span><i class="fa-solid fa-scroll" style="color:var(--gold)"></i><span data-i18n="s4">Rules &amp; policies</span></div>
+    <div class="subhead" style="margin-top:0" data-i18n="rulesTitle">Placement session instructions</div>
+    <ul class="rules" data-cms="pl.rules"></ul>
+    <label class="agree"><input type="checkbox" id="agreeRules"><span class="box"><i class="fa-solid fa-check"></i></span><span data-i18n="agreeRules">I agree to all of the above</span></label>
+
+    <div class="divider"></div>
+    <div class="subhead" data-i18n="termsHeading">Terms &amp; policies</div>
+    <p class="note" style="font-weight:800;color:var(--text-strong)" data-cms="pl.termsTitle"></p>
+    <ol class="terms" data-cms="pl.terms"></ol>
+    <label class="agree"><input type="checkbox" id="agreeTerms"><span class="box"><i class="fa-solid fa-check"></i></span><span data-i18n="agreeTerms">I accept the terms &amp; policies</span></label>
+
+    <div class="navrow"><button type="button" class="btn ghost" data-back="3"><i class="fa-solid fa-arrow-left flip"></i> <span data-i18n="back">Back</span></button></div>
+  </section>
+</div>
+
+<!-- progress pill -->
+<div class="pill" id="pill">
+  <button type="button" class="pdot" data-s="1"></button><div class="pline"></div>
+  <button type="button" class="pdot" data-s="2"></button><div class="pline"></div>
+  <button type="button" class="pdot" data-s="3"></button><div class="pline"></div>
+  <button type="button" class="pdot" data-s="4"></button>
+  <button type="button" class="pdot fin" id="finDot" title="Details"><i class="fa-solid fa-receipt"></i></button>
+  <button type="button" class="pill-done" id="pillDone"><i class="fa-solid fa-receipt"></i><span data-i18n="details">Booking details</span></button>
+</div>
+
+<!-- receipt -->
+<div class="tha-modal" id="receipt"><div class="tha-box" style="max-width:480px">
+  <div class="tha-h"><h3><i class="fa-solid fa-circle-check" style="color:#10b981"></i> <span data-i18n="rTitle">Booking summary</span></h3><button type="button" class="tha-x" id="rClose"><i class="fa-solid fa-xmark"></i></button></div>
+  <p class="tha-note" style="margin-bottom:8px" data-i18n="doneSub">Your booking is ready — send the details to confirm.</p>
+  <div id="rBody"></div>
+  <div class="tha-btns" style="margin-top:16px">
+    <a class="sharebtn tg" id="shTg" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-telegram"></i><span data-i18n="sendTg">Telegram</span></a>
+    <a class="sharebtn wa" id="shWa" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span data-i18n="sendWa">WhatsApp</span></a>
+  </div>
+  <div class="tha-btns" style="margin-top:8px">
+    <button type="button" class="sharebtn cp" id="shCp"><i class="fa-regular fa-copy"></i><span data-i18n="copySummary">Copy summary</span></button>
+    <button type="button" class="sharebtn cp" id="shEdit" style="background:#b45309"><i class="fa-solid fa-pen"></i><span data-i18n="edit">Edit booking</span></button>
+  </div>
+</div></div>
+
+<!-- ===== THABIT SHARED: content editor + admin panel + theme fixes ===== -->
+<div id="thaAuth" class="tha-modal"><div class="tha-box" style="max-width:380px;text-align:center">
+  <i class="fa-solid fa-lock" style="font-size:2rem;color:#fbbf24"></i>
+  <h3 style="margin:10px 0 4px;font-weight:900">Fedawy Admin</h3>
+  <p class="tha-note" style="margin-bottom:12px">سجّل دخول بحساب الأدمن · Sign in with the admin account</p>
+  <input id="thaEmail" type="email" autocomplete="username" class="tha-in" style="text-align:center;margin-bottom:8px" placeholder="Email">
+  <input id="thaPass" type="password" autocomplete="current-password" class="tha-in" style="text-align:center" placeholder="Password">
+  <p id="thaAuthErr" class="tha-note" style="color:#f43f5e;margin-top:8px;min-height:16px"></p>
+  <div class="tha-btns" style="margin-top:12px"><button type="button" class="tha-b gray" style="flex:1" id="thaAuthCancel">إلغاء</button><button type="button" class="tha-b" style="flex:1" id="thaAuthOk">دخول</button></div>
+</div></div>
+
+<div id="thaPanel" class="tha-modal"><div class="tha-box">
+  <div class="tha-h"><h3><i class="fa-solid fa-shield-halved"></i> Fedawy Admin Panel</h3><button type="button" class="tha-x" id="thaClose"><i class="fa-solid fa-xmark"></i></button></div>
+  <div class="tha-tabs" style="margin-bottom:12px">
+    <button type="button" class="tha-tab on" id="thaTabC"><i class="fa-solid fa-pen-to-square"></i> تعديل المحتوى · Content</button>
+    <button type="button" class="tha-tab" id="thaTabA"><i class="fa-solid fa-microphone"></i> صوتيات · Audio</button>
+    <button type="button" class="tha-tab" id="thaTabB"><i class="fa-solid fa-list-check"></i> حجوزات · Bookings</button>
+  </div>
+  <div id="thaPaneC">
+    <input id="thaSearch" class="tha-in" placeholder="Search... / ابحث...">
+    <div id="thaPages" class="tha-tabs" style="margin-top:10px"></div>
+    <div id="thaList"></div>
+  </div>
+  <div id="thaPaneA" style="display:none">
+    <label class="tha-lab" style="margin-bottom:6px">word (s):</label>
+    <input id="thaWord" class="tha-in" placeholder="e.g. Hello">
+    <div class="tha-btns" style="margin-top:10px;align-items:center">
+      <button type="button" class="tha-b red" id="thaRec"><i class="fa-solid fa-microphone"></i> Record</button>
+      <span id="thaTimer" style="font-family:monospace">00:00</span>
+      <audio id="thaPlay" controls style="height:34px;display:none;max-width:100%"></audio>
+    </div>
+    <button type="button" class="tha-b" id="thaUp" style="margin-top:12px;width:100%;padding:12px" disabled><i class="fa-solid fa-cloud-arrow-up"></i> Upload &amp; Save to Database</button>
+  </div>
+  <div id="thaPaneB" style="display:none"><div id="thaBook" class="tha-note">...</div></div>
+  <div class="tha-btns" style="margin-top:10px"><button type="button" class="tha-b gray" id="thaOut"><i class="fa-solid fa-right-from-bracket"></i> Sign out</button></div>
+  <div id="thaMsg" class="tha-note"></div>
+</div></div>
+
+<script src="js/placement.js"></script>
+</body>
+</html>
