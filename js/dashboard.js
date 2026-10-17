@@ -85,7 +85,7 @@ async function load() {
   if (!d || !d.profile) { try { localStorage.removeItem(TOKEN_KEY); } catch (e) {}
     $('hello').innerHTML = `<a href="${PORTAL}" style="color:#fbbf24">${tok() === null ? 'Please log in from the portal first →' : 'Session not valid, log in again →'}</a>`;
     console.warn('Thabit dashboard: no valid session', d);
-    if (location.protocol !== 'file:') setTimeout(() => { location.href = PORTAL; }, 2500);
+    if (location.protocol !== 'file:') setTimeout(() => { location.href = 'portal.html' }, 2500);
     return; }
   D = d; render();
 }
