@@ -3,11 +3,16 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Thabit - Dashboard</title>
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Montserrat:ital,wght@0,900;1,700;1,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <!-- SAME theme file as overall.html: adjust the path if your css folder is elsewhere -->
-<link rel="stylesheet" href="Css/overall.css">
+<link rel="stylesheet" href="/css/overall.css">
+<link rel="stylesheet" href="/portal/css/overall.css">
+<link rel="stylesheet" href="../../../css/overall.css">
+<link rel="stylesheet" href="../../css/overall.css">
+<link rel="stylesheet" href="../css/overall.css">
+<link rel="stylesheet" href="css/overall.css">
 <style>
 body{font-family:Inter,Cairo,sans-serif}
 .wrap{max-width:1100px;margin:0 auto;padding:90px 16px 40px}
@@ -28,6 +33,15 @@ svg.ch{width:100%;height:70px;margin-top:8px}
 textarea,select{width:100%;border-radius:12px;padding:10px;background:var(--th-input-bg);border:1px solid var(--th-input-border);color:var(--text-color);margin-bottom:8px;font:inherit}
 .btn2{padding:10px 16px;border-radius:12px;border:0;background:#fbbf24;color:#111;font-weight:700;cursor:pointer}
 .lo{color:#f43f5e}
+body{--ring:#0f172a;--avg:#fff}body.light-theme{--ring:#fff;--avg:#0f172a}
+svg.c2{width:100%;height:auto;display:block;margin-top:8px}.gl{stroke:var(--border-color);stroke-width:1}.tx{fill:var(--th-muted)}
+.ln{stroke-linejoin:round;stroke-linecap:round}.ln.performance{stroke:#3b82f6}.ln.attitude{stroke:#e8683a}.ln.soft_skills{stroke:#10b981}.ln.avg{stroke:var(--avg)}
+.dot{stroke:var(--ring);stroke-width:2;cursor:pointer}.dot.performance{fill:#3b82f6}.dot.attitude{fill:#e8683a}.dot.soft_skills{fill:#10b981}
+.lg{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end;font-size:.75rem;color:var(--th-muted)}.lg i{display:inline-block;width:16px;height:4px;border-radius:2px;margin-inline-end:5px;vertical-align:middle}
+.it{padding:8px 0;border-bottom:1px solid var(--border-color);font-size:.85rem}.it:last-child{border:0}.dt{font-size:.7rem;font-weight:700;color:var(--th-muted)}.lst{max-height:340px;overflow:auto}
+#barTip{position:fixed;z-index:9999;pointer-events:none;opacity:0;transform:translate(-50%,-100%);transition:opacity .15s;padding:6px 12px;border-radius:10px;background:#0f172a;color:#f1f5f9;border:1px solid rgba(255,255,255,.2);font:700 .75rem Cairo,Inter,sans-serif;white-space:nowrap}
+#barTip.show{opacity:1}body.light-theme #barTip{background:#fff;color:#0f172a;border-color:#0f172a}
+body.light-theme textarea,body.light-theme select{background:#fff;color:#0f172a}
 </style>
 </head>
 <body id="bodyRoot">
@@ -35,7 +49,7 @@ textarea,select{width:100%;border-radius:12px;padding:10px;background:var(--th-i
 <div class="mobile-floating-bar" id="mobileFloatingBar">
   <button type="button" onclick="location.reload()" class="circle-badge-btn" title="Restart Page" style="color:#3b82f6"><i class="fa-solid fa-rotate text-sm"></i></button>
   <div class="bar-divider"></div>
-  <a href="assistant.html" id="floatBtnAssist" title="Pronunciation Assistant" aria-label="Pronunciation Assistant" class="circle-badge-btn" style="color:#34d399"><i class="fa-solid fa-microphone-lines text-sm"></i></a>
+  <a href="../assistant/assistant.html" id="floatBtnAssist" title="Pronunciation Assistant" aria-label="Pronunciation Assistant" class="circle-badge-btn" style="color:#34d399"><i class="fa-solid fa-microphone-lines text-sm"></i></a>
   <div class="bar-divider"></div>
   <button type="button" onclick="setLanguage('ar')" id="floatBtnAr" class="circle-badge-btn" title="العربية">عربي</button>
   <button type="button" onclick="setLanguage('en')" id="floatBtnEn" class="circle-badge-btn active" title="English">EN</button>
@@ -46,12 +60,14 @@ textarea,select{width:100%;border-radius:12px;padding:10px;background:var(--th-i
   <button type="button" onclick="logout()" class="circle-badge-btn lo" title="Log out"><i class="fa-solid fa-right-from-bracket text-sm"></i></button>
 </div>
 
-<a href="dashboard.html" class="thabit-marble-brand" aria-label="THABIT"><span class="thabit-logo-glow"><div class="thabit-marble-logo" role="img" aria-label="TH logo"></div></span></a>
+<a href="../../portal.html" class="thabit-marble-brand" aria-label="THABIT"><span class="thabit-logo-glow"><div class="thabit-marble-logo" role="img" aria-label="TH logo"></div></span></a>
 
 <div class="wrap">
   <div class="top"><h1 id="hello">...</h1>
     <div class="rng" id="rng"></div></div>
   <div class="grid" id="kpis"></div>
+  <div class="thabit-card dcard" id="overall" style="margin-bottom:14px"></div>
+  <div class="grid" id="lists"></div>
   <div class="grid">
     <div class="thabit-card dcard"><h4 id="tLast">Last session</h4><div id="last"></div></div>
     <div class="thabit-card dcard"><h4 id="tInfo">My info</h4><div id="info"></div></div>
@@ -63,5 +79,5 @@ textarea,select{width:100%;border-radius:12px;padding:10px;background:var(--th-i
   <div class="thabit-card dcard"><h4 id="tHist">Sessions</h4><div class="tbl" id="hist"></div></div>
 </div>
 <div id="barTip" role="tooltip"></div>
-<script src="js/dashboard.js"></script>
+<script src="dashboard.js"></script>
 </body></html>
