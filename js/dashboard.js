@@ -1,12 +1,7 @@
 /* Thabit trainee dashboard: token -> Supabase RPC. No sheet, no direct table reads. */
 const SB = "https://vkfexceitwjmxncwceqb.supabase.co";
 const KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZrZmV4Y2VpdHdqbXhuY3djZXFiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAzMzY5MTEsImV4cCI6MjEwNTkxMjkxMX0.6ArXtykrZhdNInphpg_LQTIvULkpwnnlzHA3dKhrNoI";
-
-// المسار هنا أصبح مباشر لأن الملفات HTML موجودة في الـ Root الرئيسي
-const TOKEN_KEY = 'thabit_trainee_token';
-const PORTAL = 'portal.html'; 
-const HOME = 'index.html'; // مسار الصفحة الرئيسية
-
+const TOKEN_KEY = 'thabit_trainee_token', PORTAL = '../../portal.html';
 const T = {
   en: { hi: 'Welcome, ', today: 'Today', week: '7 days', month: '30 days', all: 'Since start', last: 'Last session', info: 'My info', req: 'Send a request', hist: 'Sessions', send: 'Send', sessions: 'Sessions',
         performance: 'Performance', attitude: 'Attitude', soft_skills: 'Soft skills', tefl: 'TEFL', qol: 'QOL', none: 'No data yet', ph: 'Write your request...' },
@@ -27,15 +22,10 @@ function setLanguage(l) {
   if (D) render();
 }
 function toggleTheme() {
-  const light = $('bodyRoot').classList.toggle('light-theme');$('themeIcon').className = 'fa-solid text-sm ' + (light ? 'fa-sun' : 'fa-moon');
+  const light = $('bodyRoot').classList.toggle('light-theme');
+  $('themeIcon').className = 'fa-solid text-sm ' + (light ? 'fa-sun' : 'fa-moon');
   try { localStorage.setItem('thabit_theme', light ? 'light' : 'dark'); } catch (e) {}
 }
-
-// دالة الرجوع للصفحة الرئيسية index.html
-function goHome() {
-  location.href = HOME;
-}
-
 async function logout() {
   const t = tok(); try { localStorage.removeItem(TOKEN_KEY); localStorage.removeItem('currentTrainee'); } catch (e) {}
   if (t) { try { await rpc('trainee_logout', { p_token: t }); } catch (e) {} }
@@ -70,7 +60,8 @@ function txt(key, rows) {
 }
 function render() {
   const t = T[lang], all = D.rows, rows = all.filter(inRange), p = D.profile || {};
-  $('hello').textContent = t.hi + (p.trainee \vert{}\vert{} '');$('rng').innerHTML = ['today', 'week', 'month', 'all'].map(k => `<button class="${k === range ? 'on' : ''}" onclick="range='${k}';render()">${t[k]}</button>`).join('');
+  $('hello').textContent = t.hi + (p.trainee || '');
+  $('rng').innerHTML = ['today', 'week', 'month', 'all'].map(k => `<button class="${k === range ? 'on' : ''}" onclick="range='${k}';render()">${t[k]}</button>`).join('');
   $('kpis').innerHTML = `<div class="thabit-card dcard"><h4>${t.sessions}</h4><div class="big">${rows.length}</div>${spark(rows.map((r, i) => i + 1))}</div>` +
     ['performance', 'attitude', 'soft_skills'].map(k => kpi(k, rows, all)).join('') + ['tefl', 'qol'].map(k => txt(k, rows)).join('');
   ['Last', 'Info', 'Req', 'Hist'].forEach(k => $('t' + k).textContent = t[k.toLowerCase()]);
@@ -84,7 +75,8 @@ function render() {
   const IF = [['status_as_of_today','Status'],['current_plan','Current plan'],['days_a_week','Days / week'],['session_time','Session time'],['place','Place'],['subscription','Subscription'],['due_date','Due date'],
     ['joining_date','Joined'],['first_session','First session'],['birth_date','Birth date'],['education_on_joining','Education on joining'],['schooling','Schooling'],['location','Location'],['residence_mostly','Residence'],
     ['first_thabit_scoring','First Thabit scoring'],['first_approved_english_test','First English test'],['first_psychological_approved_test','First psychological test'],['preferred_phone','Phone'],['preferred_email','Email']];
-  $('info').innerHTML = line('Group', L && L.group_name) + IF.map(f => line(f[1], p[f[0]])).join('');$('rqList').innerHTML = (D.requests || []).map(r => `<div class="row"><span>${esc(r.message)}<br><span class="sm">${esc(r.type)} · ${esc(r.status)}</span></span><b>${esc(r.admin_reply || '')}</b></div>`).join('');
+  $('info').innerHTML = line('Group', L && L.group_name) + IF.map(f => line(f[1], p[f[0]])).join('');
+  $('rqList').innerHTML = (D.requests || []).map(r => `<div class="row"><span>${esc(r.message)}<br><span class="sm">${esc(r.type)} · ${esc(r.status)}</span></span><b>${esc(r.admin_reply || '')}</b></div>`).join('');
   $('hist').innerHTML = rows.length ? '<table><tr><th>Date</th><th>#</th><th>Title</th><th>Perf.</th><th>Att.</th><th>Soft</th><th>TEFL</th><th>QOL</th></tr>' +
     rows.slice().reverse().map(r => `<tr><td>${r.supply_date}</td><td>${r.session_number}</td><td>${esc(r.session_title)}</td><td>${r.performance ?? ''}</td><td>${r.attitude ?? ''}</td><td>${r.soft_skills ?? ''}</td><td>${esc(r.tefl)}</td><td>${esc(r.qol)}</td></tr>`).join('') + '</table>' : `<div class="sm">${t.none}</div>`;
 }
@@ -103,7 +95,7 @@ async function sendReq() {
   if (ok === true) { $('rqMsg').value = ''; load(); }
 }
 window.addEventListener('DOMContentLoaded', () => {
-  try { if (localStorage.getItem('thabit_theme') === 'light') { $('bodyRoot').classList.add('light-theme');$('themeIcon').className = 'fa-solid fa-sun text-sm'; } } catch (e) {}
+  try { if (localStorage.getItem('thabit_theme') === 'light') { $('bodyRoot').classList.add('light-theme'); $('themeIcon').className = 'fa-solid fa-sun text-sm'; } } catch (e) {}
   let l = 'en'; try { l = localStorage.getItem('thabit_lang') || 'en'; } catch (e) {}
   setLanguage(l); load();
 });
