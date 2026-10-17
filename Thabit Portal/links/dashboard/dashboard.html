@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="htmlRoot">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thabit - Dashboard</title>
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Montserrat:ital,wght@0,900;1,700;1,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- SAME theme file as overall.html: adjust the path if your css folder is elsewhere -->
+<link rel="stylesheet" href="/css/overall.css">
+<link rel="stylesheet" href="/portal/css/overall.css">
+<link rel="stylesheet" href="../../../css/overall.css">
+<link rel="stylesheet" href="../../css/overall.css">
+<link rel="stylesheet" href="../css/overall.css">
+<link rel="stylesheet" href="css/overall.css">
+<style>
+body{font-family:Inter,Cairo,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:90px 16px 40px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0 18px}
+.top h1{font-size:1.4rem;font-weight:800;margin:0}
+.rng{display:flex;gap:6px;flex-wrap:wrap}
+.rng button{padding:7px 14px;border-radius:999px;border:1px solid var(--th-input-border);background:var(--th-control-bg);color:var(--th-control-text);font-weight:600;font-size:.8rem;cursor:pointer}
+.rng button.on{background:#fbbf24;color:#111;border-color:#fbbf24}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-bottom:14px}
+.dcard{padding:16px;border-radius:18px}
+.dcard h4{margin:0 0 6px;font-size:.78rem;color:var(--th-muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.big{font-size:1.9rem;font-weight:800}.up{color:#34d399}.down{color:#f43f5e}.flat{color:var(--th-muted)}
+.sm{font-size:.8rem;color:var(--th-muted)}
+svg.ch{width:100%;height:70px;margin-top:8px}
+.row{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid var(--border-color);font-size:.85rem}
+.row:last-child{border:0}.row b{text-align:end}
+.tbl{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:.8rem}th,td{padding:8px;text-align:start;border-bottom:1px solid var(--border-color);white-space:nowrap}
+textarea,select{width:100%;border-radius:12px;padding:10px;background:var(--th-input-bg);border:1px solid var(--th-input-border);color:var(--text-color);margin-bottom:8px;font:inherit}
+.btn2{padding:10px 16px;border-radius:12px;border:0;background:#fbbf24;color:#111;font-weight:700;cursor:pointer}
+.lo{color:#f43f5e}
+</style>
+</head>
+<body id="bodyRoot">
+<div class="mobile-floating-bar" id="mobileFloatingBar">
+  <a href="../../portal.html" class="circle-badge-btn" title="Portal" style="color:#60a5fa"><i class="fa-solid fa-house text-sm"></i></a>
+  <div class="bar-divider"></div>
+  <button type="button" onclick="setLanguage('ar')" id="floatBtnAr" class="circle-badge-btn" title="العربية">عربي</button>
+  <button type="button" onclick="setLanguage('en')" id="floatBtnEn" class="circle-badge-btn active" title="English">EN</button>
+  <button type="button" onclick="setLanguage('eg')" id="floatBtnEg" class="circle-badge-btn" title="مصري">مصر</button>
+  <div class="bar-divider"></div>
+  <button type="button" onclick="toggleTheme()" id="floatBtnTheme" class="circle-badge-btn" title="Theme" style="color:#fbbf24"><i id="themeIcon" class="fa-solid fa-moon text-sm"></i></button>
+  <div class="bar-divider"></div>
+  <button type="button" onclick="logout()" class="circle-badge-btn lo" title="Log out"><i class="fa-solid fa-right-from-bracket text-sm"></i></button>
+</div>
+<a href="../../portal.html" class="thabit-marble-brand" aria-label="THABIT"><span class="thabit-logo-glow"><div class="thabit-marble-logo" role="img" aria-label="TH logo"></div></span></a>
+
+<div class="wrap">
+  <div class="top"><h1 id="hello">...</h1>
+    <div class="rng" id="rng"></div></div>
+  <div class="grid" id="kpis"></div>
+  <div class="grid">
+    <div class="thabit-card dcard"><h4 id="tLast">Last session</h4><div id="last"></div></div>
+    <div class="thabit-card dcard"><h4 id="tInfo">My info</h4><div id="info"></div></div>
+    <div class="thabit-card dcard"><h4 id="tReq">Send a request</h4>
+      <select id="rqType"><option value="session">Session time</option><option value="financial">Financial</option><option value="other">Other</option></select>
+      <textarea id="rqMsg" rows="3" maxlength="2000"></textarea>
+      <button class="btn2" onclick="sendReq()" id="rqBtn">Send</button><div id="rqList" style="margin-top:12px"></div></div>
+  </div>
+  <div class="thabit-card dcard"><h4 id="tHist">Sessions</h4><div class="tbl" id="hist"></div></div>
+</div>
+<div id="barTip" role="tooltip"></div>
+<script src="dashboard.js"></script>
+</body></html>
