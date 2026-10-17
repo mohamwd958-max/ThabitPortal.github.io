@@ -29,7 +29,7 @@ function toggleTheme() {
 async function logout() {
   const t = tok(); try { localStorage.removeItem(TOKEN_KEY); localStorage.removeItem('currentTrainee'); } catch (e) {}
   if (t) { try { await rpc('trainee_logout', { p_token: t }); } catch (e) {} }
-  location.href = 'portal.html' ;
+  location.href = 'index.html' ;
 }
 
 function inRange(r) {
@@ -85,7 +85,7 @@ async function load() {
   if (!d || !d.profile) { try { localStorage.removeItem(TOKEN_KEY); } catch (e) {}
     $('hello').innerHTML = `<a href="${PORTAL}" style="color:#fbbf24">${tok() === null ? 'Please log in from the portal first →' : 'Session not valid, log in again →'}</a>`;
     console.warn('Thabit dashboard: no valid session', d);
-    if (location.protocol !== 'file:') setTimeout(() => { location.href = 'portal.html' }, 2500);
+    if (location.protocol !== 'file:') setTimeout(() => { location.href = 'index.html' }, 2500);
     return; }
   D = d; render();
 }
