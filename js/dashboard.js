@@ -115,7 +115,7 @@ function overall(rows, S) {
     chart(S, [...MET, 'avg'], { W: 700, H: 300, L: 40, f: 13, w: 4, r: 7, lab: 10 });
 }
 const listCard = (title, rows, fn) => { const it = rows.slice().reverse().map(fn).filter(Boolean).join('');
-  return `<div class="thabit-card dcard"><h4>${title}</h4><div class="lst">${it || `<div class="sm">${T[lang].none}</div>`}</div></div>`; };
+  return `<div class="thabit-card dcard"><h4>${title}</h4><div class="lst caps">${it || `<div class="sm">${T[lang].none}</div>`}</div></div>`; };
 const item = (r, body) => `<div class="it"><div class="dt">${r.supply_date}</div>${body}</div>`;
 
 function render() {
