@@ -1,7 +1,7 @@
 /* Thabit trainee dashboard: token -> Supabase RPC. No sheet, no direct table reads. */
 const SB = "https://vkfexceitwjmxncwceqb.supabase.co";
 const KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZrZmV4Y2VpdHdqbXhuY3djZXFiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAzMzY5MTEsImV4cCI6MjEwNTkxMjkxMX0.6ArXtykrZhdNInphpg_LQTIvULkpwnnlzHA3dKhrNoI";
-const TOKEN_KEY = 'thabit_trainee_token', PORTAL = '../../portal.html';
+const TOKEN_KEY = 'thabit_trainee_token', PORTAL = 'index.html';
 const T = {
   en: { hi: 'Welcome, ', today: 'Today', week: '7 days', month: '30 days', all: 'Since start', last: 'Last session', info: 'My info', req: 'Send a request', hist: 'Sessions', send: 'Send', sessions: 'Sessions',
         performance: 'Performance', attitude: 'Attitude', soft_skills: 'Soft skills', tefl: 'TEFL', qol: 'QOL', none: 'No data yet', ph: 'Write your request...' },
@@ -45,34 +45,34 @@ function spark(vals) {
   return `<svg class="ch" viewBox="0 0 300 70" preserveAspectRatio="none"><polyline points="${pts}" fill="none" stroke="#fbbf24" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg>`;
 }
 function kpi(key, rows, all) {
-  const t = T[lang], vals = rows.map(r => r[key]).filter(v => v != null).map(Number);
+   t = T[lang], vals = rows.map(r => r[key]).filter(v => v != null).map(Number);
   let h = `<div class="thabit-card dcard"><h4>${t[key]}</h4>`;
   if (!vals.length) return h + `<div class="sm">${t.none}</div></div>`;
-  const cur = vals[vals.length - 1];
-  const before = all.filter(r => r[key] != null && !rows.includes(r)).map(r => Number(r[key]));
-  const base = before.length ? before[before.length - 1] : vals[0];
-  const d = +(cur - base).toFixed(2), cls = d > 0 ? 'up' : d < 0 ? 'down' : 'flat';
+   cur = vals[vals.length - 1];
+   before = all.filter(r => r[key] != null && !rows.includes(r)).map(r => Number(r[key]));
+   base = before.length ? before[before.length - 1] : vals[0];
+   d = +(cur - base).toFixed(2), cls = d > 0 ? 'up' : d < 0 ? 'down' : 'flat';
   return h + `<div class="big">${cur}</div><div class="${cls}">${d > 0 ? '▲ +' : d < 0 ? '▼ ' : '■ '}${d}</div>${spark(vals)}</div>`;
 }
 function txt(key, rows) {
-  const v = rows.map(r => r[key]).filter(x => x != null && x !== '');
+   v = rows.map(r => r[key]).filter(x => x != null && x !== '');
   return `<div class="thabit-card dcard"><h4>${T[lang][key]}</h4>` + (v.length ? `<div class="big" style="font-size:1.3rem">${esc(v[v.length - 1])}</div><div class="sm">${v.length} ${T[lang].sessions}</div>` : `<div class="sm">${T[lang].none}</div>`) + '</div>';
 }
 function render() {
-  const t = T[lang], all = D.rows, rows = all.filter(inRange), p = D.profile || {};
+   t = T[lang], all = D.rows, rows = all.filter(inRange), p = D.profile || {};
   $('hello').textContent = t.hi + (p.trainee || '');
   $('rng').innerHTML = ['today', 'week', 'month', 'all'].map(k => `<button class="${k === range ? 'on' : ''}" onclick="range='${k}';render()">${t[k]}</button>`).join('');
   $('kpis').innerHTML = `<div class="thabit-card dcard"><h4>${t.sessions}</h4><div class="big">${rows.length}</div>${spark(rows.map((r, i) => i + 1))}</div>` +
     ['performance', 'attitude', 'soft_skills'].map(k => kpi(k, rows, all)).join('') + ['tefl', 'qol'].map(k => txt(k, rows)).join('');
   ['Last', 'Info', 'Req', 'Hist'].forEach(k => $('t' + k).textContent = t[k.toLowerCase()]);
   $('rqBtn').textContent = t.send; $('rqMsg').placeholder = t.ph;
-  const L = all[all.length - 1], line = (a, b) => b ? `<div class="row"><span class="sm">${a}</span><b>${esc(b)}</b></div>` : '';
-  const LF = [['supply_date','Date'],['session_number','Session #'],['group_name','Group'],['session_title','Title'],['sub_title','Sub title'],['start_time','Start'],['end_time','End'],
+   L = all[all.length - 1], line = (a, b) => b ? `<div class="row"><span class="sm">${a}</span><b>${esc(b)}</b></div>` : '';
+   LF = [['supply_date','Date'],['session_number','Session #'],['group_name','Group'],['session_title','Title'],['sub_title','Sub title'],['start_time','Start'],['end_time','End'],
     ['revision','Revision'],['revision_details','Revision details'],['notes','Notes'],['tefl','TEFL'],['qol','QOL'],['attitude','Attitude'],['attitude_details','Attitude details'],
     ['soft_skills','Soft skills'],['soft_skills_details','Soft skills details'],['performance','Performance'],['why','Why'],['performance_details','Performance details'],
     ['weak_points','Weak points'],['tasks','Tasks'],['left_overs','Left overs'],['plans','Plans']];
   $('last').innerHTML = L ? LF.map(f => line(f[1], L[f[0]])).join('') : `<div class="sm">${t.none}</div>`;
-  const IF = [['status_as_of_today','Status'],['current_plan','Current plan'],['days_a_week','Days / week'],['session_time','Session time'],['place','Place'],['subscription','Subscription'],['due_date','Due date'],
+   IF = [['status_as_of_today','Status'],['current_plan','Current plan'],['days_a_week','Days / week'],['session_time','Session time'],['place','Place'],['subscription','Subscription'],['due_date','Due date'],
     ['joining_date','Joined'],['first_session','First session'],['birth_date','Birth date'],['education_on_joining','Education on joining'],['schooling','Schooling'],['location','Location'],['residence_mostly','Residence'],
     ['first_thabit_scoring','First Thabit scoring'],['first_approved_english_test','First English test'],['first_psychological_approved_test','First psychological test'],['preferred_phone','Phone'],['preferred_email','Email']];
   $('info').innerHTML = line('Group', L && L.group_name) + IF.map(f => line(f[1], p[f[0]])).join('');
@@ -81,7 +81,7 @@ function render() {
     rows.slice().reverse().map(r => `<tr><td>${r.supply_date}</td><td>${r.session_number}</td><td>${esc(r.session_title)}</td><td>${r.performance ?? ''}</td><td>${r.attitude ?? ''}</td><td>${r.soft_skills ?? ''}</td><td>${esc(r.tefl)}</td><td>${esc(r.qol)}</td></tr>`).join('') + '</table>' : `<div class="sm">${t.none}</div>`;
 }
 async function load() {
-  const d = tok() ? await rpc('trainee_dashboard', { p_token: tok() }).catch(() => null) : null;
+   d = tok() ? await rpc('trainee_dashboard', { p_token: tok() }).catch(() => null) : null;
   if (!d || !d.profile) { try { localStorage.removeItem(TOKEN_KEY); } catch (e) {}
     $('hello').innerHTML = `<a href="${PORTAL}" style="color:#fbbf24">${tok() === null ? 'Please log in from the portal first →' : 'Session not valid, log in again →'}</a>`;
     console.warn('Thabit dashboard: no valid session', d);
@@ -90,8 +90,8 @@ async function load() {
   D = d; render();
 }
 async function sendReq() {
-  const m = $('rqMsg').value.trim(); if (!m) return;
-  const ok = await rpc('trainee_send_request', { p_token: tok(), p_type: $('rqType').value, p_message: m });
+   m = $('rqMsg').value.trim(); if (!m) return;
+   ok = await rpc('trainee_send_request', { p_token: tok(), p_type: $('rqType').value, p_message: m });
   if (ok === true) { $('rqMsg').value = ''; load(); }
 }
 window.addEventListener('DOMContentLoaded', () => {
