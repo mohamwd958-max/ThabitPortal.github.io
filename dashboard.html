@@ -7,8 +7,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Montserrat:ital,wght@0,900;1,700;1,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <!-- SAME theme file as overall.html: adjust the path if your css folder is elsewhere -->
-<link rel="stylesheet" href="Css/overall.css">
-
+<link rel="stylesheet" href="/css/overall.css">
+<link rel="stylesheet" href="/portal/css/overall.css">
+<link rel="stylesheet" href="../../../css/overall.css">
+<link rel="stylesheet" href="../../css/overall.css">
+<link rel="stylesheet" href="../css/overall.css">
+<link rel="stylesheet" href="css/overall.css">
 <style>
 body{font-family:Inter,Cairo,sans-serif}
 .wrap{max-width:1100px;margin:0 auto;padding:90px 16px 40px}
@@ -29,31 +33,48 @@ svg.ch{width:100%;height:70px;margin-top:8px}
 textarea,select{width:100%;border-radius:12px;padding:10px;background:var(--th-input-bg);border:1px solid var(--th-input-border);color:var(--text-color);margin-bottom:8px;font:inherit}
 .btn2{padding:10px 16px;border-radius:12px;border:0;background:#fbbf24;color:#111;font-weight:700;cursor:pointer}
 .lo{color:#f43f5e}
-body{--ring:#0f172a;--avg:#fff}body.light-theme{--ring:#fff;--avg:#0f172a}
+body{--ring:#0f172a;--avg:#a855f7}body.light-theme{--ring:#fff;--avg:#7c3aed}
 svg.c2{width:100%;height:auto;display:block;margin-top:8px}.gl{stroke:var(--border-color);stroke-width:1}.tx{fill:var(--th-muted)}
-.ln{stroke-linejoin:round;stroke-linecap:round}.ln.performance{stroke:#3b82f6}.ln.attitude{stroke:#e8683a}.ln.soft_skills{stroke:#10b981}.ln.avg{stroke:var(--avg)}
-.dot{stroke:var(--ring);stroke-width:2;cursor:pointer}.dot.performance{fill:#3b82f6}.dot.attitude{fill:#e8683a}.dot.soft_skills{fill:#10b981}
+.ln{stroke-linejoin:round;stroke-linecap:round}.ln.performance{stroke:#ef4444}.ln.attitude{stroke:#3b82f6}.ln.soft_skills{stroke:#10b981}.ln.revision{stroke:#f97316}.ln.avg{stroke:var(--avg)}
+.dot{stroke:var(--ring);stroke-width:2;cursor:pointer}.dot.performance{fill:#ef4444}.dot.attitude{fill:#3b82f6}.dot.soft_skills{fill:#10b981}.dot.revision{fill:#f97316}
 .lg{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end;font-size:.75rem;color:var(--th-muted)}.lg i{display:inline-block;width:16px;height:4px;border-radius:2px;margin-inline-end:5px;vertical-align:middle}
 .it{padding:8px 0;border-bottom:1px solid var(--border-color);font-size:.85rem}.it:last-child{border:0}.dt{font-size:.7rem;font-weight:700;color:var(--th-muted)}.lst{max-height:340px;overflow:auto}
 #barTip{position:fixed;z-index:9999;pointer-events:none;opacity:0;transform:translate(-50%,-100%);transition:opacity .15s;padding:6px 12px;border-radius:10px;background:#0f172a;color:#f1f5f9;border:1px solid rgba(255,255,255,.2);font:700 .75rem Cairo,Inter,sans-serif;white-space:nowrap}
 #barTip.show{opacity:1}body.light-theme #barTip{background:#fff;color:#0f172a;border-color:#0f172a}
 body.light-theme textarea,body.light-theme select{background:#fff;color:#0f172a}
 
+.cap{display:flex;flex-direction:column;gap:2px;width:100%;text-align:start;padding:8px 12px;margin-bottom:6px;border-radius:14px;border:1px solid var(--border-color);background:rgba(148,163,184,.1);color:inherit;font:inherit;font-size:.82rem;cursor:pointer}
+.cap span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.more{cursor:pointer;text-decoration:underline dotted}
+.tk{display:flex;gap:8px;align-items:flex-start;padding:6px 0;font-size:.85rem}.tk input{margin-top:3px;width:18px;height:18px;accent-color:#fbbf24;flex:none}
+.tkb{flex:1;min-width:0;overflow-wrap:anywhere}.tk.dn .tkb{opacity:.55;text-decoration:line-through}
+.hnd{flex:none;width:22px;height:22px;border-radius:50%;border:1.5px solid #fbbf24;background:transparent;color:#fbbf24;font-weight:800;font-size:.75rem;cursor:pointer;line-height:1;padding:0}
+.hnd.wv{animation:wv 1.4s ease-in-out infinite;transform-origin:70% 70%}
+@keyframes wv{0%,60%,100%{transform:rotate(0)}10%{transform:rotate(16deg)}20%{transform:rotate(-12deg)}30%{transform:rotate(16deg)}40%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+@media(prefers-reduced-motion:reduce){.hnd.wv{animation:none}}
+.tip{display:none;margin:4px 0 8px;padding:8px 12px;border-radius:12px;background:#fbbf24;color:#111;font-size:.78rem;font-weight:700}.tip.show{display:block}
+.dtl{margin-top:10px}.dtl summary{cursor:pointer;font-size:.8rem;color:var(--th-muted);font-weight:600}
+.mdl{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;padding:14px;background:rgba(2,6,23,.75)}.mdl.open{display:flex}
+.mbox{width:100%;max-width:520px;max-height:80vh;overflow:auto;border-radius:18px;padding:16px;background:#0f172a;color:#f1f5f9;border:1px solid rgba(255,255,255,.15)}body.light-theme .mbox{background:#fff;color:#0f172a}
+.mh{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.mh button{border:0;border-radius:50%;width:30px;height:30px;cursor:pointer}
 html{-webkit-text-size-adjust:100%}
-.wrap{padding-bottom:110px}
-#mobileFloatingBar{left:50%!important;right:auto!important;top:auto!important;bottom:calc(env(safe-area-inset-bottom,0px) + 18px)!important;transform:translateX(-50%)!important;flex-direction:row!important;max-width:calc(100vw - 16px);max-height:none!important;overflow-x:auto;overflow-y:hidden;gap:5px!important;padding:5px 8px!important;white-space:nowrap}
-#mobileFloatingBar .bar-divider{width:1px!important;height:22px!important;flex:none;align-self:center;background:rgba(148,163,184,.4)}
-#mobileFloatingBar .circle-badge-btn{flex:none;width:auto!important;min-width:36px;height:36px;padding:0 11px;border-radius:999px!important}
-@media(max-width:640px){
+.dot.hit{fill:transparent!important;stroke:none!important}
+.circle-badge-btn .l{display:none}
+@media(max-width:768px){
+ #mobileFloatingBar{left:50%!important;right:auto!important;top:auto!important;bottom:calc(env(safe-area-inset-bottom,0px) + 18px)!important;transform:translateX(-50%)!important;flex-direction:row!important;max-width:calc(100vw - 16px);max-height:none!important;overflow-x:auto;overflow-y:hidden;gap:5px!important;padding:5px 8px!important;white-space:nowrap}
+ #mobileFloatingBar .bar-divider{width:1px!important;height:22px!important;flex:none;align-self:center;background:rgba(148,163,184,.4)}
+ #mobileFloatingBar .circle-badge-btn{flex:none;width:auto!important;min-width:36px;height:36px;padding:0 11px;border-radius:999px!important}
+ .circle-badge-btn .s{display:none}.circle-badge-btn .l{display:inline}
  html{font-size:13px}
  .wrap{padding:64px 10px 110px}
  .top h1{font-size:1.15rem}
  .rng button{padding:6px 11px;font-size:.72rem}
  .grid{gap:10px;margin-bottom:10px;grid-template-columns:1fr}
- #kpis{grid-template-columns:1fr 1fr}#kpis>:first-child{grid-column:1/-1}
+ #kpis,#lists{grid-template-columns:1fr 1fr}#kpis>:first-child,#lists>:nth-child(-n+2){grid-column:1/-1}
+ .lst{max-height:200px}
  .dcard{padding:12px;border-radius:16px}
  .big{font-size:1.5rem}
- th,td{padding:6px}
+ th,td{padding:6px;white-space:normal}.hm{display:none}
 }
 </style>
 </head>
@@ -65,8 +86,8 @@ html{-webkit-text-size-adjust:100%}
   <a href="../assistant/assistant.html" id="floatBtnAssist" title="Pronunciation Assistant" aria-label="Pronunciation Assistant" class="circle-badge-btn" style="color:#34d399"><i class="fa-solid fa-microphone-lines text-sm"></i></a>
   <div class="bar-divider"></div>
   <button type="button" onclick="setLanguage('ar')" id="floatBtnAr" class="circle-badge-btn" title="العربية">عربي</button>
-  <button type="button" onclick="setLanguage('en')" id="floatBtnEn" class="circle-badge-btn active" title="English">English</button>
-  <button type="button" onclick="setLanguage('eg')" id="floatBtnEg" class="circle-badge-btn" title="مصري">مصري</button>
+  <button type="button" onclick="setLanguage('en')" id="floatBtnEn" class="circle-badge-btn active" title="English"><span class="s">EN</span><span class="l">English</span></button>
+  <button type="button" onclick="setLanguage('eg')" id="floatBtnEg" class="circle-badge-btn" title="مصري"><span class="s">مصر</span><span class="l">مصري</span></button>
   <div class="bar-divider"></div>
   <button type="button" onclick="toggleTheme()" id="floatBtnTheme" class="circle-badge-btn" title="Theme" style="color:#fbbf24"><i id="themeIcon" class="fa-solid fa-moon text-sm"></i></button>
   <div class="bar-divider"></div>
@@ -92,5 +113,6 @@ html{-webkit-text-size-adjust:100%}
   <div class="thabit-card dcard"><h4 id="tHist">Sessions</h4><div class="tbl" id="hist"></div></div>
 </div>
 <div id="barTip" role="tooltip"></div>
-<script src="js/dashboard.js"></script>
+<div class="mdl" id="mdl" onclick="if(event.target===this)closeModal()"><div class="mbox"><div class="mh"><b id="mT"></b><button type="button" onclick="closeModal()">×</button></div><div id="mB"></div></div></div>
+<script src="dashboard.js"></script>
 </body></html>
