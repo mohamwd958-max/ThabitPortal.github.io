@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="htmlRoot" class="h-full notranslate" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Thabit</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={plugins:[function(p){p.addVariant("light-theme",".light-theme &")}]}</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Montserrat:ital,wght@0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assistant.css">
+    <link rel="stylesheet" href="assistant2.css">
+</head>
+<body class="min-h-full flex flex-col justify-between selection:bg-indigo-500 selection:text-white" id="bodyRoot">
+    <script>try{if(localStorage.getItem('thabit_theme')==='light')document.body.classList.add('light-theme');}catch(e){}</script>
+
+    <!-- Floating Navigation Bar -->
+    <div class="mobile-floating-bar" id="mobileFloatingBar">
+        <button type="button" onclick="setLanguage('ar')" id="floatBtnAr" title="العربية" class="circle-badge-btn">ع</button>
+        <button type="button" onclick="setLanguage('en')" id="floatBtnEn" title="English" class="circle-badge-btn active">EN</button>
+        <button type="button" onclick="setLanguage('eg')" id="floatBtnEg" title="مصري" class="circle-badge-btn">مصر</button>
+        <div class="bar-divider"></div>
+        <button type="button" onclick="toggleTheme()" id="floatBtnTheme" title="Toggle Theme" data-tt="themeTitle" class="circle-badge-btn">
+            <i id="themeIcon" class="fa-solid fa-moon text-xs"></i>
+        </button>
+        <button type="button" onclick="openReportModal()" id="floatBtnReport" title="Report a problem" data-tt="reportTitleBtn" class="circle-badge-btn">
+            <i class="fa-solid fa-triangle-exclamation text-xs"></i>
+        </button>
+    </div>
+
+    <header class="page-content-visible" id="mainHeader">
+        <div class="thabit-marble-brand" aria-label="THABIT">
+            <span class="thabit-logo-glow"><span class="thabit-marble-logo" role="img" aria-label="THABIT"></span></span>
+            <p id="uiHeaderSub" data-cms="assist.headerSub" data-cms-ov class="thabit-marble-tagline">pronounce on the go</p>
+        </div>
+    </header>
+
+    <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-6 flex flex-col gap-6 page-content-visible relative z-10">
+        <div id="tourCard1" class="thabit-card p-6 flex flex-col gap-5 relative z-10">
+            <div class="flex flex-col gap-2">
+                <label id="uiLabelName" class="text-sm font-semibold flex items-center gap-2 relative z-10">
+                    <i class="fa-solid fa-user text-indigo-400"></i> Your name <span class="text-rose-400">*</span>
+                </label>
+                <input type="text" id="userNameInput" placeholder="Enter trainee name here..."
+                    class="w-full rounded-2xl px-5 py-4 text-base font-medium focus:outline-none relative z-10">
+            </div>
+
+            <div class="flex flex-col gap-2 relative z-10">
+                <label id="uiLabelWord" class="text-sm font-semibold flex items-center gap-2">
+                    <i class="fa-solid fa-pen-nib text-indigo-400"></i> your word (s) <span class="text-rose-400">*</span>
+                </label>
+                <div class="flex items-center gap-2 w-full">
+                    <div class="w-2/4">
+                        <input type="text" id="wordInput" value="Thabit" placeholder="Type words..."
+                            class="w-full rounded-2xl px-5 py-4 text-base font-semibold focus:outline-none transition-all duration-300" oninput="handleMainWordInput(this.value)">
+                    </div>
+                    <div class="w-1/4">
+                        <button type="button" id="reportBrokenBtn" onclick="reportBrokenWord()" class="w-full h-[58px] bg-red-600 hover:bg-red-500 active:scale-95 text-white text-xs font-bold rounded-2xl shadow-md transition-all duration-200 flex flex-col items-center justify-center gap-1 px-1">
+                            <i class="fa-solid fa-bug text-sm"></i>
+                            <span data-t="reportBroken">Broken Word</span>
+                        </button>
+                    </div>
+                    <div class="w-1/4">
+                        <button type="button" id="reportMissingBtn" onclick="reportMissingWord()" class="w-full h-[58px] bg-rose-600 hover:bg-rose-500 active:scale-95 text-white text-xs font-bold rounded-2xl shadow-md transition-all duration-200 flex flex-col items-center justify-center gap-1 px-1">
+                            <i class="fa-solid fa-triangle-exclamation text-sm"></i>
+                            <span data-t="reportMissing">Report Missing</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="th-panel flex flex-col gap-4 p-4 relative z-10">
+                <div id="slidersDropdownTrigger" onclick="toggleSlidersDrawer(event)" class="th-sub flex flex-col items-center gap-1.5 p-3 rounded-xl border border-amber-500/40 shadow-md cursor-pointer hover:border-amber-400 transition relative">
+                    <div class="flex items-center justify-between w-full px-1">
+                        <div class="flex items-center gap-2">
+                            <span id="uiPlaybackSpeed" class="text-[11px] text-amber-300 font-bold flex items-center gap-1">
+                                <i class="fa-solid fa-sliders text-xs"></i> <span data-t="wordSpeed">Word Speed</span>
+                            </span>
+                            <span class="text-[9px] bg-amber-500/20 text-amber-300 px-1.5 py-0.5 rounded-full border border-amber-500/30 animate-pulse" data-t="smartMenu">Smart Menu</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span id="valSpeed" class="text-[10px] text-amber-300 font-mono font-bold">1.0x</span>
+                            <i id="drawerToggleIcon" class="fa-solid fa-chevron-down text-xs text-amber-400 transition-transform duration-300"></i>
+                        </div>
+                    </div>
+                    <div class="custom-slider-track" id="sliderSpeed" onmousedown="startSliderDrag(event, 'speed')" ontouchstart="startSliderDrag(event, 'speed')">
+                        <div class="custom-slider-thumb" id="thumbSpeed"></div>
+                    </div>
+                </div>
+
+                <div id="slidersDrawerWrapper" class="sliders-drawer-wrapper collapsed flex flex-col gap-4 pt-1">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+                        <div class="th-sub flex flex-col items-center gap-1.5 p-3 rounded-xl border backdrop-blur-md">
+                            <div class="flex items-center justify-between w-full px-1">
+                                <span id="uiWaitTime" class="text-[11px] font-medium" data-t="waitTime">Multi-repeat Wait</span>
+                                <span id="valWait" class="text-[10px] text-amber-300 font-mono font-bold">700ms</span>
+                            </div>
+                            <div class="custom-slider-track" id="sliderWait" onmousedown="startSliderDrag(event, 'wait')" ontouchstart="startSliderDrag(event, 'wait')">
+                                <div class="custom-slider-thumb" id="thumbWait"></div>
+                            </div>
+                        </div>
+
+                        <div class="th-sub flex flex-col items-center gap-1.5 p-3 rounded-xl border backdrop-blur-md">
+                            <div class="flex items-center justify-between w-full px-1">
+                                <span id="uiCommaSpeed" class="text-[11px] font-medium" data-t="commaTime">Between Words Pause</span>
+                                <span id="valComma" class="text-[10px] text-amber-300 font-mono font-bold">800ms</span>
+                            </div>
+                            <div class="custom-slider-track" id="sliderComma" onmousedown="startSliderDrag(event, 'comma')" ontouchstart="startSliderDrag(event, 'comma')">
+                                <div class="custom-slider-thumb" id="thumbComma"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-4 gap-2.5 relative z-10">
+                <div class="flex flex-col gap-2">
+                    <button id="speakBtn" type="button" onclick="window.runListen(1, this)" class="w-full py-3 px-2 telegram-btn-green font-medium rounded-xl transition-all duration-200 hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-1 shadow-md text-xs">
+                        <i class="fa-solid fa-volume-high"></i>
+                        <span id="uiSpeakBtn">Listen once</span>
+                    </button>
+                    <div class="flex items-center justify-center gap-1.5">
+                        <button type="button" onclick="triggerRepeatAndPlayListen(2, event)" id="btnListenRep2" class="repeat-btn-small">2</button>
+                        <button type="button" onclick="triggerRepeatAndPlayListen(3, event)" id="btnListenRep3" class="repeat-btn-small">3</button>
+                        <button type="button" onclick="triggerRepeatAndPlayListen(5, event)" id="btnListenRep5" class="repeat-btn-small">5</button>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <button id="recordYourVoiceBtn" type="button" onclick="toggleMainRecording()" class="w-full py-3 px-2 telegram-btn-red font-medium rounded-xl transition-all duration-200 hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-1 shadow-md text-xs">
+                        <i id="mainRecordIcon" class="fa-solid fa-microphone"></i>
+                        <span data-t="yourTurn">Your turn</span>
+                    </button>
+                    <div id="mainRecordTimerDisplay" class="th-panel font-mono text-[11px] text-amber-400 py-1 text-center">00:00</div>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <button id="compareBtn" type="button" onclick="triggerComparisonPlayback()" class="w-full py-3 px-2 bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white font-medium rounded-xl transition-all duration-200 hover:scale-[1.02] flex items-center justify-center gap-1 shadow-md text-xs">
+                        <i class="fa-solid fa-headphones"></i>
+                        <span data-t="comparison">Comparison</span>
+                    </button>
+                    <div class="flex items-center justify-center gap-1.5">
+                        <button type="button" onclick="triggerRepeatAndPlayComp(2, event)" id="btnCompRep2" class="repeat-btn-small">2</button>
+                        <button type="button" onclick="triggerRepeatAndPlayComp(3, event)" id="btnCompRep3" class="repeat-btn-small">3</button>
+                        <button type="button" onclick="triggerRepeatAndPlayComp(5, event)" id="btnCompRep5" class="repeat-btn-small">5</button>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <button id="downloadAudioBtn" type="button" onclick="downloadCombinedAudioPackage()" class="w-full py-3 px-2 bg-blue-600 hover:bg-blue-500 active:scale-95 text-white font-medium rounded-xl transition-all duration-200 hover:scale-[1.02] flex items-center justify-center gap-1 shadow-md text-xs">
+                        <i class="fa-solid fa-download"></i>
+                        <span id="uiDownloadBtn">Take words</span>
+                    </button>
+                    <div class="h-7"></div>
+                </div>
+            </div>
+
+            <div class="th-panel p-4 flex items-stretch gap-3 relative z-10">
+                <div class="flex flex-col gap-2 min-w-0" style="width:75%">
+                    <div id="uiLabelTrans" class="text-xs font-medium flex items-center gap-2">
+                        <i class="fa-solid fa-language text-indigo-400"></i> Translation / Meaning
+                    </div>
+                    <div id="translationOutput" class="font-medium text-sm sm:text-base break-words">ثابت</div>
+                </div>
+                <div class="flex flex-col justify-center gap-1.5" style="width:25%;min-width:62px">
+                    <button type="button" id="modeArBtn" onclick="setMeaningMode('ar')" data-tt="meanAr" title="Arabic meaning" class="mean-btn on">Arabic</button>
+                    <button type="button" id="modeEnBtn" onclick="setMeaningMode('en')" data-tt="meanEn" title="English meaning" class="mean-btn">English</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-4 px-4 text-center text-xs flex flex-col sm:flex-row items-center justify-between gap-3 page-content-visible relative z-40">
+        <span>&copy; 2026 Thabit</span>
+        <span data-t="footerTag">Pronounce on the go</span>
+    </footer>
+
+    <div id="reportOverlay" class="tha-modal"><div class="tha-box" style="max-width:480px">
+      <div class="tha-h"><h3><i class="fa-solid fa-triangle-exclamation"></i> <span data-t="rpTitle">Report a problem</span></h3><button type="button" class="tha-x" onclick="closeReportModal()"><i class="fa-solid fa-xmark"></i></button></div>
+      <p class="tha-note" style="margin-bottom:12px" data-t="rpIntro">Tell us exactly what happened so we can fix it.</p>
+      <label class="tha-lab" style="margin-bottom:6px"><span><span data-t="rpName">Your name</span> <span style="color:#f43f5e">*</span></span></label>
+      <input id="rpName" class="tha-in" maxlength="80" data-tp="rpNamePh" placeholder="Enter your name...">
+      <label class="tha-lab" style="margin:12px 0 6px"><span><span data-t="rpDetails">What exactly is the problem?</span> <span style="color:#f43f5e">*</span></span></label>
+      <textarea id="rpProblem" class="tha-in" maxlength="2000" style="min-height:140px" data-tp="rpDetailsPh" placeholder="Describe what you did, what you expected, and what happened instead..."></textarea>
+      <p id="rpErr" class="tha-note" style="color:#f43f5e;min-height:18px;margin-top:8px"></p>
+      <div class="tha-btns" style="margin-top:8px">
+        <button type="button" class="tha-b gray" style="flex:1" onclick="closeReportModal()" data-t="rpCancel">Cancel</button>
+        <button type="button" class="tha-b" style="flex:1" id="rpSendBtn" onclick="submitReport()"><i class="fa-solid fa-paper-plane"></i> <span data-t="rpSend">Send</span></button>
+      </div>
+    </div></div>
+
+    <div id="barTip" role="tooltip"></div>
+    <div id="generalToast" role="status" aria-live="polite"><i id="generalToastIcon" class="fa-solid"></i><span id="generalToastMsg"></span></div>
+
+    <script src="assistant2.js"></script>
+</body>
+</html>
