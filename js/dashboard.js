@@ -29,7 +29,7 @@ function toggleTheme() {
 async function logout() {
   const t = tok(); try { localStorage.removeItem(TOKEN_KEY); localStorage.removeItem('currentTrainee'); } catch (e) {}
   if (t) { try { await rpc('trainee_logout', { p_token: t }); } catch (e) {} }
-  location.href = PORTAL;
+  location.href = PORTAL ='portal.html' ;
 }
 
 function inRange(r) {
