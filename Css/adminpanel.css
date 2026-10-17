@@ -161,7 +161,7 @@ body.light-theme .tha-in{background:#f1f5f9}
 textarea.tha-in{min-height:84px;resize:vertical;line-height:1.6}
 .tha-row{padding:12px;border:1px solid rgba(148,163,184,.3);border-radius:14px;margin-top:10px;display:flex;flex-direction:column;gap:8px}
 .tha-lab{font-size:.8rem;font-weight:800;display:flex;justify-content:space-between;gap:8px;align-items:center}
-.tha-tag{font-size:.62ric;padding:2px 8px;border-radius:99px;background:rgba(212,175,55,.2);color:#d4af37;font-weight:800;white-space:nowrap}
+.tha-tag{font-size:.62rem;padding:2px 8px;border-radius:99px;background:rgba(212,175,55,.2);color:#d4af37;font-weight:800;white-space:nowrap}
 body.light-theme .tha-tag{color:#a16207}
 .tha-btns{display:flex;gap:6px;flex-wrap:wrap}
 .tha-b{padding:8px 12px;border-radius:10px;border:0;cursor:pointer;font:800 .75rem 'Cairo',sans-serif;color:#fff;background:#059669}
