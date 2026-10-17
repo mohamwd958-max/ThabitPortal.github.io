@@ -52,7 +52,8 @@ const SUPABASE_URL = "https://vkfexceitwjmxncwceqb.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZrZmV4Y2VpdHdqbXhuY3djZXFiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAzMzY5MTEsImV4cCI6MjEwNTkxMjkxMX0.6ArXtykrZhdNInphpg_LQTIvULkpwnnlzHA3dKhrNoI";
 
 const PROFILES_TABLE = "basic_info";
-const DAILY_SUPPLY_TABLE = "DailySuply";
+const DAILY_SUPPLY_TABLE = "daily_supply";
+const ARCHIVE_TABLE = "archive";
 
 function esc(v) {
     return String(v === null || v === undefined ? '' : v)
@@ -60,21 +61,21 @@ function esc(v) {
         .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
-function showToast(message, isError = false) {
+function showToast(message, isError = false, orange = false) {
     const toast = document.getElementById('generalToast');
     const msg = document.getElementById('generalToastMsg');
     const icon = document.getElementById('generalToastIcon');
     if (!toast || !msg) { alert(message); return; }
     msg.textContent = message;
+    const cls = isError ? (orange ? 't-orange' : 't-red') : 't-success';
+    toast.className = 'show ' + cls;
     if (icon) {
-        icon.className = isError ? 'fa-solid fa-circle-exclamation text-rose-400' : 'fa-solid fa-circle-check text-emerald-400';
+        icon.className = isError ? 'fa-solid fa-circle-exclamation' : 'fa-solid fa-circle-check';
     }
-    toast.style.display = 'flex';
-    toast.classList.add('show');
-    setTimeout(() => {
-        toast.classList.remove('show');
-        setTimeout(() => toast.style.display = 'none', 300);
-    }, 3000);
+    clearTimeout(window.__toastTimer);
+    window.__toastTimer = setTimeout(() => {
+        toast.className = '';
+    }, isError ? 8000 : 3000);
 }
 
 function goToPortal() { window.location.href = 'portal/portal.html'; }
@@ -103,6 +104,8 @@ function toggleAdminPanel() {
 }
 
 function showAdminView(v) {
+    const panelBox = document.getElementById('adminPanel');
+    if (panelBox) panelBox.style.maxWidth = '680px';
     const homeEl = document.getElementById('adminHome');
     const voicesEl = document.getElementById('adminViewVoices');
     const reportsEl = document.getElementById('adminViewReports');
@@ -118,193 +121,415 @@ function showAdminView(v) {
     if (subContainer) subContainer.style.display = v === 'sub' ? 'block' : 'none';
 }
 
-async function fetchStudentsFromSupabase() {
-    try {
-        const res = await fetch(`${SUPABASE_URL}/rest/v1/${PROFILES_TABLE}?select=*&order=trainee.asc`, {
-            method: 'GET',
-            headers: { 'apikey': SUPABASE_ANON_KEY, 'Content-Type': 'application/json' }
-        });
-        if (!res.ok) return [];
-        const data = await res.json();
-        return Array.isArray(data) ? data : [];
-    } catch (e) { return []; }
+/* ==========================================================
+   Supabase helpers
+   ========================================================== */
+
+// لما نضيف تسجيل دخول: خزّن توكن المستخدم في window.SB_ACCESS_TOKEN وكل الطلبات هتستخدمه تلقائياً
+function sbHeaders(extra) {
+    return Object.assign({
+        'apikey': SUPABASE_ANON_KEY,
+        'Authorization': 'Bearer ' + (window.SB_ACCESS_TOKEN || SUPABASE_ANON_KEY),
+        'Content-Type': 'application/json'
+    }, extra || {});
 }
 
-async function fetchDailySupplyFromSupabase() {
+function friendlyError(txt) {
     try {
-        const res = await fetch(`${SUPABASE_URL}/rest/v1/${DAILY_SUPPLY_TABLE}?select=*`, {
-            method: 'GET',
-            headers: { 'apikey': SUPABASE_ANON_KEY, 'Content-Type': 'application/json' }
-        });
-        if (!res.ok) return [];
-        const data = await res.json();
-        return Array.isArray(data) ? data : [];
-    } catch (e) { return []; }
+        const j = JSON.parse(txt);
+        if (j.code === '42501') return 'الصلاحيات ناقصة على الجدول (42501). شغّل سكريبت الـ SQL في Supabase.';
+        if (j.code === 'PGRST204') return 'عمود غير موجود في الجدول: ' + (j.message || '');
+        if (j.code === '42703') return 'عمود غير موجود: ' + (j.message || '');
+        return (j.message || txt) + (j.hint ? ' | ' + j.hint : '');
+    } catch (e) { return txt; }
 }
+
+async function sbFetch(path, opts) {
+    opts = opts || {};
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/${path}`, Object.assign({}, opts, { headers: sbHeaders(opts.headers) }));
+    if (!res.ok) throw new Error(friendlyError(await res.text()));
+    return res;
+}
+
+// يحدّث السجل لو موجود (بنفس المفتاح) وإلا يضيف سجل جديد
+async function upsertByKey(table, keyFilter, body) {
+    const hdr = { 'Prefer': 'return=representation' };
+    let res = await sbFetch(`${table}?${keyFilter}`, { method: 'PATCH', headers: hdr, body: JSON.stringify(body) });
+    let rows = await res.json();
+    if (Array.isArray(rows) && rows.length) return rows[0];
+    res = await sbFetch(table, { method: 'POST', headers: hdr, body: JSON.stringify(body) });
+    rows = await res.json();
+    return Array.isArray(rows) ? rows[0] : rows;
+}
+
+// يجيب كل الصفوف على دفعات (Supabase بيرجع 1000 صف كحد أقصى في الطلب)
+async function fetchAllRows(path) {
+    const PAGE = 1000;
+    const rows = [];
+    for (let offset = 0; ; offset += PAGE) {
+        const res = await sbFetch(`${path}&limit=${PAGE}&offset=${offset}`);
+        const part = await res.json();
+        if (!Array.isArray(part)) break;
+        rows.push(...part);
+        if (part.length < PAGE) break;
+    }
+    return rows;
+}
+
+async function fetchStudentsFromSupabase() {
+    // بنقرا الاسم والـ id بس (باقي بيانات basic_info، زي الماليات، مش لازم الـ anon key تشوفها)
+    const res = await sbFetch(`${PROFILES_TABLE}?select=id,trainee&order=trainee.asc`);
+    const data = await res.json();
+    return Array.isArray(data) ? data : [];
+}
+
+async function fetchDailySupplyForWeek(range) {
+    const res = await sbFetch(`${DAILY_SUPPLY_TABLE}?select=*&supply_date=gte.${range.min}&supply_date=lte.${range.max}`);
+    const data = await res.json();
+    return Array.isArray(data) ? data : [];
+}
+
+/* ==========================================================
+   Dates
+   ========================================================== */
+
+function localDateStr(d) {
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+
+// نطاق الأسبوع الحالي: من السبت إلى الخميس
+function getCurrentWeekRange() {
+    const d = new Date();
+    const idx = (d.getDay() + 1) % 7; // السبت = 0 ... الجمعة = 6
+    const sat = new Date(d.getFullYear(), d.getMonth(), d.getDate() - idx);
+    const thu = new Date(sat.getFullYear(), sat.getMonth(), sat.getDate() + 5);
+    return { min: localDateStr(sat), max: localDateStr(thu) };
+}
+
+/* ==========================================================
+   Daily Supply
+   ========================================================== */
+
+const SUPPLY_FIELDS = [
+    { key: 'group_name', type: 'text', w: 'w-24' },
+    { key: 'supply_date', type: 'date', w: 'w-36' },
+    { key: 'session_number', type: 'number', w: 'w-16' },
+    { key: 'session_title', type: 'text', w: 'w-32' },
+    { key: 'sub_title', type: 'text', w: 'w-28' },
+    { key: 'start_time', type: 'time', w: 'w-24' },
+    { key: 'end_time', type: 'time', w: 'w-24' },
+    { key: 'revision', type: 'text', w: 'w-20' },
+    { key: 'revision_details', type: 'text', w: 'w-32' },
+    { key: 'notes', type: 'text', w: 'w-32' },
+    { key: 'tefl', type: 'text', w: 'w-20' },
+    { key: 'qol', type: 'text', w: 'w-20' },
+    { key: 'attitude', type: 'number', w: 'w-16', min: 1, max: 10 },
+    { key: 'attitude_details', type: 'text', w: 'w-32' },
+    { key: 'soft_skills', type: 'number', w: 'w-16' },
+    { key: 'soft_skills_details', type: 'text', w: 'w-32' },
+    { key: 'performance', type: 'number', w: 'w-16' },
+    { key: 'why', type: 'text', w: 'w-24' },
+    { key: 'performance_details', type: 'text', w: 'w-32' },
+    { key: 'weak_points', type: 'text', w: 'w-32' },
+    { key: 'tasks', type: 'text', w: 'w-32' },
+    { key: 'left_overs', type: 'text', w: 'w-32' },
+    { key: 'plans', type: 'text', w: 'w-32' }
+];
+
+let supplyState = { students: [], records: [], range: null };
+let archiveState = { rows: [], cols: [], from: '', to: '' };
+
+const INPUT_CLS = 'bg-slate-950 border border-slate-700 rounded p-1 text-xs text-white';
+
+function supplyCell(f, idx, existing, st, defaultDate, range) {
+    let val = existing[f.key];
+    if (f.key === 'supply_date') val = val || defaultDate;
+    if (f.key === 'group_name') val = val || st.group || '';
+    let attrs = '';
+    if (f.key === 'supply_date') {
+        attrs = ` min="${range.min}" max="${range.max}" onchange="onSupplyDateChange(${idx})" title="اختر يوماً من السبت للخميس هذا الأسبوع"`;
+    } else if (f.min !== undefined) {
+        attrs = ` min="${f.min}" max="${f.max}"`;
+    }
+    return `<td class="p-2"><input type="${f.type}" id="ds_${f.key}_${idx}"${attrs} value="${esc(val)}" class="${INPUT_CLS} ${f.w}"></td>`;
+}
+
+// لما تغيّر التاريخ في صف: نحمّل بيانات اليوم ده لو متسجلة (عشان ما تكتبش فوقها بالغلط)
+window.onSupplyDateChange = function (idx) {
+    const st = supplyState.students[idx];
+    const date = document.getElementById(`ds_supply_date_${idx}`).value;
+    const rec = supplyState.records.find(r => String(r.trainee_id) === String(st.id) && r.supply_date === date) || {};
+    SUPPLY_FIELDS.forEach(f => {
+        if (f.key === 'supply_date') return;
+        const el = document.getElementById(`ds_${f.key}_${idx}`);
+        if (!el) return;
+        let v = rec[f.key];
+        if (f.key === 'group_name') v = v || st.group || '';
+        el.value = (v === null || v === undefined) ? '' : v;
+    });
+};
+
+function readSupplyForm(idx) {
+    const body = {};
+    SUPPLY_FIELDS.forEach(f => {
+        const el = document.getElementById(`ds_${f.key}_${idx}`);
+        const v = el ? el.value.trim() : '';
+        if (v === '') body[f.key] = null;
+        else if (f.type === 'number') body[f.key] = Number.isNaN(Number(v)) ? null : Number(v);
+        else body[f.key] = v;
+    });
+    return body;
+}
+
+async function renderDailySupply(backBtnHtml) {
+    const subContainer = document.getElementById('adminDynamicSubContainer');
+    subContainer.innerHTML = `${backBtnHtml}<div class="text-center py-6 text-amber-400">جاري تحميل الطلاب وسجلات الأسبوع...</div>`;
+
+    const range = getCurrentWeekRange();
+    let students, records;
+    try {
+        students = await fetchStudentsFromSupabase();
+        records = await fetchDailySupplyForWeek(range);
+    } catch (e) {
+        subContainer.innerHTML = `${backBtnHtml}<div class="p-4 rounded-xl border border-rose-500/40 bg-rose-500/10 text-rose-300 text-sm">تعذر تحميل البيانات: ${esc(e.message)}</div>`;
+        return;
+    }
+    if (!students.length) {
+        subContainer.innerHTML = `${backBtnHtml}<div class="p-4 rounded-xl border border-amber-500/40 bg-amber-500/10 text-amber-300 text-sm">مفيش طلاب راجعين من جدول ${esc(PROFILES_TABLE)}. لو فيه طلاب فعلاً في الجدول يبقى الصلاحيات أو الـ RLS مانعة القراءة.</div>`;
+        return;
+    }
+
+    supplyState = { students, records, range };
+
+    const today = localDateStr(new Date());
+    const defaultDate = (today >= range.min && today <= range.max) ? today : range.min;
+
+    let tableRows = '';
+    students.forEach((st, idx) => {
+        const name = st.trainee || st.name || 'طالب';
+        const existing = records.find(r => String(r.trainee_id) === String(st.id) && r.supply_date === defaultDate) || {};
+        const cells = SUPPLY_FIELDS.map(f => supplyCell(f, idx, existing, st, defaultDate, range)).join('');
+        tableRows += `
+            <tr class="border-b border-slate-800 hover:bg-slate-950/50 transition">
+                <td class="p-2 font-bold text-amber-300 sticky left-0 bg-slate-900">${esc(name)}</td>
+                ${cells}
+                <td class="p-2"><button type="button" onclick="saveDailySuplyRow(${idx}, this)" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1 rounded text-xs font-bold">حفظ وأرشفة</button></td>
+            </tr>`;
+    });
+
+    const heads = SUPPLY_FIELDS.map(f => `<th class="p-2">${f.key}${f.key === 'supply_date' ? ' (السبت-الخميس)' : ''}</th>`).join('');
+
+    subContainer.innerHTML = `${backBtnHtml}
+        <div class="flex flex-col gap-3">
+            <div class="flex justify-between items-center flex-wrap gap-2">
+                <h4 class="text-amber-400 font-bold text-base"><i class="fa-solid fa-calendar-days"></i> إدارة جدول DailySupply (الأسبوع الحالي: من السبت للخميس)</h4>
+                <span class="text-xs text-slate-400">💡 الحفظ بيحدّث سجل اليوم ده ويحفظ نسخته في الأرشيف.</span>
+            </div>
+            <div class="overflow-x-auto border border-slate-700 rounded-xl max-h-[70vh]">
+                <table class="w-full text-left text-xs text-slate-300">
+                    <thead class="bg-slate-950 text-amber-300 uppercase text-[10px] sticky top-0">
+                        <tr>
+                            <th class="p-2 sticky left-0 bg-slate-950">trainee name</th>
+                            ${heads}
+                            <th class="p-2">إجراء</th>
+                        </tr>
+                    </thead>
+                    <tbody>${tableRows}</tbody>
+                </table>
+            </div>
+        </div>`;
+}
+
+window.saveDailySuplyRow = async function (idx, btn) {
+    const st = supplyState.students[idx];
+    if (!st) { showToast('حصلت مشكلة في تحديد الطالب، افتح الصفحة تاني', true); return; }
+    const name = st.trainee || st.name || 'طالب';
+    if (st.id === undefined || st.id === null || st.id === '') {
+        showToast('الطالب ده مالوش id في جدول ' + PROFILES_TABLE, true);
+        return;
+    }
+
+    const supplyBody = Object.assign({ trainee_id: st.id }, readSupplyForm(idx));
+    if (!supplyBody.supply_date) { showToast('اختار التاريخ الأول', true); return; }
+
+    if (btn) btn.disabled = true;
+    const key = `trainee_id=eq.${encodeURIComponent(st.id)}&supply_date=eq.${encodeURIComponent(supplyBody.supply_date)}`;
+
+    // 1) السجل الأساسي في daily_supply
+    let saved;
+    try {
+        saved = await upsertByKey(DAILY_SUPPLY_TABLE, key, supplyBody);
+    } catch (e) {
+        showToast('فشل الحفظ: ' + e.message, true);
+        if (btn) btn.disabled = false;
+        return;
+    }
+
+    // تحديث النسخة المحلية عشان تغيير التاريخ ورجوعه يعرض اللي اتحفظ
+    supplyState.records = supplyState.records.filter(r =>
+        !(String(r.trainee_id) === String(st.id) && r.supply_date === supplyBody.supply_date));
+    supplyState.records.push(saved || supplyBody);
+
+    // 2) نسخة الأرشيف
+    try {
+        await upsertByKey(ARCHIVE_TABLE, key, Object.assign({}, supplyBody, { name }));
+        showToast(`تم حفظ وأرشفة سجل (${name}) ✓`);
+    } catch (e) {
+        showToast(`اتحفظ في daily_supply لكن الأرشفة فشلت: ${e.message}`, true, true);
+    }
+    if (btn) btn.disabled = false;
+};
+
+/* ==========================================================
+   Archive
+   ========================================================== */
+
+function pickArchiveCols(rows) {
+    const keys = rows.length ? Object.keys(rows[0]) : [];
+    const first = ['name', 'supply_date'].concat(SUPPLY_FIELDS.map(f => f.key).filter(k => k !== 'supply_date'));
+    const cols = first.filter(k => keys.includes(k));
+    keys.forEach(k => {
+        if (!cols.includes(k) && k !== 'id' && k !== 'trainee_id') cols.push(k);
+    });
+    return cols;
+}
+
+async function renderArchive(backBtnHtml) {
+    const subContainer = document.getElementById('adminDynamicSubContainer');
+    subContainer.innerHTML = `${backBtnHtml}<div class="text-center py-6 text-amber-400">جاري تحميل الأرشيف...</div>`;
+
+    let students = [];
+    try { students = await fetchStudentsFromSupabase(); } catch (e) { /* الفلتر شغال حتى من غير قائمة الطلاب */ }
+    const opts = students.map(st => `<option value="${esc(st.id)}">${esc(st.trainee || st.name || '')}</option>`).join('');
+
+    const lab = 'text-xs flex flex-col gap-1';
+    subContainer.innerHTML = `${backBtnHtml}
+        <div class="flex flex-col gap-3">
+            <h4 class="text-amber-400 font-bold text-base"><i class="fa-solid fa-box-archive"></i> أرشيف DailySupply</h4>
+            <div class="tha-btns">
+                <button type="button" class="tha-b blue" onclick="archiveQuick('today')">اليوم</button>
+                <button type="button" class="tha-b blue" onclick="archiveQuick('week')">هذا الأسبوع</button>
+                <button type="button" class="tha-b blue" onclick="archiveQuick('month')">هذا الشهر</button>
+                <button type="button" class="tha-b blue" onclick="archiveQuick('year')">هذه السنة</button>
+                <button type="button" class="tha-b blue" onclick="archiveQuick('all')">الكل</button>
+            </div>
+            <div class="flex flex-wrap gap-3 items-end">
+                <label class="${lab}">من <input type="date" id="arcFrom" class="${INPUT_CLS}"></label>
+                <label class="${lab}">إلى <input type="date" id="arcTo" class="${INPUT_CLS}"></label>
+                <label class="${lab}">شهر معين <input type="month" id="arcMonth" onchange="archiveMonthPicked(this.value)" class="${INPUT_CLS}"></label>
+                <label class="${lab}">الطالب
+                    <select id="arcStudent" class="${INPUT_CLS}"><option value="">الكل</option>${opts}</select>
+                </label>
+                <button type="button" class="tha-b" onclick="loadArchive()"><i class="fa-solid fa-magnifying-glass"></i> عرض</button>
+                <button type="button" class="tha-b gray" onclick="exportArchiveCsv()"><i class="fa-solid fa-file-csv"></i> تصدير CSV</button>
+            </div>
+            <div id="arcInfo" class="tha-note"></div>
+            <div id="arcResult" class="overflow-x-auto border border-slate-700 rounded-xl max-h-[60vh]"></div>
+        </div>`;
+    archiveQuick('week');
+}
+
+window.archiveQuick = function (kind) {
+    const now = new Date();
+    let from = '', to = '';
+    if (kind === 'today') { from = to = localDateStr(now); }
+    else if (kind === 'week') { const r = getCurrentWeekRange(); from = r.min; to = r.max; }
+    else if (kind === 'month') {
+        from = localDateStr(new Date(now.getFullYear(), now.getMonth(), 1));
+        to = localDateStr(new Date(now.getFullYear(), now.getMonth() + 1, 0));
+    }
+    else if (kind === 'year') { from = `${now.getFullYear()}-01-01`; to = `${now.getFullYear()}-12-31`; }
+    document.getElementById('arcFrom').value = from;
+    document.getElementById('arcTo').value = to;
+    document.getElementById('arcMonth').value = '';
+    loadArchive();
+};
+
+window.archiveMonthPicked = function (v) {
+    if (!v) return;
+    const [y, m] = v.split('-').map(Number);
+    document.getElementById('arcFrom').value = localDateStr(new Date(y, m - 1, 1));
+    document.getElementById('arcTo').value = localDateStr(new Date(y, m, 0));
+    loadArchive();
+};
+
+window.loadArchive = async function () {
+    const from = document.getElementById('arcFrom').value;
+    const to = document.getElementById('arcTo').value;
+    const stu = document.getElementById('arcStudent').value;
+    const info = document.getElementById('arcInfo');
+    const result = document.getElementById('arcResult');
+
+    let q = `${ARCHIVE_TABLE}?select=*&order=supply_date.desc,trainee_id.asc`;
+    if (from) q += `&supply_date=gte.${encodeURIComponent(from)}`;
+    if (to) q += `&supply_date=lte.${encodeURIComponent(to)}`;
+    if (stu) q += `&trainee_id=eq.${encodeURIComponent(stu)}`;
+
+    info.textContent = 'جاري التحميل...';
+    result.innerHTML = '';
+    try {
+        const rows = await fetchAllRows(q);
+        const cols = pickArchiveCols(rows);
+        archiveState = { rows, cols, from, to };
+
+        if (!rows.length) {
+            info.textContent = 'مفيش سجلات في الفترة دي.';
+            return;
+        }
+        const LIMIT = 500;
+        const shown = rows.slice(0, LIMIT);
+        info.textContent = `${rows.length} سجل` + (rows.length > LIMIT ? ` (معروض أول ${LIMIT}، والتصدير بيشمل الكل)` : '');
+
+        const head = cols.map(c => `<th class="p-2">${esc(c)}</th>`).join('');
+        const body = shown.map(r =>
+            `<tr class="border-b border-slate-800">${cols.map(c => `<td class="p-2 whitespace-nowrap">${esc(r[c])}</td>`).join('')}</tr>`
+        ).join('');
+        result.innerHTML = `<table class="w-full text-left text-xs text-slate-300">
+            <thead class="bg-slate-950 text-amber-300 text-[10px] sticky top-0"><tr>${head}</tr></thead>
+            <tbody>${body}</tbody></table>`;
+    } catch (e) {
+        info.textContent = '';
+        result.innerHTML = `<div class="p-4 text-rose-300 text-sm">تعذر تحميل الأرشيف: ${esc(e.message)}</div>`;
+    }
+};
+
+function csvCell(v) {
+    let s = (v === null || v === undefined) ? '' : String(v);
+    if (/^[=+@]|^-(?!\d)/.test(s)) s = "'" + s;
+    return '"' + s.replace(/"/g, '""') + '"';
+}
+
+window.exportArchiveCsv = function () {
+    const { rows, cols, from, to } = archiveState;
+    if (!rows.length) { showToast('مفيش بيانات للتصدير، اضغط عرض الأول', true); return; }
+    const lines = [cols.join(',')].concat(rows.map(r => cols.map(c => csvCell(r[c])).join(',')));
+    const blob = new Blob(['﻿' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8;' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `archive_${from || 'all'}_${to || 'all'}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+};
+
+/* ==========================================================
+   Dashboard sub views
+   ========================================================== */
 
 async function openDashboardSubView(actionType) {
     const dashboardMainEl = document.getElementById('adminViewDashboardMain');
     const subContainer = document.getElementById('adminDynamicSubContainer');
-    
+    const panelBox = document.getElementById('adminPanel');
+
     if (dashboardMainEl) dashboardMainEl.style.display = 'none';
     if (subContainer) subContainer.style.display = 'block';
+    if (panelBox) panelBox.style.maxWidth = '96vw';
 
     const backBtnHtml = `<div class="tha-btns" style="margin-bottom:12px"><button type="button" class="tha-b gray" onclick="showAdminView('dashboardMain')"><i class="fa-solid fa-arrow-left"></i> رجوع</button></div>`;
 
-    if (actionType === 'dailySupply') {
-        subContainer.innerHTML = `${backBtnHtml}<div class="text-center py-6 text-amber-400">جاري جلب أسماء الطلاب ومطابقتها مع جدول DailySuply...</div>`;
-        
-        const students = await fetchStudentsFromSupabase();
-        const dailyRecords = await fetchDailySupplyFromSupabase();
+    if (actionType === 'dailySupply') return renderDailySupply(backBtnHtml);
+    if (actionType === 'archive') return renderArchive(backBtnHtml);
 
-        const todayStr = new Date().toISOString().split('T')[0];
-        let tableRows = '';
-
-        // استخدام أسماء الطلاب المسجلة في basic_info أو إنشاء قائمة افتراضية إذا تعذر الوصول
-        const studentList = (students && students.length > 0) ? students : [
-            { trainee: "Rawaa Hesham" }, { trainee: "Khaled Hesham" }, { trainee: "Fatma Hesham" },
-            { trainee: "Arwa Mostafa" }, { trainee: "Omar Elsayed" }, { trainee: "Sherif Mohamed" },
-            { trainee: "Ahmed Abdelfattah" }, { trainee: "Ahmed Morsy" }, { trainee: "Khaled Abdelbadee" },
-            { trainee: "Ahmed Mohamed" }, { trainee: "Ahmed Khaled" }, { trainee: "Ahmed Fedawy" }
-        ];
-
-        studentList.forEach((st, idx) => {
-            const studentName = esc(st.trainee || st.name || 'طالب');
-            const studentId = st.id || '';
-            
-            const existing = dailyRecords.find(d => String(d.trainee_id) === String(studentId) || (d.name && d.name.trim() === studentName.trim())) || {};
-
-            tableRows += `
-                <tr class="border-b border-slate-800 hover:bg-slate-950/50 transition">
-                    <td class="p-2 font-bold text-amber-300 sticky left-0 bg-slate-900">${studentName}</td>
-                    <td class="p-2"><input type="text" id="ds_gn_${idx}" value="${esc(existing.group_name || st.group || '')}" class="bg-slate-950 border border-slate-700 rounded p-1 text-xs text-white w-24"></td>
-                    <td class="p-2"><input type="date" id="ds_date_${idx}" value="${esc(existing.supply_date || todayStr)}" class="bg-slate-950 border border-slate-700 rounded p-1 text-xs text-white w-28"></td>
-                    <td class="p-2"><input type="number" id="ds_num_${idx}" value="${esc(existing.session_number || '')}" class="bg-slate-950 border border-slate-700 rounded p-1 text-xs text-white w-16"></td>
-                    <td class="p-2"><input type="text" id="ds_title_${idx}" value="${esc(existing.session_title || '')}" class="bg-slate-950 border border-slate-700 rounded p-1 text-xs text-white w-32"></td>
-                    <td class="p-2"><input type="text" id="ds_subtitle_${idx}" value="${esc(existing.sub_title || '')}" class="bg-slate-950 border border-slate-700 rounded p-1 text-xs text-white w-28"></td>
-                    <td class="p-2"><input type="time" id="ds_start_${idx}" value="${esc(existing.start_time || '')}" class="bg-slate-950 border border-slate-700 rounded p-1 text-xs text-white w-24"></td>
-                    <td class="p-2"><input type="time" id="ds_end_${idx}" value="${esc(existing.end_time || '')}" class="bg-slate-950 border border-slate-700 rounded p-1 text-xs text-white w-24"></td>
-                    <td class="p-2"><input type="text" id="ds_rev_${idx}" value="${esc(existing.revision || '')}" class="bg-slate-950 border border-slate-700 rounded p-1 text-xs text-white w-20"></td>
-                    <td class="p-2"><input type="text" id="ds_revd_${idx}" value="${esc(existing.revision_details || '')}" class="bg-slate-950 border border-slate-700 rounded p-1 text-xs text-white w-32"></td>
-                    <td class="p-2"><input type="text" id="ds_notes_${idx}" value="${esc(existing.notes || '')}" class="bg-slate-950 border border-slate-700 rounded p-1 text-xs text-white w-32"></td>
-                    <td class="p-2"><input type="text" id="ds_tefl_${idx}" value="${esc(existing.tefl || '')}" class="bg-slate-950 border border-slate-700 rounded p-1 text-xs text-white w-20"></td>
-                    <td class="p-2"><input type="text" id="ds_qol_${idx}" value="${esc(existing.qol || '')}" class="bg-slate-950 border border-slate-700 rounded p-1 text-xs text-white w-20"></td>
-                    <td class="p-2"><input type="number" id="ds_att_${idx}" min="1" max="10" value="${esc(existing.attitude || '')}" class="bg-slate-950 border border-slate-700 rounded p-1 text-xs text-white w-16"></td>
-                    <td class="p-2"><input type="text" id="ds_attd_${idx}" value="${esc(existing.attitude_details || '')}" class="bg-slate-950 border border-slate-700 rounded p-1 text-xs text-white w-32"></td>
-                    <td class="p-2"><input type="number" id="ds_ss_${idx}" value="${esc(existing.soft_skills || '')}" class="bg-slate-950 border border-slate-700 rounded p-1 text-xs text-white w-16"></td>
-                    <td class="p-2"><input type="text" id="ds_ssd_${idx}" value="${esc(existing.soft_skills_details || '')}" class="bg-slate-950 border border-slate-700 rounded p-1 text-xs text-white w-32"></td>
-                    <td class="p-2"><input type="number" id="ds_perf_${idx}" value="${esc(existing.performance || '')}" class="bg-slate-950 border border-slate-700 rounded p-1 text-xs text-white w-16"></td>
-                    <td class="p-2"><input type="text" id="ds_why_${idx}" value="${esc(existing.why || '')}" class="bg-slate-950 border border-slate-700 rounded p-1 text-xs text-white w-24"></td>
-                    <td class="p-2"><input type="text" id="ds_perfd_${idx}" value="${esc(existing.performance_details || '')}" class="bg-slate-950 border border-slate-700 rounded p-1 text-xs text-white w-32"></td>
-                    <td class="p-2"><input type="text" id="ds_wp_${idx}" value="${esc(existing.weak_points || '')}" class="bg-slate-950 border border-slate-700 rounded p-1 text-xs text-white w-32"></td>
-                    <td class="p-2"><input type="text" id="ds_tasks_${idx}" value="${esc(existing.tasks || '')}" class="bg-slate-950 border border-slate-700 rounded p-1 text-xs text-white w-32"></td>
-                    <td class="p-2"><input type="text" id="ds_left_${idx}" value="${esc(existing.left_overs || '')}" class="bg-slate-950 border border-slate-700 rounded p-1 text-xs text-white w-32"></td>
-                    <td class="p-2"><input type="text" id="ds_plans_${idx}" value="${esc(existing.plans || '')}" class="bg-slate-950 border border-slate-700 rounded p-1 text-xs text-white w-32"></td>
-                    <td class="p-2">
-                        <button type="button" onclick="saveDailySuplyRow(${idx}, '${studentId}', '${esc(studentName)}', '${esc(existing.id || '')}')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1 rounded text-xs font-bold">حفظ</button>
-                    </td>
-                </tr>
-            `;
-        });
-
-        subContainer.innerHTML = `${backBtnHtml}
-            <div class="flex flex-col gap-3">
-                <div class="flex justify-between items-center">
-                    <h4 class="text-amber-400 font-bold text-base"><i class="fa-solid fa-calendar-days"></i> إدارة جدول DailySuply للطلاب</h4>
-                    <span class="text-xs text-slate-400">💡 يمكنك تعديل أي حقل ثم ضغط حفظ بجانب الطالب.</span>
-                </div>
-                <div class="overflow-x-auto border border-slate-700 rounded-xl max-h-[70vh]">
-                    <table class="w-full text-left text-xs text-slate-300">
-                        <thead class="bg-slate-950 text-amber-300 uppercase text-[10px] sticky top-0">
-                            <tr>
-                                <th class="p-2 sticky left-0 bg-slate-950">trainee name</th>
-                                <th class="p-2">group_name</th>
-                                <th class="p-2">supply_date</th>
-                                <th class="p-2">session_number</th>
-                                <th class="p-2">session_title</th>
-                                <th class="p-2">sub_title</th>
-                                <th class="p-2">start_time</th>
-                                <th class="p-2">end_time</th>
-                                <th class="p-2">revision</th>
-                                <th class="p-2">revision_details</th>
-                                <th class="p-2">notes</th>
-                                <th class="p-2">tefl</th>
-                                <th class="p-2">qol</th>
-                                <th class="p-2">attitude</th>
-                                <th class="p-2">attitude_details</th>
-                                <th class="p-2">soft_skills</th>
-                                <th class="p-2">soft_skills_details</th>
-                                <th class="p-2">performance</th>
-                                <th class="p-2">why</th>
-                                <th class="p-2">performance_details</th>
-                                <th class="p-2">weak_points</th>
-                                <th class="p-2">tasks</th>
-                                <th class="p-2">left_overs</th>
-                                <th class="p-2">plans</th>
-                                <th class="p-2">إجراء</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${tableRows}
-                        </tbody>
-                    </table>
-                </div>
-            </div>`;
-    }
+    subContainer.innerHTML = `${backBtnHtml}<div class="tha-note text-center py-6">الصفحة دي لسه مش متوصلة بكود (${esc(actionType)}).</div>`;
 }
-
-window.saveDailySuplyRow = async function(idx, studentId, studentName, recordId) {
-    const getVal = (id) => {
-        const el = document.getElementById(id);
-        return el ? (el.value.trim() === '' ? null : el.value.trim()) : null;
-    };
-
-    const body = {
-        trainee_id: studentId || null,
-        group_name: getVal(`ds_gn_${idx}`),
-        supply_date: getVal(`ds_date_${idx}`),
-        session_number: getVal(`ds_num_${idx}`) ? Number(getVal(`ds_num_${idx}`)) : null,
-        session_title: getVal(`ds_title_${idx}`),
-        sub_title: getVal(`ds_subtitle_${idx}`),
-        start_time: getVal(`ds_start_${idx}`),
-        end_time: getVal(`ds_end_${idx}`),
-        revision: getVal(`ds_rev_${idx}`),
-        revision_details: getVal(`ds_revd_${idx}`),
-        notes: getVal(`ds_notes_${idx}`),
-        tefl: getVal(`ds_tefl_${idx}`),
-        qol: getVal(`ds_qol_${idx}`),
-        attitude: getVal(`ds_att_${idx}`) ? Number(getVal(`ds_att_${idx}`)) : null,
-        attitude_details: getVal(`ds_attd_${idx}`),
-        soft_skills: getVal(`ds_ss_${idx}`) ? Number(getVal(`ds_ss_${idx}`)) : null,
-        soft_skills_details: getVal(`ds_ssd_${idx}`),
-        performance: getVal(`ds_perf_${idx}`) ? Number(getVal(`ds_perf_${idx}`)) : null,
-        why: getVal(`ds_why_${idx}`),
-        performance_details: getVal(`ds_perfd_${idx}`),
-        weak_points: getVal(`ds_wp_${idx}`),
-        tasks: getVal(`ds_tasks_${idx}`),
-        left_overs: getVal(`ds_left_${idx}`),
-        plans: getVal(`ds_plans_${idx}`)
-    };
-
-    try {
-        let res;
-        if (recordId && recordId !== 'null' && recordId !== '') {
-            res = await fetch(`${SUPABASE_URL}/rest/v1/${DAILY_SUPPLY_TABLE}?id=eq.${encodeURIComponent(recordId)}`, {
-                method: 'PATCH',
-                headers: { 'apikey': SUPABASE_ANON_KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
-                body: JSON.stringify(body)
-            });
-        } else {
-            res = await fetch(`${SUPABASE_URL}/rest/v1/${DAILY_SUPPLY_TABLE}`, {
-                method: 'POST',
-                headers: { 'apikey': SUPABASE_ANON_KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
-                body: JSON.stringify(body)
-            });
-        }
-
-        if (!res.ok) throw new Error(await res.text());
-        showToast(`تم حفظ سجل (${studentName}) بنجاح ✓`);
-    } catch (e) {
-        showToast('فشل الحفظ: ' + e.message, true);
-    }
-};
